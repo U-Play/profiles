@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem 'devise'
+gem 'devise_invitable'
 gem 'jquery-rails'
 gem 'sqlite3'
 
