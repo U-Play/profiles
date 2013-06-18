@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem 'devise'
+gem 'devise_invitable'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'sqlite3'
 
@@ -13,6 +17,14 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'database_cleaner', require: false
+  gem 'factory_girl_rails'
+  gem 'simplecov', require: false
+  gem 'spork'
 end
 
 group :production do
