@@ -1,17 +1,21 @@
 class User < ActiveRecord::Base
 
-  devise  :database_authenticatable,
-          :registerable,
+  devise  :confirmable,
+          :database_authenticatable,
+          :invitable,
+          :omniauthable,
           :recoverable,
+          :registerable,
           :rememberable,
           :trackable,
-          :validatable,
-          :confirmable,
-          :invitable
+          :validatable
 
   attr_accessible :email,
-                  :name,
+                  :first_name,
+                  :last_name,
                   :password,
                   :password_confirmation,
                   :remember_me
+
+  has_many :authorizations
 end

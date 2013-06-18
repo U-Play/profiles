@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617232753) do
+ActiveRecord::Schema.define(:version => 20130618103504) do
+
+  create_table "authorizations", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "link"
+    t.string   "image_url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
@@ -30,7 +44,8 @@ ActiveRecord::Schema.define(:version => 20130617232753) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "invitation_token",       :limit => 60
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
