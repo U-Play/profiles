@@ -1,0 +1,20 @@
+DOCTYPE html
+html
+  head
+    title UPlay
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  body
+    section.row
+      #top.small-12.columns
+        = render 'layouts/top'
+    section.row
+      #sidebar.small-3.columns
+        = render 'layouts/sidebar'
+      #content.small-9.columns
+        = yield
+    section.row
+      #bottom.small-12.columns
+        = render 'layouts/bottom'
+
