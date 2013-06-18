@@ -12,4 +12,5 @@ class Authorization < ActiveRecord::Base
                   :token,
                   :uid
 
+
 end

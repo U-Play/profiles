@@ -17,6 +17,14 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'database_cleaner', require: false
+  gem 'factory_girl_rails'
+  gem 'simplecov', require: false
+  gem 'spork'
 end
 
 group :production do

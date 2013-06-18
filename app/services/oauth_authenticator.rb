@@ -11,9 +11,11 @@ class OauthAuthenticator
     return user
   end
 
+  attr_reader :user
+
   private
 
-  attr_reader :info, :authorization, :user
+  attr_reader :info, :authorization
 
   def find_by_authorization
     @authorization = Authorization.where(info.slice(:provider, :uid)).first

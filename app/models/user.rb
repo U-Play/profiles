@@ -18,10 +18,4 @@ class User < ActiveRecord::Base
                   :remember_me
 
   has_many :authorizations
-
-  def self.find_or_create_for_oauth(info)
-    user = where email: info[:email]
-    create_user_for_oauth(info) if user.nil?
-    ensure_user_has_provider
-  end
 end
