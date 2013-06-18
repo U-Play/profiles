@@ -4,6 +4,8 @@ gem 'rails', '3.2.13'
 
 gem 'devise'
 gem 'devise_invitable'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'sqlite3'
 
