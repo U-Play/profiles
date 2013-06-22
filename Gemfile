@@ -11,10 +11,16 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'zurb-foundation', '~> 4.0.0'
+  gem 'therubyracer', :platforms => :ruby
 end
 
 group :development do
   gem 'pry-rails'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'guard-spring'
 end
 
 group :production do
