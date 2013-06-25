@@ -10,6 +10,11 @@ html
       #top.small-12.columns
         = render 'layouts/top'
     section.row
+      - if flash[:notice]
+        p= flash[:notice]
+      - if flash[:error]
+        p= flash[:error]
+    section.row
       #sidebar.small-3.columns
         = render 'layouts/sidebar'
       #content.small-9.columns

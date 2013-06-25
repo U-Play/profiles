@@ -2,8 +2,8 @@ class AddAuthorizations < ActiveRecord::Migration
   def change
     create_table :authorizations do |t|
       t.references :user
-      t.string :provider
-      t.string :uid
+      t.string :provider, null: false
+      t.string :uid,      null: false
       t.string :token
       t.string :first_name
       t.string :last_name

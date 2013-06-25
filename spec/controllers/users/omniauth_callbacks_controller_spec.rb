@@ -7,7 +7,7 @@ describe Users::OmniauthCallbacksController do
       user = build :user
       OauthAuthenticator.any_instance.stub(:authenticate!).and_return(user)
       user.stub(:persisted?).and_return(true)
-      user.stub(:save)
+      user.stub(:save).and_return(true)
 
       controller.should_receive(:sign_in_and_redirect).with(user, event: :authentication).and_call_original
 

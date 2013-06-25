@@ -26,3 +26,4 @@ bin/cucumber
 /bin/rails
 /bin/rspec
 /bin/rake
+/bin/cucumber

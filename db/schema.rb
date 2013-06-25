@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20130618103504) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "provider",   :null => false
+    t.string   "uid",        :null => false
     t.string   "token"
     t.string   "first_name"
     t.string   "last_name"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20130618103504) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",                           :default => "", :null => false
+    t.string   "last_name",                            :default => "", :null => false
     t.string   "invitation_token",       :limit => 60
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
