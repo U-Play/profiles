@@ -8,4 +8,3 @@ Feature: Signing up
     When I go to the sign in page
     And I sign up via facebook
     Then I should see that I am signed up from facebook
-
