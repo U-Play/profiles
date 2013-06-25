@@ -15,3 +15,9 @@
 /tmp
 
 config/accounts.yml
+
+bin/rspec
+bin/rails
+bin/rake
+bin/spring
+bin/cucumber
