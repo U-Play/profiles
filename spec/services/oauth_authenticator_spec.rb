@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe OauthAuthenticator do
+describe Profiles::OauthAuthenticator do
 
   context "#authenticate!" do
     it "authenticates an existing facebook user" do
       facebook_data = OmniAuth.config.mock_auth[:facebook]
       user = build :user
       authorization = build :facebook_authorization, uid: facebook_data[:uid], user: user
-      authenticator = OauthAuthenticator.new(facebook_data)
+      authenticator = Profiles::OauthAuthenticator.new(facebook_data)
       Authorization.stub(:where).and_return([authorization])
 
       authenticator.authenticate!
@@ -20,7 +20,7 @@ describe OauthAuthenticator do
       user = build :user, email: 'dummy@dummy.com'
       User.stub(:find_by_email).and_return(user)
       user.authorizations.stub(:create)
-      authenticator = OauthAuthenticator.new(facebook_data)
+      authenticator = Profiles::OauthAuthenticator.new(facebook_data)
 
       authenticator.authenticate!
 
@@ -31,7 +31,7 @@ describe OauthAuthenticator do
       facebook_data = OmniAuth.config.mock_auth[:facebook]
       User.any_instance.stub(:save)
       User.any_instance.stub_chain(:authorizations, :create)
-      authenticator = OauthAuthenticator.new(facebook_data)
+      authenticator = Profiles::OauthAuthenticator.new(facebook_data)
 
       authenticator.authenticate!
 
