@@ -22,7 +22,6 @@ group :development do
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-rspec'
-  gem 'rspec-rails'
 end
 
 group :test do
@@ -33,7 +32,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'guard-spring'
   gem 'pry-rails'
   gem 'rspec-rails'
 end
