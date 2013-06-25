@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem 'devise'
+gem 'devise_invitable'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'slim'
 gem 'sqlite3'
@@ -15,12 +19,23 @@ group :assets do
 end
 
 group :development do
-  gem 'pry-rails'
+  gem 'guard'
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner', require: false
+  gem 'factory_girl_rails'
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'guard-spring'
+  gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :production do

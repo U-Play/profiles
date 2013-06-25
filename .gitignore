@@ -21,3 +21,9 @@ bin/rails
 bin/rake
 bin/spring
 bin/cucumber
+/coverage/
+/bin/spring
+/bin/rails
+/bin/rspec
+/bin/rake
+/bin/cucumber
