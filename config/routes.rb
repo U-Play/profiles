@@ -1,5 +1,5 @@
 Profiles::Application.routes.draw do
-  get '/user/:id' => "users#view"
+  get '/user/:id' => "users#view", as: 'profile'
   root to: 'pages#home'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

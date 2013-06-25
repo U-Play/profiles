@@ -4,8 +4,8 @@ Feature: Viewing a profile
 
   Scenario: View an athlete profile
     Given I am a user
-    And there there is a athlete
-    When I go to the user's profile
+    And there is an athlete
+    When I go to the athlete's profile
     Then I should see his information
 
   Scenario: View my athlete profile
