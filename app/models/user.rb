@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 
-  devise  :confirmable,
-          :database_authenticatable,
+  devise  :database_authenticatable,
           :invitable,
           :omniauthable,
           :recoverable,
