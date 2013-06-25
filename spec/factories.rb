@@ -16,6 +16,7 @@ FactoryGirl.define do
     first_name 'John'
     last_name 'Doe'
     email 'email@dummy.com'
+    password 'randompassword'
   end
 
 end
