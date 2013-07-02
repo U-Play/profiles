@@ -4,4 +4,9 @@ class UsersController < ApplicationController
     @user = Presenters::User.find params[:id]
   end
 
+  def me
+    @user = Presenters::User.new current_user
+    render :view
+  end
+
 end
