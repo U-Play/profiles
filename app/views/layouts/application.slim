@@ -1,0 +1,22 @@
+DOCTYPE html
+html
+  head
+    title UPlay
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  body
+    = render 'layouts/top'
+    section.row
+      - if flash[:notice]
+        p= flash[:notice]
+      - if flash[:error]
+        p= flash[:error]
+      /#sidebar.small-3.columns
+        /= render 'layouts/sidebar'
+    #content
+      = yield
+    section.row
+      #bottom.small-12.columns
+        = render 'layouts/bottom'
+
