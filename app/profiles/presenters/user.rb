@@ -14,7 +14,7 @@ module Presenters
     # active record
 
     def self.find(id)
-      self.new User.find(id)
+      self.new ::User.find(id)
     end
 
     def self.build(hash)
