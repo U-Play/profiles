@@ -6,11 +6,11 @@ Given(/^there is an athlete$/) do
 end
 
 When(/^I go to the athlete's profile$/) do
-  visit profile_path @athlete.id
+  visit profile_path(@athlete.id)
 end
 
 Then(/^I should see his information$/) do
-  page.should have_content athlete.name
+  page.should have_content @athlete.name
 end
 
 Given(/^I am a signed user$/) do

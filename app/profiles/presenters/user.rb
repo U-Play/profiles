@@ -1,5 +1,5 @@
 module Presenters
-  class User < Profiles::Base
+  class User
     extend Forwardable
     def_delegator :user, :save, :save!
 
