@@ -5,7 +5,7 @@ describe Users::OmniauthCallbacksController do
     it 'returns a new user' do
       setup_facebook_request
       user = build :user
-      OauthAuthenticator.any_instance.stub(:authenticate!).and_return(user)
+      Profiles::OauthAuthenticator.any_instance.stub(:authenticate!).and_return(user)
       user.stub(:persisted?).and_return(true)
       user.stub(:save).and_return(true)
 

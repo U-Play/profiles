@@ -27,3 +27,6 @@ bin/cucumber
 /bin/rspec
 /bin/rake
 /bin/cucumber
+
+.ruby-gemset
+.rvmrc
