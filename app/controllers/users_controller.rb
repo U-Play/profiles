@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def view
-    @user = Profiles::Users.find params[:id]
+    @user = Presenters::User.find params[:id]
+    #@user = Profiles::User.find params[:id]
   end
 
 end
