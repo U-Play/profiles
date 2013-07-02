@@ -1,9 +1,6 @@
-/*
- */
+@import 'partials/colors'
 
-@import 'partials/colors';
+$topbar-bg: $green1
 
-$topbar-bg: $green1; 
-
-@import "foundation";
-@import "layout";
+@import "foundation"
+@import "layout"
