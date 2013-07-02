@@ -3,7 +3,7 @@ Feature: Viewing a profile
   I want to view a profile
 
   Scenario: View an athlete profile
-    Given I am a user
+    Given I am a visitor
     And there is an athlete
     When I go to the athlete's profile
     Then I should see his information

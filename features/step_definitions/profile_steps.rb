@@ -15,10 +15,8 @@ end
 
 Given(/^I am a signed user$/) do
   @athlete = Presenters::User.new create(:user)
-  visit new_user_session_path
-  fill_in 'Email', with: @athlete.user.email
-  fill_in 'Password', with: @athlete.user.password
-  click_button 'Sign in'
+  step "I go to the sign in page"
+  step "I sign up via facebook"
 end
 
 When(/^I go to my profile$/) do
