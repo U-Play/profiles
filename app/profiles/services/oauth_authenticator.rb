@@ -1,4 +1,4 @@
-module Profiles
+  module Services
   class OauthAuthenticator
 
     def initialize(auth_data)
