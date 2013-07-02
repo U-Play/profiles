@@ -2,4 +2,15 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  helpers:
+    select:
+      prompt_country: Please select a country
+      prompt_university: Please select a university
+  university:
+    empty: There are no universities.
+  user:
+    edit:
+      success: 'User edited successfully!'
+      errors: 
+        one: '1 error prohibited this user from being saved:'
+        other: "%count errors prohibited this user from being saved:"

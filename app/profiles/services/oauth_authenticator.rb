@@ -1,4 +1,4 @@
-  module Services
+module Services
   class OauthAuthenticator
 
     def initialize(auth_data)
