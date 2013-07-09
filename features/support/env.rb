@@ -11,6 +11,7 @@ module Cucumber
   module Rails
     class World
       include FactoryGirl::Syntax::Methods
+      include ActionView::TestCase::Behavior
     end
   end
 end
