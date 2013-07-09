@@ -1,9 +1,13 @@
 Profiles::Application.routes.draw do
-  get '/user/:id' => "users#view", as: 'profile'
-  get '/me' => 'users#me', as: 'my_profile'
-  root to: 'pages#home'
-
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  get '/user/:id/edit' => 'users#edit', as: :user_edit
+  get '/user/:id' => "users#view", as: 'profile'
+
+  scope '/me' do
+    root to: 'users#me', as: :my_profile
+    get '/edit' => 'users#edit', as: :edit_my_profile
+  end
+
+  root to: 'pages#home'
+
 end
