@@ -1,8 +1,9 @@
 module Services
   class OauthAuthenticator
 
-    def initialize(auth_data)
-      set_info(auth_data)
+    def initialize(raw_data)
+      @raw_data = raw_data
+      set_info
     end
 
     def authenticate!
@@ -16,7 +17,7 @@ module Services
 
     private
 
-    attr_reader :info, :authorization
+    attr_reader :raw_data, :info, :authorization
 
     def find_by_authorization
       @authorization = Authorization.where(info.slice(:provider, :uid)).first
@@ -29,27 +30,38 @@ module Services
     end
 
     def create
-      @user = User.create(info.slice(:first_name, :last_name, :email).merge({password: generate_password}))
+      user_info = info.slice(:first_name, :last_name, :email, :birth_date).merge(facebook_link: info[:link], password: generate_password)
+      @user = User.create(user_info)
       user.authorizations.create(info)
     end
 
-    def set_info(data)
-      @info = case data.provider
-        when /facebook/i then info_for_facebook(data)
+    def set_info
+      @info = case raw_data.provider
+        when /facebook/i then info_for_facebook
       end
     end
 
-    def info_for_facebook(data)
+    def info_for_facebook
       {
-        provider:   data.provider,
-        uid:        data.uid,
-        token:      data.credentials.token,
-        first_name: data.extra.raw_info.first_name,
-        last_name:  data.extra.raw_info.last_name,
-        link:       data.extra.raw_info.link,
-        image_url:  data.info.image,
-        email:      data.info.email
+        provider:   data_try_chain(:provider),
+        uid:        data_try_chain(:uid),
+        token:      data_try_chain(:credentials, :token),
+        first_name: data_try_chain(:extra, :raw_info, :first_name),
+        last_name:  data_try_chain(:extra, :raw_info, :last_name),
+        link:       data_try_chain(:extra, :raw_info, :link),
+        birth_date: to_date(data_try_chain(:extra, :raw_info, :birthday)),
+        image_url:  data_try_chain(:info, :image),
+        email:      data_try_chain(:info, :email)
       }
+    end
+
+    def to_date(date_str)
+      return nil unless date_str
+      DateTime.strptime(date_str, '%m/%d/%Y')
+    end
+
+    def data_try_chain(*args)
+      args.inject(raw_data) { |ret, current| ret.try(current) }
     end
 
     def generate_password

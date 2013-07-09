@@ -10,6 +10,7 @@ class AddAuthorizations < ActiveRecord::Migration
       t.string :email
       t.string :link
       t.string :image_url
+      t.date   :birth_date
 
 
       t.timestamps

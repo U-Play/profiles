@@ -242,7 +242,10 @@ Devise.setup do |config|
   unless Rails.env.test?
     if defined?(ACCOUNTS)
       if ACCOUNTS['facebook']
-        config.omniauth :facebook, ACCOUNTS['facebook']['app_id'], ACCOUNTS['facebook']['app_secret']
+        config.omniauth :facebook,
+                        ACCOUNTS['facebook']['app_id'],
+                        ACCOUNTS['facebook']['app_secret'],
+                        scope: 'email,user_birthday'
       end
     end
   else
