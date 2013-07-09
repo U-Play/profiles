@@ -9,4 +9,7 @@ class UsersController < ApplicationController
     render :view
   end
 
+  def edit
+  end
+
 end
