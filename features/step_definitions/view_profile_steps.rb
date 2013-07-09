@@ -1,12 +1,12 @@
 Given(/^I am a user$/) do
 end
 
-Given(/^there is an user$/) do
-  @user = Presenters::User.new create(:user)
+Given(/^there is a user$/) do
+  @user = UserPresenter.new(create(:user), self)
 end
 
 When(/^I go to the user's profile$/) do
-  visit profile_path(@user.user.id)
+  visit profile_path(@user.id)
 end
 
 Then(/^I should see his information|I should see all my information$/) do
@@ -14,7 +14,7 @@ Then(/^I should see his information|I should see all my information$/) do
 end
 
 Given(/^I am a signed user$/) do
-  @user = Presenters::User.new create(:user)
+  @user = UserPresenter.new(create(:user), self)
   step "I go to the sign in page"
   step "I sign up via facebook"
 end

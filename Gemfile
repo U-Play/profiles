@@ -8,6 +8,7 @@ gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'slim'
 gem 'sqlite3'
+gem 'rails_presenter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

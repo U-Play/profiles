@@ -4,7 +4,7 @@ Feature: Viewing a profile
 
   Scenario: View an user profile
     Given I am a visitor
-    And there is an user
+    And there is a user
     When I go to the user's profile
     Then I should see his information
 
