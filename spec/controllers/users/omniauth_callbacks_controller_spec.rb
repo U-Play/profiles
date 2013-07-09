@@ -8,6 +8,7 @@ describe Users::OmniauthCallbacksController do
       Services::OauthAuthenticator.any_instance.stub(:authenticate!).and_return(user)
       user.stub(:persisted?).and_return(true)
       user.stub(:save).and_return(true)
+      user.stub(:id).and_return(30)
 
       controller.should_receive(:sign_in_and_redirect).with(user, event: :authentication).and_call_original
 

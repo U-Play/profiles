@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
                   :first_name,
                   :last_name,
                   :password,
-                  :password_confirmation,
+                  :profile_finished,
                   :remember_me
 
   has_many :authorizations
