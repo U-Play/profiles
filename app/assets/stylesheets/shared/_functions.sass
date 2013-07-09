@@ -1,0 +1,15 @@
+@mixin invisible
+  opacity: 0
+  filter: alpha(opacity=0)
+
+@mixin circular($size)
+  width: $size
+  height: $size
+  border-radius: $size/2
+  -webkit-border-radius: $size/2
+  -moz-border-radius: $size/2
+  background-repeat: no-repeat
+  background-position: center
+  background-size: $size auto
+  margin-left: auto
+  margin-right: auto
