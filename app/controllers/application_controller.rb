@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
     if user.profile_finished?
-      root_url # TODO mudar para /me
+      my_profile_path
     else
       user_edit_path(user)
     end
