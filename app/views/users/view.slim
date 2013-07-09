@@ -1,25 +1,31 @@
-header.row
-  .small-12.columns
-    .circular style="background-image: url(https://lh4.googleusercontent.com/4wl3Tz4F8uPloan95CeOoS-W-RfY3WwnWyv7LffuY_c=w603-h601-no);"
+.user-profile
+  .sidebar
+    .picture style="background-image: url(https://lh4.googleusercontent.com/4wl3Tz4F8uPloan95CeOoS-W-RfY3WwnWyv7LffuY_c=w603-h601-no);"
       img src="https://lh4.googleusercontent.com/4wl3Tz4F8uPloan95CeOoS-W-RfY3WwnWyv7LffuY_c=w603-h601-no"
-
-.row
-  .small-12.columns.basic-information
-    p = @user.full_name
+    p.name = @user.full_name
     p.description Kickass player
-
-.row
-  .story
-    .small-8.columns.description
-      p Played <b>futebol</b> as a <b>goalkeeper</b> in <b>Universidade do Minho</b> from 2010 to 2012.
-    .small-4.columns.achievements
-      p <b>Best player</b> in the WUC 12.
-      p <b>Fair play medal</b> in Troféu do Reitor.
-
-.row
-  .story
-    .small-8.columns.description
-      p Played <b>basketball</b> in <b>Tasco do Quim Zé</b> from 2010 to 2012.
-    .small-4.columns.achievements
-      p <b>Best player</b> in the WUC 12.
-      p <b>Fair play medal</b> in Troféu do Reitor.
+    .icons
+      .icon-facebook
+      .icon-twitter
+  .stories
+    .adds-story
+      form
+        p Add new
+    .story
+      .date
+        p 2007
+      .details
+        .details-wrap
+          .details-content
+            p Played <b>futebol</b> as a <b>goalkeeper</b> in <b>Universidade do Minho</b>.
+            p <b>Best player</b> in the WUC 12.
+            p <b>Fair play medal</b> in Troféu do Reitor.
+    .story
+      .date
+        p 2006
+      .details
+        .details-wrap
+          .details-content
+            p Played <b>basketball</b> in <b>Tasco do Quim Zé</b>.
+            p <b>Best player</b> in the WUC 12.
+            p <b>Fair play medal</b> in Troféu do Reitor.
