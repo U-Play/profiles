@@ -14,9 +14,9 @@ Then(/^I should see his information|I should see all my information$/) do
 end
 
 Given(/^I am a signed user$/) do
-  @user = UserPresenter.new(create(:user), self)
   step "I go to the sign in page"
   step "I sign up via facebook"
+  @user = Presenters::User.new User.last
 end
 
 When(/^I go to my profile$/) do
