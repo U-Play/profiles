@@ -17,7 +17,7 @@ describe Services::OauthAuthenticator do
 
     it "authenticates an existing user without the given authorization" do
       facebook_data = OmniAuth.config.mock_auth[:facebook]
-      user = build :user, email: 'dummy@dummy.com'
+      user = create :user, email: 'dummy@dummy.com'
       User.stub(:find_by_email).and_return(user)
       user.authorizations.stub(:create)
       authenticator = Services::OauthAuthenticator.new(facebook_data)

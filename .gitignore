@@ -16,6 +16,8 @@
 
 config/accounts.yml
 
+tags
+
 bin/rspec
 bin/rails
 bin/rake

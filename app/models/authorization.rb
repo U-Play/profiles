@@ -1,4 +1,5 @@
 class Authorization < ActiveRecord::Base
+  include ParanoiaInterface
 
   belongs_to :user
 

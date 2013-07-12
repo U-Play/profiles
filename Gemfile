@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'slim'
 gem 'sqlite3'
 gem 'rails_presenter'
+gem 'paranoia'
+gem 'paranoia_uniqueness_validator'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
