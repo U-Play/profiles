@@ -1,0 +1,11 @@
+@mixin primary-button($bg-color, $shadow-color)
+  +button($bg: $bg-color, $radius: 6px, $full-width: true)
+  font-size: emCalc(20px)
+  +box-shadow($green2 0px 2px 0px 0px)
+
+a.facebook-sign-in
+  +primary-button($facebook-blue, $green2)
+  color: white
+  
+a.get-a-profile
+  +primary-button($green1, $green2)

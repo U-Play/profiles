@@ -14,3 +14,7 @@ en:
       errors: 
         one: '1 error prohibited this user from being saved:'
         other: "%count errors prohibited this user from being saved:"
+  hello: "Hello world"
+  get-your-profile:
+    invite: Show your game!
+    button: Get your profile

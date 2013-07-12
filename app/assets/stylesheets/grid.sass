@@ -1,0 +1,54 @@
+body
+  background: none
+  > footer
+    .powered
+      +grid-row()
+      div
+        +grid-column($columns: 12)
+        text-align: center
+    .social
+      +grid-row()
+
+.user-profile
+  +grid-row()
+  .sidebar
+    +grid-column($columns: 3)
+    .icons
+      +grid-row()
+      .icon-facebook
+        +grid-column($columns: 6)
+      .icon-twitter
+        +grid-column($columns: 6)
+  .stories
+    +grid-column($columns: 9)
+    .adds-story
+      +grid-row()
+      form
+        +grid-column($columns: 11, $offset: 1)
+    .story
+      +grid-row()
+      .date
+        +grid-column($columns: 1)
+      .details
+        +grid-column($columns: 11)
+
+.center-logo
+  +grid-row()
+
+.get-your-profile
+  section
+    +grid-row()
+    .welcome-image
+      +grid-column($columns: 12)
+    .register
+      +grid-column($columns: 4, $offset: 4)
+
+.new-session
+  header
+    +grid-row()
+    .title
+      +grid-column($columns: 12)
+  .methods
+    +grid-row()
+    .networks
+      +grid-column($columns: 4, $offset: 4)
