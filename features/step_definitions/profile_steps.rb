@@ -58,3 +58,7 @@ end
 Then(/^I should see a failure message$/) do
   page.should have_content "can't be blank"
 end
+
+Then(/^I should be redirected to the sign in page$/) do
+  current_path.should eq new_user_session_path
+end
