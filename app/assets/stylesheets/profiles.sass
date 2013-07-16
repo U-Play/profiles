@@ -1,52 +1,40 @@
+
+.profile-box-wrap
+  .hover-border
+    +hover-border
+    +clearfix
+
 .profile-box
-  +box-shadow($shadow-color1 0px 1px 2px 0px)
+  +box-shadow($shadow-color 0px 1px 2px 0px)
   background: $white
   padding: emCalc(20px)
   font-weight: 400
 
-  &:hover
-    outline: 1px solid $uplay-green
-
-
   .title
     font-weight: 500
     font-size: 1.5em
-    color: $form-green
+    color: $green1
     line-height: 40px
     padding-bottom: 10px
-
   label
     font-weight: 300
     font-size: 13px
-
   .field
     .text, .select, .textarea
       margin: 0 auto
       padding-bottom: 10px
       padding-right: 0px
-
-  input, textarea, .custom.dropdown
-    +box-shadow($shadow-color1 0px 1px 2px 0px)
+  input[type=text], textarea, .custom.dropdown
+    +box-shadow(rgba(0,0,0,0.09) 0px 1px 2px 0px)
     border-radius: 3px
     border: 1px solid #D4D4D4
     font-size: 13px
     font-weight: 300
-
     &:focus
       +box-shadow(rgba(132,204,168,0.75) 0px 0px 5px 0px)
       border-radius: 3px
       background: #F9F9F9
       border: 1px solid #84CCA9
-
-  .button
-    border-radius: 3px
-    background: #D4D4D4
-    font-weight: 400
-    font-size: 1em
-    color: #FFFFFF
-    &:focus
-      background: #D4D4D4
-
 
 .user-profile .sidebar
   .name, .description
@@ -63,7 +51,7 @@
       content: close-quote
   .picture
     margin-top: 15px
-    +box-shadow($shadow-color1 0px 1px 2px 0px)
+    +box-shadow($shadow-color 0px 1px 2px 0px)
     +circular(150px)
     img
       +invisible
@@ -105,12 +93,9 @@
         +transition-duration(0.5s)
   .stories
     .details-wrap
-      padding: 1px
+      +hover-border
       margin-bottom: emCalc(20px)
-    .details-wrap:hover
-      padding: 0
-      border: 1px solid rgba($green2,0.50)
     .details-content
       background-color: white
       padding: emCalc(20px)
-      +box-shadow($shadow-color1 0px 1px 2px 0px)
+      +grey-box-shadow
