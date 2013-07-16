@@ -16,7 +16,7 @@ When(/^I sign up via facebook$/) do
 end
 
 Then(/^I should see that I am signed up from facebook$/) do
-  page.should have_content 'Successfully authenticated from facebook account'
+  page.should have_content 'Welcome'
 end
 
 
