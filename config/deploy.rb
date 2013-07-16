@@ -1,6 +1,8 @@
+require "rvm/capistrano"
 require "bundler/capistrano"
 
 ssh_options[:forward_agent] = true
+set :bundle_flags, "--deployment"
 set :scm, 'git'
 set :scm_user, "deploy"
 set :repository,  "git@github.com:U-Play/profiles.git"
