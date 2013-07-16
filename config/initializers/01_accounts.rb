@@ -1,5 +1,9 @@
-file_name = "#{Rails.root}/config/accounts.yml"
-
-unless Rails.env.test? || !File.exists?(file_name) or defined?(ACCOUNTS)
-  ACCOUNTS = YAML.load_file(file_name)[Rails.env]
+unless defined?(ACCOUNTS) || Rails.env.test?
+  if Rails.env.production?
+    file_name = '/home/deploy/config/accounts.yml'
+    ACCOUNTS = YAML.load_file(file_name)["profiles"]
+  else
+    file_name = "#{Rails.root}/config/accounts.yml"
+    ACCOUNTS = YAML.load_file(file_name)
+  end
 end
