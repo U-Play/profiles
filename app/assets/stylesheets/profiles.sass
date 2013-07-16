@@ -17,13 +17,29 @@
     +circular(150px)
     img
       +invisible
+  .icons
+    text-align: center
+    margin-bottom: 20px
+  .edit
+    text-align: center
+    a
+      color: $green1
+      padding-left: 25px
+      padding-right: 25px
+      height: 40px
+      +opacity(0.3)
+      &:hover
+        +opacity(1)
+        +transition-property(all)
+        +transition-duration(0.5s)
+
 
 .user-profile
   .adds-story, .content
     padding: emCalc(20px)
   .adds-story
     form
-      border: 2px dashed black
+      border: 2px dashed $green2
       +opacity(0.2)
       padding: 0
       margin: 0
@@ -32,6 +48,11 @@
         text-align: center
         padding: 10px
         margin: 0
+        color: $green2
+      &:hover
+        +opacity(1)
+        +transition-property(all)
+        +transition-duration(0.5s)
   .stories
     .details-wrap
       padding: 1px

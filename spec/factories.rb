@@ -15,6 +15,8 @@ FactoryGirl.define do
   factory :user do
     first_name 'John'
     last_name 'Doe'
+    bio "I'm awesome!"
+    birth_date Time.now
     email 'email@dummy.com'
     password 'randompassword'
   end

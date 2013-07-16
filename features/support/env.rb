@@ -22,8 +22,8 @@ end
 # Capybara.default_selector = :xpath
 
 # By default, any exception happening in your Rails application will bubble up
-# to Cucumber so that your scenario will fail. This is a different from how 
-# your application behaves in the production environment, where an error page will 
+# to Cucumber so that your scenario will fail. This is a different from how
+# your application behaves in the production environment, where an error page will
 # be rendered instead.
 #
 # Sometimes we want to override this default behaviour and allow Rails to rescue
@@ -77,7 +77,7 @@ OmniAuth.config.add_mock :facebook, {
   credentials: { token: 'dummy_token' },
   extra: {
     raw_info: {
-      birth_date: '01/30/1990',
+      birthday: '01/30/1990',
       first_name: 'John',
       last_name: 'Doe',
       link: 'http://www.facebook.com/dummy',

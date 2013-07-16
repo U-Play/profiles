@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
                   :university_id
 
   ## Validations ##
-  validate  :email,
+  validates  :email,
             :first_name,
             :last_name,
             :birth_date,
@@ -40,5 +40,6 @@ class User < ActiveRecord::Base
   has_attached_file :picture,
                     path: ':rails_root/public/system/:attachment/:id/:style/:filename',
                     url:  '/system/:attachment/:id/:style/:filename'
+
   attr_reader :picture_remote_url
 end

@@ -14,4 +14,16 @@ class UserPresenter < RailsPresenter::Base
   def selectable_universities
     @university ||= University.all
   end
+
+  def twitter
+    if twitter_handle.present?
+      h.link_to '', "http://twitter.com/#{twitter_handle}", class: "icon-twitter", target: '_blank'
+    end
+  end
+
+  def facebook
+    if facebook_link.present?
+      h.link_to '', facebook_link, class: "icon-facebook", target: '_blank'
+    end
+  end
 end
