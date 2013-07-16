@@ -1,83 +1,24 @@
 @import 'compass'
-@import 'shared/functions'
+
 @import 'shared/colors'
-@import 'shared/icons'
 
 @import 'overrides'
 @import 'foundation'
 
+@import 'shared/icons'
+@import 'shared/images'
+@import 'shared/functions'
+@import 'shared/buttons'
+
+@import 'grid'
+@import 'sessions'
+@import 'profiles'
+
 html
   +background(image-url('bg.jpg'))
   padding-top: 25px
+  border-top: 3px solid $green1
+  body
+    background: none
 
-body
-  background: none
 
-.user-profile
-  +grid-row()
-  .sidebar
-    +grid-column($columns: 3)
-    .icons
-      +grid-row()
-      .icon-facebook
-        +grid-column($columns: 6)
-      .icon-twitter
-        +grid-column($columns: 6)
-  .stories
-    +grid-column($columns: 9)
-    .adds-story
-      +grid-row()
-      form
-        +grid-column($columns: 11, $offset: 1)
-    .story
-      +grid-row()
-      .date
-        +grid-column($columns: 1)
-      .details
-        +grid-column($columns: 11)
-
-.user-profile .sidebar
-  .name, .description
-    text-align: center
-    margin: 0
-  .name
-    font-size: emCalc(30px)
-  .description
-    margin-bottom: 5px
-    opacity: 0.4
-    &:before
-      content: open-quote
-    &:after
-      content: close-quote
-  .picture 
-    margin-top: 15px
-    +box-shadow(rgba(0,0,0,0.09) 0px 1px 2px 0px)
-    +circular(150px)
-    img
-      +invisible
-
-.user-profile
-  .adds-story, .content
-    padding: emCalc(20px)
-  .adds-story
-    form
-      border: 2px dashed black
-      +opacity(0.2)
-      padding: 0
-      margin: 0
-      +radius(10px)
-      p
-        text-align: center
-        padding: 10px
-        margin: 0
-  .stories
-    .details-wrap
-      padding: 1px
-      margin-bottom: emCalc(20px)
-    .details-wrap:hover
-      padding: 0
-      border: 1px solid rgba($green2,0.50)
-    .details-content
-      background-color: white
-      padding: emCalc(20px)
-      +box-shadow(rgba(0,0,0,0.09) 0px 1px 2px 0px)
