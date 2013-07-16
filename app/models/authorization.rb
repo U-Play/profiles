@@ -3,7 +3,8 @@ class Authorization < ActiveRecord::Base
 
   belongs_to :user
 
-  attr_accessible :email,
+  attr_accessible :birth_date,
+                  :email,
                   :first_name,
                   :image_url,
                   :last_name,

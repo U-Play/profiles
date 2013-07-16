@@ -37,5 +37,16 @@ describe Services::OauthAuthenticator do
 
       authenticator.user.should be_valid
     end
+
+    it "sets the correct user birth_date" do
+      facebook_data = OmniAuth.config.mock_auth[:facebook]
+      User.any_instance.stub(:save)
+      User.any_instance.stub_chain(:authorizations, :create)
+      authenticator = Services::OauthAuthenticator.new(facebook_data)
+
+      authenticator.authenticate!
+
+      authenticator.user.birth_date.should eq DateTime.strptime('30/01/1990', '%d/%m/%Y')
+    end
   end
 end

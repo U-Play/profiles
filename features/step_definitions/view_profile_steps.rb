@@ -1,3 +1,8 @@
+def facebook_user
+  user = User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first
+  UserPresenter.new(user, self)
+end
+
 Given(/^I am a user$/) do
 end
 
@@ -16,9 +21,13 @@ end
 Given(/^I am a signed user$/) do
   step "I go to the sign in page"
   step "I sign up via facebook"
-  @user = UserPresenter.new(User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first, self)
+  @user = facebook_user
 end
 
 When(/^I go to my profile$/) do
   visit my_profile_path
+end
+
+Then(/^I should see my facebook name$/) do
+  page.should have_content facebook_user.full_name
 end

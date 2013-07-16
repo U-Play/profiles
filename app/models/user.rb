@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class User < ActiveRecord::Base
   include ParanoiaInterface
 
@@ -12,8 +14,6 @@ class User < ActiveRecord::Base
           :trackable,
           :validatable
 
-
-  ## Attributes ##
   attr_accessible :email,
                   :first_name,
                   :last_name,
@@ -22,14 +22,13 @@ class User < ActiveRecord::Base
                   :facebook_link,
                   :twitter_handle,
                   :password,
+                  :password_confirmation,
                   :profile_finished,
                   :remember_me,
-                  :password_confirmation,
                   :country,
                   :country_id,
                   :university,
                   :university_id
-
 
   ## Validations ##
   validate  :email,
@@ -37,4 +36,9 @@ class User < ActiveRecord::Base
             :last_name,
             :birth_date,
             presence: true
+
+  has_attached_file :picture,
+                    path: ':rails_root/public/system/:attachment/:id/:style/:filename',
+                    url:  '/system/:attachment/:id/:style/:filename'
+  attr_reader :picture_remote_url
 end

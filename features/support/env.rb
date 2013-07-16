@@ -77,6 +77,7 @@ OmniAuth.config.add_mock :facebook, {
   credentials: { token: 'dummy_token' },
   extra: {
     raw_info: {
+      birth_date: '01/30/1990',
       first_name: 'John',
       last_name: 'Doe',
       link: 'http://www.facebook.com/dummy',

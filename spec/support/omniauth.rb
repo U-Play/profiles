@@ -10,6 +10,7 @@ RSpec.configure do |config|
     credentials: { token: 'dummy_token' },
     extra: {
       raw_info: {
+        birthday: '01/30/1990',
         first_name: 'John',
         last_name: 'Doe',
         link: 'http://www.facebook.com/dummy',
