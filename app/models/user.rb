@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   include ParanoiaInterface
 
   has_many :authorizations
+  has_many :sport_experiences, :dependent => :destroy, :inverse_of => :user
 
   devise  :database_authenticatable,
           :omniauthable,
@@ -30,6 +31,8 @@ class User < ActiveRecord::Base
             :last_name,
             :birth_date,
             presence: true
+            
+  validates :email, uniqueness_without_deleted: true
 
   has_attached_file :picture,
                     path: ':rails_root/public/system/:attachment/:id/:style/:filename',
