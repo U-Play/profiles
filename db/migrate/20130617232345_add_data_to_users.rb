@@ -7,6 +7,8 @@ class AddDataToUsers < ActiveRecord::Migration
       t.text :bio
       t.string :facebook_link
       t.string :twitter_handle
+      t.string :country
+      t.string :university
       t.attachment :picture
     end
   end

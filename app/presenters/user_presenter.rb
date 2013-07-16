@@ -7,14 +7,6 @@ class UserPresenter < RailsPresenter::Base
     "#{first_name} #{last_name}".strip
   end
 
-  def selectable_countries
-    @country ||= Country.all
-  end
-
-  def selectable_universities
-    @university ||= University.all
-  end
-
   def twitter
     if twitter_handle.present?
       h.link_to '', "http://twitter.com/#{twitter_handle}", class: "icon-twitter", target: '_blank'

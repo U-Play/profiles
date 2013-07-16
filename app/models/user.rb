@@ -3,10 +3,6 @@ require 'open-uri'
 class User < ActiveRecord::Base
   include ParanoiaInterface
 
-  ## Relations ##
-  belongs_to :country
-  belongs_to :university
-
   has_many :authorizations
 
   devise  :database_authenticatable,
@@ -26,12 +22,10 @@ class User < ActiveRecord::Base
                   :profile_finished,
                   :remember_me,
                   :country,
-                  :country_id,
-                  :university,
-                  :university_id
+                  :university
 
   ## Validations ##
-  validates  :email,
+  validates :email,
             :first_name,
             :last_name,
             :birth_date,

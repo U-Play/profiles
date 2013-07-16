@@ -1,0 +1,7 @@
+- content_for :content
+  .user-profile
+    = render '/layouts/sidebar', user: @user
+    .content
+      = yield
+
+= render template: '/layouts/application'

@@ -4,6 +4,8 @@ RSpec.configure do |config|
     provider: 'facebook',
     uid: '1234567',
     info: {
+      first_name: 'John',
+      last_name: 'Doe',
       email: 'uplay@dummy.com',
       image: 'http://dummy.url.com'
     },
@@ -22,9 +24,18 @@ RSpec.configure do |config|
     provider: 'facebook',
     uid: '1234567',
     info: {
+      first_name: 'John',
+      last_name: 'Doe',
       email: 'uplay@dummy.com',
       image: 'http://dummy.url.com'
     },
-    credentials: { token: 'dummy_token' }
+    credentials: { token: 'dummy_token' },
+    extra: {
+      raw_info: {
+        birthday: '01/30/1990',
+        first_name: 'John',
+        last_name: 'Doe',
+      }
+    }
   }
 end

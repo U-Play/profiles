@@ -1,32 +1,49 @@
-- present(@user) do |user|
-  = form_for @user, url: edit_my_profile_path do |f|
-    - if @user.errors.any?
-      #error_explanation
-        h2= t 'user.edit.errors', count: @user.errors.count
-        .alert *{:class => ["alert-error"]}
-          ul 
-            - @user.errors.full_messages.each do |msg|
-              li= msg
-    = f.label :email
-    = f.text_field :email
-    = f.label :first_name
-    = f.text_field :first_name
-    = f.label :last_name
-    = f.text_field :last_name
-    = f.label :birth_date
-    = f.date_select :birth_date
-    = f.label :bio
-    = f.text_area :bio
-    = f.label :country
-    = f.collection_select :country_id, user.selectable_countries, :id, :name, { include_blank: t( 'helpers.select.prompt_country' ) }
-    = f.label :university
-    - if user.selectable_universities.empty?
-      p= t 'university.empty'
-    - else
-      = f.collection_select :university_id, user.selectable_universities, :id, :name, { include_blank: t( 'helpers.select.prompt_university' ) }
-    = f.label :facebook_link
-    = f.text_field :facebook_link
-    = f.label :twitter_handle
-    = f.text_field :twitter_handle
-    .form-actions
-      = f.submit 'Submit', class: "button"
+.profile-edit.profile-box
+  .title Update your Profile
+
+  - present(@user) do |user|
+    = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
+      - if @user.errors.any?
+        #error_explanation
+          .alert *{:class => ["alert-error"]}
+            ul
+              - @user.errors.full_messages.each do |msg|
+                li= msg
+      .field
+        .label = f.label :email
+        .text  = f.text_field :email, placeholder: 'Your E-mail'
+
+      .field.name
+        .label = f.label :first_name, 'Name'
+        .text.first  = f.text_field :first_name, placeholder: 'First Name'
+        .text.last  = f.text_field :last_name, placeholder: 'Last Name'
+
+      .field.date
+        .label  = f.label :birth_date
+        .select = f.date_select :birth_date, { order: [:day, :month, :year] }
+
+      .field
+        .label    = f.label :bio
+        .textarea = f.text_area :bio, placeholder: 'Say something about yourself...'
+
+      .field
+        .label = f.label :country
+        .text  = f.text_field :country
+
+      .field
+        .label = f.label :university
+        .text  = f.text_field :university
+
+      .social-container
+        .social
+          .facebook
+            .icon-container
+              .icon-facebook
+            .text = f.text_field :facebook_link, placeholder: 'Facebook Link'
+        .social
+          .twitter
+            .icon-container
+              .icon-twitter
+            .text = f.text_field :twitter_handle, placeholder: 'Twitter Handle'
+      .form-actions
+        = f.submit 'Submit', class: 'button submit'

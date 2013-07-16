@@ -71,6 +71,8 @@ OmniAuth.config.add_mock :facebook, {
   provider: 'facebook',
   uid: '1234567',
   info: {
+    first_name: 'John',
+    last_name: 'Doe',
     email: 'uplay@dummy.com',
     image: 'http://dummy.url.com'
   },
@@ -78,8 +80,6 @@ OmniAuth.config.add_mock :facebook, {
   extra: {
     raw_info: {
       birthday: '01/30/1990',
-      first_name: 'John',
-      last_name: 'Doe',
       link: 'http://www.facebook.com/dummy',
     }
   }

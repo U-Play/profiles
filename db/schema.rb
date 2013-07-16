@@ -29,26 +29,6 @@ ActiveRecord::Schema.define(:version => 20130702113353) do
     t.datetime "deleted_at"
   end
 
-  create_table "countries", :force => true do |t|
-    t.string   "name",       :default => "", :null => false
-    t.string   "abbrv_iso"
-    t.datetime "deleted_at"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-  end
-
-  create_table "universities", :force => true do |t|
-    t.string   "name",        :default => "", :null => false
-    t.text     "address"
-    t.string   "city"
-    t.string   "zip_code"
-    t.string   "phone"
-    t.text     "web_address"
-    t.datetime "deleted_at"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "email",                :default => "",    :null => false
     t.string   "encrypted_password",   :default => "",    :null => false
@@ -65,18 +45,16 @@ ActiveRecord::Schema.define(:version => 20130702113353) do
     t.text     "bio"
     t.string   "facebook_link"
     t.string   "twitter_handle"
+    t.string   "country"
+    t.string   "university"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "country_id"
-    t.integer  "university_id"
     t.datetime "deleted_at"
     t.boolean  "profile_finished",     :default => false
   end
 
-  add_index "users", ["country_id"], :name => "index_users_on_country_id"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["university_id"], :name => "index_users_on_university_id"
 
 end

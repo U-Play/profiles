@@ -15,9 +15,10 @@ body
     +grid-column($columns: 3)
     .icons
       +grid-row()
-
-  .stories
+  .content
     +grid-column($columns: 9)
+  .stories
+    +grid-column($columns: 12)
     .adds-story
       +grid-row()
       form
@@ -49,3 +50,64 @@ body
     +grid-row()
     .networks
       +grid-column($columns: 4, $offset: 4)
+
+.profile-edit
+  +grid-row()
+
+  form
+    margin: 0
+
+  .field
+    +grid-row()
+    .label
+      +grid-column($columns: 3)
+      background: none
+      label
+        @extend .right
+        @extend .inline
+    .text, .select, .textarea
+      +grid-column($columns: 9)
+      padding-right: 0
+
+    &.name
+      .label
+        +grid-column($columns: 3)
+      .text
+        &.first
+          +grid-column($columns: 4)
+        &.last
+          +grid-column($columns: 5)
+          padding-right: 0
+
+    &.date
+      .custom.dropdown
+        &:nth-child(2)
+          +grid-column($columns: 2)
+        &:nth-child(4)
+          +grid-column($columns: 6)
+        &:nth-child(6)
+          +grid-column($columns: 4)
+
+
+    .textarea
+      textarea
+        height: 120px
+
+  .social-container
+    +grid-row()
+    .social
+      +grid-column($columns: 6)
+      padding-right: 0
+      .facebook, .twitter
+        +grid-row()
+        .icon-container
+          +grid-column($columns: 2)
+        .text
+          +grid-column($columns: 10)
+          padding-right: 0
+
+  .form-actions
+    +grid-row()
+    .submit
+      +grid-column($columns: 2, $offset: 10)
+      margin-top: 10px

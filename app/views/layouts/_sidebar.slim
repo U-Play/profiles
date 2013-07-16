@@ -1,1 +1,11 @@
-| sidebar
+- present user do |user|
+  .sidebar
+    .picture style="background-image: url(https://lh4.googleusercontent.com/4wl3Tz4F8uPloan95CeOoS-W-RfY3WwnWyv7LffuY_c=w603-h601-no);"
+      img src="https://lh4.googleusercontent.com/4wl3Tz4F8uPloan95CeOoS-W-RfY3WwnWyv7LffuY_c=w603-h601-no"
+    p.name = user.full_name
+    p.description = user.bio
+    .icons
+      = user.facebook
+      = user.twitter
+    .edit
+      = link_to t('user.edit.message'), edit_my_profile_path, class: 'icon-edit'
