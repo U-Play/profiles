@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  layout 'profile'
+
   def view
     @user = User.find params[:id]
   end

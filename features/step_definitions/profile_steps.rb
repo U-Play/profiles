@@ -56,5 +56,5 @@ When(/^I leave a required field blank$/) do
 end
 
 Then(/^I should see a failure message$/) do
-  page.should have_content 'error'
+  page.should have_content "can't be blank"
 end

@@ -1,21 +1,31 @@
-DOCTYPE html
-html
-  head
-    title UPlay
-    link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
-  body
-    = render 'layouts/top'
-    section.row
-      - if flash[:notice]
-        p= flash[:notice]
-      - if flash[:error]
-        p= flash[:error]
-      /#sidebar.small-3.columns
-        /= render 'layouts/sidebar'
-    #content
-      = yield
-    = render 'layouts/bottom'
+doctype html
+== "<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->"
+== "<!--[if lt IE 7 ]> <html class=\"ie6\" lang=\"en\"> <![endif]-->"
+== "<!--[if IE 7 ]>    <html class=\"ie7\" lang=\"en\"> <![endif]-->"
+== "<!--[if IE 8 ]>    <html class=\"ie8\" lang=\"en\"> <![endif]-->"
+== "<!--[if IE 9 ]>    <html class=\"ie9\" lang=\"en\"> <![endif]-->"
+== "<!--[if (gt IE 9)|!(IE)]><!--> <html lang=\"en\"> <!--<![endif]-->"
 
+head
+  meta charset="utf-8"
+  / Uncomment to make IE8 render like IE7
+  / meta http-equiv="X-UA-Compatible" content="IE=7"
+
+  / Set the viewport width to device width for mobile
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'
+
+  title= content_for?(:title) ? yield(:title) : "UPlay"
+
+  = stylesheet_link_tag "application", media: 'all'
+  = javascript_include_tag "vendor/custom.modernizr"
+  = csrf_meta_tag
+
+body
+
+  section#flash
+    = render '/layouts/flash', flash: flash
+
+  = content_for?(:content) ? yield(:content) : yield
+
+  = javascript_include_tag "application"
