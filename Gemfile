@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem 'capistrano'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
