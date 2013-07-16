@@ -1,6 +1,12 @@
 Given(/^I am a visitor$/) do
 end
 
+Given(/^I am a signed user$/) do
+  step "I go to the sign in page"
+  step "I sign up via facebook"
+  @user = facebook_user
+end
+
 When(/^I go to the sign in page$/) do
   visit new_user_session_path
 end

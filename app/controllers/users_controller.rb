@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update_attributes(params[:user])
-      redirect_to my_profile_path, :notice => t('user.edit.success')
+      redirect_to my_profile_path, notice: t('user.edit.success')
     else
-      render :edit 
+      render :edit
     end
   end
 
