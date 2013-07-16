@@ -59,18 +59,20 @@ ActiveRecord::Schema.define(:version => 20130702113353) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
-    t.string   "first_name",           :default => "",    :null => false
-    t.string   "last_name",            :default => "",    :null => false
-    t.string   "facebook_link",        :default => "",    :null => false
+    t.string   "first_name"
+    t.string   "last_name"
     t.date     "birth_date"
+    t.text     "bio"
+    t.string   "facebook_link"
+    t.string   "twitter_handle"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.boolean  "profile_finished",     :default => false
     t.integer  "country_id"
     t.integer  "university_id"
     t.datetime "deleted_at"
+    t.boolean  "profile_finished",     :default => false
   end
 
   add_index "users", ["country_id"], :name => "index_users_on_country_id"

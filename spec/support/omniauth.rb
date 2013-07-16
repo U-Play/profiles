@@ -17,4 +17,14 @@ RSpec.configure do |config|
       }
     }
   }
+
+  OmniAuth.config.add_mock :facebook_limited, {
+    provider: 'facebook',
+    uid: '1234567',
+    info: {
+      email: 'uplay@dummy.com',
+      image: 'http://dummy.url.com'
+    },
+    credentials: { token: 'dummy_token' }
+  }
 end
