@@ -4,8 +4,18 @@
 en:
   helpers:
     select:
-      prompt_country: Please select a country
-      prompt_university: Please select a university
+      prompt_country:     Please select a country
+      prompt_sport:       Please select a sport
+      prompt_sport_role:  Please select a role
+      prompt_start_date:  Please select the beginning year
+      prompt_end_date:    Please select the ending year
+      prompt_university:  Please select a university
+  sport_experience:
+    new:
+      success: Sport Experience created successfully!
+      errors: 
+        one: '1 error prohibited this sport experience from being saved:'
+        other: "%{count} errors prohibited this sport experience from being saved:"
   university:
     empty: There are no universities.
   user:
@@ -14,7 +24,7 @@ en:
       success: User edited successfully!
       errors:
         one: '1 error prohibited this user from being saved:'
-        other: "%count errors prohibited this user from being saved:"
+        other: "%{count} errors prohibited this user from being saved:"
   get-your-profile:
     invite: Show your game!
     button: Get your profile

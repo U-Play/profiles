@@ -1,7 +1,69 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+sports =  [
+            # WINTER UNIVERSIADE COMPULSORY SPORTS PROGRAMME
+            { name: 'Alpine Skiing' }, 
+            { name: 'Biathlon' },
+            { name: 'Cross-Country Skiing' },
+            { name: 'Curling' },
+            { name: 'Figure Skating and ' },
+            { name: 'Synchronized Skating' },
+            { name: 'Freestyle Skiing' },
+            { name: 'Ice Hockey' },
+            { name: 'Nordic Combined' },
+            { name: 'Short Track Speed Skating' },
+            { name: 'Ski Jumping' },
+            { name: 'Snowboarding' },
+            # SUMMER UNIVERSIADE COMPULSORY SPORTS PROGRAMME
+            { name: 'Athletics' },
+            { name: 'Swimming' },
+            { name: 'Diving' },
+            { name: 'Waterpolo' },
+            { name: 'Basketball' },
+            { name: 'Fencing' },
+            { name: 'Football' },
+            { name: 'Artistic Gymnastics' },
+            { name: 'Rhythmic Gymnastics' },
+            { name: 'Judo' },
+            { name: 'Table Tennis' },
+            { name: 'Tennis' },
+            { name: 'Volleyball' },
+            # WORLD UNIVERSITY CHAMPIONSHIPS SPORTS PROGRAMME 
+            { name: 'American Football' },
+            { name: 'Archery' },
+            { name: 'Badminton' },
+            { name: 'Baseball' },
+            { name: 'Basket 3 on 3' },
+            { name: 'Beach Volleyball' },
+            { name: 'Boxing' },
+            { name: 'Bridge' },
+            { name: 'Canoe Slalom' },
+            { name: 'Canoe Sprint' },
+            { name: 'Chess' },
+            { name: 'Cross Country' },
+            { name: 'Cycling' },
+            { name: 'Equestrian' },
+            { name: 'Floorball' },
+            { name: 'Futsal' },
+            { name: 'Golf' },
+            { name: 'Handball' },
+            { name: 'Hockey' },
+            { name: 'Karate' },
+            { name: 'Long Track ' },
+            { name: 'Speed Skating' },
+            { name: 'Match Racing' },
+            { name: 'Netball' },
+            { name: 'Orienteering' },
+            { name: 'Rowing' },
+            { name: 'Rugby 7' },
+            { name: 'Savate' },
+            { name: 'Softball' },
+            { name: 'Shooting Sport' },
+            { name: 'Squash' },
+            { name: 'Taekwondo' },
+            { name: 'Triathlon' },
+            { name: 'Waterskiing' },
+            { name: 'Weightlifting' },
+            { name: 'Woodball' },
+            { name: 'Wrestling' }
+          ]
+  Sport.create(sports)
+  SportRole.create([{ name: 'Player' }, { name: 'Coach' }])
