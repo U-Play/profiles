@@ -25,8 +25,15 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       redirect_to my_profile_path, notice: t('user.edit.success')
     else
+      set_user_errors
       render :edit
     end
+  end
+
+  private
+
+  def set_user_errors
+    flash.now[:alert] = @user.errors.full_messages.first
   end
 
 end

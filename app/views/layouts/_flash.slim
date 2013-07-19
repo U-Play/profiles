@@ -1,5 +1,8 @@
-section.row
-  - if flash[:notice]
-    p= flash[:notice]
-  - if flash[:error]
-    p= flash[:error]
+- if flash.any?
+  #flashes-container
+    - if flash[:notice]
+      .flash
+        .alert-box.success.round = flash[:notice]
+    - if flash[:alert]
+      .flash
+        .alert-box.alert.round   = flash[:alert]

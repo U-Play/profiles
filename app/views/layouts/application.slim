@@ -22,10 +22,10 @@ head
   = csrf_meta_tag
 
 body
-
-  section#flash
+  - if content_for?(:content)
+    = yield(:content)
+  - else
     = render '/layouts/flash', flash: flash
-
-  = content_for?(:content) ? yield(:content) : yield
+    = yield
 
   = javascript_include_tag "application"

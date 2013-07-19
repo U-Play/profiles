@@ -2,6 +2,7 @@
   .user-profile
     = render '/layouts/sidebar', user: @user
     .content
+      = render '/layouts/flash', flash: flash
       = yield
 
 = render template: '/layouts/application'

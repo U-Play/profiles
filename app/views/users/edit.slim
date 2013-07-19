@@ -3,12 +3,6 @@
 
   - present(@user) do |user|
     = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
-      - if @user.errors.any?
-        #error_explanation
-          .alert *{:class => ["alert-error"]}
-            ul
-              - @user.errors.full_messages.each do |msg|
-                li= msg
       .field
         .label = f.label :email
         .text  = f.text_field :email, placeholder: 'Your E-mail'
