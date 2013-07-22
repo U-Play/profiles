@@ -1,11 +1,19 @@
 @mixin primary-button($bg-color, $shadow-color)
-  +button($bg: $bg-color, $radius: 6px, $full-width: true)
-  font-size: emCalc(20px)
-  +box-shadow($green2 0px 2px 0px 0px)
+  +button($bg: $bg-color, $radius: 5px, $full-width: true)
+  +box-shadow(rgba($shadow-color, 0.2) 0px -1px 1px 1px inset)
+  font-size: emCalc(23px)
 
 a.facebook-sign-in
-  +primary-button($facebook-blue, $green2)
+  +primary-button($facebook, $green2)
   color: white
-  
+
 a.get-a-profile
-  +primary-button($green1, $green2)
+  +primary-button($dark_green, $black)
+  +background-image(linear-gradient(top, $light_green, $dark_green))
+
+input.update-profile
+  +button($bg: $blue, $radius: 0, $full-width: true)
+  font-size: emCalc(15px)
+  font-weight: 400
+  +box-shadow(rgba($green2, 0.2) 0px -1px 1px 1px inset)
+  color: white

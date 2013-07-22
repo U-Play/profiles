@@ -56,57 +56,53 @@ body
     .networks
       +grid-column($columns: 4, $offset: 4)
 
-.profile-edit
+.profile-box-wrap
   +grid-row()
   +grid-column($columns: 11, $offset: 1)
-  form
-    margin: 0
-
-  .field
+  .profile-box
     +grid-row()
-    .label
-      +grid-column($columns: 2)
-      background: none
-      label
-        @extend .right
-        @extend .inline
-    .text, .select, .textarea
-      +grid-column($columns: 10)
-
-    &.name
-      .text
-        &.first
-          +grid-column($columns: 5)
-        &.last
-          +grid-column($columns: 5, $collapse: true)
-
-    &.date
-      .custom.dropdown
-        &:nth-child(2)
-          +grid-column($columns: 3)
-        &:nth-child(4)
-          +grid-column($columns: 5)
-        &:nth-child(6)
-          +grid-column($columns: 4)
-
-
-    .textarea
-      textarea
-        height: 120px
-
-  .social-container
-    +grid-row()
-    .social
-      +grid-column($columns: 6, $collapse: true)
-      .facebook, .twitter
-        +grid-row($behavior: nest-collapse)
-        .icon-container
-          +grid-column($columns: 2)
+    +grid-column($columns: 12)
+    form
+      margin: 0
+    .field
+      +grid-row()
+      .label
+        +grid-column($columns: 2)
+        background: none
+        label
+          @extend .right
+          @extend .inline
+      .text, .select, .textarea
+        +grid-column($columns: 10)
+      &.name
         .text
-          +grid-column($columns: 10, $collapse: true)
-
-  .form-actions
-    +grid-row()
-    .submit
-      +grid-column($columns: 2, $offset: 10)
-      margin-top: 10px
+          &.first
+            +grid-column($columns: 5)
+          &.last
+            +grid-column($columns: 5, $collapse: true)
+      &.date
+        .custom.dropdown
+          &:nth-child(2)
+            +grid-column($columns: 3)
+          &:nth-child(4)
+            +grid-column($columns: 5)
+          &:nth-child(6)
+            +grid-column($columns: 4)
+      .textarea
+        textarea
+          height: 120px
+    .social-container
+      +grid-row()
+      .social
+        +grid-column($columns: 6, $collapse: true)
+        .facebook, .twitter
+          +grid-row($behavior: nest-collapse)
+          .icon-container
+            +grid-column($columns: 2)
+          .text
+            +grid-column($columns: 10, $collapse: true)
+    .form-actions
+      +grid-row()
+      .submit
+        +grid-column($columns: 2, $offset: 10)
+        margin-top: 10px
