@@ -1,7 +1,8 @@
 - present @user do |user|
   .stories
     .adds-story
-      a href="#"
+      a href="#{add_my_sport_experience_path}"
         form
           p Add new
-    = render 'users/story', :story => nil
+    - user.sport_experiences.each do |experience|
+      = render 'users/story', :experience => experience

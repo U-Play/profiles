@@ -1,9 +1,9 @@
-.story
-  .date
-    p 2007
-  .details
-    .details-wrap
-      .details-content
-        p Played <b>futebol</b> as a <b>goalkeeper</b> in <b>Universidade do Minho</b>.
-        p <b>Best player</b> in the WUC 12.
-        p <b>Fair play medal</b> in Troféu do Reitor.
+div id="experience_#{experience.id}"
+  .story
+    .date = experience.date
+    .details
+      .details-wrap
+        .details-content
+          p Played <b>#{experience.sport}</b> at
+            <b>#{experience.university}</b> as a
+            <b>#{experience.sport_role}</b>.

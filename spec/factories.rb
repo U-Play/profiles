@@ -13,11 +13,11 @@ FactoryGirl.define do
   end
 
   factory :user do
-    first_name 'John'
-    last_name 'Doe'
+    sequence(:first_name) {|n| "#{n}Jonh"}
+    sequence(:last_name) {|n| "#{n}Doe"}
     bio "I'm awesome!"
     birth_date Time.now
-    email 'email@dummy.com'
+    sequence(:email) {|n| "#{n}email@dummy.com"}
     password 'randompassword'
   end
 

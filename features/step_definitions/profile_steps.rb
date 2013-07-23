@@ -14,11 +14,23 @@ Given(/^there is a user$/) do
   @user = UserPresenter.new(create(:user), self)
 end
 
+Given(/^there is a user with sport experiences$/) do
+  experience = create(:sport_experience)
+  @user = UserPresenter.new(experience.user, self)
+end
+
+Given(/^I have sport experiences$/) do
+  2.times do
+    step "I am at my profile's new experience page"
+    step "I fill in an experience"
+  end
+end
+
 When(/^I go to the user's profile$/) do
   visit profile_path(@user.id)
 end
 
-Then(/^I should see his information|I should see all my information$/) do
+Then(/^I should see (?:his|all my) information$/) do
   page.should have_content @user.full_name
   page.should have_content @user.bio
 end
@@ -61,4 +73,13 @@ end
 
 Then(/^I should be redirected to the sign in page$/) do
   current_path.should eq new_user_session_path
+end
+
+Then(/^I should see (?:his|my) sport experiences$/) do
+  @user.sport_experiences.each do |experience|
+    selector = find("#experience_#{experience.id}")
+    selector.should have_content experience.university
+    selector.should have_content experience.sport.name
+    selector.should have_content experience.sport_role.name
+  end
 end
