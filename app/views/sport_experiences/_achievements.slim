@@ -9,7 +9,7 @@
         .input.tournament = achv_form.text_field :tournament, placeholder: t( 'sport_experience.form.placeholders.tournament' )
 
       .second_line
-        .input.icon = achv_form.select :icon, sport_experience.selectable_icons, prompt: t( 'sport_experience.form.placeholders.position' )
+        .input.icon = achv_form.select :icon, sport_experience.selectable_icons, prompt: t( 'sport_experience.form.placeholders.icon' )
         /*.icon = select_tag :icon, raw(options_for_select_with_style(sport_experience.selectable_icons))*/
         .input.year = achv_form.date_select :award_date, discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.year' )
 
