@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+Capybara.javascript_driver = :webkit
 
 # Adds factory girl methods to cucumber
 module Cucumber
@@ -64,7 +65,7 @@ end
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
-Cucumber::Rails::Database.javascript_strategy = :truncation
+Cucumber::Rails::Database.javascript_strategy = :transaction
 
 OmniAuth.config.test_mode = true
 OmniAuth.config.add_mock :facebook, {
