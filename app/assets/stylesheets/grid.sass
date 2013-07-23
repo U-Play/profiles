@@ -34,6 +34,8 @@ body
           +grid-column($columns: 1)
         .details
           +grid-column($columns: 11, $collapse: true)
+      .achievements
+        +grid-row()
 
 .center-logo
   +grid-row()
@@ -62,8 +64,6 @@ body
   .profile-box
     +grid-row()
     +grid-column($columns: 12)
-    form
-      margin: 0
     .field
       +grid-row()
       .label
