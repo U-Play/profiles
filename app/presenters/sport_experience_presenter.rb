@@ -36,7 +36,7 @@ class SportExperiencePresenter < RailsPresenter::Base
     # aqui de alguma forma terá a lista de pares (text, image); para ja esta apenas (text, value) (ambos texto)
     @icons = [
       ['3rd', 'bronze']
-      # ['icons/edit.png', 'bronze'],
+      # ['coiso', 'achievements/bronze.png', 'bronze'],
     ]
   end
 
@@ -47,5 +47,4 @@ class SportExperiencePresenter < RailsPresenter::Base
       h.t('sport_experience.date', start_date: start_date.year, end_date: end_date.year)
     end
   end
->>>>>>> achievement addition done; icon selection isn't done properly
 end

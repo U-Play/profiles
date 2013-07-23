@@ -27,3 +27,7 @@ When(/^I leave a required field blank for an experience$/) do
   fill_in 'sport_experience_team', with: 'Team Zero'
   click_on 'Submit'
 end
+
+When(/^I fill in an achievement$/) do
+  click_on 'Add More'
+end

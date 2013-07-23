@@ -9,6 +9,7 @@
 
   .field
     .icon = achv_form.select :icon, sport_experience.selectable_icons
+    /*.icon = select_tag :icon, raw(options_for_select_with_style(sport_experience.selectable_icons))*/
 
   .field
     .year  = achv_form.date_select :award_date, discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.year' )
