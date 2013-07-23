@@ -13,6 +13,7 @@ en:
       placeholders:
         achievement: Achievement
         end_date: End
+        icon: Icon
         position: Position
         role: Role
         sport: Sport

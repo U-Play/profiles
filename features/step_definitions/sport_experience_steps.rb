@@ -29,5 +29,7 @@ When(/^I leave a required field blank for an experience$/) do
 end
 
 When(/^I fill in an achievement$/) do
-  click_on 'Add More'
+  #TODO click on link
+  # click_on 'Add More'
+  #TODO fill achievement, tournament and year. careful with field name which varies
 end

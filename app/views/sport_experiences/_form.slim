@@ -1,7 +1,7 @@
 a#adds-story-show href="#" Add new
 .sport-experience-form
   - present(sport_experience) do |sport_experience_presenter|
-    = form_for sport_experience, url: create_my_sport_experience_path, html: { class: 'custom' } do |f|
+    = nested_form_for sport_experience, url: create_my_sport_experience_path, html: { class: 'custom' } do |f|
 
       .input.dates
         .input.start_date = f.date_select "start_date", discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.start_date' )
@@ -23,6 +23,8 @@ a#adds-story-show href="#" Add new
             .input.position = f.text_field :position, placeholder: t('sport_experience.form.placeholders.position')
 
             .input.university = f.text_field :university, placeholder: t('sport_experience.form.placeholders.university')
+
+          = render 'sport_experiences/achievements', f: f, sport_experience: sport_experience_presenter
 
           .form-actions
             = f.submit 'Submit', class: "button submit"

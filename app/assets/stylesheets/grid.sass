@@ -144,3 +144,25 @@ body
       +grid-column($columns: 4, $collapse: true)
     .university
       +grid-column($columns: 8, $collapse: true)
+
+  .achievements-form
+    +grid-row()
+
+    .sport-experience-fields
+      +grid-column($columns: $profile-box-columns, $collapse: true)
+
+    .first_line
+      +grid-row($behavior: nest-collapse)
+      .remove
+        +grid-column($columns: 2, $collapse: true)
+      .achievement
+        +grid-column($columns: 3, $collapse: true)
+      .tournament
+        +grid-column($columns: 3, $collapse: true)
+
+    .second_line
+      +grid-row($behavior: nest-collapse)
+      .icon
+        +grid-column($columns: 2, $collapse: true)
+      .year
+        +grid-column($columns: 3, $collapse: true)
