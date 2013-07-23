@@ -16,6 +16,7 @@ gem 'sqlite3'
 gem 'rails_presenter'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
+gem "nested_form"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -34,6 +35,7 @@ end
 
 group :test do
   gem 'cucumber-rails', require: false
+  gem 'capybara-webkit'
   gem 'database_cleaner', require: false
   gem 'factory_girl_rails'
   gem 'simplecov', require: false

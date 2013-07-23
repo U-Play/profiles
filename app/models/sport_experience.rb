@@ -6,7 +6,9 @@ class SportExperience < ActiveRecord::Base
   belongs_to :sport
   belongs_to :user
 
-  has_many :achievements
+  has_many :achievements, :dependent => :destroy
+
+  accepts_nested_attributes_for :achievements, :allow_destroy => true
 
   ## Attributes ##
   attr_accessible :end_date, 
@@ -19,7 +21,8 @@ class SportExperience < ActiveRecord::Base
                   :sport,
                   :sport_id,
                   :user,
-                  :user_id
+                  :user_id,
+                  :achievements_attributes
 
   ## Validations ##
   validates :sport_id, 

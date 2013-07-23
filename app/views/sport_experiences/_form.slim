@@ -1,28 +1,30 @@
 a#adds-story-show href="#" Add new
 .sport-experience-form
-  - present(sport_experience) do |sport_experience_presenter|
-    = form_for sport_experience, url: create_my_sport_experience_path, html: { class: 'custom' } do |f|
+  - present(experience) do |experience_presenter|
+    = nested_form_for experience, url: create_my_sport_experience_path, html: { class: 'custom' } do |f|
 
       .input.dates
-        .input.start_date = f.date_select "start_date", discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.start_date' )
+        .input.start_date = f.date_select "start_date", discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'experience.form.placeholders.start_date' )
 
         / isto nao vai ficar assim. ver a historia do 'currently'
-        .input.end_date = f.date_select "end_date", discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.end_date' )
+        .input.end_date = f.date_select "end_date", discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'experience.form.placeholders.end_date' )
 
       .sport-experience-fields
         .profile-box
-          header = t('sport_experience.form.title')
+          header = t('experience.form.title')
 
           .first_line
-            .input.sport = f.collection_select :sport_id, sport_experience_presenter.selectable_sports, :id, :name, { include_blank: t( 'sport_experience.form.placeholders.sport' ) }
+            .input.sport = f.collection_select :sport_id, experience_presenter.selectable_sports, :id, :name, { include_blank: t( 'experience.form.placeholders.sport' ) }
 
-            .input.role = f.collection_select :sport_role_id, sport_experience_presenter.selectable_sport_roles, :id, :name, { include_blank: t( 'sport_experience.form.placeholders.role' ) }
-            .input.team = f.text_field :team, placeholder: t('sport_experience.form.placeholders.team')
+            .input.role = f.collection_select :sport_role_id, experience_presenter.selectable_sport_roles, :id, :name, { include_blank: t( 'experience.form.placeholders.role' ) }
+            .input.team = f.text_field :team, placeholder: t('experience.form.placeholders.team')
 
           .second_line
-            .input.position = f.text_field :position, placeholder: t('sport_experience.form.placeholders.position')
+            .input.position = f.text_field :position, placeholder: t('experience.form.placeholders.position')
 
-            .input.university = f.text_field :university, placeholder: t('sport_experience.form.placeholders.university')
+            .input.university = f.text_field :university, placeholder: t('experience.form.placeholders.university')
+
+          = render 'achievements/form', f: f, experience: experience_presenter
 
           .form-actions
             = f.submit 'Submit', class: "button submit"

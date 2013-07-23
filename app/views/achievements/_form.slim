@@ -1,0 +1,15 @@
+.title New Achievements
+
+.achievements
+  = f.fields_for :achievements do |achv_form|
+    .achievements-fields
+      .first_line
+        .input.remove = experience.remove_achv achv_form
+        .input.achievement = experience.achv_achievement achv_form
+        .input.tournament = experience.achv_tournament achv_form
+
+      .second_line
+        .input.icon = experience.achv_icon achv_form
+        .input.year = experience.achv_award_date achv_form
+
+  p= f.link_to_add t( 'experience.form.labels.add_more' ), :achievements
