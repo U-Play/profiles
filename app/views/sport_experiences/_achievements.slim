@@ -1,0 +1,16 @@
+.title Achievements
+
+= f.fields_for :achievements do |achv_form|
+  .field
+    .achievement  = achv_form.text_field :achievement, placeholder: t( 'sport_experience.form.placeholders.achievement' )
+
+  .field
+    .tournament  = achv_form.text_field :tournament, placeholder: t( 'sport_experience.form.placeholders.tournament' )
+
+  .field
+    .text  = achv_form.date_select :award_date, discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.year' )
+
+  / css nisto
+  = achv_form.link_to_remove t( 'sport_experience.form.labels.remove' )
+
+p= f.link_to_add t( 'sport_experience.form.labels.add_more' ), :achievements

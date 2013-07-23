@@ -15,6 +15,7 @@ gem 'sqlite3'
 gem 'rails_presenter'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
+gem "nested_form"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

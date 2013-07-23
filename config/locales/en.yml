@@ -7,14 +7,20 @@ en:
     description: "%{sport} %{role}, %{university}"
     form:
       title: New Sports Experience
+      labels:
+        add_more: Add more
+        remove: Remove
       placeholders:
-        start_date: Beginning
+        achievement: Achievement
         end_date: End
-        sport: Sport
-        role: Role
-        team: Team
         position: Position
+        role: Role
+        sport: Sport
+        start_date: Beginning
+        team: Team
+        tournament: Tournament
         university: University
+        year: Year
     new:
       success: Sport Experience created successfully!
       errors:
