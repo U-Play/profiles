@@ -27,3 +27,11 @@ When(/^I leave a required field blank for an experience$/) do
   fill_in 'sport_experience_team', with: 'Team Zero'
   click_on 'Submit'
 end
+
+When(/^I fill in an achievement$/) do
+  pending
+  #TODO nao estou a conseguir por isto a dar...
+  # click_on 'Add more'
+  # first(:link, 'Add more').click
+  # find(:css, "input[id^='sport_experience_achievements_attributes_'][id$='_achievement']").set("MVP")
+end

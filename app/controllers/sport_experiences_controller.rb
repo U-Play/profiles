@@ -1,6 +1,4 @@
 class SportExperiencesController < ApplicationController
-  attr_reader :sport_experience
-
   def create
     @sport_experience = current_user.sport_experiences.build params[:sport_experience]
 

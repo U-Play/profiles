@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20130716105003) do
     t.string   "tournament"
     t.text     "achievement"
     t.date     "award_date"
+    t.string   "icon"
     t.integer  "sport_experience_id", :null => false
     t.datetime "deleted_at"
     t.datetime "created_at",          :null => false

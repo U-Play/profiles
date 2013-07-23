@@ -4,6 +4,7 @@ class CreateAchievements < ActiveRecord::Migration
       t.string :tournament
       t.text :achievement
       t.date :award_date
+      t.string :icon
       t.references :sport_experience, :null => false
       t.datetime :deleted_at
 
