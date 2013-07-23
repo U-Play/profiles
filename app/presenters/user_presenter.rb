@@ -22,4 +22,8 @@ class UserPresenter < RailsPresenter::Base
       h.link_to '', facebook_link, class: "icon-facebook", target: '_blank'
     end
   end
+
+  def new_sport_experience
+    target.sport_experiences.build
+  end
 end

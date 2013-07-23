@@ -76,8 +76,8 @@ Then(/^I should be redirected to the sign in page$/) do
 end
 
 Then(/^I should see (?:his|my) sport experiences$/) do
-  @user.sport_experiences.each do |experience|
-    selector = find("#experience_#{experience.id}")
+  @user.sport_experiences.each_with_index do |experience, index|
+    selector = all(".story")[index]
     selector.should have_content experience.university
     selector.should have_content experience.sport.name
     selector.should have_content experience.sport_role.name

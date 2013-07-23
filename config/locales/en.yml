@@ -2,17 +2,19 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  helpers:
-    select:
-      prompt_country:     Please select a country
-      prompt_sport:       Please select a sport
-      prompt_sport_role:  Please select a role
-      prompt_start_date:  Please select the beginning year
-      prompt_end_date:    Please select the ending year
-      prompt_university:  Please select a university
   sport_experience:
-    date: "%start_date to %end_date"
-    date_onwards: "%date onwards"
+    date_current: current
+    description: "%{sport} %{role}, %{university}"
+    form:
+      title: New Sports Experience
+      placeholders:
+        start_date: Beginning
+        end_date: End
+        sport: Sport
+        role: Role
+        team: Team
+        position: Position
+        university: University
     new:
       success: Sport Experience created successfully!
       errors:

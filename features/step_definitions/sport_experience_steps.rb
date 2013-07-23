@@ -1,5 +1,6 @@
 Given(/^I am at my profile's new experience page$/) do
-  visit add_my_sport_experience_path
+  visit my_profile_path
+  click_on 'Add new'
 end
 
 When(/^I fill in an experience$/) do
