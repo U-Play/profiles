@@ -23,7 +23,7 @@
     = f.label :university
     = f.text_field :university
 
-    = render partial: 'achievements', locals: {f: f}
+    = render partial: 'achievements', locals: {f: f, sport_experience: sport_experience}
 
     .form-actions
       = f.submit 'Submit', class: "button"

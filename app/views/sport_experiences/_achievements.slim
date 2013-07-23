@@ -8,7 +8,10 @@
     .tournament  = achv_form.text_field :tournament, placeholder: t( 'sport_experience.form.placeholders.tournament' )
 
   .field
-    .text  = achv_form.date_select :award_date, discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.year' )
+    .icon = achv_form.select :icon, sport_experience.selectable_icons
+
+  .field
+    .year  = achv_form.date_select :award_date, discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.year' )
 
   / css nisto
   = achv_form.link_to_remove t( 'sport_experience.form.labels.remove' )
