@@ -7,7 +7,7 @@ class SportExperiencesController < ApplicationController
     if @sport_experience.save
       redirect_to my_profile_path, :notice => t('sport_experience.new.success')
     else
-      render :new
+      redirect_to my_profile_path, :alert => @sport_experience.errors.full_messages.first
     end
   end
 

@@ -13,7 +13,7 @@ body
 #flashes-container
   +grid-row($behavior: nest-collapse)
   .flash
-    +grid-column($columns: 11, $offset: 1, $collapse: true)
+    +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
 
 
 .user-profile
@@ -26,14 +26,17 @@ body
     +grid-column($columns: 9)
     .stories
       +grid-row($behavior: nest-collapse)
-      .adds-story
-        +grid-column($columns: 11, $offset: 1, $collapse: true)
+      #adds-story
+        +grid-column($columns: 12, $collapse: true)
+        #adds-story-show
+          +grid-row($behavior: nest-collapse)
+          +grid-column($columns: $profile-box-columns, $offset: $dates-columns)
       .story
         +grid-row()
-        .date
-          +grid-column($columns: 1)
+        .dates
+          +grid-column($columns: $dates-columns)
         .details
-          +grid-column($columns: 11, $collapse: true)
+          +grid-column($columns: $profile-box-columns, $collapse: true)
       .achievements
         +grid-row()
 
@@ -59,8 +62,8 @@ body
       +grid-column($columns: 4, $offset: 4)
 
 .profile-box-wrap
-  +grid-row()
-  +grid-column($columns: 11, $offset: 1)
+  +grid-row($behavior: nest-collapse)
+  +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
   .profile-box
     +grid-row()
     +grid-column($columns: 12)
@@ -73,11 +76,12 @@ body
           @extend .right
           @extend .inline
       .text, .select, .textarea
-        +grid-column($columns: 10)
+        +grid-column($columns: 10, $collapse: true)
       &.name
         .text
           &.first
-            +grid-column($columns: 5)
+            +grid-column($columns: 5, $collapse: true)
+            padding-right: 20px
           &.last
             +grid-column($columns: 5, $collapse: true)
       &.date
@@ -98,11 +102,45 @@ body
         .facebook, .twitter
           +grid-row($behavior: nest-collapse)
           .icon-container
-            +grid-column($columns: 2)
+            +grid-column($columns: 3)
           .text
-            +grid-column($columns: 10, $collapse: true)
-    .form-actions
-      +grid-row()
-      .submit
-        +grid-column($columns: 2, $offset: 10)
-        margin-top: 10px
+            +grid-column($columns: 9, $collapse: true)
+
+.profile-box
+  .form-actions
+    +grid-row($behavior: nest-collapse)
+    +grid-column($columns: 12, $collapse: true)
+    .button
+      float: right
+      margin-top: 10px
+      margin-left: 10px
+
+
+
+.sport-experience-form
+  +grid-row()
+
+  .profile-box
+    +grid-column($columns: 12)
+
+  .dates
+    +grid-column($columns: $dates-columns, $collapse: true)
+
+  .sport-experience-fields
+    +grid-column($columns: $profile-box-columns, $collapse: true)
+
+  .first_line
+    +grid-row($behavior: nest-collapse)
+    .sport
+      +grid-column($columns: 3, $collapse: true)
+    .role
+      +grid-column($columns: 3, $collapse: true)
+    .team
+      +grid-column($columns: 6, $collapse: true)
+
+  .second_line
+    +grid-row($behavior: nest-collapse)
+    .position
+      +grid-column($columns: 4, $collapse: true)
+    .university
+      +grid-column($columns: 8, $collapse: true)
