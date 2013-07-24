@@ -11,7 +11,7 @@ a#adds-story-show href="#" Add new
 
       .sport-experience-fields
         .profile-box
-          .title = t('sport_experience.form.title')
+          header = t('sport_experience.form.title')
 
           .first_line
             .input.sport = f.collection_select :sport_id, sport_experience_presenter.selectable_sports, :id, :name, { include_blank: t( 'sport_experience.form.placeholders.sport' ) }
