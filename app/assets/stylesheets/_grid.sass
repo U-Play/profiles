@@ -69,14 +69,6 @@ body
     +grid-column($columns: 12)
     .field
       +grid-row()
-      .label
-        +grid-column($columns: 2)
-        background: none
-        label
-          @extend .right
-          @extend .inline
-      .text, .select, .textarea
-        +grid-column($columns: 10, $collapse: true)
       &.name
         .text
           &.first
@@ -92,6 +84,19 @@ body
             +grid-column($columns: 5)
           &:nth-child(6)
             +grid-column($columns: 4)
+      .label
+        +grid-column($columns: 2)
+        background: none
+        label
+          @extend .right
+          @extend .inline
+      .text, .select, .textarea
+        +grid-column($columns: 10, $collapse: true)
+      .file
+        input[type=text]
+          +grid-column($columns: 8)
+        input[type=button]
+          +grid-column($columns: 2)
       .textarea
         textarea
           height: 120px

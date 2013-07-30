@@ -1,7 +1,6 @@
 - present user do |user|
   .sidebar
-    .picture style="background-image: url(https://lh4.googleusercontent.com/4wl3Tz4F8uPloan95CeOoS-W-RfY3WwnWyv7LffuY_c=w603-h601-no);"
-      img src="https://lh4.googleusercontent.com/4wl3Tz4F8uPloan95CeOoS-W-RfY3WwnWyv7LffuY_c=w603-h601-no"
+    = image_tag user.picture.url, class: 'profile_picture'
     p.name = user.full_name
     - if user.bio.present?
       p.description = user.bio
