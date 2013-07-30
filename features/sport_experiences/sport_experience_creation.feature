@@ -23,8 +23,7 @@ Feature: Sport Experience Creation
 
     I should be able to add a new sport experience with achievements
 
-    When I fill in an experience
-    When I fill in an achievement
+    When I fill in an experience with an achievement
     Then I should see a creation success message
     And I should be redirected to my profile page
 
