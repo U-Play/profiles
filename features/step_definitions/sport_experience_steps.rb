@@ -31,7 +31,7 @@ end
 When(/^I fill in an achievement$/) do
   # pending
   #TODO click_on dá erro
-  # binding.pry
-  # click_on 'Add more'
+  binding.pry
+  click_on 'Add more'
   # find(:css, "input[id^='sport_experience_achievements_attributes_'][id$='_achievement']").set("MVP")
 end
