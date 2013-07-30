@@ -40,7 +40,7 @@ describe SportExperiencePresenter do
       sport_experience = build(:sport_experience, end_date: nil)
       presenter = SportExperiencePresenter.new(sport_experience, view)
 
-      presenter.end_year.should eq t('sport_experience.date_current')
+      presenter.end_year.should eq t('experience.date_current')
     end
 
     it "returns nothing if end year is the same as start year" do
