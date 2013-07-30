@@ -77,6 +77,11 @@ body
           @extend .inline
       .text, .select, .textarea
         +grid-column($columns: 10, $collapse: true)
+      .file
+        input[type=text]
+          +grid-column($columns: 8)
+        input[type=button]
+          +grid-column($columns: 2)
       &.name
         .text
           &.first
