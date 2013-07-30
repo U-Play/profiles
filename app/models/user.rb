@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
                   :twitter_handle,
                   :password,
                   :password_confirmation,
+                  :picture,
                   :profile_finished,
                   :remember_me,
                   :country,
@@ -31,12 +32,12 @@ class User < ActiveRecord::Base
             :last_name,
             :birth_date,
             presence: true
-            
+
   validates :email, uniqueness_without_deleted: true
 
   has_attached_file :picture,
-                    path: ':rails_root/public/system/:attachment/:id/:style/:filename',
-                    url:  '/system/:attachment/:id/:style/:filename'
+                    styles: { normal: '200x200>'},
+                    default_url: '/assets/default-profile-picture.png'
 
   attr_reader :picture_remote_url
 end

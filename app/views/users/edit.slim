@@ -44,6 +44,11 @@ javascript:
                 .icon-container
                   .icon-twitter
                 .text = f.text_field :twitter_handle, placeholder: 'Twitter Handle'
+
+            .field
+              .label = f.label :picture
+              .text  = f.file_field :picture
+
           .form-actions
             = f.submit t('user.edit.submit'), class: 'button submit update-profile'
             = link_to t('user.edit.cancel'), my_profile_path, class: 'button'
