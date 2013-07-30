@@ -6,7 +6,7 @@ javascript:
 .profile-box-wrap
   .hover-border
     .profile-box
-      .title Update your Profile
+      header Update your Profile
       - present(@user) do |user|
         = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
           .field
@@ -46,3 +46,4 @@ javascript:
                 .text = f.text_field :twitter_handle, placeholder: 'Twitter Handle'
           .form-actions
             = f.submit t('user.edit.submit'), class: 'button submit update-profile'
+            = link_to t('user.edit.cancel'), my_profile_path, class: 'button'
