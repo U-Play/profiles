@@ -19,4 +19,15 @@ Then(/^I should see that I am signed up from facebook$/) do
   page.should have_content 'Welcome'
 end
 
+Then(/^I should be redirected to my profile edit page$/) do
+  current_path.should eq edit_my_profile_path
+end
+
+Then(/^I should be redirected to my profile page$/) do
+  current_path.should eq my_profile_path
+end
+
+When(/^I sign out$/) do
+  visit destroy_user_session_path
+end
 
