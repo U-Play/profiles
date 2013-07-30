@@ -9,6 +9,7 @@ Feature: Sport Experience Creation
     Given I am a signed user
 		And I am at my profile's new experience page
 
+  @javascript
 	Scenario: Add sport experience with no achievements
 
 		I should be able to add a new sport experience with no achievements
@@ -17,6 +18,7 @@ Feature: Sport Experience Creation
 		Then I should see a creation success message
     And I should be redirected to my profile page
 
+  @javascript
 	Scenario: Add sport experience with achievements
 
 		I should be able to add a new sport experience with achievements

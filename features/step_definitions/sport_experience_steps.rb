@@ -5,13 +5,10 @@ end
 
 When(/^I fill in an experience$/) do
   fill_in 'sport_experience_team', with: 'Team Zero'
-  select(Date.today.year, from: 'sport_experience_start_date_1i')
-  within '#sport_experience_sport_id' do
-    find("option[value='#{Sport.first.id}']").select_option
-  end
-  within '#sport_experience_sport_role_id' do
-    find("option[value='#{SportRole.first.id}']").select_option
-  end
+  select(Date.today.year,      from: 'sport_experience_start_date_1i', visible: false)
+  select(Sport.first.name,     from: 'sport_experience_sport_id',      visible: false)
+  select(SportRole.first.name, from: 'sport_experience_sport_role_id', visible: false)
+
   click_on 'Submit'
 end
 
@@ -20,7 +17,7 @@ Then(/^I should see a creation success message$/) do
 end
 
 Then(/^I should be redirected to my profile page$/) do
-  current_url.should eq my_profile_url
+  current_path.should eq my_profile_path
 end
 
 When(/^I leave a required field blank for an experience$/) do

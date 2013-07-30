@@ -44,6 +44,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.0.0)
+      capybara (~> 2.0, >= 2.0.2)
+      json
     chunky_png (1.2.8)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -273,6 +276,7 @@ PLATFORMS
 DEPENDENCIES
   cancan
   capistrano
+  capybara-webkit
   coffee-rails (~> 3.2.1)
   compass-rails
   cucumber-rails
