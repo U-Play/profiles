@@ -1,4 +1,5 @@
 .center-logo
+  margin-top: 30px
   height: 110px
   background-image: image-url('profiles-logo.png')
   background-position: center center
@@ -11,3 +12,65 @@
   background-position: center center
   background-repeat: no-repeat
   background-size: auto 406px
+
+%dashed-button
+  padding: 10px
+  margin: 0
+  text-align: center
+  color: $green2
+  border: 2px dashed $green2
+  +opacity(0.2)
+  +radius(10px)
+  &:hover
+    +opacity(1)
+    +transition-property(all)
+    +transition-duration(0.5s)
+
+%profile-box-wrap
+  .hover-border
+    +hover-border
+    +clearfix
+
+%profile-box
+  +grey-box-shadow
+  background: $white
+  padding: 30px 20px 20px 20px
+
+  input[type=text], textarea, .custom.dropdown
+    +box-shadow($profile-box-field-shadow 0px 1px 2px 0px)
+    border: 1px solid $profile-box-field-border
+    border-radius: 3px
+    font-size: emCalc(15px)
+    font-weight: 300
+    &:focus
+      +box-shadow($profile-box-field-focus-shadow 0px 0px 5px 0px)
+      background-color: $profile-box-field-focus-background
+      border-color: $profile-box-field-focus-border
+
+  .field > *
+    padding: 0
+    margin-bottom: 10px
+
+  > header
+    font-weight: 500
+    font-size: 1.5em
+    color: $green1
+    line-height: 40px
+    margin-bottom: 10px
+
+  label
+    font-weight: 300
+    font-size: emCalc(15px)
+
+%opaque-button
+  +opacity(0.3)
+  &:hover
+    +opacity(1)
+    +transition-property(all)
+    +transition-duration(0.5s)
+
+%quotes
+  &:before
+    content: open-quote
+  &:after
+    content: close-quote
