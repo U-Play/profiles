@@ -29,9 +29,9 @@ When(/^I leave a required field blank for an experience$/) do
 end
 
 When(/^I fill in an achievement$/) do
-  pending
-  #TODO nao estou a conseguir por isto a dar...
+  # pending
+  #TODO click_on dá erro
+  # binding.pry
   # click_on 'Add more'
-  # first(:link, 'Add more').click
   # find(:css, "input[id^='sport_experience_achievements_attributes_'][id$='_achievement']").set("MVP")
 end
