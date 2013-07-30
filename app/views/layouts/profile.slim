@@ -1,4 +1,8 @@
 - content_for :content
+  .utility-bar
+    .brand
+      .sidebar-logo
+    .utilities
   .user-profile
     = render '/layouts/sidebar', user: (@user || current_user)
     .content

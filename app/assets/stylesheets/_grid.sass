@@ -21,16 +21,39 @@ body
       +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
 
 
+.utility-bar
+  +grid-row()
+  .brand
+    +grid-column(3)
+  .utilities
+    +grid-column(9)
+
 .user-profile
   +grid-row()
   .sidebar
-    +grid-column($columns: 3)
+    +grid-column(3)
     .icons
       +grid-row()
     .share
       +grid-row()
   .content
-    +grid-column($columns: 9)
+    +grid-column(9)
+    .stories
+      +grid-row($behavior: nest-collapse)
+      #adds-story,
+      #edit-story
+        +grid-column($columns: 12, $collapse: true)
+        #adds-story-show
+          +grid-row($behavior: nest-collapse)
+          +grid-column($columns: $profile-box-columns, $offset: $dates-columns)
+      .story
+        +grid-row()
+        .dates
+          +grid-column($columns: $dates-columns)
+        .details
+          +grid-column($columns: $profile-box-columns, $collapse: true)
+      .achievements
+        +grid-row()
 
 .center-logo
   +grid-row()
