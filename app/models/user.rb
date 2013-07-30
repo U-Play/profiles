@@ -24,20 +24,36 @@ class User < ActiveRecord::Base
                   :profile_finished,
                   :remember_me,
                   :country,
-                  :university
+                  :university,
+                  :token,
+                  :referral_views,
+                  :referral_subscriptions
 
   ## Validations ##
+  before_validation :generate_token
+
   validates :email,
             :first_name,
             :last_name,
             :birth_date,
+            :token,
+            :referral_views,
+            :referral_subscriptions,
             presence: true
 
   validates :email, uniqueness_without_deleted: true
+  validates :token, uniqueness: true
 
   has_attached_file :picture,
                     styles: { normal: '200x200>'},
                     default_url: '/assets/default-profile-picture.png'
 
   attr_reader :picture_remote_url
+
+  private
+
+  def generate_token
+     self.token = SecureRandom.uuid
+  end
+
 end

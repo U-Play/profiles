@@ -1,8 +1,9 @@
 module Services
   class OauthAuthenticator
 
-    def initialize(raw_data)
+    def initialize(raw_data, token)
       @raw_data = raw_data
+      @token = token
       set_info
     end
 
@@ -17,7 +18,7 @@ module Services
 
     private
 
-    attr_reader :raw_data, :info, :authorization
+    attr_reader :raw_data, :token, :info, :authorization
 
     def find_by_authorization
       @authorization = Authorization.where(info.slice(:provider, :uid)).first
@@ -29,10 +30,15 @@ module Services
       user.authorizations.create(info) if user
     end
 
+    def increment_referral
+      User.where(token: @token).first.increment!(:referral_subscriptions) if @token
+    end
+
     def create
       user_info = info.slice(:first_name, :last_name, :email, :birth_date).merge(facebook_link: info[:link], password: generate_password)
       @user = User.create(user_info)
       user.authorizations.create(info)
+      increment_referral
       if !Rails.env.test?
         mixpanel = Services::MixpanelRegister.new @user
         mixpanel.register

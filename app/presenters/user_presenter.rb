@@ -26,4 +26,8 @@ class UserPresenter < RailsPresenter::Base
   def new_sport_experience
     target.sport_experiences.build
   end
+
+  def referral_url
+    h.referral_url(token)
+  end
 end

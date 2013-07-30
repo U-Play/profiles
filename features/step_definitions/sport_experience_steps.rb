@@ -19,10 +19,6 @@ Then(/^I should see a creation success message$/) do
   page.should have_content 'created successfully'
 end
 
-Then(/^I should be redirected to my profile page$/) do
-  current_path.should eq my_profile_path
-end
-
 When(/^I leave a required field blank for an experience$/) do
   fill_in 'sport_experience_team', with: 'Team Zero'
   click_on 'Submit'

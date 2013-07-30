@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716105003) do
+ActiveRecord::Schema.define(:version => 20130730131216) do
 
   create_table "achievements", :force => true do |t|
     t.string   "tournament"
@@ -77,15 +77,15 @@ ActiveRecord::Schema.define(:version => 20130716105003) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                :default => "",    :null => false
-    t.string   "encrypted_password",   :default => "",    :null => false
-    t.integer  "sign_in_count",        :default => 0
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
+    t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birth_date"
@@ -99,7 +99,10 @@ ActiveRecord::Schema.define(:version => 20130716105003) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.datetime "deleted_at"
-    t.boolean  "profile_finished",     :default => false
+    t.boolean  "profile_finished",       :default => false
+    t.string   "token",                                     :null => false
+    t.integer  "referral_views",         :default => 0,     :null => false
+    t.integer  "referral_subscriptions", :default => 0,     :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
