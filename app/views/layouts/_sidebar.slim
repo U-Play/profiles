@@ -1,6 +1,6 @@
 - present user do |user|
   .sidebar
-    = image_tag user.picture.url, class: 'picture'
+    = image_tag user.picture.url, class: 'profile_picture'
     p.name = user.full_name
     - if user.bio.present?
       p.description = user.bio
