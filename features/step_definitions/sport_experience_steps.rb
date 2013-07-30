@@ -26,9 +26,9 @@ When(/^I leave a required field blank for an experience$/) do
 end
 
 When(/^I fill in an achievement$/) do
-  # pending
+  pending
   #TODO click_on dá erro
-  binding.pry
+  # binding.pry
   click_on 'Add more'
   # find(:css, "input[id^='sport_experience_achievements_attributes_'][id$='_achievement']").set("MVP")
 end

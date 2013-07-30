@@ -1,0 +1,16 @@
+.title New Achievements
+
+.achievements
+  = f.fields_for :achievements do |achv_form|
+    .achievements-fields
+      .first_line
+        .input.remove = achv_form.link_to_remove t( 'sport_experience.form.labels.remove' )
+        .input.achievement = achv_form.text_field :achievement, placeholder: t( 'sport_experience.form.placeholders.achievement' )
+        .input.tournament = achv_form.text_field :tournament, placeholder: t( 'sport_experience.form.placeholders.tournament' )
+
+      .second_line
+        .input.icon = achv_form.select :icon, sport_experience.selectable_icons, prompt: t( 'sport_experience.form.placeholders.icon' )
+        /*.icon = select_tag :icon, raw(options_for_select_with_style(sport_experience.selectable_icons))*/
+        .input.year = achv_form.date_select :award_date, discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'sport_experience.form.placeholders.year' )
+
+  p= f.link_to_add t( 'sport_experience.form.labels.add_more' ), :achievements

@@ -24,7 +24,7 @@ a#adds-story-show href="#" Add new
 
             .input.university = f.text_field :university, placeholder: t('sport_experience.form.placeholders.university')
 
-          = render 'sport_experiences/achievements', f: f, sport_experience: sport_experience_presenter
+          = render 'achievements/form', f: f, sport_experience: sport_experience_presenter
 
           .form-actions
             = f.submit 'Submit', class: "button submit"

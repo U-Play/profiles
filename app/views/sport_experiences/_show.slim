@@ -7,5 +7,5 @@
       .details-content
         .description = sport_experience.description
         /Played<b>futebol</b> as a <b>goalkeeper</b> in <b>Universidade do Minho</b>.
-        p <b>Best player</b> in the WUC 12.
-        p <b>Fair play medal</b> in Troféu do Reitor.
+        - sport_experience.achievements.each do |achv|
+          p <b>#{achv.achievement}</b> in the #{achv.tournament} #{achv.award_date.year}.
