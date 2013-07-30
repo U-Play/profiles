@@ -2,7 +2,7 @@ module Services
   class MixpanelRegister
     def initialize(user)
       @user = user
-      @tracker = Mixpanel::Tracker.new(ACCOUNTS['mixpanel']['token'])
+      @tracker = Mixpanel::Tracker.new(ACCOUNTS['mixpanel']['token']) 
     end
 
     def register

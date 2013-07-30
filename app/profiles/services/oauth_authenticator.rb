@@ -33,8 +33,10 @@ module Services
       user_info = info.slice(:first_name, :last_name, :email, :birth_date).merge(facebook_link: info[:link], password: generate_password)
       @user = User.create(user_info)
       user.authorizations.create(info)
-      mixpanel = Services::MixpanelRegister.new @user
-      mixpanel.register
+      if !Rails.env.test?
+        mixpanel = Services::MixpanelRegister.new @user
+        mixpanel.register
+      end
     end
 
     def set_info
