@@ -12,4 +12,21 @@ class SportExperiencesController < ApplicationController
   def new
     @sport_experience = current_user.sport_experiences.build
   end
+
+  def edit
+    @experience = SportExperience.find(params[:id])
+    authorize! :manage, @experience
+  end
+
+  def update
+    @experience = SportExperience.find(params[:id])
+    authorize! :manage, @experience
+
+    if @experience.update_attributes(params[:sport_experience])
+      redirect_to my_profile_path, notice: t('experience.edit.success')
+    else
+      render :edit
+    end
+  end
+
 end

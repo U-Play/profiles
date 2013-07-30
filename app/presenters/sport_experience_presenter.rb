@@ -4,10 +4,10 @@ class SportExperiencePresenter < RailsPresenter::Base
   present :achievements
 
   def achv_award_date(achv_form)
-    achv_form.date_select :award_date, 
-                          discard_month: true, 
-                          start_year: 1923, 
-                          end_year: Time.now.year, 
+    achv_form.date_select :award_date,
+                          discard_month: true,
+                          start_year: Time.now.year,
+                          end_year: 1923,
                           prompt: h.t( 'experience.form.placeholders.year' )
   end
 
@@ -42,6 +42,10 @@ class SportExperiencePresenter < RailsPresenter::Base
 
   def description
     h.t 'experience.description', sport: sport.name, role: sport_role.name, university: university
+  end
+
+  def description_with_link
+    h.link_to( description, h.edit_my_sport_experience_path(id) )
   end
 
   def nil_formatter
