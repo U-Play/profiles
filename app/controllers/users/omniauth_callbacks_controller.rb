@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def oauthorize(provider)
-    authenticator = Services::OauthAuthenticator.new(request.env['omniauth.auth'])
+    authenticator = Services::OauthAuthenticator.new(request.env['omniauth.auth'], request.env['omniauth.params']['token'])
     @user = authenticator.authenticate!
     if @user.persisted?
       set_flash_message :notice, :success if is_navigational_format?

@@ -2,6 +2,7 @@ Profiles::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get '/user/:id' => "users#view", as: 'profile'
+  get '/referral/:token' => "pages#home", as: 'referral'
 
   scope '/me' do
     root to: 'users#me', as: :my_profile
