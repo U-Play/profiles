@@ -38,6 +38,10 @@ en:
       errors:
         one: '1 error prohibited this sport experience from being saved:'
         other: "%{count} errors prohibited this sport experience from being saved:"
+  get-your-profile:
+    facebook: Sign in with Facebook
+    invite: Show your game!
+    button: Get your profile
   university:
     empty: There are no universities.
   user:
@@ -49,7 +53,12 @@ en:
       errors:
         one: '1 error prohibited this user from being saved:'
         other: "%{count} errors prohibited this user from being saved:"
-  get-your-profile:
-    facebook: Sign in with Facebook
-    invite: Show your game!
-    button: Get your profile
+  share:
+    twitter:
+      button: 'Share on twitter'
+      message: 'Check this out! @uplaypro'
+    facebook:
+      button: 'Share on facebook'
+      title: 'UPlayPro'
+      caption: 'Sports stuff'
+      description: 'You know it!'

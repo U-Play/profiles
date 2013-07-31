@@ -38,6 +38,7 @@ group :test do
   gem 'capybara-webkit'
   gem 'database_cleaner', require: false
   gem 'factory_girl_rails'
+  gem "launchy"
   gem 'simplecov', require: false
 end
 
