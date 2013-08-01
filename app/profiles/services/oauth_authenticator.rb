@@ -1,7 +1,7 @@
 module Services
   class OauthAuthenticator
 
-    def initialize(raw_data, token)
+    def initialize(raw_data, token=nil)
       @raw_data = raw_data
       @token = token
       set_info
@@ -31,7 +31,9 @@ module Services
     end
 
     def increment_referral
-      User.where(token: @token).first.increment!(:referral_subscriptions) if @token
+      if @token
+        User.where(token: @token).first.increment!(:referral_subscriptions)
+      end
     end
 
     def create
