@@ -9,6 +9,8 @@ Profiles::Application.routes.draw do
     get   '/edit' => 'users#edit', as: :edit_my_profile
     put   '/edit' => 'users#update', as: 'update_my_profile'
     post  '/experiences' => 'sport_experiences#create', as: 'create_my_sport_experience'
+    get   '/experiences/:id/edit' => 'sport_experiences#edit', as: 'edit_my_sport_experience'
+    put   '/experiences/:id/edit' => 'sport_experiences#update', as: 'update_my_sport_experience'
   end
 
   root to: 'pages#home'

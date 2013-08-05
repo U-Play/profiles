@@ -1,32 +1,30 @@
-a#adds-story-show href="#" Add new
-.sport-experience-form
-  - present(experience) do |experience_presenter|
-    = nested_form_for experience, url: create_my_sport_experience_path, html: { class: 'custom' } do |f|
+.input.dates
+  .input.start_date = f.date_select "start_date", discard_month: true, start_year: Time.now.year, end_year: 1923, prompt: t( 'experience.form.placeholders.start_date' )
 
-      .input.dates
-        .input.start_date = f.date_select "start_date", discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'experience.form.placeholders.start_date' )
+  / isto nao vai ficar assim. ver a historia do 'currently'
+  .input.end_date = f.date_select "end_date", discard_month: true, start_year: Time.now.year, end_year: 1923, prompt: t( 'experience.form.placeholders.end_date' )
 
-        / isto nao vai ficar assim. ver a historia do 'currently'
-        .input.end_date = f.date_select "end_date", discard_month: true, start_year: 1923, end_year: Time.now.year, prompt: t( 'experience.form.placeholders.end_date' )
+.sport-experience-fields
+  .profile-box
+    - if experience_presenter.persisted?
+      header = t('experience.form.edit.title')
+    - else
+      header = t('experience.form.new.title')
 
-      .sport-experience-fields
-        .profile-box
-          header = t('experience.form.title')
+    .first_line
+      .input.sport = f.collection_select :sport_id, experience_presenter.selectable_sports, :id, :name, { include_blank: t( 'experience.form.placeholders.sport' ) }
 
-          .first_line
-            .input.sport = f.collection_select :sport_id, experience_presenter.selectable_sports, :id, :name, { include_blank: t( 'experience.form.placeholders.sport' ) }
+      .input.role = f.collection_select :sport_role_id, experience_presenter.selectable_sport_roles, :id, :name, { include_blank: t( 'experience.form.placeholders.role' ) }
+      .input.team = f.text_field :team, placeholder: t('experience.form.placeholders.team')
 
-            .input.role = f.collection_select :sport_role_id, experience_presenter.selectable_sport_roles, :id, :name, { include_blank: t( 'experience.form.placeholders.role' ) }
-            .input.team = f.text_field :team, placeholder: t('experience.form.placeholders.team')
+    .second_line
+      .input.position = f.text_field :position, placeholder: t('experience.form.placeholders.position')
 
-          .second_line
-            .input.position = f.text_field :position, placeholder: t('experience.form.placeholders.position')
+      .input.university = f.text_field :university, placeholder: t('experience.form.placeholders.university')
 
-            .input.university = f.text_field :university, placeholder: t('experience.form.placeholders.university')
+    = render 'achievements/form', f: f, experience: experience_presenter
 
-          = render 'achievements/form', f: f, experience: experience_presenter
-
-          .form-actions
-            = f.submit 'Submit', class: "button submit"
-            = f.button 'Cancel', class: "button cancel"
-
+    .form-actions
+      = f.submit t('experience.edit.submit'), class: "button submit"
+      - if !experience_presenter.persisted?
+        = f.button t('experience.edit.cancel'), class: "button cancel"

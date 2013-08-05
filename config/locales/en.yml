@@ -2,11 +2,21 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  achievements:
+    form:
+      title: Achievements
   experience:
     date_current: current
     description: "%{sport} %{role}, %{university}"
+    edit:
+      success: Sport Experience edited successfully!
+      submit: 'Submit'
+      cancel: 'Cancel'
     form:
-      title: New Sports Experience
+      new:
+        title: New Sports Experience
+      edit:
+        title: Edit Sports Experience
       labels:
         add_more: Add more
         remove: Remove
@@ -24,6 +34,7 @@ en:
         year: Year
     new:
       success: Sport Experience created successfully!
+    save:
       errors:
         one: '1 error prohibited this sport experience from being saved:'
         other: "%{count} errors prohibited this sport experience from being saved:"

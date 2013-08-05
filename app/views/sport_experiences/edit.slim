@@ -1,0 +1,12 @@
+- if @experience.errors.any?
+  #error_explanation
+    h2= t 'experience.save.errors', count: @experience.errors.count
+    .alert *{:class => ["alert-error"]}
+      ul 
+        - @experience.errors.full_messages.each do |msg|
+          li= msg
+
+.sport-experience-form
+  - present(@experience) do |experience_presenter|
+    = nested_form_for @experience, url: edit_my_sport_experience_path(@experience), html: { class: 'custom' } do |f|
+      = render 'sport_experiences/form', f: f, experience_presenter: experience_presenter
