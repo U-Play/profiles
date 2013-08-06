@@ -22,7 +22,7 @@ en:
         remove: Remove
       placeholders:
         achievements: Achievements
-        end_date: End
+        end_date: Ongoing
         icon: Icon
         position: Position (optional)
         role: Role
@@ -31,6 +31,8 @@ en:
         team: Team / University
         name: Name
         year: Year
+      errors:
+       date_before: "can't be before %{date}"
     new:
       success: Sport Experience created successfully!
     save:

@@ -29,25 +29,27 @@ describe SportExperiencePresenter do
   end
 
   context "#end_year" do
-    it "returns the year of the end date if it exists" do
-      sport_experience = build(:sport_experience, start_date: Time.now, end_date: Time.now+1.year)
+    it "returns a 'present' string if ongoing is true" do
+      sport_experience = build(:sport_experience, end_date: nil, ongoing: true)
       presenter = SportExperiencePresenter.new(sport_experience, view)
 
-      presenter.end_year.should eq sport_experience.end_date.year
+      presenter.end_year.should eq t('experience.date_present')
     end
 
-    it "returns a 'current' string if there is no end date" do
-      sport_experience = build(:sport_experience, end_date: nil)
-      presenter = SportExperiencePresenter.new(sport_experience, view)
+    context "end date exists" do
+      it "returns the year of the end date if it is after start date" do
+        sport_experience = build(:sport_experience, start_date: Time.now, end_date: Time.now+1.year)
+        presenter = SportExperiencePresenter.new(sport_experience, view)
 
-      presenter.end_year.should eq t('experience.date_current')
-    end
+        presenter.end_year.should eq sport_experience.end_date.year
+      end
 
-    it "returns nothing if end year is the same as start year" do
-      sport_experience = build(:sport_experience, start_date: Time.now, end_date: Time.now)
-      presenter = SportExperiencePresenter.new(sport_experience, view)
+      it "returns nothing if end year is the same as start year" do
+        sport_experience = build(:sport_experience, start_date: Time.now, end_date: Time.now)
+        presenter = SportExperiencePresenter.new(sport_experience, view)
 
-      presenter.end_year.should be_nil
+        presenter.end_year.should be_nil
+      end
     end
   end
 

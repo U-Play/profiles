@@ -2,5 +2,5 @@
   .stories
     #adds-story
       = render 'sport_experiences/new', experience: @new_sport_experience
-    - user.sport_experiences.each do |experience|
-      = render 'sport_experiences/show', experience: experience
+    - user.sport_experiences.each do |experience_pres|
+      = render 'sport_experiences/show', experience_pres: experience_pres

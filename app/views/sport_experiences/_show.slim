@@ -1,11 +1,11 @@
 .story
   .dates
-    .start = experience.start_year
-    .end   = experience.end_year
+    .start = experience_pres.start_year
+    .end   = experience_pres.end_year
   .details
     .details-wrap
       .details-content
-        .description = experience.description_with_link
-        - experience.tournaments.each do |tour|
+        .description = experience_pres.description_with_link
+        - experience_pres.tournaments.each do |tour|
           <b>#{tour.name} #{tour.award_date.year}</b>
           #{tour.achievements}
