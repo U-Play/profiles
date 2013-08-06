@@ -1,11 +1,11 @@
-- present user do |user|
+- present user do |user_presenter|
   .sidebar
-    = image_tag user.picture.url, class: 'profile_picture'
-    p.name = user.full_name
-    - if user.bio.present?
-      p.description = user.bio
+    = link_to image_tag(user_presenter.picture.url, class: 'profile_picture'), profile_path(user_presenter)
+    p.name = user_presenter.full_name
+    - if user_presenter.bio.present?
+      p.description = user_presenter.bio
     .icons
-      = user.facebook
-      = user.twitter
+      = user_presenter.facebook
+      = user_presenter.twitter
     .edit
       = link_to t('user.edit.message'), edit_my_profile_path, class: 'icon-edit'
