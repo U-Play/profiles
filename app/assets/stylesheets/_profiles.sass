@@ -33,9 +33,12 @@
         +transition-duration(0.5s)
 
 .user-profile
-  #adds-story, .content
+  #adds-story,
+  .content,
+  #edit-story
     padding: emCalc(20px)
-  #adds-story
+  #adds-story,
+  #edit-story
     > a:first-child
       border: 2px dashed $green2
       +opacity(0.2)
@@ -58,7 +61,8 @@
       padding: emCalc(20px)
       +grey-box-shadow
 
-#adds-story form
+#adds-story form,
+#edit-story form
   .dates
     margin-top: 4.5em
     .input
