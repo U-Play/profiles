@@ -4,7 +4,7 @@ When(/^someone registers using my referral url$/) do
 end
 
 When(/^an existing user registers using my referral url$/) do
-  step "I go to the sign in page"
+  step "I go to the root page"
   step "I sign up via facebook"
   step "I sign out"
   visit @user.referral_url

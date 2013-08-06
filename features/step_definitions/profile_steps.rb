@@ -71,8 +71,8 @@ Then(/^I should see a failure message$/) do
   page.should have_content "can't be blank"
 end
 
-Then(/^I should be redirected to the sign in page$/) do
-  current_path.should eq new_user_session_path
+Then(/^I should be redirected to the root page$/) do
+  current_path.should eq root_path
 end
 
 Then(/^I should see (?:his|my) sport experiences$/) do
@@ -82,4 +82,12 @@ Then(/^I should see (?:his|my) sport experiences$/) do
     selector.should have_content experience.sport.name
     selector.should have_content experience.sport_role.name
   end
+end
+
+When(/^I click the user's picture$/) do
+  find('.profile_picture').click
+end
+
+Then(/^I should be redirected to the user's profile page$/) do
+  current_path.should eq profile_path(@user.id)
 end

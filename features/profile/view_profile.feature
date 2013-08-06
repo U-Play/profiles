@@ -16,4 +16,4 @@ Feature: Viewing a profile
   Scenario: View my profile while not authenticated
     Given I am a visitor
     And   I go to my profile
-    Then  I should be redirected to the sign in page
+    Then  I should be redirected to the root page

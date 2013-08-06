@@ -2,7 +2,7 @@ Given(/^I am a visitor$/) do
 end
 
 Given(/^I am a signed user$/) do
-  step "I go to the sign in page"
+  step "I go to the root page"
   step "I sign up via facebook"
   @user = facebook_user
 end
@@ -11,8 +11,8 @@ Given(/^I am a registered user$/) do
   @user = UserPresenter.new(create(:user), self)
 end
 
-When(/^I go to the sign in page$/) do
-  visit new_user_session_path
+When(/^I go to the root page$/) do
+  visit root_path
 end
 
 When(/^I sign up via facebook$/) do

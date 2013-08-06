@@ -8,17 +8,17 @@ Feature: Sign up redirect
 
 
   Scenario: First Sign in
-    When I go to the sign in page
+    When I go to the root page
     And I sign up via facebook
     Then I should be redirected to my profile edit page
 
   Scenario: Second Sign in
     After editing my profile I should be redirected to my profile page on sign in
 
-    When I go to the sign in page
+    When I go to the root page
     And I sign up via facebook
     And I update my information
     And I sign out
-    And I go to the sign in page
+    And I go to the root page
     And I sign up via facebook
     Then I should be redirected to my profile page
