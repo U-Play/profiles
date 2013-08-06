@@ -45,7 +45,7 @@ class SportExperiencePresenter < RailsPresenter::Base
   end
 
   def description_with_link
-    h.link_to( description, h.edit_my_sport_experience_path(id) )
+    h.link_to( description, h.edit_sport_experience_path(id) )
   end
 
   def nil_formatter

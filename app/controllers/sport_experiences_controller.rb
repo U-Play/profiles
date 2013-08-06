@@ -10,10 +10,6 @@ class SportExperiencesController < ApplicationController
     end
   end
 
-  def new
-    @sport_experience = current_user.sport_experiences.build
-  end
-
   def edit
     @experience = SportExperience.find(params[:id])
     authorize! :manage, @experience

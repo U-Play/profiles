@@ -38,7 +38,7 @@ Given(/^I have an experience$/) do
 end
 
 Given(/^I am at an experience's edit page$/) do
-  visit edit_my_sport_experience_path(@experience)
+  visit edit_sport_experience_path(@experience)
 end
 
 When(/^I edit the experience's sport$/) do
