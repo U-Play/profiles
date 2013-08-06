@@ -23,10 +23,10 @@
   width: 100%
   z-index: 2
   background-color: $green1
-      
-			
+
+
 /** Flash messages */
-				
+
 #flashes-container
   $flash-colors: success $flash-green, alert $flash-red
   .alert-box
@@ -49,7 +49,7 @@
   .hover-border
     +hover-border
     +clearfix
-		
+
 .profile-box
   +grey-box-shadow
   background: $white
@@ -80,3 +80,6 @@
   label
     font-weight: 300
     font-size: emCalc(15px)
+
+[data-hide="true"]
+  display: none

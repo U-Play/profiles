@@ -1,6 +1,6 @@
 - present @user do |user|
   .stories
     #adds-story
-      = render 'sport_experiences/new', experience: user.new_sport_experience
+      = render 'sport_experiences/new', experience: @new_sport_experience
     - user.sport_experiences.each do |experience|
       = render 'sport_experiences/show', experience: experience

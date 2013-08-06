@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def me
     @user = current_user
     authorize! :me, @user
+
+    set_new_sport_experience
+
     render :view
   end
 
@@ -34,6 +37,12 @@ class UsersController < ApplicationController
 
   def set_user_errors
     flash.now[:alert] = @user.errors.full_messages.first
+  end
+
+  def set_new_sport_experience
+    params = flash[:new_sport_experience_params]
+    @experience_form_hide = params.nil?
+    @new_sport_experience = current_user.sport_experiences.build(params)
   end
 
 end

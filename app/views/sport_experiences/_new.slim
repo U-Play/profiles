@@ -1,5 +1,5 @@
-a#adds-story-show href="#" Add new
-.sport-experience-form
+a#adds-story-show href="#" data-hide="#{!@experience_form_hide}" Add new
+.sport-experience-form data-hide="#{@experience_form_hide}"
   - present(experience) do |experience_presenter|
     = nested_form_for experience, url: create_my_sport_experience_path, html: { class: 'custom' } do |f|
       = render 'sport_experiences/form', f: f, experience_presenter: experience_presenter
