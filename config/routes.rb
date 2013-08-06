@@ -1,5 +1,9 @@
 Profiles::Application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, skip: [:registrations, :sessions], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  devise_scope :user do
+    get '/sign_out' => 'devise/sessions#destroy', as: :destroy_user_session
+  end
 
   get '/user/:id' => "users#view", as: 'profile'
   get '/referral/:token' => "pages#home", as: 'referral'

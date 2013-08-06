@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def view
     @user = User.find params[:id]
     authorize! :read, @user
+
+    if @user == current_user
+      redirect_to my_profile_path
+    end
   end
 
   def me
