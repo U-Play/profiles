@@ -7,10 +7,9 @@ Profiles::Application.routes.draw do
   scope '/me' do
     root to: 'users#me', as: :my_profile
     get   '/edit' => 'users#edit', as: :edit_my_profile
-    put   '/edit' => 'users#update', as: 'update_my_profile'
-    post  '/experiences' => 'sport_experiences#create', as: 'create_my_sport_experience'
-    get   '/experiences/:id/edit' => 'sport_experiences#edit', as: 'edit_my_sport_experience'
-    put   '/experiences/:id/edit' => 'sport_experiences#update', as: 'update_my_sport_experience'
+    put   '/:id' => 'users#update'
+
+    resources :sport_experiences, only: [:create, :edit, :update], path: 'experiences'
   end
 
   root to: 'pages#home'
