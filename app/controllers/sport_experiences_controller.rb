@@ -1,4 +1,7 @@
 class SportExperiencesController < ApplicationController
+
+  layout 'profile'
+
   def create
     @sport_experience = current_user.sport_experiences.build params[:sport_experience]
 

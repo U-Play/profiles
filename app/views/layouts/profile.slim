@@ -1,6 +1,6 @@
 - content_for :content
   .user-profile
-    = render '/layouts/sidebar', user: @user
+    = render '/layouts/sidebar', user: (@user || current_user)
     .content
       = render '/layouts/flash', flash: flash
       = yield
