@@ -1,8 +1,8 @@
 .input.dates
-  .input.start_date = f.date_select "start_date", discard_month: true, start_year: Time.now.year, end_year: 1923, prompt: t( 'experience.form.placeholders.start_date' )
+  .input.start_date = experience_presenter.exp_start_date f
 
   / isto nao vai ficar assim. ver a historia do 'currently'
-  .input.end_date = f.date_select "end_date", discard_month: true, start_year: Time.now.year, end_year: 1923, prompt: t( 'experience.form.placeholders.end_date' )
+  .input.end_date = experience_presenter.exp_end_date f
 
 .sport-experience-fields
   .profile-box
@@ -12,17 +12,15 @@
       header = t('experience.form.new.title')
 
     .first_line
-      .input.sport = f.collection_select :sport_id, experience_presenter.selectable_sports, :id, :name, { include_blank: t( 'experience.form.placeholders.sport' ) }
-
-      .input.role = f.collection_select :sport_role_id, experience_presenter.selectable_sport_roles, :id, :name, { include_blank: t( 'experience.form.placeholders.role' ) }
-      .input.team = f.text_field :team, placeholder: t('experience.form.placeholders.team')
+      .input.sport  = experience_presenter.exp_sport f
+      .input.role   = experience_presenter.exp_role f
+      .input.team   = experience_presenter.exp_team f
 
     .second_line
-      .input.position = f.text_field :position, placeholder: t('experience.form.placeholders.position')
+      .input.position   = experience_presenter.exp_position f
+      .input.university = experience_presenter.exp_university f
 
-      .input.university = f.text_field :university, placeholder: t('experience.form.placeholders.university')
-
-    = render 'achievements/form', f: f, experience: experience_presenter
+    = render 'tournaments/form', f: f, experience_presenter: experience_presenter
 
     .form-actions
       = f.submit t('experience.edit.submit'), class: "button submit"

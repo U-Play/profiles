@@ -1,6 +1,6 @@
 class UserPresenter < RailsPresenter::Base
   present :sport_experiences do
-    includes :achievements, :sport, :sport_role
+    includes :tournaments, :sport, :sport_role
   end
 
   def nil_formatter

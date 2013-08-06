@@ -156,24 +156,24 @@ body
     .university
       +grid-column($columns: 8, $collapse: true)
 
-  .achievements
+  .tournaments
     +grid-row()
 
-    .achievement-fields
+    .tournament-fields
       +grid-column($columns: $profile-box-columns, $collapse: true)
 
     .first_line
       +grid-row($behavior: nest-collapse)
       .remove
         +grid-column($columns: 2, $collapse: true)
-      .achievement
-        +grid-column($columns: 3, $collapse: true)
-      .tournament
-        +grid-column($columns: 3, $collapse: true)
+      .name
+        +grid-column($columns: 6, $collapse: true)
+      .year
+        +grid-column($columns: 2, $collapse: true)
 
     .second_line
       +grid-row($behavior: nest-collapse)
+      .achievements
+        +grid-column($columns: 6, $collapse: true, $offset: 2)
       .icon
-        +grid-column($columns: 2, $collapse: true, $offset: 3)
-      .year
-        +grid-column($columns: 3, $collapse: true)
+        +grid-column($columns: 2, $collapse: true)

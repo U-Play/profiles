@@ -13,19 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130730131216) do
 
-  create_table "achievements", :force => true do |t|
-    t.string   "tournament"
-    t.text     "achievement"
-    t.date     "award_date"
-    t.string   "icon"
-    t.integer  "sport_experience_id", :null => false
-    t.datetime "deleted_at"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
-  add_index "achievements", ["sport_experience_id"], :name => "index_achievements_on_sport_experience_id"
-
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider",   :null => false
@@ -75,6 +62,19 @@ ActiveRecord::Schema.define(:version => 20130730131216) do
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
+
+  create_table "tournaments", :force => true do |t|
+    t.string   "name"
+    t.text     "achievements"
+    t.date     "award_date"
+    t.string   "icon"
+    t.integer  "sport_experience_id", :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "tournaments", ["sport_experience_id"], :name => "index_tournaments_on_sport_experience_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

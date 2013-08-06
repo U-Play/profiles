@@ -41,4 +41,12 @@ FactoryGirl.define do
     name 'Yet Another Sport Role'
     description 'Just a role'
   end
+
+  factory :tournament do
+    association :sport_experience
+    name 'WUC'
+    achievements '1st place, MVP'
+    award_date Date.today
+    icon '1st'
+  end
 end

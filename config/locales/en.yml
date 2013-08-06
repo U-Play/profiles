@@ -2,9 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  achievements:
+  tournaments:
     form:
-      title: Achievements
+      title: Tournaments
   experience:
     date_current: current
     description: "%{sport} %{role}, %{university}"
@@ -21,7 +21,7 @@ en:
         add_more: Add more
         remove: Remove
       placeholders:
-        achievement: Achievement
+        achievements: Achievements
         end_date: End
         icon: Icon
         position: Position
@@ -29,7 +29,7 @@ en:
         sport: Sport
         start_date: Beginning
         team: Team
-        tournament: Tournament
+        name: Name
         university: University
         year: Year
     new:

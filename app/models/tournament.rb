@@ -1,21 +1,21 @@
-class Achievement < ActiveRecord::Base
+class Tournament < ActiveRecord::Base
   include ParanoiaInterface
 
   ## Relations ##
   belongs_to :sport_experience
 
   ## Attributes ##
-  attr_accessible :achievement,
+  attr_accessible :achievements,
                   :award_date,
                   :icon,
-                  :tournament,
+                  :name,
                   :sport_experience,
                   :sport_experience_id
-                  
+
 
   ## Validations ##
-  validates :tournament,
-            :achievement,
+  validates :name,
+            :achievements,
             :award_date,
             presence: true
 end
