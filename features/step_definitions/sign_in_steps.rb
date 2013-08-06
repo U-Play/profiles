@@ -35,3 +35,14 @@ Then(/^I should be redirected to my profile page$/) do
   current_path.should eq my_profile_path
 end
 
+Given(/^my profile edition is not finished$/) do
+  @user.update_attributes profile_finished: false
+end
+
+Given(/^my profile edition is finished$/) do
+  @user.update_attributes profile_finished: true
+end
+
+When(/^I go to the root path$/) do
+  visit root_path
+end
