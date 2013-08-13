@@ -10,6 +10,10 @@ def user_edit_changes
   changes
 end
 
+Given(/^I am at my profile's edit page$/) do
+  visit edit_my_profile_path
+end
+
 Given(/^there is a user$/) do
   @user = UserPresenter.new(create(:user), self)
 end
@@ -30,22 +34,17 @@ When(/^I go to the user's profile$/) do
   visit profile_path(@user.id)
 end
 
+When(/^I go to my profile$/) do
+  visit my_profile_path
+end
+
 Then(/^I should see (?:his|all my) information$/) do
   page.should have_content @user.full_name
   page.should have_content @user.bio
 end
 
-When(/^I go to my profile$/) do
-  visit my_profile_path
-end
-
 Then(/^I should see my facebook name$/) do
   page.should have_content facebook_user.full_name
-end
-
-
-Given(/^I am at my profile's edit page$/) do
-  visit edit_my_profile_path
 end
 
 When(/^I update my information$/) do
@@ -90,4 +89,12 @@ end
 
 Then(/^I should be redirected to the user's profile page$/) do
   current_path.should eq profile_path(@user.id)
+end
+
+Then(/^I should see a 'share on facebook' button$/) do
+  page.should have_content I18n.t('share.facebook.button')
+end
+
+Then(/^I should see a 'share on twitter' button$/) do
+  page.should have_content I18n.t('share.twitter.button')
 end

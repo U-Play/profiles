@@ -24,6 +24,7 @@ head data-current-user="#{current_user.id if !current_user.nil?}"
   = csrf_meta_tag
 
 body
+  #fb-root
   .top-border
   - if content_for?(:content)
     = yield(:content)

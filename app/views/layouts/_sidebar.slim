@@ -9,3 +9,9 @@
       = user_presenter.twitter
     .edit
       = link_to t('user.edit.message'), edit_my_profile_path, class: 'icon-edit'
+
+    .share
+      .facebook
+        = user_presenter.share_on_facebook
+      .twitter
+        = user_presenter.share_on_twitter
