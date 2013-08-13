@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813145945) do
+ActiveRecord::Schema.define(:version => 20130813155335) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(:version => 20130813145945) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.datetime "deleted_at"
+  end
+
+  create_table "icons", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sport_experiences", :force => true do |t|
@@ -67,11 +73,11 @@ ActiveRecord::Schema.define(:version => 20130813145945) do
     t.string   "name"
     t.text     "achievements"
     t.date     "award_date"
-    t.string   "icon"
     t.integer  "sport_experience_id", :null => false
     t.datetime "deleted_at"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "icon_id"
   end
 
   add_index "tournaments", ["sport_experience_id"], :name => "index_tournaments_on_sport_experience_id"

@@ -19,8 +19,7 @@ en:
       edit:
         title: Edit Sports Experience
       labels:
-        add_more: Add more
-        remove: Remove
+        add_more: Add More
       placeholders:
         achievements: Achievements
         end_date: Ongoing

@@ -1,13 +1,5 @@
 .stories
   #edit-story
-    - if @experience.errors.any?
-      #error_explanation
-        h2= t 'experience.save.errors', count: @experience.errors.count
-        .alert *{:class => ["alert-error"]}
-          ul
-            - @experience.errors.full_messages.each do |msg|
-              li= msg
-
     .new-experience
       - present(@experience) do |experience_presenter|
         = nested_form_for @experience, html: { class: 'custom' } do |f|

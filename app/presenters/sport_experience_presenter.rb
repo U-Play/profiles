@@ -53,10 +53,6 @@ class SportExperiencePresenter < RailsPresenter::Base
                           prompt: h.t( 'experience.form.placeholders.year' )
   end
 
-  def remove_tour(tour_form)
-    tour_form.link_to_remove h.t( 'experience.form.labels.remove' )
-  end
-
   def tour_achievements(tour_form)
     tour_form.text_field :achievements, placeholder: h.t( 'experience.form.placeholders.achievements' )
   end
@@ -66,7 +62,11 @@ class SportExperiencePresenter < RailsPresenter::Base
   end
 
   def tour_icon(tour_form)
-    tour_form.select :icon, selectable_icons, prompt: h.t( 'experience.form.placeholders.icon' )
+    tour_form.collection_select :icon_id,
+                                selectable_icons,
+                                :id,
+                                :name,
+                                prompt: h.t( 'experience.form.placeholders.icon' )
   end
 
   def start_year
@@ -117,9 +117,7 @@ class SportExperiencePresenter < RailsPresenter::Base
   end
 
   def selectable_icons
-    @icons = [
-      ['3rd', 'bronze']
-    ]
+    @icons ||= Icon.all
   end
 
   def date

@@ -44,9 +44,13 @@ FactoryGirl.define do
 
   factory :tournament do
     association :sport_experience
+    association :icon
     name 'WUC'
     achievements '1st place, MVP'
     award_date Date.today
-    icon '1st'
+  end
+
+  factory :icon do
+    name '1st'
   end
 end

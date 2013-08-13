@@ -4,3 +4,6 @@ toggle_adds_story = (event) ->
 
 $('#adds-story__button').on 'click', toggle_adds_story
 $('#adds-story .cancel').on 'click', toggle_adds_story
+
+$('#nested-form-tournaments').on 'nested:fieldAdded', ->
+  $(document).foundation()
