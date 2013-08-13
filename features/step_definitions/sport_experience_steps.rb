@@ -5,6 +5,13 @@ def fill_experience_fields
   select(SportRole.first.name, from: 'sport_experience_sport_role_id', visible: false)
 end
 
+def fill_tournament_fields
+  tournament = build :tournament
+  find(:css, "input[id^='sport_experience_tournaments_attributes_'][id$='_achievements']").set(tournament.achievements)
+  find(:css, "input[id^='sport_experience_tournaments_attributes_'][id$='_name']").set(tournament.name)
+  find(:css, "select[id^='sport_experience_tournaments_attributes_'][id$='_award_date_1i']").select(tournament.award_date.year)
+end
+
 Given(/^I am at my profile's new experience page$/) do
   visit my_profile_path
   click_on 'Add new'
@@ -24,12 +31,10 @@ When(/^I leave a required field blank for an experience$/) do
   click_on 'Submit'
 end
 
-When(/^I fill in an experience with an achievement$/) do
+When(/^I fill in an experience with a tournament$/) do
   fill_experience_fields
   click_on 'Add more'
-  find(:css, "input[id^='sport_experience_achievements_attributes_'][id$='_achievement']").set("MVP")
-  find(:css, "input[id^='sport_experience_achievements_attributes_'][id$='_tournament']").set("Trofeu Reitor")
-  find(:css, "select[id^='sport_experience_achievements_attributes_'][id$='_award_date_1i']").select(Date.today.year)
+  fill_tournament_fields
   click_on 'Submit'
 end
 

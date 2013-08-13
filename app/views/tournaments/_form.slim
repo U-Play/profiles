@@ -1,0 +1,15 @@
+.title= t( 'tournaments.form.title' )
+
+.tournaments
+  = f.fields_for :tournaments do |tour_form|
+    .tournament-fields
+      .first_line
+        .input.remove = experience_presenter.remove_tour tour_form
+        .input.name = experience_presenter.tour_name tour_form
+        .input.year = experience_presenter.tour_award_date tour_form
+
+      .second_line
+        .input.achievements = experience_presenter.tour_achievements tour_form
+        .input.icon = experience_presenter.tour_icon tour_form
+
+  p= f.link_to_add t( 'experience.form.labels.add_more' ), :tournaments

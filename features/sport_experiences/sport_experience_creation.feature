@@ -10,20 +10,20 @@ Feature: Sport Experience Creation
     And I am at my profile's new experience page
 
   @javascript
-	Scenario: Add sport experience with no achievements
+	Scenario: Add sport experience with no tournaments
 
-    I should be able to add a new sport experience with no achievements
+    I should be able to add a new sport experience with no tournaments
 
     When I fill in an experience
     Then I should see a creation success message
     And I should be redirected to my profile page
 
   @javascript
-	Scenario: Add sport experience with achievements
+	Scenario: Add sport experience with tournaments
 
-    I should be able to add a new sport experience with achievements
+    I should be able to add a new sport experience with tournaments
 
-    When I fill in an experience with an achievement
+    When I fill in an experience with a tournament
     Then I should see a creation success message
     And I should be redirected to my profile page
 
