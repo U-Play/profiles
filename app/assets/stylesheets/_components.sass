@@ -87,6 +87,23 @@
 /** Utility bar */
 
 .utility-bar
-  margin-top: 20px
+  $height: 45px
+  height: $height
+  margin-top: 10px
   margin-bottom: 20px
-  .logo
+  .brand
+    text-align: center
+    img
+      width: auto
+      max-height: $height
+      padding: 0 10px 0 10px
+  .sign
+    line-height: $height
+    float: right
+    vertical-align: middle
+    li
+      list-style-type: none
+      display: inline
+      padding-left: 10px
+      &.icon-edit
+        padding-left: 22px
