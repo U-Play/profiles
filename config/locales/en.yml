@@ -7,7 +7,7 @@ en:
       title: Tournaments
   experience:
     date_current: current
-    description: "%{sport} %{role}, %{university}"
+    description: "%{sport} %{role}, %{team}"
     edit:
       success: Sport Experience edited successfully!
       submit: 'Submit'
@@ -24,13 +24,12 @@ en:
         achievements: Achievements
         end_date: End
         icon: Icon
-        position: Position
+        position: Position (optional)
         role: Role
         sport: Sport
         start_date: Beginning
-        team: Team
+        team: Team / University
         name: Name
-        university: University
         year: Year
     new:
       success: Sport Experience created successfully!

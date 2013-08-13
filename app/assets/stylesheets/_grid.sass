@@ -145,18 +145,16 @@ body
   .first_line
     +grid-row($behavior: nest-collapse)
     .sport
-      +grid-column($columns: 3, $collapse: true)
+      +grid-column($columns: 5, $collapse: true)
     .role
       +grid-column($columns: 3, $collapse: true)
-    .team
-      +grid-column($columns: 6, $collapse: true)
+    .position
+      +grid-column($columns: 4, $collapse: true)
 
   .second_line
     +grid-row($behavior: nest-collapse)
-    .position
-      +grid-column($columns: 4, $collapse: true)
-    .university
-      +grid-column($columns: 8, $collapse: true)
+    .team
+      +grid-column($columns: 12, $collapse: true)
 
   .tournaments
     +grid-row()

@@ -44,10 +44,6 @@ class SportExperiencePresenter < RailsPresenter::Base
     exp_form.text_field :position, placeholder: h.t('experience.form.placeholders.position')
   end
 
-  def exp_university(exp_form)
-    exp_form.text_field :university, placeholder: h.t('experience.form.placeholders.university')
-  end
-
   ########## Tournament Form helpers ##########
   def tour_award_date(tour_form)
     tour_form.date_select :award_date,
@@ -87,7 +83,7 @@ class SportExperiencePresenter < RailsPresenter::Base
   end
 
   def description
-    h.t 'experience.description', sport: sport.name, role: sport_role.name, university: university
+    h.t 'experience.description', sport: sport.name, role: sport_role.name, team: team
   end
 
   def description_with_link
