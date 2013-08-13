@@ -16,8 +16,9 @@ body
     +grid-column($columns: $profile-box-columns, $offset: $root-page-offset)
 
 .user-profile
-  .flash
-    +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
+  #flashes-container
+    .flash
+      +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
 
 
 .user-profile
