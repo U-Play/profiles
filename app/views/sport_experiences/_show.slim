@@ -6,6 +6,6 @@
     .details-wrap
       .details-content
         .description = experience.description_with_link
-        /Played<b>futebol</b> as a <b>goalkeeper</b> in <b>Universidade do Minho</b>.
         - experience.tournaments.each do |tour|
-          p <b>#{tour.achievements}</b> in the #{tour.name} #{tour.award_date.year}.
+          <b>#{tour.name} #{tour.award_date.year}</b>
+          #{tour.achievements}

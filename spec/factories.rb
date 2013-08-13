@@ -30,9 +30,8 @@ FactoryGirl.define do
     association :sport
     association :sport_role
     association :user
-    team 'Team'
+    team 'UM'
     position 'GK'
-    university 'UM'
     start_date Time.now
     end_date Time.now
   end

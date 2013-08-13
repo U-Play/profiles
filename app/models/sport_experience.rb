@@ -15,7 +15,6 @@ class SportExperience < ActiveRecord::Base
                   :position,
                   :start_date,
                   :team,
-                  :university,
                   :sport_role,
                   :sport_role_id,
                   :sport,

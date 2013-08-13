@@ -15,7 +15,6 @@ class Tournament < ActiveRecord::Base
 
   ## Validations ##
   validates :name,
-            :achievements,
             :award_date,
             presence: true
 end

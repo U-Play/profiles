@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730131216) do
+ActiveRecord::Schema.define(:version => 20130813145945) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -30,17 +30,17 @@ ActiveRecord::Schema.define(:version => 20130730131216) do
   end
 
   create_table "sport_experiences", :force => true do |t|
-    t.string   "university"
     t.string   "position"
     t.string   "team"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "sport_role_id", :null => false
-    t.integer  "sport_id",      :null => false
-    t.integer  "user_id",       :null => false
+    t.boolean  "ongoing",       :default => false
+    t.integer  "sport_role_id",                    :null => false
+    t.integer  "sport_id",                         :null => false
+    t.integer  "user_id",                          :null => false
     t.datetime "deleted_at"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "sport_experiences", ["sport_id"], :name => "index_sport_experiences_on_sport_id"

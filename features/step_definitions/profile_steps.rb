@@ -77,7 +77,7 @@ end
 Then(/^I should see (?:his|my) sport experiences$/) do
   @user.sport_experiences.each_with_index do |experience, index|
     selector = all(".story")[index]
-    selector.should have_content experience.university
+    selector.should have_content experience.team
     selector.should have_content experience.sport.name
     selector.should have_content experience.sport_role.name
   end
