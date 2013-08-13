@@ -11,3 +11,29 @@
   background-position: center center
   background-repeat: no-repeat
   background-size: auto 406px
+
+%dashed-button
+  padding: 10px
+  margin: 0
+  text-align: center
+  color: $green2
+  border: 2px dashed $green2
+  +opacity(0.2)
+  +radius(10px)
+  &:hover
+    +opacity(1)
+    +transition-property(all)
+    +transition-duration(0.5s)
+
+%opaque-button
+  +opacity(0.3)
+  &:hover
+    +opacity(1)
+    +transition-property(all)
+    +transition-duration(0.5s)
+
+%quotes
+  &:before
+    content: open-quote
+  &:after
+    content: close-quote
