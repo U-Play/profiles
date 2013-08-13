@@ -50,6 +50,10 @@ class User < ActiveRecord::Base
 
   attr_reader :picture_remote_url
 
+  def sports
+    Sport.joins(:sport_experiences).where(sport_experiences: {user_id: id})
+  end
+
   private
 
   def generate_token

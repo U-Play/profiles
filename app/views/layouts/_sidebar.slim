@@ -4,6 +4,8 @@
     p.name = user_presenter.full_name
     - if user_presenter.bio.present?
       p.description = user_presenter.bio
+    .tags = user_presenter.tags
+    .location = user_presenter.location
     .icons
       = user_presenter.facebook
       = user_presenter.twitter
