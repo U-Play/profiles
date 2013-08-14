@@ -39,4 +39,12 @@ class UserPresenter < RailsPresenter::Base
   def share_on_facebook
     h.link_to h.t('share.facebook.button'), '#', "onclick" => "postToFacebook('#{referral_url}')"
   end
+
+  def tags
+    sports.map(&:name).join(", ")
+  end
+
+  def location
+    [university, country].compact.join(", ")
+  end
 end
