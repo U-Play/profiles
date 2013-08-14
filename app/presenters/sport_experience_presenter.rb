@@ -74,11 +74,11 @@ class SportExperiencePresenter < RailsPresenter::Base
   end
 
   def end_year
-    if end_date.present?
+    if ongoing
+      h.t('experience.date_present')
+    elsif end_date.present?
       year = end_date.year
       return year if year != start_year
-    else
-      h.t('experience.date_current')
     end
   end
 

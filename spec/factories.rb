@@ -34,6 +34,7 @@ FactoryGirl.define do
     position 'GK'
     start_date Time.now
     end_date Time.now
+    ongoing false
   end
 
   factory :sport_role do

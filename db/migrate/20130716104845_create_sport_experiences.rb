@@ -6,6 +6,7 @@ class CreateSportExperiences < ActiveRecord::Migration
       t.string :team
       t.date :start_date
       t.date :end_date
+      t.boolean :ongoing, default: false
       t.references :sport_role, :null => false
       t.references :sport, :null => false
       t.references :user, :null => false

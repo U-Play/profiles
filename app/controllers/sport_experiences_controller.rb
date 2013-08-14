@@ -28,5 +28,4 @@ class SportExperiencesController < ApplicationController
       render :edit
     end
   end
-
 end
