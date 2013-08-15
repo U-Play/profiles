@@ -86,23 +86,27 @@
 
 /** Utility bar */
 
-.utility-bar
+.brand-wrap
+  position: relative
+
+.brand
+  padding-top: 30px
+  text-align: center
+  img
+    width: auto
+    padding: 0 10px 0 10px
+
+
+.utilities
   $height: 45px
-  height: $height
-  margin-top: 10px
-  margin-bottom: 20px
-  .brand
-    text-align: center
-    img
-      width: auto
-      max-height: $height
-      padding: 0 10px 0 10px
+  position: absolute
+  top: 0
+  right: 0
   .sign
     line-height: $height
     float: right
     vertical-align: middle
     li
-      @extend %opaque-button
       list-style-type: none
       display: inline
       padding-left: 10px
