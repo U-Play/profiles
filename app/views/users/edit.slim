@@ -2,11 +2,12 @@ javascript:
   $(document).ready(function() {
     mixpanel_events.edit_page();
   });
-
+.page-title-wrap: .page-title
+  h1 Edit profile
 .profile-box-wrap
   .hover-border
     .profile-box
-      header Update your Profile
+      / header Update your profile
       - present(@user) do |user|
         = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
           .field
