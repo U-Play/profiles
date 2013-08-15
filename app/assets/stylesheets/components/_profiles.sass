@@ -35,24 +35,28 @@
 
 // USER PROFILE CONTENT
 
+.profile-edit
+  @extend %profile-box-wrap
+
+.profile-edit__box
+  @extend %profile-box
+
 .user-profile .content
   padding-top: 40px
 
-.user-profile .page-title h1
-  font-size: 2rem
+.user-profile .page-title
+  h1
+    font-weight: 300
+    font-size: 2rem
+  a
+    font-weight: normal
+    font-size: 1rem
+    color: $green1
+    &:hover
+      text-decoration: underline
 
-#adds-story-show
-  @extend %dashed-button
-
-#adds-story, #edit-story
-  padding-bottom: 20px
-  .dates
-    margin-top: 4.5em
-    .input
-      padding-right: 10px
-  .sport-experience-fields
-    .input:not(:first-child)
-      padding-left: 10px
+#adds-story
+  display: none
 
 .user-profile .stories
   .details-wrap

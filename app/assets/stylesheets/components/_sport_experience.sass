@@ -1,0 +1,51 @@
+.new-experience
+  +grid-row()
+  .new-experience__box
+    +grid-column($columns: 12)
+  .new-experience__dates
+    +grid-column($columns: $dates-columns, $collapse: true)
+  .new-experience__fields
+    +grid-column($columns: $profile-box-columns, $collapse: true)
+  .first_line
+    +grid-row($behavior: nest-collapse)
+    .sport
+      +grid-column($columns: 5, $collapse: true)
+    .role
+      +grid-column($columns: 3, $collapse: true)
+    .position
+      +grid-column($columns: 4, $collapse: true)
+  .second_line
+    +grid-row($behavior: nest-collapse)
+    .team
+      +grid-column($columns: 12, $collapse: true)
+  .tournaments
+    +grid-row()
+    .tournament-fields
+      +grid-column($columns: $profile-box-columns, $collapse: true)
+    .first_line
+      +grid-row($behavior: nest-collapse)
+      .remove
+        +grid-column($columns: 2, $collapse: true)
+      .name
+        +grid-column($columns: 6, $collapse: true)
+      .year
+        +grid-column($columns: 2, $collapse: true)
+    .second_line
+      +grid-row($behavior: nest-collapse)
+      .achievements
+        +grid-column($columns: 6, $collapse: true, $offset: 2)
+      .icon
+        +grid-column($columns: 2, $collapse: true)
+
+.new-experience
+  padding-top: 20px
+  padding-bottom: 20px
+  .new-experience__dates
+    margin-top: 4.5em
+    .input
+      padding-right: 10px
+  .new-experience__fields
+    .input:not(:first-child)
+      padding-left: 10px
+  .new-experience__box
+    @extend %profile-box

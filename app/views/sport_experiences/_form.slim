@@ -1,9 +1,9 @@
-.input.dates
+.input.new-experience__dates
   .input.start_date = experience_presenter.exp_start_date f
   .input.end_date = experience_presenter.exp_end_date f
 
-.sport-experience-fields
-  .profile-box
+.new-experience__fields
+  .new-experience__box
     - if experience_presenter.persisted?
       header = t('experience.form.edit.title')
     - else

@@ -4,19 +4,20 @@ javascript:
   });
 .page-title-wrap: .page-title
   h1 Edit profile
-.profile-box-wrap
+.profile-edit
   .hover-border
-    .profile-box
+    .profile-edit__box
       / header Update your profile
       - present(@user) do |user|
         = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
           .field
             .label = f.label :email
             .text  = f.text_field :email, placeholder: 'Your E-mail'
-          .field.name
+
+          .field
             .label = f.label :first_name, 'Name'
-            .text.first  = f.text_field :first_name, placeholder: 'First Name'
-            .text.last  = f.text_field :last_name, placeholder: 'Last Name'
+            .first-name  = f.text_field :first_name, placeholder: 'First Name'
+            .last-name  = f.text_field :last_name, placeholder: 'Last Name'
 
           .field.date
             .label  = f.label :birth_date
