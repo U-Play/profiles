@@ -97,6 +97,14 @@ body
       &:nth-child(6)
         +grid-column($columns: 4)
 
+  .form-actions
+    +grid-row($behavior: nest-collapse)
+    +grid-column($columns: 12, $collapse: true)
+    .button
+      float: right
+      margin-top: 10px
+      margin-left: 10px
+
   .field
     +grid-row()
     .label

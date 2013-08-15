@@ -37,6 +37,13 @@
       .icon
         +grid-column($columns: 2, $collapse: true)
 
+  .new-experience__actions
+    +grid-row($behavior: nest-collapse)
+    +grid-column($columns: 12, $collapse: true)
+    .button
+      float: right
+      margin: 10px 0 0 10px
+
 .new-experience
   padding-top: 20px
   padding-bottom: 20px

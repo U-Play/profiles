@@ -4,10 +4,7 @@
 
 .new-experience__fields
   .new-experience__box
-    - if experience_presenter.persisted?
-      header = t('experience.form.edit.title')
-    - else
-      header = t('experience.form.new.title')
+    header = experience_presenter.title
 
     .first_line
       .input.sport  = experience_presenter.exp_sport f
@@ -19,7 +16,6 @@
 
     = render 'tournaments/form', f: f, experience_presenter: experience_presenter
 
-    .form-actions
-      = f.submit t('experience.edit.submit'), class: "button submit"
-      - if !experience_presenter.persisted?
-        = f.button t('experience.edit.cancel'), class: "button cancel"
+    .new-experience__actions
+      = experience_presenter.submit f
+      = experience_presenter.cancel f
