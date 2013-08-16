@@ -58,9 +58,11 @@ en:
         other: "%{count} errors prohibited this user from being saved:"
       placeholder:
         bio: 'Say something about yourself...'
+        email: 'Your E-mail'
         facebook-link: 'Facebook Link'
         first-name: 'First name'
         last-name: 'Last name'
+        name: 'Name'
         twitter-handle: 'Twitter Handle'
 
   share:
