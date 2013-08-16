@@ -1,5 +1,7 @@
 .page-title-wrap: .page-title
-  h1 History <a href="#" id="adds-story__button">+ add new</a>
+  h1
+    | History
+    a href="#" id="adds-story__button" + #{t('experience.add_new')}
 - present @user do |user|
   .stories
     #adds-story

@@ -8,6 +8,7 @@ en:
   experience:
     date_current: current
     description: "%{sport} %{role}, %{team}"
+    add_new: 'add new'
     edit:
       success: Sport Experience edited successfully!
       submit: 'Submit'
@@ -47,6 +48,7 @@ en:
     empty: There are no universities.
   user:
     edit:
+      title: 'Edit profile'
       message: 'edit profile'
       submit: 'Submit'
       cancel: 'Cancel'
