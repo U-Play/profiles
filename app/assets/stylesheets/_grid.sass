@@ -31,22 +31,6 @@ body
       +grid-row()
   .content
     +grid-column($columns: 9)
-    .stories
-      +grid-row($behavior: nest-collapse)
-      #adds-story,
-      #edit-story
-        +grid-column($columns: 12, $collapse: true)
-        #adds-story-show
-          +grid-row($behavior: nest-collapse)
-          +grid-column($columns: $profile-box-columns, $offset: $dates-columns)
-      .story
-        +grid-row()
-        .dates
-          +grid-column($columns: $dates-columns)
-        .details
-          +grid-column($columns: $profile-box-columns, $collapse: true)
-      .achievements
-        +grid-row()
 
 .center-logo
   +grid-row()

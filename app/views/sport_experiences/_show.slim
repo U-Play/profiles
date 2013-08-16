@@ -1,11 +1,14 @@
 .story
-  .dates
-    .start = experience_pres.start_year
-    .end   = experience_pres.end_year
-  .details
-    .details-wrap
-      .details-content
-        .description = experience_pres.description_with_link
+  .story__dates
+    .story__start = experience_pres.start_year
+    .story__end   = experience_pres.end_year
+  .story__wrap
+    .story__border
+      .story__content
+        .description = experience_pres.description
         - experience_pres.tournaments.each do |tour|
           <b>#{tour.name} #{tour.award_date.year}</b>
           #{tour.achievements}
+
+      .story__edit
+        = link_to image_tag('icons/edit.png'), experience_pres.edit_path

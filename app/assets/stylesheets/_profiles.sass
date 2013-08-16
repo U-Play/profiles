@@ -47,12 +47,9 @@
       color: $black
 
 .user-profile
-  #adds-story,
-  .content,
-  #edit-story
+  #adds-story, .content, #edit-story
     padding: emCalc(20px)
-  #adds-story,
-  #edit-story
+  #adds-story, #edit-story
     > a:first-child
       border: 2px dashed $green2
       +opacity(0.2)
@@ -66,32 +63,5 @@
         +opacity(1)
         +transition-property(all)
         +transition-duration(0.5s)
-  .stories
-    .details-wrap
-      +hover-border
-      margin-bottom: emCalc(20px)
-    .details-content
-      background-color: white
-      padding: emCalc(20px)
-      +grey-box-shadow
 
-#adds-story form,
-#edit-story form
-  .dates
-    margin-top: 4.5em
-    .input
-      padding-right: 10px
 
-  .sport-experience-fields
-    .input:not(:first-child)
-      padding-left: 10px
-
-.story
-  font-weight: 300
-  font-size: 16px
-  line-height: 20px
-  color: #4A4A4A
-  .dates
-    margin-top: 10px
-    text-align: right
-    line-height: 30px
