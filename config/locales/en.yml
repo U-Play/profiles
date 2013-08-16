@@ -56,6 +56,13 @@ en:
       errors:
         one: '1 error prohibited this user from being saved:'
         other: "%{count} errors prohibited this user from being saved:"
+      placeholder:
+        bio: 'Say something about yourself...'
+        facebook-link: 'Facebook Link'
+        first-name: 'First name'
+        last-name: 'Last name'
+        twitter-handle: 'Twitter Handle'
+
   share:
     twitter:
       button: 'Share on twitter'

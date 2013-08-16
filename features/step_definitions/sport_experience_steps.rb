@@ -14,12 +14,12 @@ end
 
 Given(/^I am at my profile's new experience page$/) do
   visit my_profile_path
-  click_on 'Add new'
+  click_on I18n.t('experience.add_new')
 end
 
 When(/^I fill in an experience$/) do
   fill_experience_fields
-  click_on 'Submit'
+  click_on I18n.t('user.edit.submit')
 end
 
 Then(/^I should see a creation success message$/) do
@@ -28,14 +28,14 @@ end
 
 When(/^I leave a required field blank for an experience$/) do
   fill_in 'sport_experience_team', with: ''
-  click_on 'Submit'
+  click_on I18n.t('user.edit.submit')
 end
 
 When(/^I fill in an experience with a tournament$/) do
   fill_experience_fields
   click_on 'Add more'
   fill_tournament_fields
-  click_on 'Submit'
+  click_on I18n.t('user.edit.submit')
 end
 
 Given(/^I have an experience$/) do
@@ -47,7 +47,7 @@ Given(/^I am at an experience's edit page$/) do
 end
 
 When(/^I edit the experience's sport$/) do
-  select(Sport.last.name,     from: 'sport_experience_sport_id',      visible: false)
+  select(Sport.last.name, from: 'sport_experience_sport_id', visible: false)
   click_on 'Submit'
 end
 

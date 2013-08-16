@@ -15,8 +15,8 @@ javascript:
 
           .field
             .label = f.label :first_name, 'Name'
-            .first-name  = f.text_field :first_name, placeholder: 'First Name'
-            .last-name  = f.text_field :last_name, placeholder: 'Last Name'
+            .first-name  = f.text_field :first_name, placeholder: t('user.edit.placeholder.first-name')
+            .last-name  = f.text_field :last_name, placeholder: t('user.edit.placeholder.last-name')
 
           .field.date
             .label  = f.label :birth_date
@@ -24,7 +24,7 @@ javascript:
 
           .field
             .label    = f.label :bio
-            .textarea = f.text_area :bio, placeholder: 'Say something about yourself...'
+            .textarea = f.text_area :bio, placeholder: t('user.edit.placeholder.bio')
 
           .field
             .label = f.label :country
@@ -39,12 +39,13 @@ javascript:
               .facebook
                 .icon-container
                   .icon-facebook
-                .text = f.text_field :facebook_link, placeholder: 'Facebook Link'
+                .text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook-link')
+
             .social
               .twitter
                 .icon-container
                   .icon-twitter
-                .text = f.text_field :twitter_handle, placeholder: 'Twitter Handle'
+                .text = f.text_field :twitter_handle, placeholder: t('user.edit.placeholder.twitter-handle')
 
             .field
               .label = f.label :picture

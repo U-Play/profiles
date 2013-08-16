@@ -84,10 +84,10 @@ body
 .profile-edit__box
   +grid-row()
   +grid-column($columns: 12)
-  .first-name
-    padding-right: 20px
   .last-name, .first-name
     +grid-column($columns: 5, $collapse: true)
+  .first-name
+    padding-right: 20px !important
   .date
     .custom.dropdown
       &:nth-child(2)
