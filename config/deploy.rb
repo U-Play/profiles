@@ -41,3 +41,4 @@ namespace :deploy do
 end
 
 after 'deploy:update_code', 'deploy:migrate'
+after 'deploy:migrate', 'deploy:seed'
