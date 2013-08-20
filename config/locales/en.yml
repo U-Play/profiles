@@ -39,9 +39,10 @@ en:
       errors:
         one: '1 error prohibited this sport experience from being saved:'
         other: "%{count} errors prohibited this sport experience from being saved:"
-  get-your-profile:
+  landing:
     facebook: Sign in with Facebook
     invite: Show your game!
+    second-invite: Make your sports profile.
     button: Get your profile
   university:
     empty: There are no universities.
