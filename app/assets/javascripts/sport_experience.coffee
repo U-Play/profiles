@@ -1,9 +1,6 @@
-$('#adds-story-show').on 'click', (event) ->
+toggle_adds_story = (event) ->
   event.preventDefault()
-  $(this).hide()
-  $('#adds-story .sport-experience-form').slideDown()
+  $('#adds-story').slideToggle()
 
-$('#adds-story .cancel').on 'click', (event) ->
-  event.preventDefault()
-  $('#adds-story .sport-experience-form').slideUp()
-  $('#adds-story-show').slideDown()
+$('#adds-story__button').on 'click', toggle_adds_story
+$('#adds-story .cancel').on 'click', toggle_adds_story

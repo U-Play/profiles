@@ -2,20 +2,21 @@ javascript:
   $(document).ready(function() {
     mixpanel_events.edit_page();
   });
-
-.profile-box-wrap
+.page-title-wrap: .page-title
+  h1 = t('user.edit.title')
+.profile-edit
   .hover-border
-    .profile-box
-      header Update your Profile
+    .profile-edit__box
       - present(@user) do |user|
         = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
           .field
             .label = f.label :email
-            .text  = f.text_field :email, placeholder: 'Your E-mail'
-          .field.name
-            .label = f.label :first_name, 'Name'
-            .text.first  = f.text_field :first_name, placeholder: 'First Name'
-            .text.last  = f.text_field :last_name, placeholder: 'Last Name'
+            .text  = f.text_field :email, placeholder: t('user.edit.placeholder.email')
+
+          .field
+            .label = f.label :first_name, t('user.edit.placeholder.name')
+            .first-name  = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
+            .last-name  = f.text_field :last_name, placeholder: t('user.edit.placeholder.last_name')
 
           .field.date
             .label  = f.label :birth_date
@@ -23,7 +24,7 @@ javascript:
 
           .field
             .label    = f.label :bio
-            .textarea = f.text_area :bio, placeholder: 'Say something about yourself...'
+            .textarea = f.text_area :bio, placeholder: t('user.edit.placeholder.bio')
 
           .field
             .label = f.label :country
@@ -38,12 +39,13 @@ javascript:
               .facebook
                 .icon-container
                   .icon-facebook
-                .text = f.text_field :facebook_link, placeholder: 'Facebook Link'
+                .text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook_link')
+
             .social
               .twitter
                 .icon-container
                   .icon-twitter
-                .text = f.text_field :twitter_handle, placeholder: 'Twitter Handle'
+                .text = f.text_field :twitter_handle, placeholder: t('user.edit.placeholder.twitter_handle')
 
             .field
               .label = f.label :picture

@@ -1,0 +1,79 @@
+// USER PROFILE SIDEBAR
+
+.user-profile .sidebar
+  text-align: center
+  .name
+    margin: 0
+    font-size: emCalc(30px)
+  .tags
+    margin-bottom: 10px
+    font-size: 0.95em
+    color: $green1
+  .location
+    margin-bottom: 10px
+    font-size: 0.8em
+    font-style: italic
+    opacity: 0.6
+  .description
+    margin: 0 0 5px 0
+    opacity: 0.4
+    @extend %quotes
+  .profile_picture
+    +box-shadow($shadow-color 0px 1px 2px 0px)
+    +circular(150px)
+    display: block
+  .icons
+    margin-bottom: 20px
+  .share
+    margin-bottom: 20px
+    a
+      color: $green1
+      padding-left: 25px
+      padding-right: 25px
+      height: 40px
+      @extend %opaque-button
+
+// USER PROFILE CONTENT
+
+.profile-edit
+  @extend %profile-box-wrap
+
+.profile-edit__box
+  @extend %profile-box
+
+.user-profile .content
+  padding-top: 40px
+
+.user-profile .page-title
+  h1
+    font-weight: 300
+    font-size: 2rem
+  a
+    padding-left: 5px
+    font-weight: normal
+    font-size: 1rem
+    color: $green1
+    &:hover
+      text-decoration: underline
+
+#adds-story
+  display: none
+
+.user-profile .stories
+  .details-wrap
+    +hover-border
+    margin-bottom: emCalc(20px)
+  .details-content
+    background-color: white
+    padding: emCalc(20px)
+    +grey-box-shadow
+
+.story
+  font-weight: 300
+  font-size: 16px
+  line-height: 20px
+  color: #4A4A4A
+  .dates
+    margin-top: 10px
+    text-align: right
+    line-height: 30px

@@ -1,3 +1,6 @@
+- content_for :header
+  = render 'layouts/header'
+
 - content_for :content
   .user-profile
     = render '/layouts/sidebar', user: (@user || current_user)

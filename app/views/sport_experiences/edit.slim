@@ -8,7 +8,7 @@
             - @experience.errors.full_messages.each do |msg|
               li= msg
 
-    .sport-experience-form
+    .new-experience
       - present(@experience) do |experience_presenter|
         = nested_form_for @experience, html: { class: 'custom' } do |f|
           = render 'sport_experiences/form', f: f, experience_presenter: experience_presenter

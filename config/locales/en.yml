@@ -8,6 +8,7 @@ en:
   experience:
     current_date: current
     description: "%{sport} %{role}, %{team}"
+    add_new: 'add new'
     edit:
       success: Sport Experience edited successfully!
       submit: 'Submit'
@@ -47,6 +48,7 @@ en:
     empty: There are no universities.
   user:
     edit:
+      title: 'Edit profile'
       message: 'edit profile'
       submit: 'Submit'
       cancel: 'Cancel'
@@ -54,6 +56,15 @@ en:
       errors:
         one: '1 error prohibited this user from being saved:'
         other: "%{count} errors prohibited this user from being saved:"
+      placeholder:
+        bio: 'Say something about yourself...'
+        email: 'Your E-mail'
+        facebook_link: 'Facebook Link'
+        first_name: 'First name'
+        last_name: 'Last name'
+        name: 'Name'
+        twitter_handle: 'Twitter Handle'
+
   share:
     twitter:
       button: 'Share on twitter'

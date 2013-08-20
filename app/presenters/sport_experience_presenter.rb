@@ -82,6 +82,24 @@ class SportExperiencePresenter < RailsPresenter::Base
     end
   end
 
+  def title
+    if persisted?
+      h.t('experience.form.edit.title')
+    else
+      h.t('experience.form.new.title')
+    end
+  end
+
+  def submit(form)
+    form.submit h.t('experience.edit.submit'), class: "button submit"
+  end
+
+  def cancel(form)
+    if !persisted?
+      form.button h.t('experience.edit.cancel'), class: "button cancel"
+    end
+  end
+
   def description
     h.t 'experience.description', sport: sport.name, role: sport_role.name, team: team
   end
