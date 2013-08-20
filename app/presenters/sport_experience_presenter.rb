@@ -90,11 +90,11 @@ class SportExperiencePresenter < RailsPresenter::Base
     end
   end
 
-  def submit form
+  def submit(form)
     form.submit h.t('experience.edit.submit'), class: "button submit"
   end
 
-  def cancel form
+  def cancel(form)
     if !persisted?
       form.button h.t('experience.edit.cancel'), class: "button cancel"
     end
