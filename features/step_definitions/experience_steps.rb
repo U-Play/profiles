@@ -1,15 +1,15 @@
 def fill_experience_fields
-  fill_in 'sport_experience_team', with: 'Team Zero'
-  select(Date.today.year,      from: 'sport_experience_start_date_1i')
-  select(Sport.first.name,     from: 'sport_experience_sport_id')
-  select(SportRole.first.name, from: 'sport_experience_sport_role_id')
+  fill_in 'experience_team', with: 'Team Zero'
+  select(Date.today.year,      from: 'experience_start_date_1i')
+  select(Sport.first.name,     from: 'experience_sport_id')
+  select(SportRole.first.name, from: 'experience_sport_role_id')
 end
 
 def fill_tournament_fields
   tournament = build :tournament
-  find(:css, "input[id^='sport_experience_tournaments_attributes_'][id$='_achievements']", ).set(tournament.achievements)
-  find(:css, "input[id^='sport_experience_tournaments_attributes_'][id$='_name']").set(tournament.name)
-  find(:css, "select[id^='sport_experience_tournaments_attributes_'][id$='_award_date_1i']").select(tournament.award_date.year)
+  find(:css, "input[id^='experience_tournaments_attributes_'][id$='_achievements']", ).set(tournament.achievements)
+  find(:css, "input[id^='experience_tournaments_attributes_'][id$='_name']").set(tournament.name)
+  find(:css, "select[id^='experience_tournaments_attributes_'][id$='_award_date_1i']").select(tournament.award_date.year)
 end
 
 Given(/^I am at my profile's new experience page$/) do
@@ -27,7 +27,7 @@ Then(/^I should see a creation success message$/) do
 end
 
 When(/^I leave a required field blank for an experience$/) do
-  fill_in 'sport_experience_team', with: ''
+  fill_in 'experience_team', with: ''
   click_on I18n.t('experience.edit.submit')
 end
 
@@ -42,19 +42,19 @@ When(/^I fill in an experience with a tournament$/) do
   # https://github.com/thoughtbot/capybara-webkit/issues/494
   #
   # workaround below:
-  page.execute_script("$('form#new_sport_experience').submit()")
+  page.execute_script("$('form#new_experience').submit()")
 end
 
 Given(/^I have an experience$/) do
-  @experience = create(:sport_experience, user_id: @user.id)
+  @experience = create(:experience, user_id: @user.id)
 end
 
 Given(/^I am at an experience's edit page$/) do
-  visit edit_sport_experience_path(@experience)
+  visit edit_experience_path(@experience)
 end
 
 When(/^I edit the experience's sport$/) do
-  select(Sport.last.name, from: 'sport_experience_sport_id')
+  select(Sport.last.name, from: 'experience_sport_id')
   click_on 'Submit'
 end
 

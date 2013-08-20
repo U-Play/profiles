@@ -5,11 +5,11 @@ class CreateTournaments < ActiveRecord::Migration
       t.text :achievements
       t.date :award_date
       t.string :icon
-      t.references :sport_experience, :null => false
+      t.references :experience, :null => false
       t.datetime :deleted_at
 
       t.timestamps
     end
-    add_index :tournaments, :sport_experience_id
+    add_index :tournaments, :experience_id
   end
 end

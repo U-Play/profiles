@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     authorize! :read, @user
 
     if @user == current_user
-      set_new_sport_experience
+      set_new_experience
     end
   end
 
@@ -40,10 +40,10 @@ class UsersController < ApplicationController
     flash.now[:alert] = @user.errors.full_messages.first
   end
 
-  def set_new_sport_experience
-    params = flash[:new_sport_experience_params]
+  def set_new_experience
+    params = flash[:new_experience_params]
     @experience_hide = params.nil?
-    @new_experience = current_user.sport_experiences.build(params)
+    @new_experience = current_user.experiences.build(params)
   end
 
 end

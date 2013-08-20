@@ -5,6 +5,6 @@
 - present @user do |user|
   .stories
     #adds-story data-hide="#{@experience_hide}"
-      = render 'sport_experiences/new', experience: @new_experience
-    - user.sport_experiences.each do |experience_pres|
-      = render 'sport_experiences/show', experience_pres: experience_pres
+      = render 'experiences/new', experience: @new_experience
+    - user.experiences.each do |experience_pres|
+      = render 'experiences/show', experience_pres: experience_pres

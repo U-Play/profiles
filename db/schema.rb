@@ -29,13 +29,7 @@ ActiveRecord::Schema.define(:version => 20130820144840) do
     t.datetime "deleted_at"
   end
 
-  create_table "icons", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "sport_experiences", :force => true do |t|
+  create_table "experiences", :force => true do |t|
     t.string   "position"
     t.string   "team"
     t.date     "start_date"
@@ -49,9 +43,15 @@ ActiveRecord::Schema.define(:version => 20130820144840) do
     t.datetime "updated_at",                       :null => false
   end
 
-  add_index "sport_experiences", ["sport_id"], :name => "index_sport_experiences_on_sport_id"
-  add_index "sport_experiences", ["sport_role_id"], :name => "index_sport_experiences_on_sport_role_id"
-  add_index "sport_experiences", ["user_id"], :name => "index_sport_experiences_on_user_id"
+  add_index "experiences", ["sport_id"], :name => "index_experiences_on_sport_id"
+  add_index "experiences", ["sport_role_id"], :name => "index_experiences_on_sport_role_id"
+  add_index "experiences", ["user_id"], :name => "index_experiences_on_user_id"
+
+  create_table "icons", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sport_roles", :force => true do |t|
     t.string   "name",        :default => "", :null => false
@@ -73,14 +73,14 @@ ActiveRecord::Schema.define(:version => 20130820144840) do
     t.string   "name"
     t.text     "achievements"
     t.date     "award_date"
-    t.integer  "sport_experience_id", :null => false
+    t.integer  "experience_id", :null => false
     t.datetime "deleted_at"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "icon_id"
   end
 
-  add_index "tournaments", ["sport_experience_id"], :name => "index_tournaments_on_sport_experience_id"
+  add_index "tournaments", ["experience_id"], :name => "index_tournaments_on_experience_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

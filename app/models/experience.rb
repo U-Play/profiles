@@ -1,4 +1,4 @@
-class SportExperience < ActiveRecord::Base
+class Experience < ActiveRecord::Base
   include ParanoiaInterface
 
   ## Relations ##

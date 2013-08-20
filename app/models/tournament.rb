@@ -2,7 +2,7 @@ class Tournament < ActiveRecord::Base
   include ParanoiaInterface
 
   ## Relations ##
-  belongs_to :sport_experience
+  belongs_to :experience
   belongs_to :icon
 
   ## Attributes ##
@@ -11,8 +11,8 @@ class Tournament < ActiveRecord::Base
                   :icon,
                   :icon_id,
                   :name,
-                  :sport_experience,
-                  :sport_experience_id
+                  :experience,
+                  :experience_id
 
 
   ## Validations ##

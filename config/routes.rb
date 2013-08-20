@@ -13,7 +13,7 @@ Profiles::Application.routes.draw do
     get   '/edit' => 'users#edit', as: :edit_my_profile
     put   '/:id' => 'users#update'
 
-    resources :sport_experiences, only: [:create, :edit, :update], path: 'experiences'
+    resources :experiences, only: [:create, :edit, :update]
   end
 
   root to: 'pages#home'

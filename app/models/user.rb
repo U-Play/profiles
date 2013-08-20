@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   include ParanoiaInterface
 
   has_many :authorizations
-  has_many :sport_experiences, :dependent => :destroy, :inverse_of => :user
+  has_many :experiences, :dependent => :destroy, :inverse_of => :user
 
   devise  :database_authenticatable,
           :omniauthable,
@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   attr_reader :picture_remote_url
 
   def sports
-    Sport.joins(:sport_experiences).where(sport_experiences: {user_id: id})
+    Sport.joins(:experiences).where(experiences: {user_id: id})
   end
 
   private

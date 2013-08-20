@@ -14,6 +14,6 @@ class Ability
 
   def registered_user
     can [:me, :manage], User, :id => @user.id
-    can :manage, SportExperience, :user_id => @user.id
+    can :manage, Experience, :user_id => @user.id
   end
 end

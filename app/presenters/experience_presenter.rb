@@ -1,9 +1,9 @@
-class SportExperiencePresenter < RailsPresenter::Base
+class ExperiencePresenter < RailsPresenter::Base
   present :sport
   present :sport_role
   present :tournaments
 
-  ########## ExperienceSport Form helpers ##########
+  ########## Experience Form helpers ##########
   def exp_start_date(exp_form)
     exp_form.date_select  :start_date,
                           discard_month: true,
@@ -129,6 +129,6 @@ class SportExperiencePresenter < RailsPresenter::Base
   end
 
   def edit_path
-    h.edit_sport_experience_path(id)
+    h.edit_experience_path(id)
   end
 end

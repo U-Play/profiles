@@ -2,7 +2,7 @@ class SportRole < ActiveRecord::Base
   include ParanoiaInterface
 
   ## Relations ##
-  has_many :sport_experiences
+  has_many :experiences
 
   ## Attributes ##
   attr_accessible :description, 
