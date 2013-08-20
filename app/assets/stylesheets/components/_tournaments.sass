@@ -1,23 +1,52 @@
-.new-experience
+.tournament__wrap
+  +grid-row()
+  .tournament__icon
+    +grid-column($columns: 1, $collapse: true)
+  .tournament__content
+    +grid-column($columns: 11, $collapse: true)
+    .tournament__name
+      +grid-row()
+    .tournament__achievements
+      +grid-row()
 
+.tournament__wrap
+  padding-top: 8px
+  margin-left: 15px
+
+.tournament__icon
+  width: 28px
+
+.tournament__name
+  font-weight: 400
+
+
+.new-experience
   .add-button, .remove
     text-align: right
-    a
-      @extend .button
-      background-position: right center
-      background-repeat: no-repeat
-      padding: 1em 1em 1em 0
-      width: 20px
-      background-color: white
-      &:hover
-        background-color: white
-        +box-shadow(white 0px 0px 0px 0px)
 
   .remove a
-    background-image: image-url('remove.png')
+    @extend %remove-tournament-button
 
   .add-button a
-    background-image: image-url('add.png')
+    @extend %add-tournament-button
 
   .add-text a
     line-height: 2em
+
+  .tournaments .first-line
+    margin-bottom: 10px
+
+  .tournament-fields
+    margin-bottom: 25px
+    .input.name
+      padding-left: 0
+    .input.icon
+      .current img
+        padding-left: 5px
+      ul li
+        img
+          vertical-align: middle
+        span
+          text-transform: capitalize
+    input, .custom.dropdown
+      margin-bottom: 0

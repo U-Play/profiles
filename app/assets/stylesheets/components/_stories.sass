@@ -27,30 +27,38 @@
 
 .story
   +grid-row()
-  .story__dates
-    +grid-column($columns: $dates-columns)
   .story__wrap
-    +grid-column($columns: $profile-box-columns, $collapse: true)
+    +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
 
 .story
   font-weight: 300
-  font-size: 1rem
   line-height: 20px
-  a, p
-    color: $black
-
-.story__dates
-  text-align: right
-  .story__start, .story__end
-    margin: 0 0 0.7rem 0
+  color: $dark_grey
 
 .story__border
   +hover-border
 
 .story__content
   background-color: white
-  padding: emCalc(20px)
+  padding: 15px
   +grey-box-shadow
+
+.story__description
+  font-size: 20px
+  font-weight: 600
+  &:after
+    content: ", "
+
+.story__team
+  font-weight: 400
+  font-size: 20px
+
+.story__dates
+  margin-bottom: 8px
+
+.story__position
+  font-weight: 300
+  margin-bottom: 7px
 
 .story__edit
   position: absolute

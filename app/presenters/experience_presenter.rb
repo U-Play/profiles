@@ -65,8 +65,7 @@ class ExperiencePresenter < RailsPresenter::Base
     tour_form.collection_select :icon_id,
                                 selectable_icons,
                                 :id,
-                                :name,
-                                prompt: h.t( 'experience.form.placeholders.icon' )
+                                :name
   end
 
   def start_year
@@ -79,6 +78,16 @@ class ExperiencePresenter < RailsPresenter::Base
     elsif end_date.present?
       year = end_date.year
       return year if year != start_year
+    end
+  end
+
+  def date_range
+    if ongoing
+      h.t('experience.date.ongoing', start: start_date.year)
+    elsif end_date.present? && end_date.year == start_date.year
+      h.t('experience.date.single_year', year: end_date.year)
+    else
+      h.t('experience.date.range', start: start_date.year, end: end_date.year)
     end
   end
 
@@ -101,7 +110,7 @@ class ExperiencePresenter < RailsPresenter::Base
   end
 
   def description
-    h.t 'experience.description', sport: sport.name, role: sport_role.name, team: team
+    h.t 'experience.description', sport: sport.name, role: sport_role.name
   end
 
   def nil_formatter

@@ -27,9 +27,9 @@
       .remove
         +grid-column($columns: 2)
       .name
-        +grid-column($columns: 8, $collapse: true)
+        +grid-column($columns: 7, $collapse: true)
       .year
-        +grid-column($columns: 2, $collapse: true)
+        +grid-column($columns: 3, $collapse: true)
     .second-line
       +grid-row($behavior: nest-collapse)
       .icon
@@ -61,7 +61,12 @@
   .new-experience__fields
     .input:not(:first-child)
       padding-left: 10px
+
   .new-experience__box
     @extend %profile-box
     .new-experience__actions .button
       @extend %action-button
+  .icon
+    span
+      height: 40px
+      vertical-align: middle

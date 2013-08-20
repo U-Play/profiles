@@ -67,10 +67,10 @@ sports =  [
   SportRole.create([{ name: 'Athlete' }, { name: 'Coach' }])
 
 icons = [
+      { name: 'star' },
       { name: 'gold' },
       { name: 'silver' },
-      { name: 'bronze' },
-      { name: 'star' }
+      { name: 'bronze' }
 ]
 
 icons.each do |icon|

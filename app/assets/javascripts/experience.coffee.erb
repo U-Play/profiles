@@ -1,0 +1,32 @@
+toggle_adds_story = (event) ->
+  event.preventDefault()
+  $('#adds-story').slideToggle()
+
+$('#adds-story__button').on 'click', toggle_adds_story
+$('#adds-story .cancel').on 'click', toggle_adds_story
+
+replace_tournament_icon = (elem, use_text) =>
+  img_name = elem.text()
+  img_url = "/assets/tournament_icons/#{img_name}.png"
+  $.get(img_url).done =>
+    elem.empty()
+    elem.append "<img src='#{img_url}' alt='#{img_name}' />"
+    elem.append "<span class='cena'>#{img_name}</span>" if use_text
+
+
+
+display_tournament_icons = (field) ->
+  field.on 'change.fndtn.forms', '.icon select', (event) ->
+    return false
+  field.find('.icon ul li').each ->
+    replace_tournament_icon($(this), true)
+  current = field.find('.icon .current')
+  replace_tournament_icon(current, false)
+
+$('#nested-form-tournaments').on 'nested:fieldAdded', (event) ->
+  $(document).foundation()
+  display_tournament_icons(event.field)
+
+$(document).ready ->
+  $('#nested-form-tournaments .fields').each ->
+    display_tournament_icons($(this))
