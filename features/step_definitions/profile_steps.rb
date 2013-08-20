@@ -6,7 +6,7 @@ end
 def user_edit_changes
   changes = Hash.new
   changes["user_first_name"] = "New Name"
-  changes["user_bio"] ="New Bio"
+  changes["user_quote"] ="New Quote"
   changes
 end
 
@@ -40,7 +40,7 @@ end
 
 Then(/^I should see (?:his|all my) information$/) do
   page.should have_content @user.full_name
-  page.should have_content @user.bio
+  page.should have_content @user.quote
 end
 
 Then(/^I should see my facebook name$/) do
