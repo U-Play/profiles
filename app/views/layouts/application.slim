@@ -28,13 +28,13 @@ body
   .background-image
     = image_tag 'bg.jpg'
   .top-border
+
   - if content_for?(:header)
     = yield(:header)
 
   - if content_for?(:content)
     = yield(:content)
   - else
-    = render '/layouts/flash', flash: flash
     = yield
 
   = javascript_include_tag "application"
