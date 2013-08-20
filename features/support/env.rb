@@ -6,6 +6,7 @@
 
 require 'cucumber/rails'
 Capybara.javascript_driver = :webkit
+Capybara.ignore_hidden_elements = nil
 
 # Adds factory girl methods to cucumber
 module Cucumber

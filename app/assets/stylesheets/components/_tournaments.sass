@@ -1,0 +1,23 @@
+.new-experience
+
+  .add-button, .remove
+    text-align: right
+    a
+      @extend .button
+      background-position: right center
+      background-repeat: no-repeat
+      padding: 1em 1em 1em 0
+      width: 20px
+      background-color: white
+      &:hover
+        background-color: white
+        +box-shadow(white 0px 0px 0px 0px)
+
+  .remove a
+    background-image: image-url('remove.png')
+
+  .add-button a
+    background-image: image-url('add.png')
+
+  .add-text a
+    line-height: 2em

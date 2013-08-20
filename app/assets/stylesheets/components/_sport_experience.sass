@@ -6,7 +6,7 @@
     +grid-column($columns: $dates-columns, $collapse: true)
   .new-experience__fields
     +grid-column($columns: $profile-box-columns, $collapse: true)
-  .first_line
+  .first-line
     +grid-row($behavior: nest-collapse)
     .sport
       +grid-column($columns: 5, $collapse: true)
@@ -14,28 +14,28 @@
       +grid-column($columns: 3, $collapse: true)
     .position
       +grid-column($columns: 4, $collapse: true)
-  .second_line
+  .second-line
     +grid-row($behavior: nest-collapse)
     .team
       +grid-column($columns: 12, $collapse: true)
   .tournaments
     +grid-row()
     .tournament-fields
-      +grid-column($columns: $profile-box-columns, $collapse: true)
-    .first_line
+      +grid-column($columns: 12, $collapse: true)
+    .first-line
       +grid-row($behavior: nest-collapse)
       .remove
-        +grid-column($columns: 2, $collapse: true)
+        +grid-column($columns: 2)
       .name
-        +grid-column($columns: 6, $collapse: true)
+        +grid-column($columns: 8, $collapse: true)
       .year
         +grid-column($columns: 2, $collapse: true)
-    .second_line
+    .second-line
       +grid-row($behavior: nest-collapse)
-      .achievements
-        +grid-column($columns: 6, $collapse: true, $offset: 2)
       .icon
-        +grid-column($columns: 2, $collapse: true)
+        +grid-column($columns: 2, $collapse: true, $offset: 2)
+      .achievements
+        +grid-column($columns: 8, $collapse: true)
 
   .new-experience__actions
     +grid-row($behavior: nest-collapse)
@@ -43,6 +43,13 @@
     .button
       float: right
       margin: 10px 0 0 10px
+
+  .tournament-add
+    +grid-row($behavior: nest-collapse)
+    .add-button
+      +grid-column($columns: 2, $collapse: true)
+    .add-text
+      +grid-column($columns: 10, $collapse: true)
 
 .new-experience
   padding-top: 20px

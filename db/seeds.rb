@@ -1,6 +1,6 @@
 sports =  [
             # WINTER UNIVERSIADE COMPULSORY SPORTS PROGRAMME
-            { name: 'Alpine Skiing' }, 
+            { name: 'Alpine Skiing' },
             { name: 'Biathlon' },
             { name: 'Cross-Country Skiing' },
             { name: 'Curling' },
@@ -26,7 +26,7 @@ sports =  [
             { name: 'Table Tennis' },
             { name: 'Tennis' },
             { name: 'Volleyball' },
-            # WORLD UNIVERSITY CHAMPIONSHIPS SPORTS PROGRAMME 
+            # WORLD UNIVERSITY CHAMPIONSHIPS SPORTS PROGRAMME
             { name: 'American Football' },
             { name: 'Archery' },
             { name: 'Badminton' },
@@ -67,3 +67,14 @@ sports =  [
           ]
   Sport.create(sports)
   SportRole.create([{ name: 'Player' }, { name: 'Coach' }])
+
+icons = [
+      { name: 'gold' },
+      { name: 'silver' },
+      { name: 'bronze' },
+      { name: 'star' }
+]
+
+icons.each do |icon|
+  Icon.find_or_create_by_name(icon)
+end

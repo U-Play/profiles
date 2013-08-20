@@ -6,12 +6,12 @@
   .new-experience__box
     header = experience_presenter.title
 
-    .first_line
+    .first-line
       .input.sport  = experience_presenter.exp_sport f
       .input.role   = experience_presenter.exp_role f
       .input.position   = experience_presenter.exp_position f
 
-    .second_line
+    .second-line
       .input.team   = experience_presenter.exp_team f
 
     = render 'tournaments/form', f: f, experience_presenter: experience_presenter

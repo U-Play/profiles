@@ -25,6 +25,7 @@ class SportExperiencesController < ApplicationController
     if @experience.update_attributes(params[:sport_experience])
       redirect_to my_profile_path, notice: t('experience.edit.success')
     else
+      flash.now[:alert] = @experience.errors.full_messages.first
       render :edit
     end
   end
