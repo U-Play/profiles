@@ -6,7 +6,7 @@ en:
     form:
       title: Tournaments
   experience:
-    date_current: current
+    current_date: current
     description: "%{sport} %{role}, %{team}"
     edit:
       success: Sport Experience edited successfully!

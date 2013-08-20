@@ -33,7 +33,7 @@ describe SportExperiencePresenter do
       sport_experience = build(:sport_experience, end_date: nil, ongoing: true)
       presenter = SportExperiencePresenter.new(sport_experience, view)
 
-      presenter.end_year.should eq t('experience.date_present')
+      presenter.end_year.should eq t('experience.current_date')
     end
 
     context "end date exists" do
