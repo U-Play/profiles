@@ -57,7 +57,7 @@ en:
         one: '1 error prohibited this user from being saved:'
         other: "%{count} errors prohibited this user from being saved:"
       placeholder:
-        bio: 'Say something about yourself...'
+        quote: It's not whether you get knocked down, it's whether you get up.
         email: 'Your E-mail'
         facebook_link: 'Facebook Link'
         first_name: 'First name'

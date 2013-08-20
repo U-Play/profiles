@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813155335) do
+ActiveRecord::Schema.define(:version => 20130820144840) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20130813155335) do
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birth_date"
-    t.text     "bio"
+    t.text     "quote"
     t.string   "facebook_link"
     t.string   "twitter_handle"
     t.string   "country"
