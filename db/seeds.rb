@@ -66,7 +66,7 @@ sports =  [
             { name: 'Wrestling' }
           ]
   Sport.create(sports)
-  SportRole.create([{ name: 'Player' }, { name: 'Coach' }])
+  SportRole.create([{ name: 'Athlete' }, { name: 'Coach' }])
 
 icons = [
       { name: 'gold' },
