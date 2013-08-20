@@ -3,15 +3,16 @@ javascript:
     mixpanel_events.home_page();
   });
 
-.center-logo
+.landing__logo
+  = image_tag 'profiles-logo-big.png'
 
-.profile-sample
+.landing__invite
+  p.invite = t('landing.invite')
+  p.second-invite = t('landing.second-invite')
 
-.get-your-profile
-  section
-    .welcome-image
-  section
-    .register
-      h2 = t 'get-your-profile.invite'
-      .button-wrap
-        = link_to t('get-your-profile.facebook'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+.landing__sign
+    = link_to t('landing.facebook'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+
+.landing__sample
+  = image_tag 'profile-sample.png'
+

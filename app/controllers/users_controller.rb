@@ -45,8 +45,8 @@ class UsersController < ApplicationController
 
   def set_new_sport_experience
     params = flash[:new_sport_experience_params]
-    @experience_form_hide = params.nil?
-    @new_sport_experience = current_user.sport_experiences.build(params)
+    @experience_hide = params.nil?
+    @new_experience = current_user.sport_experiences.build(params)
   end
 
 end

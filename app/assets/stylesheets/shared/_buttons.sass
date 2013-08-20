@@ -3,13 +3,13 @@
   +box-shadow(rgba($shadow-color, 0.2) 0px -1px 1px 1px inset)
   font-size: emCalc(23px)
 
-a.facebook-sign-in
-  +primary-button($facebook, $green2)
-  color: white
-
 a.get-a-profile
   +primary-button($dark_green, $black)
   +background-image(linear-gradient(top, $light_green, $dark_green))
+  &:hover
+    text-decoration: none
+    +background-image(linear-gradient(top, $light_green, darken($dark_green, 8%)))
+
 
 input.update-profile
   +button($bg: $blue, $radius: 0)
