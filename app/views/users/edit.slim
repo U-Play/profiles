@@ -9,14 +9,18 @@ javascript:
     .profile-edit__box
       - present(@user) do |user|
         = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
+          .split-field
+            .field
+              .label = f.label :first_name, t('user.edit.label.first_name')
+              .first-name  = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
+
+            .field
+              .label = f.label :last_name, t('user.edit.label.last_name')
+              .last-name  = f.text_field :last_name, placeholder: t('user.edit.placeholder.last_name')
+
           .field
             .label = f.label :email
             .text  = f.text_field :email, placeholder: t('user.edit.placeholder.email')
-
-          .field
-            .label = f.label :first_name, t('user.edit.placeholder.name')
-            .first-name  = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
-            .last-name  = f.text_field :last_name, placeholder: t('user.edit.placeholder.last_name')
 
           .field.date
             .label  = f.label :birth_date
@@ -26,31 +30,31 @@ javascript:
             .label    = f.label :quote
             .textarea = f.text_area :quote, placeholder: t('user.edit.placeholder.quote')
 
-          .field
-            .label = f.label :country
-            .text  = f.text_field :country
+          .split-field
+            .field
+              .label
+                = f.label :university
+              .text  = f.text_field :university
+            .field
+              .label 
+                = f.label :country
+              .text  = f.text_field :country
 
-          .field
-            .label = f.label :university
-            .text  = f.text_field :university
-
-          .social-container
-            .social
-              .facebook
-                .icon-container
-                  .icon-facebook
-                .text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook_link')
-
-            .social
-              .twitter
-                .icon-container
-                  .icon-twitter
-                .text = f.text_field :twitter_handle, placeholder: t('user.edit.placeholder.twitter_handle')
+          .split-field
+            .field
+              .label 
+                label = t('user.edit.label.facebook')
+              .text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook_link')
 
             .field
-              .label = f.label :picture
-              .file  = f.file_field :picture
+              .label 
+                label = t('user.edit.label.twitter')
+              .text = f.text_field :twitter_handle, placeholder: t('user.edit.placeholder.twitter_handle')
+
+          .field
+            .label = f.label :picture
+            .file  = f.file_field :picture
 
           .form-actions
-            = f.submit t('user.edit.submit'), class: 'button submit action'
-            = link_to t('user.edit.cancel'), my_profile_path, class: 'button action'
+            = link_to t('user.edit.cancel'), my_profile_path, class: 'button'
+            = f.submit t('user.edit.submit'), class: 'button submit'

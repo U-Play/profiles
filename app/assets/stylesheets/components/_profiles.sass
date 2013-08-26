@@ -37,11 +37,28 @@
 
 .profile-edit
   @extend %profile-box-wrap
-
 .profile-edit__box
   @extend %profile-box
   .action, .file-upload__browse
     @extend %action-button
+
+.profile-edit 
+  .field
+    width: 100%
+  .label
+    width: 100%
+  .file
+    width: 100%
+
+  .split-field .field
+    display: inline-block
+    width: 49%
+    &:first-child
+      margin-right: 2%
+
+.profile-edit .date .select .custom.dropdown
+  display: inline-block
+  width: 32.8%
 
 .user-profile .page-title
   h1
