@@ -101,11 +101,17 @@ body
 
     .text, .select, .textarea
       +grid-column($columns: 10, $collapse: true)
+
     .file
+      +grid-column($columns: 10, $collapse: true)
+      input[type=text], input[type=button]
+        box-sizing: border-box
+        display: inline-block
       input[type=text]
-        +grid-column($columns: 8)
+        width: 65%
+        margin-right: 5%
       input[type=button]
-        +grid-column($columns: 2)
+        width: 30%
     .textarea
       textarea
         height: 120px
