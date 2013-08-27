@@ -7,17 +7,14 @@ class UsersController < ApplicationController
     authorize! :read, @user
 
     if @user == current_user
-      redirect_to my_profile_path
+      set_new_sport_experience
     end
   end
 
   def me
-    @user = current_user
-    authorize! :me, @user
-
-    set_new_sport_experience
-
-    render :view
+    authorize! :me, current_user
+    flash.keep
+    redirect_to profile_path(current_user.id)
   end
 
   def edit

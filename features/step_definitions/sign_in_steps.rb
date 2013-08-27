@@ -32,7 +32,7 @@ Then(/^I should be redirected to my profile edit page$/) do
 end
 
 Then(/^I should be redirected to my profile page$/) do
-  current_path.should eq my_profile_path
+  current_path.should eq profile_path(facebook_user.id)
 end
 
 Given(/^my profile edition is not finished$/) do
