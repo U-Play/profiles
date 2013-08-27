@@ -1,3 +1,22 @@
+%invite-button
+  +button($bg: $dark_green, $radius: 5px, $full-width: true)
+  +box-shadow(rgba($black, 0.2) 0px -1px 1px 1px inset)
+  font-size: emCalc(23px)
+  +background-image(linear-gradient(top, $light_green, $dark_green))
+  &:hover
+    text-decoration: none
+    +background-image(linear-gradient(top, $light_green, darken($dark_green, 5%)))
+
+%action-button
+  background-color: $light_grey
+  border: 0
+  +radius(3px)
+  +box-shadow(none)
+  color: $white
+  font-weight: 400
+  font-size: 1rem
+  padding: 0.7em 1.5em
+
 %dashed-button
   padding: 10px
   margin: 0
@@ -45,7 +64,7 @@
 
   label
     font-weight: 300
-    font-size: emCalc(15px)
+    font-size: 0.9rem
 
 %opaque-button
   +opacity(0.3)

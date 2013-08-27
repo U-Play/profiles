@@ -48,11 +48,12 @@ en:
     empty: There are no universities.
   user:
     edit:
-      title: 'Edit profile'
+      browse: 'Browse'
+      cancel: 'Cancel'
       message: 'edit profile'
       submit: 'Submit'
-      cancel: 'Cancel'
       success: User edited successfully!
+      title: 'Edit profile'
       errors:
         one: '1 error prohibited this user from being saved:'
         other: "%{count} errors prohibited this user from being saved:"

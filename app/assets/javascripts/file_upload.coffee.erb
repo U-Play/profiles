@@ -1,6 +1,6 @@
 $("input[type=file]").each ->
   @proxy_txt = $('<input type="text"   value="'+$(this).val()+'" />')
-  @proxy_btn = $('<input type="button" class="button" value="Choose" />')
+  @proxy_btn = $('<input type="button" class="button file-upload__browse" value="<%= I18n.t('user.edit.browse') %>" />')
 
   update_proxy = =>
     sanitized_value = $(this).val().replace 'C:\\fakepath\\', ''
