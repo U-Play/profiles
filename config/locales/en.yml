@@ -8,16 +8,16 @@ en:
   experience:
     current_date: current
     description: "%{sport} %{role}, %{team}"
-    add_new: 'add new'
+    add_new: add new
     edit:
-      success: Sport Experience edited successfully!
-      submit: 'Submit'
-      cancel: 'Cancel'
+      success: Experience edited successfully!
+      submit: Submit
+      cancel: Cancel
     form:
       new:
-        title: New Sports Experience
+        title: New Experience
       edit:
-        title: Edit Sports Experience
+        title: Edit Experience
       labels:
         add_more: Add More
       placeholders:
@@ -34,11 +34,11 @@ en:
       errors:
        date_before: "can't be before %{date}"
     new:
-      success: Sport Experience created successfully!
+      success: Experience created successfully!
     save:
       errors:
-        one: '1 error prohibited this sport experience from being saved:'
-        other: "%{count} errors prohibited this sport experience from being saved:"
+        one: '1 error prohibited this experience from being saved:'
+        other: "%{count} errors prohibited this experience from being saved:"
   landing:
     facebook: Sign in with Facebook
     invite: Show your game!

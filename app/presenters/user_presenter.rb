@@ -1,5 +1,5 @@
 class UserPresenter < RailsPresenter::Base
-  present :sport_experiences do
+  present :experiences do
     includes :tournaments, :sport, :sport_role
   end
 
@@ -23,8 +23,8 @@ class UserPresenter < RailsPresenter::Base
     end
   end
 
-  def new_sport_experience
-    target.sport_experiences.build
+  def new_experience
+    target.experiences.build
   end
 
   def referral_url

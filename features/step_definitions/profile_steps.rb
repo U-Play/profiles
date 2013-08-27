@@ -18,12 +18,12 @@ Given(/^there is a user$/) do
   @user = UserPresenter.new(create(:user), self)
 end
 
-Given(/^there is a user with sport experiences$/) do
-  experience = create(:sport_experience)
+Given(/^there is a user with experiences$/) do
+  experience = create(:experience)
   @user = UserPresenter.new(experience.user, self)
 end
 
-Given(/^I have sport experiences$/) do
+Given(/^I have experiences$/) do
   2.times do
     step "I am at my profile's new experience page"
     step "I fill in an experience"
@@ -74,8 +74,8 @@ Then(/^I should be redirected to the root page$/) do
   current_path.should eq root_path
 end
 
-Then(/^I should see (?:his|my) sport experiences$/) do
-  @user.sport_experiences.each_with_index do |experience, index|
+Then(/^I should see (?:his|my) experiences$/) do
+  @user.experiences.each_with_index do |experience, index|
     selector = all(".story")[index]
     selector.should have_content experience.team
     selector.should have_content experience.sport.name

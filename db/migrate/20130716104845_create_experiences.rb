@@ -1,6 +1,6 @@
-class CreateSportExperiences < ActiveRecord::Migration
+class CreateExperiences < ActiveRecord::Migration
   def change
-    create_table :sport_experiences do |t|
+    create_table :experiences do |t|
       t.string :university
       t.string :position
       t.string :team
@@ -14,8 +14,8 @@ class CreateSportExperiences < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :sport_experiences, :sport_role_id
-    add_index :sport_experiences, :sport_id
-    add_index :sport_experiences, :user_id
+    add_index :experiences, :sport_role_id
+    add_index :experiences, :sport_id
+    add_index :experiences, :user_id
   end
 end

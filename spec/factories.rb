@@ -26,7 +26,7 @@ FactoryGirl.define do
     description 'Just for fun'
   end
 
-  factory :sport_experience do
+  factory :experience do
     association :sport
     association :sport_role
     association :user
@@ -43,7 +43,7 @@ FactoryGirl.define do
   end
 
   factory :tournament do
-    association :sport_experience
+    association :experience
     association :icon
     name 'WUC'
     achievements '1st place, MVP'
