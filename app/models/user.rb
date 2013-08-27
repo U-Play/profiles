@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   validates :token, uniqueness: true
 
   has_attached_file :picture,
-                    styles: { normal: '200x200>'},
+                    styles: { sidebar: '200x200#' },
                     default_url: '/assets/default-profile-picture.png'
 
   attr_reader :picture_remote_url
