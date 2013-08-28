@@ -38,33 +38,20 @@
 %profile-box
   +grey-box-shadow
   background: $white
-  padding: 30px 20px 20px 20px
-
-  input[type=text], textarea, .custom.dropdown
-    +box-shadow($profile-box-field-shadow 0px 1px 2px 0px)
-    border: 1px solid $profile-box-field-border
-    border-radius: 3px
-    font-size: emCalc(15px)
-    font-weight: 300
-    &:focus
-      +box-shadow($profile-box-field-focus-shadow 0px 0px 5px 0px)
-      background-color: $profile-box-field-focus-background
-      border-color: $profile-box-field-focus-border
-
-  .field > *
-    padding: 0
-    margin-bottom: 10px
-
-  > header
-    font-weight: 500
-    font-size: 1.5em
-    color: $green
-    line-height: 40px
-    margin-bottom: 10px
-
+  padding: 25px 15px
   label
-    font-weight: 300
-    font-size: 0.9rem
+    font-size: 1em
+  input[type=button], .button
+    margin-left: 2%
+    width: 28%  
+  .file
+    input[type=text], input[type=button]
+      display: inline-block
+    input[type=text]
+      width: 70%
+  .form-actions
+    margin-top: 20px
+    text-align: right
 
 %opaque-button
   +opacity(0.3)

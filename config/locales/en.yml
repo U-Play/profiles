@@ -51,30 +51,35 @@ en:
     empty: There are no universities.
   user:
     edit:
-      browse: 'Browse'
-      cancel: 'Cancel'
-      message: 'edit profile'
-      submit: 'Submit'
+      browse: Browse
+      cancel: Cancel
+      message: edit profile
+      submit: Submit
       success: User edited successfully!
-      title: 'Edit profile'
+      title: Edit profile
       errors:
         one: '1 error prohibited this user from being saved:'
         other: "%{count} errors prohibited this user from being saved:"
+      label:
+        facebook: Facebook
+        first_name: First name
+        last_name: Last name
+        twitter: Twitter
       placeholder:
         quote: It's not whether you get knocked down, it's whether you get up.
-        email: 'Your E-mail'
-        facebook_link: 'Facebook Link'
-        first_name: 'First name'
-        last_name: 'Last name'
-        name: 'Name'
-        twitter_handle: 'Twitter Handle'
+        email: me@email.com
+        facebook_link: Facebook Link
+        first_name: Mathew
+        last_name: Greg
+        name: Name
+        twitter_handle: Twitter Handle
 
   share:
     twitter:
-      button: 'Share on twitter'
-      message: 'Check this out! @uplaypro'
+      button: Share on twitter
+      message: Check this out! @uplaypro
     facebook:
-      button: 'Share on facebook'
-      title: 'UPlayPro'
-      caption: 'Sports stuff'
-      description: 'You know it!'
+      button: Share on facebook
+      title: UPlayPro
+      caption: Sports stuff
+      description: You know it!
