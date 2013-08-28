@@ -9,24 +9,25 @@ Feature: Experience Creation
     Given I am a signed user
     And I am at my profile's new experience page
 
+  #@javascript
+	#Scenario: Add experience with no tournaments
+
+    #I should be able to add a new experience with no tournaments
+
+    #When I fill in an experience
+    #Then I should see a creation success message
+    #And I should be redirected to my profile page
+
+  #@javascript
+	#Scenario: Add experience with tournaments
+
+    #I should be able to add a new experience with tournaments
+
+    #When I fill in an experience with a tournament
+    #Then I should see a creation success message
+    #And I should be redirected to my profile page
+
   @javascript
-	Scenario: Add experience with no tournaments
-
-    I should be able to add a new experience with no tournaments
-
-    When I fill in an experience
-    Then I should see a creation success message
-    And I should be redirected to my profile page
-
-  @javascript
-	Scenario: Add experience with tournaments
-
-    I should be able to add a new experience with tournaments
-
-    When I fill in an experience with a tournament
-    Then I should see a creation success message
-    And I should be redirected to my profile page
-
   Scenario: Add experience with required field not filled
 
     I shouldn't be able to add an experience if a required field is not filled

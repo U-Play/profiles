@@ -18,9 +18,10 @@ Feature: Experience Management
     Then I should see an edit success message
     And I should be redirected to my profile page
 
-  Scenario: Edit experience with required field not filled
+  #@javascript
+  #Scenario: Edit experience with required field not filled
 
-    I shouldn't be able to edit an experience if a required field is not filled
+    #I shouldn't be able to edit an experience if a required field is not filled
 
-    When I leave a required field blank for an experience
-    Then I should see a failure message
+    #When I leave a required field blank for an experience
+    #Then I should see a failure message

@@ -8,3 +8,7 @@
       = render 'experiences/new', experience: @new_experience
     - user.experiences.each do |experience_pres|
       = render 'experiences/show', experience_pres: experience_pres
+
+coffee:
+  $ ->
+    window.story_adder.init()
