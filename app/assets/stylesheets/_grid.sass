@@ -9,21 +9,25 @@ body
     .social
       +grid-row()
 
-#flashes-container
-  +grid-row($behavior: nest-collapse)
+.flashes-container--home
+  position: relative
+  +grid-row()
   .flash
     max-width: 62.5em
     +grid-column($columns: $profile-box-columns, $offset: $root-page-offset)
+    position: absolute !important
 
-.user-profile
-  #flashes-container
-    .flash
-      +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
+.flashes-container
+  +grid-row($behavior: nest-collapse)
+  .flash
+    +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
 
 .brand-wrap
   +grid-row()
   .brand
     +grid-column(3)
+  .flashes-wrap
+    +grid-column(9)
 
 .user-profile
   +grid-row()

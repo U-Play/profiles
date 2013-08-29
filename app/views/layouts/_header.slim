@@ -1,7 +1,8 @@
 .brand-wrap
   .brand
     = link_to image_tag('profiles-logo.png'), my_profile_path
-
+  .flashes-wrap
+    = render '/layouts/flash', flash: flash
   .utilities
     ul.sign
       li.icon-edit = link_to t('user.edit.message'), edit_my_profile_path

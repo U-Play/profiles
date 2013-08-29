@@ -1,5 +1,5 @@
 .landing__logo
-  margin-top: 45px
+  margin-top: 55px
   text-align: center
 
 .background-image
@@ -49,7 +49,22 @@
 
 /** Flash messages */
 
-#flashes-container
+.flashes-container--home
+  position: relative
+  +grid-row()
+  .flash
+    max-width: 62.5em
+    +grid-column($columns: $profile-box-columns, $offset: $root-page-offset)
+    position: absolute !important
+  margin-top: 15px
+
+.flashes-container
+  +grid-row($behavior: nest-collapse)
+  .flash
+    +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
+  margin-top: 70px
+
+.flashes-container, .flashes-container--home
   $flash-colors: success $flash-green, alert $flash-red
   .alert-box
     +grey-box-shadow
@@ -80,6 +95,8 @@
   img
     width: auto
     padding: 0 10px 0 10px
+
+
 
 .utilities
   $height: 45px

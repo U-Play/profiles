@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  layout 'simple'
+
   def home
     redirect_to user_redirect_path(current_user) if current_user
 
