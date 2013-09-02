@@ -60,3 +60,8 @@ module Profiles
     config.assets.version = '1.0'
   end
 end
+
+class Settings < Settingslogic
+  source "#{Rails.root}/config/application.yml"
+  namespace Rails.env
+end

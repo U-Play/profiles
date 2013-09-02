@@ -1,0 +1,21 @@
+defaults: &defaults
+  auto_activate_users: false
+
+development:
+  <<: *defaults
+  auto_activate_users: true
+
+production:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  auto_activate_users: true
+
+staging:
+  <<: *defaults
+  auto_activate_users: true
+
+cucumber:
+  <<: *defaults
+  auto_activate_users: true

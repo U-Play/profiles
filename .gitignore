@@ -36,3 +36,4 @@ bin/cucumber
 /public/system
 *.sublime-project
 *.sublime-workspace
+.spring-project

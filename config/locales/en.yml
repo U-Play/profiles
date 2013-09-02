@@ -55,6 +55,10 @@ en:
     invite: Show your game!
     second-invite: Make your sports profile.
     button: Get your profile
+    wip:
+      greeting: "Hi %{name},"
+      not_ready: "Profiles is not ready yet!"
+      email: "We'll email you when it's available to you!"
   university:
     empty: There are no universities.
   user:
