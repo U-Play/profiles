@@ -18,12 +18,16 @@ test: &test
   pool: 5
   timeout: 5000
 
-production:
+production: &production
   adapter: postgresql
   username: deploy
   pool: 5
   timeout: 5000
   database: uplay_profiles
+
+staging:
+  <<: *production
+  database: uplay_profiles_staging
 
 cucumber:
   <<: *test
