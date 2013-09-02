@@ -11,12 +11,13 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'mixpanel-ruby'
-gem 'paperclip'
+gem "nested_form"
 gem 'slim'
+gem 'settingslogic'
 gem 'rails_presenter'
+gem 'paperclip'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
-gem "nested_form"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

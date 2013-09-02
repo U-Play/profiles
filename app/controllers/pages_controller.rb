@@ -11,4 +11,7 @@ class PagesController < ApplicationController
   def about
   end
 
+  def wip
+  end
+
 end
