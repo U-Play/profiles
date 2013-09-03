@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 
 gem 'capistrano'
+gem 'capistrano-ext'
 gem 'cancan'
 gem 'rvm-capistrano'
 gem 'devise'
@@ -12,7 +13,6 @@ gem 'jquery-rails'
 gem 'mixpanel-ruby'
 gem 'paperclip'
 gem 'slim'
-gem 'sqlite3'
 gem 'rails_presenter'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
@@ -25,6 +25,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'zurb-foundation', '~> 4.0.0'
   gem 'therubyracer', :platforms => :ruby
+end
+
+group :development, :test do
+  gem 'sqlite3'
 end
 
 group :development do

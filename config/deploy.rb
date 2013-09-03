@@ -1,5 +1,11 @@
 require "rvm/capistrano"
 require "bundler/capistrano"
+require 'capistrano/ext/multistage'
+
+set :application, "UPlay Profiles"
+
+set :stages, %w{production staging}
+set :default_stage, "staging"
 
 ssh_options[:forward_agent] = true
 set :bundle_flags, "--deployment"
@@ -10,13 +16,9 @@ set :branch, 'dev'
 # set :ssh_options, { :forward_agent => true }
 set :deploy_via, :remote_cache
 
-set :application, "profiles.uplaypro.com"
-set :deploy_to,"/home/deploy/profiles.git"
 
 set :user, 'deploy'
 set :use_sudo, false
-
-server 'profiles.uplaypro.com', :web, :app, :db, :primary => true
 
 # additional settings
 default_run_options[:pty] = true
