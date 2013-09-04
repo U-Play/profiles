@@ -47,12 +47,9 @@
     +transition-duration(0.5s)
 
 %tournament-button
-  //@extend .button
   background-position: left center
   background-repeat: no-repeat
-  padding-left: 20px
-  background-color: white
-  margin-bottom: 0
+  padding-left: 23px
   &:hover
     background-color: white
     +box-shadow(none)
@@ -60,7 +57,6 @@
 %add-tournament-button
   @extend %tournament-button
   background-image: image-url('add.png')
-
 
 %remove-tournament-button
   @extend %tournament-button

@@ -33,20 +33,29 @@
   .tournaments .first-line
     margin-bottom: 10px
 
-  .tournament-fields
-    margin-bottom: 25px
-    .input.name
-      padding-left: 0
-    .input.icon
-      .current
-        img
-          padding-left: 5px
-        .name
-          display: none
-      ul li
-        img
-          vertical-align: middle
-        span
-          text-transform: capitalize
-    input, .custom.dropdown
-      margin-bottom: 0
+.tournament__fields
+  .remove
+    box-sizing: content-box
+    display: inline-block
+    width: 18%
+  .first-line
+    box-sizing: content-box
+    display: inline-block
+    width: 82%
+
+.tournament__fields
+  .input.name
+    padding-left: 0
+  .input.icon
+    .current 
+      img
+        padding-left: 5px
+      .name
+        display: none
+    ul li
+      img
+        vertical-align: middle
+      span
+        text-transform: capitalize
+  input, .custom.dropdown
+    margin-bottom: 0

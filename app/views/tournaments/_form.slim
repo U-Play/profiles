@@ -3,12 +3,11 @@
 
 .tournaments#nested-form-tournaments
   = f.fields_for :tournaments do |tour_form|
-    .tournament-fields
+    .tournament__fields
+      .input.remove = tour_form.link_to_remove ''
       .first-line
-        .input.remove = tour_form.link_to_remove ''
         .input.name = experience_presenter.tour_name tour_form
         .input.year = experience_presenter.tour_award_date tour_form
-
       .second-line
         .input.icon = experience_presenter.tour_icon tour_form
         .input.achievements = experience_presenter.tour_achievements tour_form
