@@ -64,8 +64,13 @@
 
   .new-experience__box
     @extend %profile-box
-    .new-experience__actions .button
-      @extend %action-button
+    .new-experience__actions 
+      .button
+        @extend %action-button
+      .button.cancel
+        @extend %action-button--empty
+      .button.submit
+        @extend %action-button--primary
   .icon
     span
       height: 40px
