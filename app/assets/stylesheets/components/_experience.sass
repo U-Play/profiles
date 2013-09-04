@@ -1,77 +1,82 @@
+// Grid
+
 .new-experience
   +grid-row()
-  .new-experience__box
-    +grid-column($columns: 12)
-  .new-experience__dates
-    +grid-column($columns: $dates-columns, $collapse: true)
-  .new-experience__fields
-    +grid-column($columns: $profile-box-columns, $collapse: true)
-  .first-line
-    +grid-row($behavior: nest-collapse)
-    .sport
-      +grid-column($columns: 5, $collapse: true)
-    .role
-      +grid-column($columns: 3, $collapse: true)
-    .position
-      +grid-column($columns: 4, $collapse: true)
-  .second-line
-    +grid-row($behavior: nest-collapse)
-    .team
-      +grid-column($columns: 12, $collapse: true)
-  .tournaments
-    +grid-row()
-    .tournament-fields
-      +grid-column($columns: 12, $collapse: true)
-    .first-line
-      +grid-row($behavior: nest-collapse)
-      .remove
-        +grid-column($columns: 2)
-      .name
-        +grid-column($columns: 7, $collapse: true)
-      .year
-        +grid-column($columns: 3, $collapse: true)
-    .second-line
-      +grid-row($behavior: nest-collapse)
-      .icon
-        +grid-column($columns: 2, $collapse: true, $offset: 2)
-      .achievements
-        +grid-column($columns: 8, $collapse: true)
 
-  .new-experience__actions
-    +grid-row($behavior: nest-collapse)
-    +grid-column($columns: 12, $collapse: true)
-    .button
-      float: right
-      margin: 10px 0 0 10px
+.new-experience__fields
+  +grid-column($columns: $profile-box-columns, $collapse: true, $offset: $dates-columns)
+  .field
+    box-sizing: content-box
+    width: 100%
+    .label
+      display: inline-block
+      width: 18%
+    .input
+      display: inline-block
+      width: 82%
+  .field--dates .input
+    width: 41%
 
-  .tournament-add
-    +grid-row($behavior: nest-collapse)
-    .add-button
-      +grid-column($columns: 2, $collapse: true)
-    .add-text
-      +grid-column($columns: 10, $collapse: true)
+
 
 .new-experience
-  padding-top: 20px
-  padding-bottom: 20px
-  .new-experience__dates
-    margin-top: 4.5em
-    .input
-      padding-right: 10px
   .new-experience__fields
-    .input:not(:first-child)
-      padding-left: 10px
-
-  .new-experience__box
     @extend %profile-box
-    .new-experience__actions 
-      .button
-        @extend %action-button
-      .button.cancel
-        @extend %action-button--empty
-      .button.submit
-        @extend %action-button--primary
-  .icon
-    span
-      height: 40px
-      vertical-align: middle
+
+// Fields
+
+.new-experience .new-experience__fields .new-experience__box
+  .custom.dropdown, input[type=text]
+    background: none
+    border: 0
+    border-left: 1px solid $light_grey
+    +radius(0)
+    margin: 0
+  .field
+    +radius(4px)
+    border: 1px solid $light_grey
+    margin-bottom: 10px
+  label
+    padding-right: 0.4rem
+    text-align: right
+
+// Buttons
+
+.new-experience__box
+  .button
+    @extend %action-button
+  .button.cancel
+    @extend %action-button--empty
+  .button.submit
+    @extend %action-button--primary
+  .icon span
+    height: 40px
+    vertical-align: middle
+  .new-experience__actions
+    width: 100%
+    text-align: right
+
+//.new-experience
+  //padding-top: 20px
+  //padding-bottom: 20px
+  //.new-experience__dates
+    //margin-top: 4.5em
+    //.input
+      //padding-right: 10px
+  //.new-experience__fields
+    //.input:not(:first-child)
+      //padding-left: 10px
+
+  //.new-experience__box
+    //@extend %profile-box
+    //.new-experience__actions 
+      //.button
+        //@extend %action-button
+      //.button.cancel
+        //@extend %action-button--empty
+      //.button.submit
+        //@extend %action-button--primary
+  //.icon
+    //span
+      //height: 40px
+      //vertical-align: middle

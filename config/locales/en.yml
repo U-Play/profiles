@@ -27,6 +27,10 @@ en:
         title: Edit Experience
       labels:
         add_more: Add More
+        sport: Sport
+        role: Role
+        postition: Position
+        team: University
       placeholders:
         achievements: Achievements
         end_date: Ongoing
