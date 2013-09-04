@@ -1,14 +1,17 @@
 .story
-  .story__dates
-    .story__start = experience_pres.start_year
-    .story__end   = experience_pres.end_year
   .story__wrap
     .story__border
       .story__content
-        .description = experience_pres.description
+        .story__dates = experience_pres.date_range
+        span.story__description = experience_pres.description
+        span.story__team = experience_pres.team
+        .story__position = experience_pres.position
         - experience_pres.tournaments.each do |tour|
-          b #{tour.name} #{tour.award_date.year}
-          #{tour.achievements}
+          .tournament__wrap
+            .tournament__icon = tour.icon
+            .tournament__content
+              .tournament__name = "#{tour.name} #{tour.award_date.year}"
+              .tournament__achievements = "#{tour.achievements}"
 
       .story__edit
         = link_to image_tag('icons/edit.png'), experience_pres.edit_path

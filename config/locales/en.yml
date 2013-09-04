@@ -10,7 +10,11 @@ en:
       title: Tournaments
   experience:
     current_date: current
-    description: "%{sport} %{role}, %{team}"
+    date:
+      ongoing: "Since %{start}"
+      single_year: "During %{year}"
+      range: "From %{start} to %{end}"
+    description: "%{sport} %{role}"
     add_new: add new
     edit:
       success: Experience edited successfully!
