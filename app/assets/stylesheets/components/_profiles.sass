@@ -39,7 +39,11 @@
   @extend %profile-box-wrap
 .profile-edit__box
   @extend %profile-box
-  .action, .file-upload__browse
+  .button.cancel
+    @extend %action-button--empty
+  .button.submit
+    @extend %action-button--primary
+  .file-upload__browse, .button
     @extend %action-button
 
 .profile-edit 

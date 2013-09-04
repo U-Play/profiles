@@ -1,3 +1,15 @@
+@mixin action-button($color)
+  color: white
+  font-size: 1rem
+  font-weight: 400
+  background: $color
+  +box-shadow(darken($color, 10%) 0 -3px 0 0 inset)
+  padding: 0.7em 1.5em
+  border: 0
+  +radius(3px)
+  &:hover
+    background: darken($color, 5%)
+
 %invite-button
   +button($bg: $dark_green, $radius: 5px, $full-width: true)
   +box-shadow(rgba($black, 0.2) 0px -1px 1px 1px inset)
@@ -7,15 +19,19 @@
     text-decoration: none
     +background-image(linear-gradient(top, $light_green, darken($dark_green, 5%)))
 
-%action-button
-  background-color: $light_grey
-  border: 0
-  +radius(3px)
+%action-button--primary
+  +action-button($green)
+
+%action-button--empty
+  color: $black
+  background: none
+  border: none
   +box-shadow(none)
-  color: $white
-  font-weight: 400
-  font-size: 1rem
-  padding: 0.7em 1.5em
+  &:hover
+    background: none
+
+%action-button
+  +action-button($light_grey)
 
 %dashed-button
   padding: 10px
