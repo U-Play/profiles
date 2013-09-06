@@ -5,8 +5,15 @@
     #adds-story-show
       +grid-row($behavior: nest-collapse)
       +grid-column($columns: $profile-box-columns, $offset: $dates-columns)
-  .achievements
+  .story
     +grid-row()
+    margin-top: 10px
+    .dates
+      +grid-column($columns: $dates-columns)
+    .details
+      +grid-column($columns: $profile-box-columns, $collapse: true)
+    .achievements
+      +grid-row()
 
 #adds-story form, #edit-story form
   .dates

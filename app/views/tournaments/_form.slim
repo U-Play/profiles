@@ -1,16 +1,18 @@
-.tournaments__title
-  h4= t( 'tournaments.form.title' )
 
 .tournaments#nested-form-tournaments
+  .tournaments__title
+    h4= t( 'tournaments.form.title' )
   = f.fields_for :tournaments do |tour_form|
     .tournament__fields
       .input.remove = tour_form.link_to_remove ''
-      .first-line
+      .field.field--tournament
+        .label: label Tournament
         .input.name = experience_presenter.tour_name tour_form
         .input.year = experience_presenter.tour_award_date tour_form
-      .second-line
+      .field.field--achievement
+        .label: label Achievement
         .input.icon = experience_presenter.tour_icon tour_form
-        .input.achievements = experience_presenter.tour_achievements tour_form
+        .input = experience_presenter.tour_achievements tour_form
 
 .tournament-add.js-tournament-add
   .input.add-text = f.link_to_add t( 'experience.form.labels.add_more' ), :tournaments, data: { target: '#nested-form-tournaments' }
