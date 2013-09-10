@@ -56,6 +56,7 @@ en:
   user:
     edit:
       browse: Browse
+      button: click to edit
       cancel: Cancel
       message: edit profile
       submit: Submit

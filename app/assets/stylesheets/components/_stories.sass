@@ -5,13 +5,6 @@
     #adds-story-show
       +grid-row($behavior: nest-collapse)
       +grid-column($columns: $profile-box-columns, $offset: $dates-columns)
-  .story
-    +grid-row()
-    margin-top: 10px
-    .dates
-      +grid-column($columns: $dates-columns)
-    .details
-      +grid-column($columns: $profile-box-columns, $collapse: true)
   .achievements
     +grid-row()
 
@@ -27,8 +20,14 @@
 
 .story
   +grid-row()
+  margin-top: 10px
+  .story__dates
+    +grid-column($columns: $dates-columns)
   .story__wrap
-    +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
+    +grid-column($columns: $profile-box-columns, $collapse: true, $offset: $dates-columns)
+  .story__edit
+    +grid-column(12 - $profile-box-columns - $dates-columns, $collapse: true)
+    padding-left: 0.5rem
 
 .story
   font-weight: 300
@@ -69,6 +68,22 @@
   +transition-timing-function(linear)
   +opacity(0)
   height: 0
+  text-align: left
+  cursor: pointer
+  &:hover
+    p
+      text-decoration: underline
+  p
+    color: $green
+    font-weight: 300
+    font-size: 0.9rem
+    line-height: 1.1em
+    padding-top: 0
+    padding-right: 0
+    margin: 0
+  img
+    height: 30px
+    width: auto
 
 .story:hover
   .story__edit
