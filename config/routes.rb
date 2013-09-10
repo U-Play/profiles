@@ -18,6 +18,6 @@ Profiles::Application.routes.draw do
   end
 
   root to: 'pages#home'
-  get '/wip' => 'pages#wip'
+  get '/wip/:user_id' => 'pages#wip', as: :wip
 
 end

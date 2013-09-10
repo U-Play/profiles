@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   end
 
   def wip
+    @user = User.find(params[:user_id])
   end
 
 end

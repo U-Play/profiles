@@ -37,7 +37,7 @@ module Services
     end
 
     def create
-      active_status = Rails.env.production? ? false : true
+      active_status = Settings.auto_activate_users
       user_info = info.slice(:first_name, :last_name, :email, :birth_date).merge(active: active_status, facebook_link: info[:link], password: generate_password)
       @user = User.create(user_info)
       user.authorizations.create(info)

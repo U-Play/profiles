@@ -46,15 +46,3 @@ end
 When(/^I go to the root path$/) do
   visit root_path
 end
-
-Given(/^Sign in is enabled$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^Sign in is disabled$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should see that I am not able to sign in$/) do
-  current_path.should eq work_in_progress_path
-end
