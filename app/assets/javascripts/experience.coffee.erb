@@ -11,7 +11,7 @@ replace_tournament_icon = (elem, use_text) =>
   $.get(img_url).done =>
     elem.empty()
     elem.append "<img src='#{img_url}' alt='#{img_name}' />"
-    elem.append "<span class='cena'>#{img_name}</span>" if use_text
+    elem.append "<span class='name'>#{img_name}</span>" if use_text
 
 
 
