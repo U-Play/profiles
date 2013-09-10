@@ -41,7 +41,7 @@ class UserPresenter < RailsPresenter::Base
   end
 
   def tags
-    sports.map(&:name).join(", ")
+    sports.map(&:name).uniq.join(", ")
   end
 
   def location
