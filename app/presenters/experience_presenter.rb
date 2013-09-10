@@ -104,9 +104,7 @@ class ExperiencePresenter < RailsPresenter::Base
   end
 
   def cancel(form)
-    if !persisted?
-      form.button h.t('experience.edit.cancel'), class: "button cancel"
-    end
+    form.button h.t('experience.edit.cancel'), class: "button cancel"
   end
 
   def description
