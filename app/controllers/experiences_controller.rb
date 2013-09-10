@@ -2,6 +2,8 @@ class ExperiencesController < ApplicationController
 
   layout 'profile'
 
+  before_filter :sanitize_empty_tournaments, only: [:create, :update]
+
   def create
     @experience = current_user.experiences.build params[:experience]
 
@@ -27,6 +29,15 @@ class ExperiencesController < ApplicationController
     else
       flash.now[:alert] = @experience.errors.full_messages.first
       render :edit
+    end
+  end
+
+  def sanitize_empty_tournaments
+    return if params[:experience][:tournaments_attributes].nil?
+    params[:experience][:tournaments_attributes].each do |key, tournament|
+      if tournament["name"].blank? && tournament["achievements"].blank? && tournament["award_date(1i)"].blank?
+        params[:experience][:tournaments_attributes].delete key
+      end
     end
   end
 end
