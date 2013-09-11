@@ -6,6 +6,12 @@ replace_tournament_icon = (elem, use_text) =>
     elem.append "<img src='#{img_url}' alt='#{img_name}' />"
     elem.append "<span class='name'>#{img_name}</span>" if use_text
 
+  console.log "here"
+  $('input[type]').focus ->
+    $(this).closest('.field').addClass('field--focus')
+  $('input[type]').focusout ->
+    $(this).closest('.field').removeClass('field--focus')
+
 display_tournament_icons = (field) ->
   field.on 'change.fndtn.forms', '.icon select', (event) ->
     return false
@@ -15,9 +21,11 @@ display_tournament_icons = (field) ->
   replace_tournament_icon(current, false)
 
 $('#nested-form-tournaments').on 'nested:fieldAdded', (event) ->
+  bind_focus()
   $(document).foundation()
   display_tournament_icons(event.field)
 
 $(document).ready ->
+  bind_focus()
   $('#nested-form-tournaments .fields').each ->
     display_tournament_icons($(this))
