@@ -14,16 +14,15 @@
     .field
       .label: label = t('experience.form.labels.position')
       .input.position   = experience_presenter.exp_position f
-
-    .field
-      .label: label = t('experience.form.labels.team')
-      .input.team   = experience_presenter.exp_team f
-
+        
     .field.field--dates
       .label: label Date
       .input.start_date = experience_presenter.exp_start_date f
       .input.end_date = experience_presenter.exp_end_date f
 
+    .field
+      .label: label = t('experience.form.labels.team')
+      .input.team   = experience_presenter.exp_team f
 
     = render 'tournaments/form', f: f, experience_presenter: experience_presenter
 
