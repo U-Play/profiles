@@ -5,6 +5,7 @@ class Authorization < ActiveRecord::Base
 
   attr_accessible :birth_date,
                   :email,
+                  :gender,
                   :first_name,
                   :image_url,
                   :last_name,

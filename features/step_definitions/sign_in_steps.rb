@@ -7,6 +7,12 @@ Given(/^I am a signed user$/) do
   @user = facebook_user
 end
 
+Given(/^I am a signed user and my profile is complete$/) do
+  step "I go to the root page"
+  step "I sign up via facebook"
+  @user = facebook_user_with_profile_complete
+end
+
 Given(/^I am a registered user$/) do
   @user = UserPresenter.new(create(:user), self)
 end
@@ -33,14 +39,6 @@ end
 
 Then(/^I should be redirected to my profile page$/) do
   current_path.should eq profile_path(facebook_user.id)
-end
-
-Given(/^my profile edition is not finished$/) do
-  @user.update_attributes profile_finished: false
-end
-
-Given(/^my profile edition is finished$/) do
-  @user.update_attributes profile_finished: true
 end
 
 When(/^I go to the root path$/) do

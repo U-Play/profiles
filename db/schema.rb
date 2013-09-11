@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20131001153717) do
+=======
+ActiveRecord::Schema.define(:version => 20131001104029) do
+>>>>>>> 6180562... refactored profile_finished to profile_completed
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -27,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131001153717) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.datetime "deleted_at"
+    t.string   "gender"
   end
 
   create_table "experiences", :force => true do |t|
@@ -104,10 +109,15 @@ ActiveRecord::Schema.define(:version => 20131001153717) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.datetime "deleted_at"
-    t.boolean  "profile_finished",       :default => false
+    t.boolean  "profile_complete",       :default => false
     t.string   "token",                                     :null => false
     t.integer  "referral_views",         :default => 0,     :null => false
     t.integer  "referral_subscriptions", :default => 0,     :null => false
+<<<<<<< HEAD
+=======
+    t.boolean  "active",                 :default => false
+>>>>>>> 6180562... refactored profile_finished to profile_completed
+    t.string   "gender"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

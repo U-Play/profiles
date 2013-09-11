@@ -37,7 +37,8 @@ module Services
     end
 
     def create
-      user_info = info.slice(:first_name, :last_name, :email, :birth_date).merge(facebook_link: info[:link], password: generate_password)
+      active_status = Settings.auto_activate_users
+      user_info = info.slice(:first_name, :last_name, :email, :birth_date, :gender).merge(active: active_status, facebook_link: info[:link], password: generate_password)
       @user = User.create(user_info)
       user.authorizations.create(info)
       increment_referral
@@ -60,6 +61,7 @@ module Services
         token:      data_try_chain(:credentials, :token),
         first_name: data_try_chain(:info, :first_name),
         last_name:  data_try_chain(:info, :last_name),
+        gender:     data_try_chain(:extra, :raw_info, :gender),
         link:       data_try_chain(:extra, :raw_info, :link),
         birth_date: to_date(data_try_chain(:extra, :raw_info, :birthday)),
         image_url:  data_try_chain(:info, :image),

@@ -47,4 +47,8 @@ class UserPresenter < RailsPresenter::Base
   def location
     [university, country].compact.join(", ")
   end
+
+  def gender_options_for_select
+    [[h.t('user.gender.male'), :male], [h.t('user.gender.female'), :female]]
+  end
 end

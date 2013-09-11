@@ -86,6 +86,10 @@ en:
         last_name: Greg
         name: Name
         twitter_handle: Twitter Handle
+    gender:
+      male: Male
+      female: Female
+
   share:
     twitter:
       button: Share on twitter
