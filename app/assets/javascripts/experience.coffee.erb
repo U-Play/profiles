@@ -6,7 +6,7 @@ replace_tournament_icon = (elem, use_text) =>
     elem.append "<img src='#{img_url}' alt='#{img_name}' />"
     elem.append "<span class='name'>#{img_name}</span>" if use_text
 
-  console.log "here"
+bind_focus = ->
   $('#adds-story input[type]').focus ->
     $(this).closest('.field').addClass('field--focus')
   $('#adds-story input[type]').focusout ->
