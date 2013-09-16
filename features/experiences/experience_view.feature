@@ -12,6 +12,7 @@ Feature: Experience view
     When I go to the user's profile
     Then I should see his experiences
 
+  @javascript
   Scenario: View my experiences
 
     Given I am a signed user
