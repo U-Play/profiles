@@ -17,5 +17,6 @@
         .input = experience_presenter.tour_achievements tour_form
         .input.icon = experience_presenter.tour_icon tour_form
 
-.tournament-add.js-tournament-add
-  .input.add-text = f.link_to_add t( 'experience.form.labels.add_more' ), :tournaments, data: { target: '#nested-form-tournaments' }
+.field--action
+  .tournament-add.js-tournament-add
+    .input.add-text = f.link_to_add t( 'experience.form.labels.add_more' ), :tournaments, data: { target: '#nested-form-tournaments' }
