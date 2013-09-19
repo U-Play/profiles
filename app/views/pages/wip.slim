@@ -1,13 +1,8 @@
-javascript:
-  $(document).ready(function() {
-    mixpanel_events.home_page();
-  });
-
 - present @user do |user|
   .landing__logo
     = image_tag 'profiles-logo-big.png'
 
   .landing__wip
-    p = t('landing.wip.first', name: user.first_name)
-    p = t('landing.wip.second')
-    p = t('landing.wip.third')
+    p = t('landing.wip.greeting', name: user.first_name)
+    p = t('landing.wip.not_ready')
+    p = t('landing.wip.email')

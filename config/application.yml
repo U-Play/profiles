@@ -1,24 +1,19 @@
 defaults: &defaults
   auto_activate_users: false
 
-
 development:
   <<: *defaults
-  auto_activate_users: false
-
+  auto_activate_users: true
 
 production:
   <<: *defaults
 
-
 test:
   <<: *defaults
-
 
 staging:
   <<: *defaults
   auto_activate_users: true
-
 
 cucumber:
   <<: *defaults
