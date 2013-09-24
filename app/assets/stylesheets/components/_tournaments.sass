@@ -1,55 +1,54 @@
-.tournament__wrap
-  +grid-row()
-  .tournament__icon
-    +grid-column($columns: 1, $collapse: true)
-  .tournament__content
-    +grid-column($columns: 11, $collapse: true)
-    .tournament__name
-      +grid-row()
-    .tournament__achievements
-      +grid-row()
+.tournament__fields
+  .field--action, .field--achievement, .field--tournament
+    display: inline-block
+    box-sizing: border-box
 
-.tournament__wrap
-  padding-top: 8px
-  margin-left: 15px
+.tournaments__title
+  width: 100%
 
-.tournament__icon
-  width: 28px
+.tournament__fields
+  .field--action
+    width: 8%
+  .field--achievement, .field--tournament
+    position: relative
+    width: 92%
+    .input
+      width: 40%
+
+.tournament-add
+  margin-top: 15px
+  margin-bottom: 15px
+
+.new-experience
+  .add-button, .remove
+    text-align: left
+  .remove a
+    @extend %remove-tournament-button
+  .add-text
+    @extend %add-tournament-button
+
+.tournament__fields
+  .input.icon
+    position: absolute
+    .current 
+      img
+        padding-left: 5px
+      .name
+        display: none
+    ul li
+      img
+        vertical-align: middle
+      span
+        text-transform: capitalize
+  input, .custom.dropdown
+    margin-bottom: 0
+
 
 .tournament__name
   font-weight: 400
 
+.tournaments__title h4
+  font-size: 1rem
 
-.new-experience
-  .add-button, .remove
-    text-align: right
-
-  .remove a
-    @extend %remove-tournament-button
-
-  .add-button a
-    @extend %add-tournament-button
-
-  .add-text a
-    line-height: 2em
-
-  .tournaments .first-line
-    margin-bottom: 10px
-
-  .tournament-fields
-    margin-bottom: 25px
-    .input.name
-      padding-left: 0
-    .input.icon
-      .current
-        img
-          padding-left: 5px
-        .name
-          display: none
-      ul li
-        img
-          vertical-align: middle
-        span
-          text-transform: capitalize
-    input, .custom.dropdown
-      margin-bottom: 0
+.tournament-add a
+  color: $black

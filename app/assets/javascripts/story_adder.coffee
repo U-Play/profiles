@@ -49,7 +49,7 @@ $ ->
       clone.remove()
 
     setInitialState: ->
-      if @$el.attr('data-hide')
+      if @$el.attr('data-hide') == "true"
         @$el.hide().css('height', "0")
 
     init: ->

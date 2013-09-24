@@ -47,13 +47,9 @@
     +transition-duration(0.5s)
 
 %tournament-button
-  @extend .button
-  background-position: right center
+  background-position: left center
   background-repeat: no-repeat
-  padding: 1em 1em 1em 0
-  width: 20px
-  background-color: white
-  margin-bottom: 0
+  padding-left: 27px
   &:hover
     background-color: white
     +box-shadow(none)
@@ -62,12 +58,9 @@
   @extend %tournament-button
   background-image: image-url('add.png')
 
-
 %remove-tournament-button
   @extend %tournament-button
   background-image: image-url('remove.png')
-
-
 
 %profile-box-wrap
   .hover-border

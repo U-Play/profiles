@@ -26,16 +26,20 @@ en:
       edit:
         title: Edit Experience
       labels:
-        add_more: Add More
+        add_more: Add more
+        sport: Sport
+        role: Role
+        postition: Position
+        team: University
       placeholders:
         achievements: Achievements
         end_date: Ongoing
         icon: Icon
-        position: Position (optional)
-        role: Role
+        position: "ex: Goal Keeper"
+        role: Athlete or Coach?
         sport: Sport
         start_date: Beginning
-        team: Team / University
+        team: ""
         name: Name
         year: Year
       errors:
