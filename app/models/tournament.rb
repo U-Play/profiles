@@ -1,6 +1,8 @@
 class Tournament < ActiveRecord::Base
   include ParanoiaInterface
 
+  default_scope order: 'award_date'
+
   ## Relations ##
   belongs_to :experience
   belongs_to :icon
@@ -19,4 +21,5 @@ class Tournament < ActiveRecord::Base
   validates :name,
             :award_date,
             presence: true
+
 end

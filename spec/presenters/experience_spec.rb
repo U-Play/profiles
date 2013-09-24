@@ -2,6 +2,16 @@ require 'spec_helper'
 
 describe ExperiencePresenter do
 
+  context "#tournaments" do
+    it "returns all tournaments by order" do
+      experience = build :experience
+      presenter = ExperiencePresenter.new(experience, view)
+      ordered_tournaments = experience.tournaments.sort {|a,b| b.award_date <=> a.award_date }
+
+      presenter.tournaments == ordered_tournaments
+    end
+  end
+
   context "#selectable_sports" do
     it "selects all sports" do
       experience = build :experience
