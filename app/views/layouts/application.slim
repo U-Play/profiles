@@ -42,3 +42,6 @@ body
 
   - if [:production, :staging].include? Rails.env
     = javascript_include_tag "user_voice"
+
+  footer
+    = link_to 'About us', about_path

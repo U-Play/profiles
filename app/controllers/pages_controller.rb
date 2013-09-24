@@ -8,4 +8,7 @@ class PagesController < ApplicationController
     @token = params[:token]
   end
 
+  def about
+  end
+
 end
