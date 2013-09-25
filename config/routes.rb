@@ -5,6 +5,7 @@ Profiles::Application.routes.draw do
     get '/sign_out' => 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  get '/about' => 'pages#about', as: 'about'
   get '/user/:id' => "users#view", as: 'profile'
   get '/referral/:token' => "pages#home", as: 'referral'
 
