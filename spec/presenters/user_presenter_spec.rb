@@ -2,6 +2,18 @@ require 'spec_helper'
 
 describe UserPresenter do
 
+  context "#experiences" do
+    it "returns all tournaments by order" do
+      experience = create(:experience)
+      create_list(:tournament, 3, experience: experience)
+
+      presenter = ExperiencePresenter.new(experience, view)
+      ordered_tournaments = experience.tournaments.sort {|a,b| b.award_date <=> a.award_date }
+
+      presenter.tournaments == ordered_tournaments
+    end
+  end
+
   context "#full_name" do
     it "merges first and last name" do
       user = build :user, first_name: 'first', last_name: 'last'
