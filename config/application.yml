@@ -10,6 +10,7 @@ production:
 
 test:
   <<: *defaults
+  auto_activate_users: true
 
 staging:
   <<: *defaults
@@ -17,3 +18,4 @@ staging:
 
 cucumber:
   <<: *defaults
+  auto_activate_users: true
