@@ -10,17 +10,31 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     token = request.env['omniauth.params'] ? request.env['omniauth.params']['token'] : nil
     authenticator = Services::OauthAuthenticator.new(request.env['omniauth.auth'], token)
     @user = authenticator.authenticate!
+    handle_redirect
+  end
+
+  private
+
+  def handle_redirect
     if @user.persisted?
-      if @user.active
-        set_flash_message :notice, :success if is_navigational_format?
-        sign_in_and_redirect @user, event: :authentication
-      else
-        redirect_to wip_path(@user.id)
-      end
+      persisted_user_redirect
     else
-      session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to new_user_registration_url
+      new_user_redirect
     end
+  end
+
+  def persisted_user_redirect
+    if @user.active
+      set_flash_message :notice, :success if is_navigational_format?
+      sign_in_and_redirect @user, event: :authentication
+    else
+      redirect_to wip_path(@user.id)
+    end
+  end
+
+  def new_user_redirect
+    session["devise.#{provider}_data"] = request.env['omniauth.auth']
+    redirect_to new_user_registration_url
   end
 
 end
