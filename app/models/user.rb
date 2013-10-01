@@ -11,8 +11,7 @@ class User < ActiveRecord::Base
           :trackable,
           :validatable
 
-  attr_accessible :active,
-                  :email,
+  attr_accessible :email,
                   :first_name,
                   :last_name,
                   :birth_date,

@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   end
 
   def user_redirect_path(user)
-    if user.profile_finished?
+    if Rails.env.production?
+      wip_path
+    elsif user.profile_finished?
       my_profile_path
     else
       edit_my_profile_path

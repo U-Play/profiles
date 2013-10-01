@@ -24,12 +24,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def persisted_user_redirect
-    if @user.active
-      set_flash_message :notice, :success if is_navigational_format?
-      sign_in_and_redirect @user, event: :authentication
-    else
-      redirect_to wip_path(@user.id)
-    end
+    set_flash_message :notice, :success if is_navigational_format?
+    sign_in_and_redirect @user, event: :authentication
   end
 
   def new_user_redirect

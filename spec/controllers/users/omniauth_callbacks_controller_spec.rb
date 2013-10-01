@@ -2,26 +2,12 @@ require 'spec_helper'
 
 describe Users::OmniauthCallbacksController do
   context "#facebook" do
-    context "new users are enabled" do
-      it 'creates an active user' do
-        setup_facebook_request
-        Settings.stub(:auto_activate_users).and_return(true)
+    it 'registers a user' do
+      setup_facebook_request
 
-        get :facebook
+      get :facebook
 
-        response.should redirect_to edit_my_profile_path
-      end
-    end
-
-    context "new users are disabled" do
-      it 'creates an active user' do
-        setup_facebook_request
-        Settings.stub(:auto_activate_users).and_return(false)
-
-        get :facebook
-
-        response.should redirect_to wip_path(assigns[:user])
-      end
+      response.should redirect_to edit_my_profile_path
     end
   end
 end
