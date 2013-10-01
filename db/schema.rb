@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(:version => 20131001153717) do
 
   create_table "tournaments", :force => true do |t|
     t.string   "name"
-    t.text     "achievements"
+    t.text     "achievements",  :default => "", :null => false
     t.date     "award_date"
-    t.integer  "experience_id", :null => false
+    t.integer  "experience_id",                 :null => false
     t.datetime "deleted_at"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "icon_id"
   end
 
