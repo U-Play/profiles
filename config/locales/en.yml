@@ -15,16 +15,16 @@ en:
       single_year: "During %{year}"
       range: "From %{start} to %{end}"
     description: "%{sport} %{role}"
-    add_new: add new
+    add_new: add new teams
     edit:
-      success: Experience edited successfully!
+      success: Team edited successfully!
       submit: Submit
       cancel: Cancel
     form:
       new:
-        title: New Experience
+        title: New Team
       edit:
-        title: Edit Experience
+        title: Edit Team
       labels:
         add_more: Add more
       placeholders:
@@ -41,11 +41,11 @@ en:
       errors:
        date_before: "can't be before %{date}"
     new:
-      success: Experience created successfully!
+      success: Team created successfully!
     save:
       errors:
-        one: '1 error prohibited this experience from being saved:'
-        other: "%{count} errors prohibited this experience from being saved:"
+        one: '1 error prohibited this team from being saved:'
+        other: "%{count} errors prohibited this team from being saved:"
   landing:
     facebook: Sign in with Facebook
     invite: Show your game!
