@@ -42,6 +42,13 @@ FactoryGirl.define do
     description 'Just a role'
   end
 
+  factory :tournament_without_achievements, class: Tournament do
+    association :experience
+    association :icon
+    sequence(:name) {|n| "#{n} WUC"}
+    award_date Date.today
+  end
+
   factory :tournament do
     association :experience
     association :icon
