@@ -1,5 +1,5 @@
 class AddDefaultToAchievements < ActiveRecord::Migration
   def change
-    change_column :tournaments, :achievements, :text, null: false, default: ""
+    change_column :tournaments, :achievements, :text, default: ""
   end
 end
