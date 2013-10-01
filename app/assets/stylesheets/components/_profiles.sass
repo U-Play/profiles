@@ -25,13 +25,15 @@
   .icons
     margin-bottom: 20px
   .share
-    margin-bottom: 20px
+    margin-bottom: 30px
     a
-      color: $green
-      padding-left: 25px
-      padding-right: 25px
-      height: 40px
-      @extend %opaque-button
+      background: $dark_grey
+      display: inline-block
+      padding: 10px 20px
+      +radius(5px)
+      color: $white
+      &:hover
+        text-decoration: none
 
 // USER PROFILE CONTENT
 
