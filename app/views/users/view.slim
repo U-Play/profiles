@@ -1,14 +1,17 @@
 .page-title-wrap: .page-title
   h1
     | History
-    a href="#" id="adds-story__button" + #{t('experience.add_new')}
+    - if can? :manage, @user
+      a href="#" id="adds-story__button" + #{t('experience.add_new')}
 - present @user do |user|
   .stories
-    #adds-story data-hide="#{@experience_hide}"
-      = render 'experiences/new', experience: @new_experience
+    - if can? :manage, @user
+      #adds-story data-hide="#{@experience_hide}"
+        = render 'experiences/new', experience: @new_experience
     - user.experiences.each do |experience_pres|
       = render 'experiences/show', experience_pres: experience_pres
 
-coffee:
-  $ ->
-    window.story_adder.init()
+- if can? :manage, @user
+  coffee:
+    $ ->
+      window.story_adder.init()

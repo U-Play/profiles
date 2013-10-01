@@ -3,6 +3,10 @@ class ExperiencePresenter < RailsPresenter::Base
   present :sport_role
   present :tournaments
 
+  def model
+    __getobj__
+  end
+
   ########## Experience Form helpers ##########
   def exp_start_date(exp_form)
     exp_form.date_select  :start_date,
