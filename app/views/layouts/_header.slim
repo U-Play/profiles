@@ -5,8 +5,9 @@
     = render '/layouts/flash', flash: flash
   .utilities
     ul.sign
-      li.icon-edit = link_to t('user.edit.message'), edit_my_profile_path
       - if user_signed_in?
-        li = link_to 'sign out', destroy_user_session_path
+        li.name = link_to present(current_user).full_name, my_profile_path
+        li = link_to t('menu.edit'), edit_my_profile_path
+        li = link_to t('menu.sign_out'), destroy_user_session_path
       - else
-        li = link_to 'sign in', root_path
+        li = link_to t('menu.sign_in'), omniauth_authorize_path(:user, :facebook)
