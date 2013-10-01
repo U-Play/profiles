@@ -1,7 +1,7 @@
 class Tournament < ActiveRecord::Base
   include ParanoiaInterface
 
-  default_scope order: 'award_date'
+  default_scope order: :award_date
 
   ## Relations ##
   belongs_to :experience

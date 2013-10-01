@@ -10,7 +10,7 @@
           .tournament__wrap
             .tournament__icon = tour.icon
             .tournament__content
-              .tournament__name = "#{tour.name} #{tour.award_date.year}"
+              .tournament__name = "#{tour.name}, #{tour.date}"
               .tournament__achievements = "#{tour.achievements}"
   - if can? :manage, experience_pres.target
     .story__edit
