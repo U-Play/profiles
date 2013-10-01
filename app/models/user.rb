@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
                   :first_name,
                   :last_name,
                   :birth_date,
-                  :quote,
                   :facebook_link,
                   :twitter_handle,
                   :password,

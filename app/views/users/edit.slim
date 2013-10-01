@@ -26,10 +26,6 @@ javascript:
             .label  = f.label :birth_date
             .select = f.date_select :birth_date, { order: [:day, :month, :year] }
 
-          .field
-            .label    = f.label :quote
-            .textarea = f.text_area :quote, placeholder: t('user.edit.placeholder.quote')
-
           .split-field
             .field
               .label

@@ -15,7 +15,6 @@ FactoryGirl.define do
   factory :user do
     sequence(:first_name) {|n| "#{n}Jonh"}
     sequence(:last_name) {|n| "#{n}Doe"}
-    quote "I'm awesome!"
     birth_date Time.now
     sequence(:email) {|n| "#{n}email@dummy.com"}
     password 'randompassword'
