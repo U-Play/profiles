@@ -12,7 +12,8 @@
             .tournament__content
               .tournament__name = "#{tour.name} #{tour.award_date.year}"
               .tournament__achievements = "#{tour.achievements}"
-  .story__edit
-    a href="#{experience_pres.edit_path}"
-      = experience_pres.edit_image
-      p = t('user.edit.button')
+  - if can? :manage, experience_pres.model
+    .story__edit
+      a href="#{experience_pres.edit_path}"
+        = experience_pres.edit_image
+        p = t('user.edit.button')
