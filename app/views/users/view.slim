@@ -5,13 +5,13 @@
       a href="#" id="adds-story__button" + #{t('experience.add_new')}
 - present @user do |user|
   .stories
-    - if can? :manage, @user
+    - if can? :manage, user.target
       #adds-story data-hide="#{@experience_hide}"
         = render 'experiences/new', experience: @new_experience
     - user.experiences.each do |experience_pres|
       = render 'experiences/show', experience_pres: experience_pres
 
-- if can? :manage, @user
+- if can? :manage, user.target
   coffee:
     $ ->
       window.story_adder.init()
