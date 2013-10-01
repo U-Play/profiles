@@ -11,7 +11,7 @@
     - user.experiences.each do |experience_pres|
       = render 'experiences/show', experience_pres: experience_pres
 
-- if can? :manage, user.target
-  coffee:
-    $ ->
-      window.story_adder.init()
+  - if can? :manage, user.target
+    coffee:
+      $ ->
+        window.story_adder.init()
