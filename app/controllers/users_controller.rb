@@ -32,22 +32,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    authorize! :update, @user
+    authorize! :update, current_user
+    @update_user = Services::UpdateUser.new(current_user, params[:user])
 
-    if @user.update_attributes(params[:user].merge(profile_complete: true))
+    @update_user.update
+    if @update_user.succeeded?
       redirect_to my_profile_path, notice: t('user.edit.success')
     else
-      set_user_errors
+      flash.now[:alert] = @update_user.errors
       render :edit
     end
   end
 
   private
-
-  def set_user_errors
-    flash.now[:alert] = @user.errors.full_messages.first
-  end
 
   def set_new_experience
     if @user == current_user

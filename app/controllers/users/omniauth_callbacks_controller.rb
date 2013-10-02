@@ -10,6 +10,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     token = request.env['omniauth.params'] ? request.env['omniauth.params']['token'] : nil
     authenticator = Services::OauthAuthenticator.new(request.env['omniauth.auth'], token)
     @user = authenticator.authenticate!
+
+    mixpanel = MixpanelTracker.new(user: @user)
+    mixpanel.register_user
+    mixpanel.update_user
+
     handle_redirect
   end
 

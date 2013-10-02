@@ -41,10 +41,6 @@ module Services
       @user = User.create(user_info)
       user.authorizations.create(info)
       increment_referral
-      if !Rails.env.test?
-        mixpanel = Services::MixpanelRegister.new @user
-        mixpanel.register
-      end
     end
 
     def set_info

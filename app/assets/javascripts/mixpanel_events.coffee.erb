@@ -5,10 +5,10 @@ $ ->
 
   mixpanel_events =
     home_page: ->
-      mixpanel.track "View home page"
-    get_a_profile_page: ->
-      mixpanel.track "View sign up page"
+      mixpanel.track "<%= MIXPANEL_EVENT['view']['home'] %>"
     edit_page: ->
-      mixpanel.track "View edit page"
+      mixpanel.track "<%= MIXPANEL_EVENT['view']['edit'] %>"
+    share: ->
+      mixpanel.track "<%= MIXPANEL_EVENT['share'] %>"
 
   window.mixpanel_events = mixpanel_events

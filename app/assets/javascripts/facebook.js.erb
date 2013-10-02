@@ -27,6 +27,7 @@ function postToFacebook(url) {
     description: "<%= I18n.t('share.facebook.description') %>"
   };
   FB.ui(obj);
+  mixpanel_events.share();
 }
 
 <% end %>
