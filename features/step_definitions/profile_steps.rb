@@ -3,9 +3,17 @@ def facebook_user
   UserPresenter.new(user, self)
 end
 
+def facebook_user_with_profile_complete
+  user = User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first
+  user.update_attributes university: 'UM', country: 'Portugal', profile_complete: true
+  UserPresenter.new(user, self)
+end
+
 def user_edit_changes
   changes = Hash.new
-  changes["user_first_name"] = "New Name"
+  changes['user_first_name'] = 'New Name'
+  changes['user_university'] = 'UM'
+  changes['user_country'] = 'Portugal'
   changes
 end
 

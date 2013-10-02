@@ -12,6 +12,7 @@ RSpec.configure do |config|
     credentials: { token: 'dummy_token' },
     extra: {
       raw_info: {
+        gender: 'male',
         birthday: '01/30/1990',
         first_name: 'John',
         last_name: 'Doe',
@@ -32,6 +33,7 @@ RSpec.configure do |config|
     credentials: { token: 'dummy_token' },
     extra: {
       raw_info: {
+        gender: 'male',
         birthday: '01/30/1990',
         first_name: 'John',
         last_name: 'Doe',

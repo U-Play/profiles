@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = current_user
     authorize! :update, @user
 
-    if @user.update_attributes(params[:user].merge(profile_finished: true))
+    if @user.update_attributes(params[:user].merge(profile_complete: true))
       redirect_to my_profile_path, notice: t('user.edit.success')
     else
       set_user_errors

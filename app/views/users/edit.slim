@@ -7,7 +7,7 @@ javascript:
 .profile-edit
   .hover-border
     .profile-edit__box
-      - present(@user) do |user|
+      - present(@user) do |user_presenter|
         = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
           .split-field
             .field
@@ -25,6 +25,10 @@ javascript:
           .field.date
             .label  = f.label :birth_date
             .select = f.date_select :birth_date, { order: [:day, :month, :year] }
+
+          .field
+            .label  = f.label :gender
+            .select = f.select :gender, user_presenter.gender_options_for_select
 
           .split-field
             .field

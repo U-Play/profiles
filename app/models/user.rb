@@ -20,10 +20,11 @@ class User < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :picture,
-                  :profile_finished,
+                  :profile_complete,
                   :remember_me,
                   :country,
                   :university,
+                  :gender,
                   :token,
                   :referral_views,
                   :referral_subscriptions
@@ -31,6 +32,7 @@ class User < ActiveRecord::Base
   ## Validations ##
   before_validation :generate_token
 
+  validates :university, :country, :gender, presence: true, on: :update, if: :profile_complete
   validates :email,
             :first_name,
             :last_name,
@@ -39,7 +41,7 @@ class User < ActiveRecord::Base
             :referral_views,
             :referral_subscriptions,
             presence: true
-
+  validates :gender, inclusion: {in: %w(male female)}
   validates :email, uniqueness_without_deleted: true
   validates :token, uniqueness: true
 
