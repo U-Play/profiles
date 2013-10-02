@@ -94,7 +94,3 @@ end
 Then(/^I should see a 'share on facebook' button$/) do
   page.should have_content I18n.t('share.facebook.button')
 end
-
-Then(/^I should see a 'share on twitter' button$/) do
-  page.should have_content I18n.t('share.twitter.button')
-end

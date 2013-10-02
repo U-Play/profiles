@@ -18,6 +18,7 @@ en:
     add_new: add new
     edit:
       success: Experience edited successfully!
+      cancel_success: Edition successfully canceled!
       submit: Submit
       cancel: Cancel
     form:

@@ -12,7 +12,3 @@ Feature: Share profiles on social networks
   Scenario: I can see the share on facebook button
 
     Then I should see a 'share on facebook' button
-
-  Scenario: I can see the share on twitter button
-
-    Then I should see a 'share on twitter' button

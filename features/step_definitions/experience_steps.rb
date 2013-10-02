@@ -67,3 +67,15 @@ end
 Then(/^I should see an edit success message$/) do
   page.should have_content 'edited successfully'
 end
+
+When(/^I remove a required field$/) do
+  fill_in 'experience_team', with: ''
+end
+
+When(/^I cancel the action$/) do
+    click_on 'Cancel'
+end
+
+Then(/^I should see a cancelation success message$/) do
+    page.should have_content t('experience.edit.cancel_success')
+end
