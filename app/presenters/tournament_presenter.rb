@@ -8,7 +8,7 @@ class TournamentPresenter < RailsPresenter::Base
   end
 
   def achievements
-    super.titleize
+    super.try :titleize
   end
 
   def date
