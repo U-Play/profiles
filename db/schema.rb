@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(:version => 20131001153717) do
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birth_date"
-    t.text     "quote"
     t.string   "facebook_link"
     t.string   "twitter_handle"
     t.string   "country"
