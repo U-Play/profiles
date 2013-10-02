@@ -1,6 +1,8 @@
 class Sport < ActiveRecord::Base
   include ParanoiaInterface
 
+  default_scope order: :name
+
   ## Relations ##
   has_many :experiences
 
