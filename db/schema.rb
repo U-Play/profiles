@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20131001153717) do
 
   create_table "tournaments", :force => true do |t|
     t.string   "name"
-    t.text     "achievements",  :default => "", :null => false
+    t.text     "achievements",  :default => ""
     t.date     "award_date"
     t.integer  "experience_id",                 :null => false
     t.datetime "deleted_at"

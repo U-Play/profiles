@@ -27,10 +27,6 @@ en:
         title: Edit Experience
       labels:
         add_more: Add more
-        sport: Sport
-        role: Role
-        postition: Position
-        team: University
       placeholders:
         achievements: Achievements
         end_date: Ongoing
@@ -98,3 +94,12 @@ en:
       title: UPlayPro
       caption: Sports stuff
       description: You know it!
+  helpers:
+    label:
+      experience:
+        sport: Sport
+        role: Role
+        position: Position
+        date: Date
+        team: University
+
