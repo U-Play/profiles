@@ -27,7 +27,7 @@ module Services
 
     def update_to_mixpanel
       if succeeded?
-        @mixpanel = MixpanelUpdateUser.new user
+        @mixpanel = ::MixpanelTracker::UpdateUser.new user
         @mixpanel.update
       end
     end

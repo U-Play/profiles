@@ -42,7 +42,7 @@ module Services
       user.authorizations.create(info)
       increment_referral
 
-      mixpanel = Services::MixpanelUpdateUser.new @user
+      mixpanel = MixpanelTracker::UpdateUser.new @user
       mixpanel.update
     end
 

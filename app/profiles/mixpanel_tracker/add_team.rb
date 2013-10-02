@@ -1,19 +1,19 @@
-module Services
-  class MixpanelUpdateTeam
+module MixpanelTracker
+  class AddTeam
+    include Base
 
     def initialize(user)
       @user = user
     end
 
-    def update
+    def add
       if !Rails.env.test?
-        tracker = Mixpanel::Tracker.new(ACCOUNTS['mixpanel']['token'])
         tracker.track(user.id, MIXPANEL_EVENT['add']['team'])
       end
     end
 
     private
-    
+
     attr_reader :user
   end
 end
