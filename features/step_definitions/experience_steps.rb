@@ -72,6 +72,6 @@ When(/^I remove a required field$/) do
   fill_in 'experience_team', with: ''
 end
 
-When(/^I cancel the action$/) do
+When(/^I cancel the edition$/) do
     click_on t('experience.edit.cancel')
 end
