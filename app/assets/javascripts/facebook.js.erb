@@ -21,11 +21,12 @@ function postToFacebook(url) {
   var obj = {
     method: 'feed',
     link: url,
-    picture: 'http://fbrell.com/f8.jpg',
+    picture: "TODO",
     name: "<%= I18n.t('share.facebook.title') %>",
     caption: "<%= I18n.t('share.facebook.caption') %>",
     description: "<%= I18n.t('share.facebook.description') %>"
   };
+  alert(obj.picture)
   FB.ui(obj);
 }
 

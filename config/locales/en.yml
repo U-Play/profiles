@@ -97,9 +97,9 @@ en:
       message: Check this out! @uplaypro
     facebook:
       button: Share it on Facebook
-      title: UPlayPro
-      caption: Sports stuff
-      description: You know it!
+      title: "%{name} - Sports Profile"
+      caption: ""
+      description: "Hey, this is what I've eben up to. Show your game! Make your profile at profiles.uplaypro.com"
   helpers:
     label:
       experience:
