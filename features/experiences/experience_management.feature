@@ -31,6 +31,6 @@ Feature: Experience Management
     I should be able to cancel the edition of an experience
 
     When I remove a required field
-    And I cancel the action
+    And I cancel the edition
     Then I should be redirected to my profile page
 
