@@ -3,6 +3,12 @@ def facebook_user
   UserPresenter.new(user, self)
 end
 
+def facebook_user_with_username
+  user = User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first
+  user.update_attributes username: 'username'
+  UserPresenter.new(user, self)
+end
+
 def facebook_user_with_profile_complete
   user = User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first
   attrs = {university: 'UM', country: t(:PT, scope: :countries), profile_complete: true}
@@ -39,6 +45,10 @@ end
 
 When(/^I go to the user's profile$/) do
   visit profile_path(@user.id)
+end
+
+When(/^I visit the user's url$/) do
+  step "I go to the user's profile"
 end
 
 When(/^I go to my profile$/) do
@@ -100,4 +110,16 @@ end
 
 Then(/^I should see a 'share on facebook' button$/) do
   page.should have_content I18n.t('share.facebook.button')
+end
+
+Given(/^there is a user with username$/) do
+  @user = UserPresenter.new(create(:user_with_username), self)
+end
+
+When(/^I go to the user's profile via its id$/) do
+  visit profile_path(@user.id)
+end
+
+When(/^I go to the user's profile via its username$/) do
+  visit username_path(@user.username)
 end

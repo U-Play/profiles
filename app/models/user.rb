@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
           :validatable
 
   attr_accessible :email,
+                  :username,
                   :first_name,
                   :last_name,
                   :birth_date,
@@ -44,6 +45,7 @@ class User < ActiveRecord::Base
   validates :gender, inclusion: {in: %w(male female)}
   validates :email, uniqueness_without_deleted: true
   validates :token, uniqueness: true
+  validates :username, exclusion: {in: %w(me user)}, uniqueness: {case_sensitive: false}, allow_blank: true
 
   has_attached_file :picture,
                     styles: { sidebar: '200x200#' },
@@ -53,6 +55,10 @@ class User < ActiveRecord::Base
 
   def sports
     Sport.joins(:experiences).where(experiences: {user_id: id})
+  end
+
+  def self.find_by_username(username)
+    where("lower(username) = ?", username.downcase).first
   end
 
   private

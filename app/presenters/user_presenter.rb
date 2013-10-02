@@ -51,4 +51,8 @@ class UserPresenter < RailsPresenter::Base
   def gender_options_for_select
     [[h.t('user.gender.male'), :male], [h.t('user.gender.female'), :female]]
   end
+
+  def username_placeholder
+    "#{first_name}#{last_name}"
+  end
 end

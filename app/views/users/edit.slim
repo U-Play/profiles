@@ -18,6 +18,10 @@ javascript:
             .label = f.label :email
             .input.text  = f.text_field :email, placeholder: t('user.edit.placeholder.email')
 
+          .field
+            .label = f.label :username
+            .input.text  = f.text_field :username, placeholder: user_presenter.username_placeholder
+
           .field.field--date
             .label  = f.label :birth_date
             .input.date = f.date_select :birth_date, { order: [:day, :month, :year] }

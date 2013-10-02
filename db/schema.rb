@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131001153717) do
+ActiveRecord::Schema.define(:version => 20131002131430) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20131001153717) do
     t.integer  "referral_views",         :default => 0,     :null => false
     t.integer  "referral_subscriptions", :default => 0,     :null => false
     t.string   "gender"
+    t.string   "username",               :default => ""
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -7,6 +7,12 @@ Given(/^I am a signed user$/) do
   @user = facebook_user
 end
 
+Given(/^I am a signed user with username$/) do
+  step "I go to the root page"
+  step "I sign up via facebook"
+  @user = facebook_user_with_username
+end
+
 Given(/^I am a signed user and my profile is complete$/) do
   step "I go to the root page"
   step "I sign up via facebook"
