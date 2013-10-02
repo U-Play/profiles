@@ -2,11 +2,11 @@ module Services
   class MixpanelUpdateUser
     def initialize(user)
       @user = user
-      @tracker = Mixpanel::Tracker.new(ACCOUNTS['mixpanel']['token']) if !Rails.env.test?
     end
 
     def update
       if !Rails.env.test?
+        tracker = Mixpanel::Tracker.new(ACCOUNTS['mixpanel']['token'])
         tracker.people.set(user.id, {
             '$first_name'       => user.first_name,
             '$last_name'        => user.last_name,
@@ -18,6 +18,6 @@ module Services
 
     private
 
-    attr_reader :user, :tracker
+    attr_reader :user
   end
 end
