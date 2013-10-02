@@ -12,7 +12,6 @@ end
 def user_edit_changes
   changes = Hash.new
   changes['user_first_name'] = 'New Name'
-  changes['user_quote'] = 'New Quote'
   changes['user_university'] = 'UM'
   changes['user_country'] = 'Portugal'
   changes

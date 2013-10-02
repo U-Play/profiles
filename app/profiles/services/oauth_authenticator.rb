@@ -38,7 +38,7 @@ module Services
 
     def create
       active_status = Settings.auto_activate_users
-      user_info = info.slice(:first_name, :last_name, :email, :birth_date, :gender).merge(active: active_status, facebook_link: info[:link], password: generate_password)
+      user_info = info.slice(:first_name, :last_name, :email, :birth_date, :gender).merge(facebook_link: info[:link], password: generate_password)
       @user = User.create(user_info)
       user.authorizations.create(info)
       increment_referral
