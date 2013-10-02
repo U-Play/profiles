@@ -97,9 +97,9 @@ en:
   helpers:
     label:
       experience:
-        sport: Sport
-        role: Role
-        position: Position
         date: Date
+        position: Position
+        role: Role
+        sport: Sport
         team: University
 
