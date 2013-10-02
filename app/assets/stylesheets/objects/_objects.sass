@@ -71,4 +71,12 @@
     font-size: 1.2rem
     margin-bottom: 15px
 
-
+%form__actions
+  width: 100%
+  text-align: right
+  .button
+    @extend %action-button
+  .button.cancel
+    @extend %action-button--empty
+  .button.submit
+    @extend %action-button--primary
