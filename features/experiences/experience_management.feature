@@ -28,7 +28,7 @@ Feature: Experience Management
 
   Scenario: Cancel experience edition
 
-    I should be able to cancel edition of an experience
+    I should be able to cancel the edition of an experience
 
     When I remove a required field
     And I cancel the action
