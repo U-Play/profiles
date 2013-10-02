@@ -4,24 +4,24 @@
     header = experience_presenter.title
 
     .field
-      .label: label = t('experience.form.labels.sport')
+      .label = f.label :sport
       .input.sport  = experience_presenter.exp_sport f
 
     .field
-      .label: label = t('experience.form.labels.role')
+      .label = f.label :role
       .input.role   = experience_presenter.exp_role f
 
     .field
-      .label: label = t('experience.form.labels.position')
+      .label = f.label :position
       .input.position   = experience_presenter.exp_position f
         
     .field.field--dates
-      .label: label Date
+      .label = f.label :date
       .input.start_date = experience_presenter.exp_start_date f
       .input.end_date = experience_presenter.exp_end_date f
 
     .field
-      .label: label = t('experience.form.labels.team')
+      .label = f.label :team
       .input.team   = experience_presenter.exp_team f
 
     = render 'tournaments/form', f: f, experience_presenter: experience_presenter
