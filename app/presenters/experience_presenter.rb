@@ -47,10 +47,14 @@ class ExperiencePresenter < RailsPresenter::Base
   ########## Tournament Form helpers ##########
   def tour_award_date(tour_form)
     tour_form.date_select :award_date,
-                          discard_month: true,
+                          discard_day: true,
                           start_year: Time.now.year,
                           end_year: 1923,
-                          prompt: h.t( 'experience.form.placeholders.year' )
+                          order: [:month,:year],
+                          prompt: {
+                            year: h.t( 'experience.form.placeholders.year'), 
+                            month: h.t( 'experience.form.placeholders.month')
+                          }
   end
 
   def tour_achievements(tour_form)

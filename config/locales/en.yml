@@ -8,6 +8,7 @@ en:
   tournaments:
     form:
       title: Tournaments
+    date: "%{month} %{year}"
   experience:
     current_date: current
     date:
@@ -38,6 +39,7 @@ en:
         team: ""
         name: Name
         year: Year
+        month: Month
       errors:
        date_before: "can't be before %{date}"
     new:

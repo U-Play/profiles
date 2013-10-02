@@ -10,7 +10,10 @@
       .field.field--tournament
         .label: label Tournament
         .input.name = experience_presenter.tour_name tour_form
-        .input.year = experience_presenter.tour_award_date tour_form
+      .field--action
+      .field.field--date
+        .label: label Date
+        .date = experience_presenter.tour_award_date tour_form
       .field--action
       .field.field--achievement
         .label: label Achievement
