@@ -42,7 +42,7 @@ body
 
     = javascript_include_tag "application"
 
-    - if [:production, :staging].include? Rails.env
+    - if ["production", "staging"].include? Rails.env
       = javascript_include_tag "user_voice"
 
   footer
