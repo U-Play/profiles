@@ -62,32 +62,13 @@
   @extend %tournament-button
   background-image: image-url('remove.png')
 
-%profile-box-wrap
-  .hover-border
-    +hover-border
-    +clearfix
-
-%profile-box
+%form__box
   +grey-box-shadow
   background: $white
   padding: 25px 15px
-  label
-    font-size: 1em
-  input[type=button], .button
-    margin-left: 2%
-    width: 28%  
-  .file
-    input[type=text], input[type=button]
-      display: inline-block
-    input[type=text]
-      width: 70%
-  .form-actions
-    margin-top: 20px
-    text-align: right
+  > header
+    font-weight: 400
+    font-size: 1.2rem
+    margin-bottom: 15px
 
-%opaque-button
-  +opacity(0.3)
-  &:hover
-    +opacity(1)
-    +transition-property(all)
-    +transition-duration(0.5s)
+

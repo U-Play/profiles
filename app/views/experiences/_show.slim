@@ -1,17 +1,16 @@
 .story
   .story__wrap
-    .story__border
-      .story__content
-        .story__dates = experience_pres.date_range
-        span.story__description = experience_pres.description
-        span.story__team = experience_pres.team
-        .story__position = experience_pres.position
-        - experience_pres.tournaments.each do |tour|
-          .tournament__wrap
-            .tournament__icon = tour.icon
-            .tournament__content
-              .tournament__name = "#{tour.name}, #{tour.date}"
-              .tournament__achievements = "#{tour.achievements}"
+    .story__content
+      .story__dates = experience_pres.date_range
+      span.story__description = experience_pres.description
+      span.story__team = experience_pres.team
+      .story__position = experience_pres.position
+      - experience_pres.tournaments.each do |tour|
+        .tournament__wrap
+          .tournament__icon = tour.icon
+          .tournament__content
+            .tournament__name = "#{tour.name}, #{tour.date}"
+            .tournament__achievements = "#{tour.achievements}"
   - if can? :manage, experience_pres.target
     .story__edit
       a href="#{experience_pres.edit_path}"

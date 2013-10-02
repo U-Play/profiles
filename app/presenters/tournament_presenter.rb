@@ -12,8 +12,8 @@ class TournamentPresenter < RailsPresenter::Base
   end
 
   def date
-    h.t('tournaments.date', 
-        month: h.t('date.month_names')[award_date.month], 
+    h.t('tournaments.date',
+        month: h.t('date.month_names')[award_date.month],
         year: award_date.year
        )
   end

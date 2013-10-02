@@ -5,56 +5,47 @@ javascript:
 .page-title-wrap: .page-title
   h1 = t('user.edit.title')
 .profile-edit
-  .hover-border
+  .profile-edit__fields
     .profile-edit__box
-      - present(@user) do |user_presenter|
+      - present(@user) do |user|
         = form_for @user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
-          .split-field
-            .field
+          .field.field--name
               .label = f.label :first_name, t('user.edit.label.first_name')
-              .first-name  = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
-
-            .field
-              .label = f.label :last_name, t('user.edit.label.last_name')
-              .last-name  = f.text_field :last_name, placeholder: t('user.edit.placeholder.last_name')
+              .input.first-name = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
+              .input.last-name = f.text_field :last_name, placeholder: t('user.edit.placeholder.last_name')
 
           .field
             .label = f.label :email
-            .text  = f.text_field :email, placeholder: t('user.edit.placeholder.email')
+            .input.text  = f.text_field :email, placeholder: t('user.edit.placeholder.email')
 
-          .field.date
+          .field.field--date
             .label  = f.label :birth_date
-            .select = f.date_select :birth_date, { order: [:day, :month, :year] }
+            .input.date = f.date_select :birth_date, { order: [:day, :month, :year] }
+
+          .field.field--gender
+            .label  = f.label :gender
+            .input.gender = f.select :gender, user.gender_options_for_select
 
           .field
-            .label  = f.label :gender
-            .select = f.select :gender, user_presenter.gender_options_for_select
+            .label = f.label :country
+            .input.text  = f.text_field :country
 
-          .split-field
-            .field
-              .label
-                = f.label :university
-              .text  = f.text_field :university
-            .field
-              .label 
-                = f.label :country
-              .text  = f.text_field :country
-
-          .split-field
-            .field
-              .label 
-                label = t('user.edit.label.facebook')
-              .text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook_link')
-
-            .field
-              .label 
-                label = t('user.edit.label.twitter')
-              .text = f.text_field :twitter_handle, placeholder: t('user.edit.placeholder.twitter_handle')
+          .field
+            .label = f.label :university
+            .input.text  = f.text_field :university
 
           .field
             .label = f.label :picture
-            .file  = f.file_field :picture
+            .input.file  = f.file_field :picture
 
-          .form-actions
+          .field
+            .label = f.label :facebook_link, t('user.edit.label.facebook')
+            .input.text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook_link')
+
+          .field
+            .label = f.label :twitter_handle, t('user.edit.label.twitter')
+            .input.text = f.text_field :twitter_handle, placeholder: t('user.edit.placeholder.twitter_handle')
+
+          .form__actions
             = link_to t('user.edit.cancel'), my_profile_path, class: 'button cancel'
             = f.submit t('user.edit.submit'), class: 'button submit'
