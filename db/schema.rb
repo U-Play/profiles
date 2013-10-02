@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20131001153717) do
-=======
-ActiveRecord::Schema.define(:version => 20131001104029) do
->>>>>>> 6180562... refactored profile_finished to profile_completed
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -113,10 +109,6 @@ ActiveRecord::Schema.define(:version => 20131001104029) do
     t.string   "token",                                     :null => false
     t.integer  "referral_views",         :default => 0,     :null => false
     t.integer  "referral_subscriptions", :default => 0,     :null => false
-<<<<<<< HEAD
-=======
-    t.boolean  "active",                 :default => false
->>>>>>> 6180562... refactored profile_finished to profile_completed
     t.string   "gender"
   end
 
