@@ -73,9 +73,5 @@ When(/^I remove a required field$/) do
 end
 
 When(/^I cancel the action$/) do
-    click_on 'Cancel'
-end
-
-Then(/^I should see a cancelation success message$/) do
-    page.should have_content t('experience.edit.cancel_success')
+    click_on t('experience.edit.cancel')
 end

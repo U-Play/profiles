@@ -46,7 +46,7 @@ class ExperiencesController < ApplicationController
 
   def check_for_cancel
     if params[:commit].try(:downcase) == 'cancel'
-      redirect_to my_profile_path, notice: t('experience.edit.cancel_success')
+      redirect_to my_profile_path
     end
   end
 end
