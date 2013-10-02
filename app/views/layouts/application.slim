@@ -6,8 +6,9 @@ doctype html
 == "<!--[if IE 9 ]>    <html class=\"ie9\" lang=\"en\"> <![endif]-->"
 == "<!--[if (gt IE 9)|!(IE)]><!--> <html lang=\"en\"> <!--<![endif]-->"
 
-head data-current-user="#{current_user.id if !current_user.nil?}"
+head data-current-user="#{current_user.id if current_user}" data-root-url="#{request.host_with_port}"
   meta charset="utf-8"
+  = render 'layouts/meta'
   / Uncomment to make IE8 render like IE7
   / meta http-equiv="X-UA-Compatible" content="IE=7"
 

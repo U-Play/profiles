@@ -20,11 +20,7 @@ window.fbAsyncInit = function() {
 function postToFacebook(url) {
   var obj = {
     method: 'feed',
-    link: url,
-    picture: 'http://fbrell.com/f8.jpg',
-    name: "<%= I18n.t('share.facebook.title') %>",
-    caption: "<%= I18n.t('share.facebook.caption') %>",
-    description: "<%= I18n.t('share.facebook.description') %>"
+    link: url
   };
   FB.ui(obj);
   mixpanel_events.share();
