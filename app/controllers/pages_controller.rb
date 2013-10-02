@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   layout 'simple'
 
   def home
-    redirect_to user_redirect_path(current_user) if current_user
+    redirect_to after_sign_in_path_for(current_user) if current_user
 
     @token = params[:token]
   end

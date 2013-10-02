@@ -104,7 +104,7 @@ class ExperiencePresenter < RailsPresenter::Base
   end
 
   def cancel(form)
-    form.button h.t('experience.edit.cancel'), class: "button cancel"
+    form.submit h.t('experience.edit.cancel'), class: "button cancel"
   end
 
   def description
