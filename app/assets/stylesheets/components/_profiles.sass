@@ -33,35 +33,6 @@
 
 // USER PROFILE CONTENT
 
-.profile-edit
-  @extend %profile-box-wrap
-.profile-edit__box
-  @extend %profile-box
-  .button.cancel
-    @extend %action-button--empty
-  .button.submit
-    @extend %action-button--primary
-  .file-upload__browse, .button
-    @extend %action-button
-
-.profile-edit 
-  .field
-    width: 100%
-  .label
-    width: 100%
-  .file
-    width: 100%
-
-  .split-field .field
-    display: inline-block
-    width: 49%
-    &:first-child
-      margin-right: 2%
-
-.profile-edit .date .select .custom.dropdown
-  display: inline-block
-  width: 32.8%
-
 .user-profile .page-title
   h1
     font-weight: 300
@@ -75,10 +46,54 @@
 
 .user-profile .stories
   .details-wrap
-    +hover-border
     margin-bottom: emCalc(20px)
   .details-content
     background-color: white
     padding: emCalc(20px)
     +grey-box-shadow
+
+
+// Grid
+.profile-edit
+  +grid-row()
+
+.profile-edit__fields
+  +grid-column($columns: $profile-box-columns, $collapse: true, $offset: $dates-columns)
+  .field
+    width: 100%
+    .label
+      display: inline-block
+      width: 20%
+    .input
+      display: inline-block
+      width: 80%
+      &.first-name, &.last-name
+        width: 40%
+      &.file
+        .button
+          margin-bottom: 0
+  .field--gender
+    width: 50%
+    .label
+      width: 40%
+    .gender
+      width: 60%
+  .field--date
+    .label
+      height: 4px
+    .input
+      width: 80%
+      position: relative
+      display: inline-block
+    .custom.dropdown
+      width: 32%
+      display: inline-block
+
+.profile-edit__box
+  @extend %form__box
+  .file-upload__browse
+    @extend %action-button
+
+.profile-edit__actions
+  @extend %form__actions
 

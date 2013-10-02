@@ -80,11 +80,13 @@ en:
         last_name: Last name
         twitter: Twitter
       placeholder:
+        country: Your country
         email: me@email.com
         facebook_link: Facebook Link
         first_name: Mathew
         last_name: Greg
         name: Name
+        team: Team
         twitter_handle: Twitter Handle
     gender:
       male: Male
