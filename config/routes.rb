@@ -17,6 +17,8 @@ Profiles::Application.routes.draw do
     resources :experiences, only: [:create, :edit, :update]
   end
 
+  get '/:username' => "users#view_by_username", as: 'username'
+
   root to: 'pages#home'
   get '/wip/:user_id' => 'pages#wip', as: :wip
 

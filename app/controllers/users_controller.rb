@@ -5,16 +5,25 @@ class UsersController < ApplicationController
   def view
     @user = User.find params[:id]
     authorize! :read, @user
+    set_new_experience
+  end
 
-    if @user == current_user
+  def view_by_username
+    @user = User.find_by_username(params[:username])
+    authorize! :read, @user
+
+    if @user
       set_new_experience
+      render :view
+    else
+      not_found
     end
   end
 
   def me
     authorize! :me, current_user
     flash.keep
-    redirect_to profile_path(current_user.id)
+    redirect_to user_path
   end
 
   def edit
@@ -41,10 +50,12 @@ class UsersController < ApplicationController
   end
 
   def set_new_experience
-    params = flash[:new_experience_params]
-    @experience_hide = params.nil?
-    @new_experience = current_user.experiences.build(params)
-    @new_experience.tournaments.build
+    if @user == current_user
+      params = flash[:new_experience_params]
+      @experience_hide = params.nil?
+      @new_experience = current_user.experiences.build(params)
+      @new_experience.tournaments.build
+    end
   end
 
 end

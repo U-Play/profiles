@@ -9,6 +9,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
+  def user_path
+    if current_user.username.present?
+      username_path(current_user.username)
+    else
+      profile_path(current_user.id)
+    end
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     if !current_user
       redirect_to root_path, :alert => exception.message
@@ -16,5 +28,4 @@ class ApplicationController < ActionController::Base
       redirect_to my_profile_path, :alert => exception.message
     end
   end
-
 end

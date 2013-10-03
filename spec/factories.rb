@@ -19,6 +19,10 @@ FactoryGirl.define do
     birth_date Time.now
     sequence(:email) {|n| "#{n}email@dummy.com"}
     password 'randompassword'
+
+    factory :user_with_username do
+      sequence(:username) {|n| "username#{n}"}
+    end
   end
 
   factory :sport do
