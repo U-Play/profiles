@@ -20,14 +20,9 @@ window.fbAsyncInit = function() {
 function postToFacebook(url) {
   var obj = {
     method: 'feed',
-    link: url,
-    picture: "TODO",
-    name: "<%= I18n.t('share.facebook.title') %>",
-    caption: "<%= I18n.t('share.facebook.caption') %>",
-    description: "<%= I18n.t('share.facebook.description') %>"
+    link: url
   };
-  alert(obj.picture)
-  FB.ui(obj);
+  FB.ui(obj,function(data) {console.log(data)});
 }
 
 <% end %>

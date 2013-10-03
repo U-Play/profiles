@@ -8,6 +8,7 @@ doctype html
 
 head data-current-user="#{current_user.id if !current_user.nil?}" data-root-url="#{request.host_with_port}"
   meta charset="utf-8"
+  = render 'layouts/meta'
   / Uncomment to make IE8 render like IE7
   / meta http-equiv="X-UA-Compatible" content="IE=7"
 
