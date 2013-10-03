@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'mixpanel_tracker')
+
 module Services
   class OauthAuthenticator
 
@@ -32,8 +34,8 @@ module Services
     end
 
     def register_to_mixpanel
-      mixpanel = MixpanelTracker::RegisterUserLogin.new user
-      mixpanel.register
+      mixpanel = ::MixpanelTracker.new user: user
+      mixpanel.register_user
     end
 
     def increment_referral
@@ -48,8 +50,8 @@ module Services
       user.authorizations.create(info)
       increment_referral
 
-      mixpanel = MixpanelTracker::UpdateUser.new @user
-      mixpanel.update
+      mixpanel = MixpanelTracker.new(user: @user)
+      mixpanel.update_user
     end
 
     def set_info

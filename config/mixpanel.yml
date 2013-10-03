@@ -1,8 +1,8 @@
-add:
-  team: Add team
-share: Share on facebook
-sign_in: Sign in
+add_team: Team aded
+share: Shared on facebook
+sign_in: Signed it
 view:
   home: View home page
   sign_up: View landing page
   edit: View edit page
+update_team: Team updated
