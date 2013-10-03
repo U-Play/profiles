@@ -22,7 +22,7 @@ module Services
     private
 
     def save_user
-      @succeeded = user.update_attributes(new_attributes.merge(profile_finished: true))
+      @succeeded = user.update_attributes(new_attributes.merge(profile_complete: true))
     end
 
     def update_to_mixpanel
