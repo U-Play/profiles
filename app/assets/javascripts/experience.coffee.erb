@@ -1,10 +1,10 @@
-replace_tournament_icon = (elem, use_text) =>
+replace_tournament_icon = (elem) =>
   img_name = elem.text()
   img_url = "/assets/tournament_icons/#{img_name}.png"
   $.get(img_url).done =>
     elem.empty()
     elem.append "<img src='#{img_url}' alt='#{img_name}' />"
-    elem.append "<span class='name'>#{img_name}</span>" if use_text
+    elem.append "<span class='name'>#{img_name}</span>"
 
 bind_focus = ->
   $('#adds-story input[type]').focus ->
@@ -16,9 +16,9 @@ display_tournament_icons = (field) ->
   field.on 'change.fndtn.forms', '.icon select', (event) ->
     return false
   field.find('.icon ul li').each ->
-    replace_tournament_icon($(this), true)
+    replace_tournament_icon($(this))
   current = field.find('.icon .current')
-  replace_tournament_icon(current, false)
+  replace_tournament_icon(current)
 
 $('#nested-form-tournaments').on 'nested:fieldAdded', (event) ->
   bind_focus()
