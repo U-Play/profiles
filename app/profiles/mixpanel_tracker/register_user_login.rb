@@ -7,7 +7,6 @@ module MixpanelTracker
     end
 
     def register
-      binding.pry
       if !Rails.env.test?
         tracker.track(user.id, MIXPANEL_EVENT['sign_in'])
       end
