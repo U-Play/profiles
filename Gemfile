@@ -18,6 +18,7 @@ gem 'rails_presenter'
 gem 'paperclip'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
+gem 'i18n_country_select'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

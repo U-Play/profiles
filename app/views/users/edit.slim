@@ -28,7 +28,7 @@ javascript:
 
           .field
             .label = f.label :country
-            .input.text  = f.text_field :country, placeholder: t('user.edit.placeholder.country')
+            .input.text  = f.country_code_select :country
 
           .field
             .label = f.label :university

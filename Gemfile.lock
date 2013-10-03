@@ -119,6 +119,13 @@ GEM
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.1)
+    i18n-country-translations (1.0.1)
+      i18n (~> 0.5)
+      railties (>= 3.0.0)
+    i18n_country_select (1.0.18)
+      i18n (~> 0.5)
+      i18n-country-translations (>= 0.0.9)
+      unicode_utils (>= 1.0.0)
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -270,6 +277,7 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    unicode_utils (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
     xpath (2.0.0)
@@ -294,6 +302,7 @@ DEPENDENCIES
   guard
   guard-cucumber
   guard-rspec
+  i18n_country_select
   jquery-rails
   launchy
   mixpanel-ruby
