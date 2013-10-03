@@ -5,7 +5,8 @@ end
 
 def facebook_user_with_profile_complete
   user = User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first
-  user.update_attributes university: 'UM', country: 'Portugal', profile_complete: true
+  attrs = {university: 'UM', country: t(:PT, scope: :countries), profile_complete: true}
+  user.update_attributes attrs
   UserPresenter.new(user, self)
 end
 
@@ -13,7 +14,6 @@ def user_edit_changes
   changes = Hash.new
   changes['user_first_name'] = 'New Name'
   changes['user_university'] = 'UM'
-  changes['user_country'] = 'Portugal'
   changes
 end
 
@@ -56,6 +56,7 @@ end
 When(/^I update my information$/) do
   @changes = user_edit_changes
   @changes.each { |field, value| fill_in field, with: value }
+  select t(:PT, scope: :countries), from: 'user_country'
   click_on 'Submit'
 end
 
