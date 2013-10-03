@@ -11,6 +11,7 @@ module Services
       find_by_authorization
       find_by_email unless user
       create unless user
+      register_to_mixpanel
       return user
     end
 
@@ -28,6 +29,11 @@ module Services
     def find_by_email
       @user = User.find_by_email(info[:email])
       user.authorizations.create(info) if user
+    end
+
+    def register_to_mixpanel
+      mixpanel = MixpanelTracker::RegisterUserLogin.new user
+      mixpanel.register
     end
 
     def increment_referral

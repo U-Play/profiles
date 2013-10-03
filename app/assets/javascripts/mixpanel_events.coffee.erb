@@ -6,8 +6,6 @@ $ ->
   mixpanel_events =
     home_page: ->
       mixpanel.track "<%= MIXPANEL_EVENT['view']['home'] %>"
-    get_a_profile_page: ->
-      mixpanel.track "<%= MIXPANEL_EVENT['view']['sign_up'] %>"
     edit_page: ->
       mixpanel.track "<%= MIXPANEL_EVENT['view']['edit'] %>"
     share: ->
