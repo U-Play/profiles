@@ -44,6 +44,8 @@ en:
        date_before: "can't be before %{date}"
     new:
       success: Team created successfully!
+    destroy:
+      success: Team deleted successfully
     save:
       errors:
         one: '1 error prohibited this team from being saved:'
@@ -86,6 +88,8 @@ en:
         name: Name
         team: Team
         twitter_handle: Twitter Handle
+    destroy:
+      button: click to delete
     gender:
       male: Male
       female: Female

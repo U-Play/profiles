@@ -13,6 +13,9 @@
             .tournament__achievements = "#{tour.achievements}"
   - if can? :manage, experience_pres.target
     .story__edit
-      a href="#{experience_pres.edit_path}"
+      = link_to experience_pres.edit_path
         = experience_pres.edit_image
         p = t('user.edit.button')
+      = link_to experience_pres.destroy_path, method: :delete
+        p X
+        p = t('user.destroy.button')

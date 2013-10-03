@@ -143,6 +143,10 @@ class ExperiencePresenter < RailsPresenter::Base
     h.edit_experience_path(id)
   end
 
+  def destroy_path
+    h.experience_path(id)
+  end
+
   def edit_image
     h.image_tag('icons/edit.png')
   end
