@@ -39,6 +39,13 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def destroy
+    @experience = Experience.find(params[:id])
+    authorize! :manage, @experience
+    @experience.destroy
+    redirect_to my_profile_path, notice: t('experience.destroy.success')
+  end
+
   private
 
   def sanitize_empty_tournaments

@@ -30,7 +30,7 @@
   margin-top: 10px
   .story__wrap
     +grid-column($columns: $profile-box-columns, $collapse: true, $offset: $dates-columns)
-  .story__edit
+  .story__actions
     +grid-column(12 - $profile-box-columns - $dates-columns, $collapse: true)
     padding-left: 0.5rem
 
@@ -61,7 +61,7 @@
   font-weight: 300
   margin-bottom: 7px
 
-.story__edit
+.story__actions
   position: absolute
   top: 0
   right: 0
@@ -72,11 +72,12 @@
   height: 0
   text-align: left
   cursor: pointer
+
+.story__actions--edit, .story__actions--destroy
   &:hover
     p
       text-decoration: underline
   p
-    color: $green
     font-weight: 300
     font-size: 0.9rem
     line-height: 1.1em
@@ -87,8 +88,14 @@
     height: 30px
     width: auto
 
+.story__actions--destroy
+  margin-top: 10px
+  p
+    color: $red
+
+
 .story:hover
-  .story__edit
+  .story__actions
     +opacity(1)
     height: auto
     +transition-property(opacity)

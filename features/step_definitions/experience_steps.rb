@@ -75,3 +75,11 @@ end
 When(/^I cancel the edition$/) do
     click_on t('experience.edit.cancel')
 end
+
+When(/^I delete the experience$/) do
+  click_on t('experience.destroy.button')
+end
+
+Then (/^I should see a deletion success message$/) do
+  page.should have_content t('experience.destroy.success')
+end

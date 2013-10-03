@@ -18,9 +18,13 @@ en:
     description: "%{sport} %{role}"
     add_new: add new team
     edit:
+      button: edit
       success: Team edited successfully!
       submit: Submit
       cancel: Cancel
+    destroy:
+      button: delete
+      success: Team deleted successfully
     form:
       new:
         title: New Team
@@ -64,7 +68,7 @@ en:
   user:
     edit:
       browse: Browse
-      button: click to edit
+      button: edit
       cancel: Cancel
       submit: Submit
       success: User edited successfully!
