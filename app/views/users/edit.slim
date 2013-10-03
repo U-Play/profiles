@@ -28,11 +28,11 @@ javascript:
 
           .field
             .label = f.label :country
-            .input.text  = f.text_field :country
+            .input.text  = f.text_field :country, placeholder: t('user.edit.placeholder.country')
 
           .field
             .label = f.label :university
-            .input.text  = f.text_field :university
+            .input.text  = f.text_field :university, placeholder: t('user.edit.placeholder.team')
 
           .field
             .label = f.label :picture
