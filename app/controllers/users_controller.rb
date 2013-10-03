@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def set_new_experience
     if @user == current_user
       params = flash[:new_experience_params]
-      @experience_hide = params.nil?
+      @experience_hide = @user.experiences.any? && params.nil?
       @new_experience = current_user.experiences.build(params)
       @new_experience.tournaments.build
     end
