@@ -29,10 +29,10 @@ en:
       labels:
         add_more: Add more
       placeholders:
-        achievements: Achievements
+        achievements: "Achievements (optional)"
         end_date: Ongoing
         icon: Icon
-        position: "ex: Goal Keeper"
+        position: "ex: Goalkeeper (optional)"
         role: Athlete or Coach?
         sport: Sport
         start_date: Beginning
@@ -61,8 +61,6 @@ en:
     sign_in: sign in
     sign_out: logout
     edit: edit profile
-  university:
-    empty: There are no universities.
   user:
     edit:
       browse: Browse
@@ -108,5 +106,5 @@ en:
         position: Position
         role: Role
         sport: Sport
-        team: University
+        team: Team
 
