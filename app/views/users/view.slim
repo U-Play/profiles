@@ -2,7 +2,7 @@
   h1
     | History
     - if can? :manage, @user
-      a href="#" id="adds-story__button" + #{t('experience.add_new')}
+      = link_to t('experience.add_new'), '#', id: 'adds-story__button'
 - present @user do |user|
   .stories
     - if can? :manage, user.target
