@@ -16,7 +16,7 @@ en:
       single_year: "During %{year}"
       range: "From %{start} to %{end}"
     description: "%{sport} %{role}"
-    add_new: add new teams
+    add_new: add new team
     edit:
       success: Team edited successfully!
       submit: Submit
