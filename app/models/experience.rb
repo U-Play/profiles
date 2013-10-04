@@ -1,7 +1,7 @@
 class Experience < ActiveRecord::Base
   include ParanoiaInterface
 
-  default_scope order: 'start_date'
+  default_scope order: 'ongoing, end_date DESC, start_date DESC'
 
   ## Relations ##
   belongs_to :sport_role

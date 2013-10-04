@@ -5,7 +5,8 @@
     .icons
       = user_presenter.facebook
       = user_presenter.twitter
-    .tags = user_presenter.tags
+    .tags title="#{user_presenter.tags}"
+      = user_presenter.tags
     .location = user_presenter.location
     .share
       = user_presenter.share_on_facebook
