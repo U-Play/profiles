@@ -32,7 +32,7 @@ javascript:
 
           .field
             .label = f.label :country
-            .input.text  = f.country_code_select :country
+            .input  = f.country_code_select :country, { t('user.edit.placeholder.country') => nil }
 
           .field
             .label = f.label :university

@@ -45,6 +45,7 @@ class UserPresenter < RailsPresenter::Base
   end
 
   def location
+    country = self.country.present? ? I18n.t(self.country, scope: :countries) : nil
     [university, country].compact.join(", ")
   end
 
