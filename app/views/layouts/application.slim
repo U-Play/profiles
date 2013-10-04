@@ -16,7 +16,7 @@ head data-current-user="#{current_user.id if current_user}" data-root-url="#{req
   = favicon_link_tag 'favicon.png'
   meta name="viewport" content="width=device-width, initial-scale=1.0"
 
-  - if [:production, :staging].include? Rails.env
+  - if ["production", "staging"].include? Rails.env
     link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'
 
   = javascript_include_tag "init"
