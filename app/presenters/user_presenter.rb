@@ -32,12 +32,12 @@ class UserPresenter < RailsPresenter::Base
   end
 
   def share_on_twitter
-    link = "http://twitter.com/share?text=#{h.t('share.twitter.message').gsub(' ', '%20').gsub(' ', '%20%40')}&url=#{h.username_url(id)}"
+    link = "http://twitter.com/share?text=#{h.t('share.twitter.message').gsub(' ', '%20').gsub(' ', '%20%40')}&url=#{h.username_url(username)}"
     h.link_to  h.t('share.twitter.button'), link, target: '_blank'
   end
 
   def share_on_facebook
-    h.link_to h.t('share.facebook.button'), '#', "onclick" => "postToFacebook('#{h.username_url(id)}')"
+    h.link_to h.t('share.facebook.button'), '#', "onclick" => "postToFacebook('#{h.username_url(username)}')"
   end
 
   def tags
