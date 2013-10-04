@@ -1,3 +1,4 @@
+puts 'seeding sports'
 sports =  [
             # WINTER UNIVERSIADE COMPULSORY SPORTS PROGRAMME
             { name: 'Alpine Skiing' },
@@ -61,11 +62,26 @@ sports =  [
             { name: 'Waterskiing' },
             { name: 'Weightlifting' },
             { name: 'Woodball' },
-            { name: 'Wrestling' }
-          ]
-  Sport.create(sports)
-  SportRole.create([{ name: 'Athlete' }, { name: 'Coach' }])
+            { name: 'Wrestling' },
 
+            # OTHERS
+            { name: 'Corfball' }
+]
+
+sports.each do |sport|
+  Sport.find_or_create_by_name(sport[:name])
+end
+
+puts 'seeding roles'
+roles = [
+  { name: 'Athlete' },
+  { name: 'Coach' }
+]
+roles.each do |role|
+  SportRole.find_or_create_by_name(role[:name])
+end
+
+puts 'seeding icons'
 icons = [
       { name: 'star (other)' },
       { name: 'gold' },
@@ -75,5 +91,5 @@ icons = [
 
 Icon.delete_all
 icons.each do |icon|
-  Icon.find_or_create_by_name(icon)
+  Icon.create(icon)
 end
