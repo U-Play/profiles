@@ -56,7 +56,6 @@ class User < ActiveRecord::Base
   def self.find_by_username(username)
     where("lower(username) = ?", username.downcase).first
   end
-  
 
   def sports
     experiences.map(&:sport)
