@@ -27,8 +27,10 @@ class MixpanelTracker
           '$first_name'       => user.first_name,
           '$last_name'        => user.last_name,
           '$email'            => user.email,
-          '$university'       => user.university
+          '$university'       => user.university,
+          '$country'          => user.country
       });
+      tracker.track(user.id, MIXPANEL_EVENT['updated_profile'])
   end
 
   private 
