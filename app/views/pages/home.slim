@@ -11,7 +11,8 @@ javascript:
   p.second-invite = t('landing.second-invite')
 
 .landing__sign
-    = link_to t('landing.facebook'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+  = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+  p = t('landing.facebook')
 
 .landing__sample
   = image_tag 'profile-sample.png'

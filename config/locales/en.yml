@@ -54,9 +54,9 @@ en:
         other: "%{count} errors prohibited this team from being saved:"
   landing:
     facebook: Sign in with Facebook
-    invite: Show your game!
-    second-invite: Make your sports profile.
-    button: Get your profile
+    invite: Your trained. You competed. You Won.
+    second-invite: Finally, you can prove it.
+    button: Create your profile now
     wip:
       greeting: "Hi %{name},"
       not_ready: "Profiles is not ready yet!"
