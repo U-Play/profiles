@@ -28,7 +28,7 @@ When(/^I go to the root page$/) do
 end
 
 When(/^I sign up via facebook$/) do
-  click_on 'Sign in with Facebook'
+  click_on I18n.t('landing.button')
 end
 
 When(/^I sign out$/) do
