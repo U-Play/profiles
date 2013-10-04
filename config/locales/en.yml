@@ -18,9 +18,13 @@ en:
     description: "%{sport} %{role}"
     add_new: add new team
     edit:
+      button: edit
       success: Team edited successfully!
       submit: Submit
       cancel: Cancel
+    destroy:
+      button: delete
+      success: Team deleted successfully
     form:
       new:
         title: New Team
@@ -44,8 +48,6 @@ en:
        date_before: "can't be before %{date}"
     new:
       success: Team created successfully!
-    destroy:
-      success: Team deleted successfully
     save:
       errors:
         one: '1 error prohibited this team from being saved:'
@@ -66,7 +68,7 @@ en:
   user:
     edit:
       browse: Browse
-      button: click to edit
+      button: edit
       cancel: Cancel
       submit: Submit
       success: User edited successfully!
@@ -88,8 +90,6 @@ en:
         name: Name
         team: Team
         twitter_handle: Twitter Handle
-    destroy:
-      button: click to delete
     gender:
       male: Male
       female: Female

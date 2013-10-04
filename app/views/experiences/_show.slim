@@ -12,10 +12,12 @@
             .tournament__name = "#{tour.name}, #{tour.date}"
             .tournament__achievements = "#{tour.achievements}"
   - if can? :manage, experience_pres.target
-    .story__edit
-      = link_to experience_pres.edit_path
-        = experience_pres.edit_image
-        p = t('user.edit.button')
-      = link_to experience_pres.destroy_path, method: :delete
-        p X
-        p = t('user.destroy.button')
+    .story__actions
+      .story__actions--edit
+        = link_to experience_pres.edit_path
+          = experience_pres.edit_image
+          p = t('experience.edit.button')
+      .story__actions--destroy
+        = link_to experience_pres.destroy_path, method: :delete
+          = experience_pres.destroy_image
+          p = t('experience.destroy.button')

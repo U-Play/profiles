@@ -8,12 +8,12 @@ Feature: Experience Management
   Background:
     Given I am a signed user
     And I have an experience
-    And I am at an experience's edit page
 
   Scenario: Edit experience
 
     I should be able to edit an existing experience
 
+    Given I am at an experience's edit page
     When I edit the experience's sport
     Then I should see an edit success message
     And I should be redirected to my profile page
@@ -34,3 +34,12 @@ Feature: Experience Management
     And I cancel the edition
     Then I should be redirected to my profile page
 
+  @asd
+  Scenario: Delete experience
+
+    I should be able to delete an experience
+
+    When I go to my profile
+    When I delete the experience
+    Then I should see a deletion success message
+    And I should be redirected to my profile page
