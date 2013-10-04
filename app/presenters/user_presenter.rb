@@ -20,7 +20,6 @@ class UserPresenter < RailsPresenter::Base
   def facebook
     if facebook_link.present?
       h.link_to '', facebook_link, class: "icon-facebook", target: '_blank'
-  @asd
     end
   end
 
