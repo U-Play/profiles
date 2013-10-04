@@ -1,5 +1,3 @@
-require Rails.root.join('lib', 'mixpanel_tracker')
-
 module Services
   class OauthAuthenticator
 

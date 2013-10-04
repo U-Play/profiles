@@ -1,10 +1,10 @@
 class MixpanelTracker
 
-  def initialize(user: nil, env: nil)
+  def initialize(user: nil)
     @user = user
 
     if defined?(MIXPANEL_TOKEN)
-      @tracker = Mixpanel::Tracker.new(MIXPANEL_TOKEN, env)
+      @tracker = Mixpanel::Tracker.new(MIXPANEL_TOKEN)
     else
       @tracker = DummyMixpanel.new
     end

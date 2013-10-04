@@ -9,7 +9,7 @@ class ExperiencesController < ApplicationController
     @experience = current_user.experiences.build params[:experience]
 
     if @experience.save
-      mixpanel = MixpanelTracker.new user: current_user, env: request.env
+      mixpanel = MixpanelTracker.new user: current_user
       mixpanel.add_team
 
       redirect_to my_profile_path, :notice => t('experience.new.success')
@@ -29,7 +29,7 @@ class ExperiencesController < ApplicationController
     authorize! :manage, @experience
 
     if @experience.update_attributes(params[:experience])
-      mixpanel = MixpanelTracker.new(user: current_user, env: request.env)
+      mixpanel = MixpanelTracker.new(user: current_user)
       mixpanel.update_team
 
       redirect_to my_profile_path, notice: t('experience.edit.success')
