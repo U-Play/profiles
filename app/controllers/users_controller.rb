@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def me
     authorize! :me, current_user
     flash.keep
-    redirect_to user_path
+    redirect_to user_path(current_user)
   end
 
   def edit
