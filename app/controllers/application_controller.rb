@@ -21,13 +21,15 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new('Not Found')
   end
 
-  def user_path
-    if current_user.username.present?
-      username_path(current_user.username)
+
+  def user_path(user)
+    if user.username.present?
+      username_path(user.username)
     else
-      profile_path(current_user.id)
+      profile_path(user.id)
     end
   end
+  helper_method :user_path
 
   def not_found
     raise ActionController::RoutingError.new
