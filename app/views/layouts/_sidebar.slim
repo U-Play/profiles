@@ -2,10 +2,10 @@
   .sidebar
     = link_to image_tag(user_presenter.picture.url(:sidebar), class: 'profile_picture'), profile_path(user_presenter.id)
     p.name = user_presenter.full_name
-    .tags = user_presenter.tags
-    .location = user_presenter.location
     .icons
       = user_presenter.facebook
       = user_presenter.twitter
+    .tags = user_presenter.tags
+    .location = user_presenter.location
     .share
       = user_presenter.share_on_facebook
