@@ -22,7 +22,7 @@ function postToFacebook(url) {
     method: 'feed',
     link: url
   };
-  FB.ui(obj,function(data) {console.log(data)});
+  FB.ui(obj);
 }
 
 <% end %>
