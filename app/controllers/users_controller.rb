@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     authorize! :update, current_user
     @update_user = Services::UpdateUser.new(current_user, params[:user])
 
-    @update_user.update
+    @user = @update_user.update
     if @update_user.succeeded?
       redirect_to my_profile_path, notice: t('user.edit.success')
     else

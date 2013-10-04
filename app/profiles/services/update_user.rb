@@ -9,6 +9,7 @@ module Services
     def update
       save_user
       update_to_mixpanel
+      user
     end
 
     def errors
