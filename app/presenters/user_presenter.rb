@@ -54,6 +54,6 @@ class UserPresenter < RailsPresenter::Base
   end
 
   def username_placeholder
-    "#{first_name}#{last_name}"
+    Services::GenerateUsername.new(self).generate
   end
 end

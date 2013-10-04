@@ -23,6 +23,10 @@ FactoryGirl.define do
     factory :user_with_username do
       sequence(:username) {|n| "username#{n}"}
     end
+
+    factory :user_with_dirty_username do
+      sequence(:username) {|n| "usernäme #{n}"}
+    end
   end
 
   factory :sport do

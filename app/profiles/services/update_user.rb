@@ -7,6 +7,7 @@ module Services
     end
 
     def update
+      clean_username
       save_user
       update_to_mixpanel
       user
@@ -21,6 +22,14 @@ module Services
     end
 
     private
+
+    def clean_username
+      if new_attributes[:username].try(:present?)
+        user.username = new_attributes[:username]
+        user.username = Services::GenerateUsername.new(user).generate
+        new_attributes.delete(:username)
+      end
+    end
 
     def save_user
       @succeeded = user.update_attributes(new_attributes.merge(profile_complete: true))
