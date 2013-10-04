@@ -53,12 +53,13 @@ class User < ActiveRecord::Base
 
   attr_reader :picture_remote_url
 
-  def sports
-    Sport.joins(:experiences).where(experiences: {user_id: id})
-  end
-
   def self.find_by_username(username)
     where("lower(username) = ?", username.downcase).first
+  end
+  
+
+  def sports
+    experiences.map(&:sport)
   end
 
   private

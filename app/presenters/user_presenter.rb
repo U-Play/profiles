@@ -20,6 +20,7 @@ class UserPresenter < RailsPresenter::Base
   def facebook
     if facebook_link.present?
       h.link_to '', facebook_link, class: "icon-facebook", target: '_blank'
+  @asd
     end
   end
 
@@ -41,7 +42,7 @@ class UserPresenter < RailsPresenter::Base
   end
 
   def tags
-    sports.uniq.map(&:name).uniq.join(", ")
+    sports.uniq.map(&:name).join ', '
   end
 
   def location
