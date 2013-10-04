@@ -1,5 +1,7 @@
 if ["production", "staging", "development"].include?(Rails.env)
-  MIXPANEL_TOKEN = ACCOUNTS['mixpanel'][Rails.env]
+  if defined?(ACCOUNTS)
+    MIXPANEL_TOKEN = ACCOUNTS['mixpanel'][Rails.env]
+  end
 else
   class DummyMixpanel
     def method_missing(m, *args, &block)
