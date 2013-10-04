@@ -29,5 +29,14 @@ class ApplicationController < ActionController::Base
       profile_path(user.id)
     end
   end
-  helper_method :user_path
+
+  def user_url(user)
+    root_url + user_path(user)
+  end
+
+  helper_method :user_path, :user_url
+
+  def not_found
+    raise ActionController::RoutingError.new
+  end
 end
