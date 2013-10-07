@@ -18,11 +18,10 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 function postToFacebook(url) {
-  var obj = {
+  FB.ui({
     method: 'feed',
     link: url
-  };
-  FB.ui(obj);
+  });
   mixpanel_events.share();
 }
 

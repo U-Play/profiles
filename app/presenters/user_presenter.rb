@@ -37,7 +37,7 @@ class UserPresenter < RailsPresenter::Base
   end
 
   def share_on_facebook
-    h.link_to h.t('share.facebook.button'), '#', "onclick" => "postToFacebook('#{h.username_url(username)}')"
+    h.link_to h.t('share.facebook.button'), '#', "onclick" => "postToFacebook('#{h.user_url(self)}')"
   end
 
   def tags
