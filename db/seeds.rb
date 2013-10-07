@@ -91,7 +91,5 @@ icons = [
 
 Icon.delete_all
 icons.each do |icon|
-  Icon.new(icon).tap do |icon|
-    icon.save!
-  end
+  Icon.create(icon)
 end
