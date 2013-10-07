@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def not_found
-    raise ActionController::RoutingError.new('Not Found')
+  def not_found(msg)
+    raise ActionController::RoutingError.new(msg)
   end
 
 
@@ -30,8 +30,4 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :user_path
-
-  def not_found
-    raise ActionController::RoutingError.new
-  end
 end

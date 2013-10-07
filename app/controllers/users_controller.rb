@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       set_new_experience
       render :view
     else
-      not_found
+      not_found("username #{params[:username]} does not exist")
     end
   end
 
