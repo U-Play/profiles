@@ -91,5 +91,7 @@ icons = [
 
 Icon.delete_all
 icons.each do |icon|
-  Icon.find_or_create_by_name(icon[:name])
+  Icon.new(icon).tap do |icon|
+    icon.save!
+  end
 end
