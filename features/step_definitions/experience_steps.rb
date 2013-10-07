@@ -9,7 +9,7 @@ def fill_tournament_fields
   tournament = build :tournament
   find(:css, "input[id^='experience_tournaments_attributes_'][id$='_achievements']", ).set(tournament.achievements)
   find(:css, "input[id^='experience_tournaments_attributes_'][id$='_name']").set(tournament.name)
-  find(:css, "select[id^='experience_tournaments_attributes_'][id$='_award_date_1i']").select(tournament.award_date.year)
+  find(:css, "select[id^='experience_tournaments_attributes_'][id$='_award_year']").select(tournament.award_year)
 end
 
 def submit_experience_form

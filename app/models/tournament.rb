@@ -1,7 +1,7 @@
 class Tournament < ActiveRecord::Base
   include ParanoiaInterface
 
-  default_scope order: :award_date
+  default_scope order: 'award_year DESC, award_month DESC'
 
   ## Relations ##
   belongs_to :experience
@@ -14,12 +14,13 @@ class Tournament < ActiveRecord::Base
                   :icon_id,
                   :name,
                   :experience,
-                  :experience_id
+                  :experience_id,
+                  :award_year,
+                  :award_month
 
 
   ## Validations ##
   validates :name,
-            :award_date,
+            :award_year,
             presence: true
-
 end

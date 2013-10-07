@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131002131430) do
+ActiveRecord::Schema.define(:version => 20131007173559) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(:version => 20131002131430) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.integer  "icon_id"
+    t.integer  "award_year",                    :null => false
+    t.integer  "award_month"
   end
 
   add_index "tournaments", ["experience_id"], :name => "index_tournaments_on_experience_id"

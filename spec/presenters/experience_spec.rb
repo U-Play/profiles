@@ -6,7 +6,7 @@ describe ExperiencePresenter do
     it "returns all tournaments by order" do
       experience = build :experience
       presenter = ExperiencePresenter.new(experience, view)
-      ordered_tournaments = experience.tournaments.sort {|a,b| b.award_date <=> a.award_date }
+      ordered_tournaments = experience.tournaments.sort_by {|a| [a.award_year, a.award_month]}.reverse
 
       presenter.tournaments == ordered_tournaments
     end

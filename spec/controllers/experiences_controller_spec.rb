@@ -6,7 +6,7 @@ describe ExperiencesController do
     it "sanitizes empty tournaments" do
       sign_in create(:user)
       params = { experience: {
-        tournaments_attributes: {tournament1: {"name" => nil, "achievements" => nil, "award_date(1i)" => nil} }
+        tournaments_attributes: {tournament1: {"name" => nil, "achievements" => nil, "award_year" => nil} }
       } }
 
       post :create, params
