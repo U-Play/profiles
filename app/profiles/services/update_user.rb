@@ -32,7 +32,21 @@ module Services
     end
 
     def save_user
-      @succeeded = user.update_attributes(new_attributes.merge(profile_complete: true))
+      @succeeded = save_picture && save_attributes
+    end
+
+    def save_picture
+      if new_attributes[:picture].present?
+        succeeded = user.update_attributes(picture: new_attributes[:picture])
+        new_attributes.delete :picture
+        succeeded
+      else
+        true
+      end
+    end
+
+    def save_attributes
+      user.update_attributes(new_attributes.merge(profile_complete: true))
     end
 
     def update_to_mixpanel
