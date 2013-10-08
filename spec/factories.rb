@@ -51,6 +51,7 @@ FactoryGirl.define do
     association :icon
     sequence(:name) {|n| "#{n} WUC"}
     award_date Date.today
+    award_year Date.today.year
   end
 
   factory :tournament do
@@ -59,6 +60,7 @@ FactoryGirl.define do
     sequence(:name) {|n| "#{n} WUC"}
     achievements '1st place, MVP'
     award_date Date.today
+    award_year Date.today.year
   end
 
   factory :icon do

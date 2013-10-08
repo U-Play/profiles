@@ -51,7 +51,7 @@ class ExperiencesController < ApplicationController
   def sanitize_empty_tournaments
     return if params[:experience][:tournaments_attributes].nil?
     params[:experience][:tournaments_attributes].each do |key, tournament|
-      if tournament["name"].blank? && tournament["achievements"].blank? && tournament["award_date(1i)"].blank?
+      if tournament["name"].blank? && tournament["achievements"].blank? && tournament["award_year"].blank?
         params[:experience][:tournaments_attributes].delete key
       end
     end

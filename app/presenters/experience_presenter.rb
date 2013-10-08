@@ -45,31 +45,31 @@ class ExperiencePresenter < RailsPresenter::Base
   end
 
   ########## Tournament Form helpers ##########
-  def tour_award_date(tour_form)
-    tour_form.date_select :award_date,
-                          discard_day: true,
-                          start_year: Time.now.year,
-                          end_year: 1923,
-                          order: [:month,:year],
-                          prompt: {
-                            year: h.t( 'experience.form.placeholders.year'), 
-                            month: h.t( 'experience.form.placeholders.month')
-                          }
+  def tour_award_month(form)
+    form.select :award_month,
+                h.t('date.month_names').compact.zip((1..12)),
+                include_blank: h.t('experience.form.placeholders.month')
   end
 
-  def tour_achievements(tour_form)
-    tour_form.text_field :achievements, placeholder: h.t( 'experience.form.placeholders.achievements' )
+  def tour_award_year(form)
+    form.select :award_year,
+                Time.now.year.downto(1923).to_a,
+                include_blank: h.t( 'experience.form.placeholders.year' )
   end
 
-  def tour_name(tour_form)
-    tour_form.text_field :name, placeholder: h.t( 'experience.form.placeholders.name' )
+  def tour_achievements(form)
+    form.text_field :achievements, placeholder: h.t( 'experience.form.placeholders.achievements' )
   end
 
-  def tour_icon(tour_form)
-    tour_form.collection_select :icon_id,
-                                selectable_icons,
-                                :id,
-                                :name
+  def tour_name(form)
+    form.text_field :name, placeholder: h.t( 'experience.form.placeholders.name' )
+  end
+
+  def tour_icon(form)
+    form.collection_select :icon_id,
+                           selectable_icons,
+                           :id,
+                           :name
   end
 
   def start_year

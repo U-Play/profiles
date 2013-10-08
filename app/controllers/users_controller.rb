@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       params = flash[:new_experience_params]
       @experience_hide = @user.experiences.any? && params.nil?
       @new_experience = current_user.experiences.build(params)
-      @new_experience.tournaments.build
+      @new_experience.tournaments.build if @new_experience.tournaments.empty?
     end
   end
 

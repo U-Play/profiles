@@ -11,10 +11,14 @@ class TournamentPresenter < RailsPresenter::Base
     super.try :titleize
   end
 
+  def award_month
+    target.award_month || 0
+  end
+
   def date
     h.t('tournaments.date',
-        month: h.t('date.month_names')[award_date.month],
-        year: award_date.year
+        month: h.t('date.month_names')[award_month],
+        year: award_year
        )
   end
 end
