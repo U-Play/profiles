@@ -4,44 +4,44 @@ class TeamPresenter < RailsPresenter::Base
   present :tournaments
 
   ########## team Form helpers ##########
-  def exp_start_date(exp_form)
-    exp_form.date_select  :start_date,
-                          discard_month: true,
-                          start_year: Time.now.year,
-                          end_year: 1923,
-                          prompt: h.t( 'team.form.placeholders.start_date' )
+  def form_start_date(form)
+    form.date_select  :start_date,
+                      discard_month: true,
+                      start_year: Time.now.year,
+                      end_year: 1923,
+                      prompt: h.t( 'team.form.placeholders.start_date' )
   end
 
-  def exp_end_date(exp_form)
-    exp_form.date_select  :end_date,
-                          discard_month: true,
-                          start_year: Time.now.year,
-                          end_year: 1923,
-                          prompt: h.t( 'team.form.placeholders.end_date' )
+  def form_end_date(form)
+    form.date_select  :end_date,
+                      discard_month: true,
+                      start_year: Time.now.year,
+                      end_year: 1923,
+                      prompt: h.t( 'team.form.placeholders.end_date' )
   end
 
-  def exp_sport(exp_form)
-    exp_form.collection_select  :sport_id,
-                                selectable_sports,
-                                :id,
-                                :name,
-                                { include_blank: h.t( 'team.form.placeholders.sport' ) }
+  def form_sport(form)
+    form.collection_select  :sport_id,
+                            selectable_sports,
+                            :id,
+                            :name,
+                            { include_blank: h.t( 'team.form.placeholders.sport' ) }
   end
 
-  def exp_role(exp_form)
-    exp_form.collection_select  :sport_role_id,
-                                selectable_sport_roles,
-                                :id,
-                                :name,
-                                { include_blank: h.t( 'team.form.placeholders.role' ) }
+  def form_role(form)
+    form.collection_select  :sport_role_id,
+                            selectable_sport_roles,
+                            :id,
+                            :name,
+                            { include_blank: h.t( 'team.form.placeholders.role' ) }
   end
 
-  def exp_name(exp_form)
-    exp_form.text_field :name, placeholder: h.t('team.form.placeholders.name')
+  def form_name(form)
+    form.text_field :name, placeholder: h.t('team.form.placeholders.name')
   end
 
-  def exp_position(exp_form)
-    exp_form.text_field :position, placeholder: h.t('team.form.placeholders.position')
+  def form_position(form)
+    form.text_field :position, placeholder: h.t('team.form.placeholders.position')
   end
 
   ########## Tournament Form helpers ##########

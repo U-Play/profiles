@@ -5,24 +5,24 @@
 
     .field
       .label = f.label :sport
-      .input.sport  = team_presenter.exp_sport f
+      .input.sport  = team_presenter.form_sport f
 
     .field
       .label = f.label :role
-      .input.role   = team_presenter.exp_role f
+      .input.role   = team_presenter.form_role f
 
     .field
       .label = f.label :position
-      .input.position   = team_presenter.exp_position f
+      .input.position   = team_presenter.form_position f
 
     .field.field--dates
       .label = f.label :date
-      .input.start_date = team_presenter.exp_start_date f
-      .input.end_date = team_presenter.exp_end_date f
+      .input.start_date = team_presenter.form_start_date f
+      .input.end_date = team_presenter.form_end_date f
 
     .field
       .label = f.label :name
-      .input.name   = team_presenter.exp_name f
+      .input.name   = team_presenter.form_name f
 
     = render 'tournaments/form', f: f, team_presenter: team_presenter
 
