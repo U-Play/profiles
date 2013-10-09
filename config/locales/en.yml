@@ -40,7 +40,6 @@ en:
         role: Athlete or Coach?
         sport: Sport
         start_date: Beginning
-        name: ""
         name: Name
         year: Year
         month: Month
