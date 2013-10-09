@@ -12,7 +12,5 @@ class FixesNamingConvention < ActiveRecord::Migration
     rename_column :tournaments, :experience_id, :team_id
 
     rename_index :tournaments, 'index_tournaments_on_experience_id', 'index_tournaments_on_team_id'
-
-    
   end
 end
