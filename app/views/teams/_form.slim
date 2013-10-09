@@ -1,0 +1,31 @@
+.new-experience__fields
+
+  .new-experience__box
+    header = team_presenter.title
+
+    .field
+      .label = f.label :sport
+      .input.sport  = team_presenter.exp_sport f
+
+    .field
+      .label = f.label :role
+      .input.role   = team_presenter.exp_role f
+
+    .field
+      .label = f.label :position
+      .input.position   = team_presenter.exp_position f
+
+    .field.field--dates
+      .label = f.label :date
+      .input.start_date = team_presenter.exp_start_date f
+      .input.end_date = team_presenter.exp_end_date f
+
+    .field
+      .label = f.label :team
+      .input.team   = team_presenter.exp_team f
+
+    = render 'tournaments/form', f: f, team_presenter: team_presenter
+
+    .new-experience__actions
+      = team_presenter.cancel f
+      = team_presenter.submit f

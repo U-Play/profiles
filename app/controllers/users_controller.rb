@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def view
     @user = User.find params[:id]
     authorize! :read, @user
-    set_new_experience
+    set_new_team
   end
 
   def view_by_username
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     authorize! :read, @user
 
     if @user
-      set_new_experience
+      set_new_team
       render :view
     else
       not_found("username #{params[:username]} does not exist")
@@ -46,12 +46,12 @@ class UsersController < ApplicationController
 
   private
 
-  def set_new_experience
+  def set_new_team
     if @user == current_user
-      params = flash[:new_experience_params]
-      @experience_hide = @user.experiences.any? && params.nil?
-      @new_experience = current_user.experiences.build(params)
-      @new_experience.tournaments.build if @new_experience.tournaments.empty?
+      params = flash[:new_team_params]
+      @team_hide = @user.teams.any? && params.nil?
+      @new_team = current_user.teams.build(params)
+      @new_team.tournaments.build if @new_team.tournaments.empty?
     end
   end
 

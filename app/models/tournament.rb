@@ -4,7 +4,7 @@ class Tournament < ActiveRecord::Base
   default_scope order: 'award_year DESC, award_month DESC'
 
   ## Relations ##
-  belongs_to :experience
+  belongs_to :team
   belongs_to :icon
 
   ## Attributes ##
@@ -13,8 +13,8 @@ class Tournament < ActiveRecord::Base
                   :icon,
                   :icon_id,
                   :name,
-                  :experience,
-                  :experience_id,
+                  :team,
+                  :team_id,
                   :award_year,
                   :award_month
 

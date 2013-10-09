@@ -30,7 +30,7 @@ FactoryGirl.define do
     description 'Just for fun'
   end
 
-  factory :experience do
+  factory :team do
     association :sport
     association :sport_role
     association :user
@@ -47,7 +47,7 @@ FactoryGirl.define do
   end
 
   factory :tournament_without_achievements, class: Tournament do
-    association :experience
+    association :team
     association :icon
     sequence(:name) {|n| "#{n} WUC"}
     award_date Date.today
@@ -55,7 +55,7 @@ FactoryGirl.define do
   end
 
   factory :tournament do
-    association :experience
+    association :team
     association :icon
     sequence(:name) {|n| "#{n} WUC"}
     achievements '1st place, MVP'

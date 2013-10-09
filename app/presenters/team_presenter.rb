@@ -1,15 +1,15 @@
-class ExperiencePresenter < RailsPresenter::Base
+class TeamPresenter < RailsPresenter::Base
   present :sport
   present :sport_role
   present :tournaments
 
-  ########## Experience Form helpers ##########
+  ########## team Form helpers ##########
   def exp_start_date(exp_form)
     exp_form.date_select  :start_date,
                           discard_month: true,
                           start_year: Time.now.year,
                           end_year: 1923,
-                          prompt: h.t( 'experience.form.placeholders.start_date' )
+                          prompt: h.t( 'team.form.placeholders.start_date' )
   end
 
   def exp_end_date(exp_form)
@@ -17,7 +17,7 @@ class ExperiencePresenter < RailsPresenter::Base
                           discard_month: true,
                           start_year: Time.now.year,
                           end_year: 1923,
-                          prompt: h.t( 'experience.form.placeholders.end_date' )
+                          prompt: h.t( 'team.form.placeholders.end_date' )
   end
 
   def exp_sport(exp_form)
@@ -25,7 +25,7 @@ class ExperiencePresenter < RailsPresenter::Base
                                 selectable_sports,
                                 :id,
                                 :name,
-                                { include_blank: h.t( 'experience.form.placeholders.sport' ) }
+                                { include_blank: h.t( 'team.form.placeholders.sport' ) }
   end
 
   def exp_role(exp_form)
@@ -33,36 +33,36 @@ class ExperiencePresenter < RailsPresenter::Base
                                 selectable_sport_roles,
                                 :id,
                                 :name,
-                                { include_blank: h.t( 'experience.form.placeholders.role' ) }
+                                { include_blank: h.t( 'team.form.placeholders.role' ) }
   end
 
   def exp_team(exp_form)
-    exp_form.text_field :team, placeholder: h.t('experience.form.placeholders.team')
+    exp_form.text_field :team, placeholder: h.t('team.form.placeholders.team')
   end
 
   def exp_position(exp_form)
-    exp_form.text_field :position, placeholder: h.t('experience.form.placeholders.position')
+    exp_form.text_field :position, placeholder: h.t('team.form.placeholders.position')
   end
 
   ########## Tournament Form helpers ##########
   def tour_award_month(form)
     form.select :award_month,
                 h.t('date.month_names').compact.zip((1..12)),
-                include_blank: h.t('experience.form.placeholders.month')
+                include_blank: h.t('team.form.placeholders.month')
   end
 
   def tour_award_year(form)
     form.select :award_year,
                 Time.now.year.downto(1923).to_a,
-                include_blank: h.t( 'experience.form.placeholders.year' )
+                include_blank: h.t( 'team.form.placeholders.year' )
   end
 
   def tour_achievements(form)
-    form.text_field :achievements, placeholder: h.t( 'experience.form.placeholders.achievements' )
+    form.text_field :achievements, placeholder: h.t( 'team.form.placeholders.achievements' )
   end
 
   def tour_name(form)
-    form.text_field :name, placeholder: h.t( 'experience.form.placeholders.name' )
+    form.text_field :name, placeholder: h.t( 'team.form.placeholders.name' )
   end
 
   def tour_icon(form)
@@ -78,7 +78,7 @@ class ExperiencePresenter < RailsPresenter::Base
 
   def end_year
     if ongoing
-      h.t('experience.current_date')
+      h.t('team.current_date')
     elsif end_date.present?
       year = end_date.year
       return year if year != start_year
@@ -87,32 +87,32 @@ class ExperiencePresenter < RailsPresenter::Base
 
   def date_range
     if ongoing
-      h.t('experience.date.ongoing', start: start_date.year)
+      h.t('team.date.ongoing', start: start_date.year)
     elsif end_date.present? && end_date.year == start_date.year
-      h.t('experience.date.single_year', year: end_date.year)
+      h.t('team.date.single_year', year: end_date.year)
     else
-      h.t('experience.date.range', start: start_date.year, end: end_date.year)
+      h.t('team.date.range', start: start_date.year, end: end_date.year)
     end
   end
 
   def title
     if persisted?
-      h.t('experience.form.edit.title')
+      h.t('team.form.edit.title')
     else
-      h.t('experience.form.new.title')
+      h.t('team.form.new.title')
     end
   end
 
   def submit(form)
-    form.submit h.t('experience.edit.submit'), class: "button submit"
+    form.submit h.t('team.edit.submit'), class: "button submit"
   end
 
   def cancel(form)
-    form.submit h.t('experience.edit.cancel'), class: "button cancel"
+    form.submit h.t('team.edit.cancel'), class: "button cancel"
   end
 
   def description
-    h.t 'experience.description', sport: sport.name, role: sport_role.name
+    h.t 'team.description', sport: sport.name, role: sport_role.name
   end
 
   def nil_formatter
@@ -133,18 +133,18 @@ class ExperiencePresenter < RailsPresenter::Base
 
   def date
     if end_date.nil?
-      h.t('experience.date_onwards', date: start_date.year)
+      h.t('team.date_onwards', date: start_date.year)
     else
-      h.t('experience.date', start_date: start_date.year, end_date: end_date.year)
+      h.t('team.date', start_date: start_date.year, end_date: end_date.year)
     end
   end
 
   def edit_path
-    h.edit_experience_path(id)
+    h.edit_team_path(id)
   end
 
   def destroy_path
-    h.experience_path(id)
+    h.team_path(id)
   end
 
   def edit_image

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   include ParanoiaInterface
 
   has_many :authorizations
-  has_many :experiences, :dependent => :destroy, :inverse_of => :user
+  has_many :teams, :dependent => :destroy, :inverse_of => :user
 
   devise  :database_authenticatable,
           :omniauthable,
@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def sports
-    experiences.map(&:sport)
+    teams.map(&:sport)
   end
 
   private

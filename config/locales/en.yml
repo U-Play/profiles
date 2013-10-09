@@ -9,7 +9,7 @@ en:
     form:
       title: Tournaments
     date: "%{month} %{year}"
-  experience:
+  team:
     current_date: current
     date:
       ongoing: "Since %{start}"
@@ -108,7 +108,7 @@ en:
       profile_description: Hey, this is what I've been up to. Show your game! Make your profile at profiles.uplaypro.com
   helpers:
     label:
-      experience:
+      team:
         date: Date
         position: Position
         role: Role

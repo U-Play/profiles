@@ -1,4 +1,4 @@
-class Experience < ActiveRecord::Base
+class Team < ActiveRecord::Base
   include ParanoiaInterface
 
   default_scope order: 'ongoing DESC, end_date DESC, start_date DESC'
@@ -50,7 +50,7 @@ class Experience < ActiveRecord::Base
 
   def start_date_before_end_date
     if start_date.present? and !ongoing and end_date.present? and end_date < start_date
-      errors.add(:end_date, I18n.t('experience.form.errors.date_before', date: 'Start date'))
+      errors.add(:end_date, I18n.t('team.form.errors.date_before', date: 'Start date'))
     end
   end
 

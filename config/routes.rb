@@ -14,7 +14,7 @@ Profiles::Application.routes.draw do
     get   '/edit' => 'users#edit', as: :edit_my_profile
     put   '/:id' => 'users#update'
 
-    resources :experiences, only: [:create, :edit, :update, :destroy]
+    resources :teams, only: [:create, :edit, :update, :destroy]
   end
 
   get '/:username' => "users#view_by_username", as: 'username'

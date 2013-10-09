@@ -9,18 +9,18 @@
         .input.remove = tour_form.link_to_remove ''
       .field.field--tournament
         .label: label Tournament
-        .input.name = experience_presenter.tour_name tour_form
+        .input.name = team_presenter.tour_name tour_form
       .field--action
       .field.field--date
         .label: label Date
-        .input.month = experience_presenter.tour_award_month tour_form
-        .input.year = experience_presenter.tour_award_year tour_form
+        .input.month = team_presenter.tour_award_month tour_form
+        .input.year = team_presenter.tour_award_year tour_form
       .field--action
       .field.field--achievement
         .label: label Achievement
-        .input = experience_presenter.tour_achievements tour_form
-        .input.icon = experience_presenter.tour_icon tour_form
+        .input = team_presenter.tour_achievements tour_form
+        .input.icon = team_presenter.tour_icon tour_form
 
 .field--action
   .tournament-add.js-tournament-add
-    .input.add-text = f.link_to_add t( 'experience.form.labels.add_more' ), :tournaments, data: { target: '#nested-form-tournaments' }
+    .input.add-text = f.link_to_add t( 'team.form.labels.add_more' ), :tournaments, data: { target: '#nested-form-tournaments' }
