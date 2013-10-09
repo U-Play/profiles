@@ -1,5 +1,5 @@
 @team @creation
-Feature: team Creation
+Feature: Team Creation
 
   In order to have teams
   As a user
@@ -30,7 +30,7 @@ Feature: team Creation
   @javascript
   Scenario: Add team with required field not filled
 
-    I shouldn't be able to add an team if a required field is not filled
+    I shouldn't be able to add a team if a required field is not filled
 
     When I leave a required field blank for a team
     Then I should see a failure message

@@ -1,5 +1,5 @@
 def fill_team_fields
-  fill_in 'team_team', with: 'Team Zero'
+  fill_in 'team_name', with: 'Team Zero'
   select(Date.today.year,      from: 'team_start_date_1i')
   select(Sport.first.name,     from: 'team_sport_id')
   select(SportRole.first.name, from: 'team_sport_role_id')
@@ -38,7 +38,7 @@ Then(/^I should see a creation success message$/) do
 end
 
 When(/^I leave a required field blank for a team$/) do
-  fill_in 'team_team', with: ''
+  fill_in 'team_name', with: ''
   #click_on I18n.t('team.edit.submit')
   submit_team_form
 end
@@ -69,7 +69,7 @@ Then(/^I should see an edit success message$/) do
 end
 
 When(/^I remove a required field$/) do
-  fill_in 'team_team', with: ''
+  fill_in 'team_name', with: ''
 end
 
 When(/^I cancel the edition$/) do

@@ -1,5 +1,5 @@
 @team @management
-Feature: team Management
+Feature: Team Management
 
   In order to update my teams
   As a user
@@ -21,14 +21,14 @@ Feature: team Management
   #@javascript
   #Scenario: Edit team with required field not filled
 
-    #I shouldn't be able to edit an team if a required field is not filled
+    #I shouldn't be able to edit a team if a required field is not filled
 
     #When I leave a required field blank for a team
     #Then I should see a failure message
 
   Scenario: Cancel team edition
 
-    I should be able to cancel the edition of an team
+    I should be able to cancel the edition of a team
 
     Given I am at a team's edit page
     When I remove a required field
@@ -37,7 +37,7 @@ Feature: team Management
 
   Scenario: Delete team
 
-    I should be able to delete an team
+    I should be able to delete a team
 
     When I go to my profile
     When I delete the team
