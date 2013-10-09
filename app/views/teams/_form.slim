@@ -1,6 +1,6 @@
-.new-experience__fields
+.new-team__fields
 
-  .new-experience__box
+  .new-team__box
     header = team_presenter.title
 
     .field
@@ -26,6 +26,6 @@
 
     = render 'tournaments/form', f: f, team_presenter: team_presenter
 
-    .new-experience__actions
+    .new-team__actions
       = team_presenter.cancel f
       = team_presenter.submit f
