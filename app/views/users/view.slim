@@ -2,16 +2,16 @@
   h1
     | History
     - if can? :manage, @user
-      = link_to t('experience.add_new'), '#', id: 'adds-story__button'
+      = link_to t('team.add_new'), '#', id: 'adds-team__button'
 - present @user do |user|
-  .stories
+  .teams
     - if can? :manage, user.target
-      #adds-story data-hide="#{@experience_hide}"
-        = render 'experiences/new', experience: @new_experience
-    - user.experiences.each do |experience_pres|
-      = render 'experiences/show', experience_pres: experience_pres
+      #adds-team data-hide="#{@team_hide}"
+        = render 'teams/new', team: @new_team
+    - user.teams.each do |team_pres|
+      = render 'teams/show', team_pres: team_pres
 
   - if can? :manage, user.target
     coffee:
       $ ->
-        window.story_adder.init()
+        window.team_adder.init()

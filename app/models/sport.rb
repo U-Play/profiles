@@ -4,10 +4,10 @@ class Sport < ActiveRecord::Base
   default_scope order: :name
 
   ## Relations ##
-  has_many :experiences
+  has_many :teams
 
   ## Attributes ##
-  attr_accessible :description, 
+  attr_accessible :description,
                   :name
 
   ## Validations ##

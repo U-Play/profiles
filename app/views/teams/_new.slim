@@ -1,0 +1,4 @@
+.new-team
+  - present(team) do |team_presenter|
+    = nested_form_for team, html: { class: 'custom' } do |f|
+      = render 'teams/form', f: f, team_presenter: team_presenter

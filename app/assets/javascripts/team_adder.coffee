@@ -1,8 +1,8 @@
 $ ->
-  story_adder =
-    $el: $('#adds-story')
-    add_button: $('#adds-story__button')
-    cancel_button: $('#adds-story .cancel')
+  team_adder =
+    $el: $('#adds-team')
+    add_button: $('#adds-team__button')
+    cancel_button: $('#adds-team .cancel')
     container_height: undefined
 
     isVisible: ->
@@ -57,4 +57,4 @@ $ ->
       @setInitialState()
       @bindElements()
 
-  window.story_adder = story_adder
+  window.team_adder = team_adder

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007173559) do
+ActiveRecord::Schema.define(:version => 20131009104232) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -29,24 +29,6 @@ ActiveRecord::Schema.define(:version => 20131007173559) do
     t.datetime "deleted_at"
     t.string   "gender"
   end
-
-  create_table "experiences", :force => true do |t|
-    t.string   "position"
-    t.string   "team"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.boolean  "ongoing",       :default => false
-    t.integer  "sport_role_id",                    :null => false
-    t.integer  "sport_id",                         :null => false
-    t.integer  "user_id",                          :null => false
-    t.datetime "deleted_at"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
-  end
-
-  add_index "experiences", ["sport_id"], :name => "index_experiences_on_sport_id"
-  add_index "experiences", ["sport_role_id"], :name => "index_experiences_on_sport_role_id"
-  add_index "experiences", ["user_id"], :name => "index_experiences_on_user_id"
 
   create_table "icons", :force => true do |t|
     t.string   "name",       :null => false
@@ -70,20 +52,38 @@ ActiveRecord::Schema.define(:version => 20131007173559) do
     t.datetime "updated_at",                  :null => false
   end
 
+  create_table "teams", :force => true do |t|
+    t.string   "position"
+    t.string   "name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.boolean  "ongoing",       :default => false
+    t.integer  "sport_role_id",                    :null => false
+    t.integer  "sport_id",                         :null => false
+    t.integer  "user_id",                          :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "teams", ["sport_id"], :name => "index_teams_on_sport_id"
+  add_index "teams", ["sport_role_id"], :name => "index_teams_on_sport_role_id"
+  add_index "teams", ["user_id"], :name => "index_teams_on_user_id"
+
   create_table "tournaments", :force => true do |t|
     t.string   "name"
-    t.text     "achievements",  :default => ""
+    t.text     "achievements", :default => ""
     t.date     "award_date"
-    t.integer  "experience_id",                 :null => false
+    t.integer  "team_id",                      :null => false
     t.datetime "deleted_at"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "icon_id"
-    t.integer  "award_year",                    :null => false
+    t.integer  "award_year",                   :null => false
     t.integer  "award_month"
   end
 
-  add_index "tournaments", ["experience_id"], :name => "index_tournaments_on_experience_id"
+  add_index "tournaments", ["team_id"], :name => "index_tournaments_on_team_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

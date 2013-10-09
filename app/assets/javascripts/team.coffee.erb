@@ -7,9 +7,9 @@ replace_tournament_icon = (elem) =>
     elem.append "<span class='name'>#{img_name}</span>"
 
 bind_focus = ->
-  $('#adds-story input[type]').focus ->
+  $('#adds-team input[type]').focus ->
     $(this).closest('.field').addClass('field--focus')
-  $('#adds-story input[type]').focusout ->
+  $('#adds-team input[type]').focusout ->
     $(this).closest('.field').removeClass('field--focus')
 
 display_tournament_icons = (field) ->
