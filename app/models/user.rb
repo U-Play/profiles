@@ -47,24 +47,33 @@ class User < ActiveRecord::Base
   validates :token, uniqueness: true
   validates :username, exclusion: {in: %w(me user)}, uniqueness: {case_sensitive: false}, allow_blank: true
 
+  validate :username_is_valid
+
   has_attached_file :picture,
                     styles: { sidebar: '200x200#' },
                     default_url: '/assets/default-profile-picture.png'
 
   attr_reader :picture_remote_url
 
-  def self.find_by_username(username)
-    where("lower(username) = ?", username.downcase).first
-  end
-
   def sports
     teams.map(&:sport)
+  end
+
+  def self.find_by_username(username)
+    where("lower(username) = ?", username.downcase).first
   end
 
   private
 
   def generate_token
      self.token = SecureRandom.uuid
+  end
+
+  def username_is_valid
+    # is valid if it doesn't contain whitespaces and accents
+    if username.match(/[^[:ascii:]]|\s/)
+      errors.add(:username, I18n.t('user.edit.errors.username'))
+    end
   end
 
 end
