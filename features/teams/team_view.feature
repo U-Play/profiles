@@ -1,5 +1,5 @@
 @team
-Feature: team view
+Feature: Team view
 
   In order to have my profile complete
   As a user
