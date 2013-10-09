@@ -93,7 +93,7 @@ end
 
 Then(/^I should see (?:his|my) teams$/) do
   @user.teams.each_with_index do |team, index|
-    selector = all(".story")[index]
+    selector = all(".team")[index]
     selector.should have_content team.team
     selector.should have_content team.sport.name
     selector.should have_content team.sport_role.name
