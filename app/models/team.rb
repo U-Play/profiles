@@ -17,7 +17,7 @@ class Team < ActiveRecord::Base
                   :ongoing,
                   :position,
                   :start_date,
-                  :team,
+                  :name,
                   :sport_role,
                   :sport_role_id,
                   :sport,
@@ -30,7 +30,7 @@ class Team < ActiveRecord::Base
   validates :sport_id,
             :sport_role_id,
             :user_id,
-            :team,
+            :name,
             :start_date,
             presence: true
 

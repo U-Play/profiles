@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009095524) do
+ActiveRecord::Schema.define(:version => 20131009104232) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20131009095524) do
 
   create_table "teams", :force => true do |t|
     t.string   "position"
-    t.string   "team"
+    t.string   "name"
     t.date     "start_date"
     t.date     "end_date"
     t.boolean  "ongoing",       :default => false

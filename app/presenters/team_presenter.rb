@@ -36,8 +36,8 @@ class TeamPresenter < RailsPresenter::Base
                                 { include_blank: h.t( 'team.form.placeholders.role' ) }
   end
 
-  def exp_team(exp_form)
-    exp_form.text_field :team, placeholder: h.t('team.form.placeholders.team')
+  def exp_name(exp_form)
+    exp_form.text_field :name, placeholder: h.t('team.form.placeholders.name')
   end
 
   def exp_position(exp_form)
