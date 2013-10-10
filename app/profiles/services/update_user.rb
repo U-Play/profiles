@@ -37,9 +37,9 @@ module Services
 
     def save_picture
       if new_attributes[:picture].present?
-        succeeded = user.update_attributes(picture: new_attributes[:picture])
+        picture_succeeded = user.update_attributes(picture: new_attributes[:picture])
         new_attributes.delete :picture
-        succeeded
+        picture_succeeded
       else
         true
       end
