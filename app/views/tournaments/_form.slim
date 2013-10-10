@@ -9,17 +9,17 @@
         .input.remove = tour_form.link_to_remove ''
       .field.field--tournament
         .label: label Tournament
-        .input.name = team_presenter.tour_name tour_form
+        .input.name = team.tour_name tour_form
       .field--action
       .field.field--date
         .label: label Date
-        .input.month = team_presenter.tour_award_month tour_form
-        .input.year = team_presenter.tour_award_year tour_form
+        .input.month = team.tour_award_month tour_form
+        .input.year = team.tour_award_year tour_form
       .field--action
       .field.field--achievement
         .label: label Achievement
-        .input = team_presenter.tour_achievements tour_form
-        .input.icon = team_presenter.tour_icon tour_form
+        .input = team.tour_achievements tour_form
+        .input.icon = team.tour_icon tour_form
 
 .field--action
   .tournament-add.js-tournament-add

@@ -209,8 +209,6 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
-    rails_presenter (0.0.3)
-      rails (~> 3.2.0)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -315,7 +313,6 @@ DEPENDENCIES
   pg
   pry-rails
   rails (= 3.2.13)
-  rails_presenter
   rspec-rails
   rvm-capistrano
   sass-rails (~> 3.2.3)

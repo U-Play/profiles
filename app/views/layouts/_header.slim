@@ -6,7 +6,7 @@
   .utilities
     ul.sign
       - if user_signed_in?
-        li.name = link_to present(current_user).full_name, my_profile_path
+        li.name = link_to signed_user.full_name, my_profile_path
         li = link_to t('menu.edit'), edit_my_profile_path
         li = link_to t('menu.sign_out'), destroy_user_session_path
       - else

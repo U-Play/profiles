@@ -14,7 +14,6 @@ gem 'mixpanel-ruby'
 gem "nested_form"
 gem 'slim'
 gem 'settingslogic'
-gem 'rails_presenter'
 gem 'paperclip'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'

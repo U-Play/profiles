@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include ApplicationHelper
 
   rescue_from CanCan::AccessDenied do |exception|
     if !current_user
@@ -34,9 +35,19 @@ class ApplicationController < ActionController::Base
     root_url + user_path(user)
   end
 
-  helper_method :user_path, :user_url
+  def signed_user
+    @signed_user ||= present(current_user || User.new)
+  end
+
+  helper_method :user_path, :user_url, :signed_user
 
   def not_found
     raise ActionController::RoutingError.new
+  end
+
+  delegate :present, to: :helpers
+
+  def helpers
+    view_context
   end
 end

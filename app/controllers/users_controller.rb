@@ -3,13 +3,13 @@ class UsersController < ApplicationController
   layout 'profile'
 
   def view
-    @user = User.find params[:id]
+    @user = present User.find params[:id]
     authorize! :read, @user
     set_new_team
   end
 
   def view_by_username
-    @user = User.find_by_username(params[:username])
+    @user = present User.find_by_username(params[:username])
     authorize! :read, @user
 
     if @user
@@ -21,19 +21,19 @@ class UsersController < ApplicationController
   end
 
   def me
-    authorize! :me, current_user
+    authorize! :me, signed_user
     flash.keep
-    redirect_to user_path(current_user)
+    redirect_to user_path(signed_user)
   end
 
   def edit
-    @user = current_user
+    @user = signed_user
     authorize! :edit, @user
   end
 
   def update
-    authorize! :update, current_user
-    @update_user = Services::UpdateUser.new(current_user, params[:user])
+    authorize! :update, signed_user
+    @update_user = Services::UpdateUser.new(signed_user, params[:user])
 
     @user = @update_user.update
     if @update_user.succeeded?
@@ -47,11 +47,8 @@ class UsersController < ApplicationController
   private
 
   def set_new_team
-    if @user == current_user
-      params = flash[:new_team_params]
-      @team_hide = @user.teams.any? && params.nil?
-      @new_team = current_user.teams.build(params)
-      @new_team.tournaments.build if @new_team.tournaments.empty?
+    if @user == signed_user
+      @user.set_new_team(flash[:new_team_params])
     end
   end
 
