@@ -53,7 +53,7 @@ en:
         other: "%{count} errors prohibited this team from being saved:"
   landing:
     facebook: Sign in with Facebook
-    invite: Your trained. You competed. You Won.
+    invite: You trained. You competed. You Won.
     second-invite: Finally, you can prove it.
     button: Create your profile now
     wip:
