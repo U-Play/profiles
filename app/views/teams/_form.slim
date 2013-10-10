@@ -1,31 +1,31 @@
 .new-team__fields
 
   .new-team__box
-    header = team_presenter.title
+    header = team.title
 
     .field
       .label = f.label :sport
-      .input.sport  = team_presenter.form_sport f
+      .input.sport  = team.form_sport f
 
     .field
       .label = f.label :role
-      .input.role   = team_presenter.form_role f
+      .input.role   = team.form_role f
 
     .field
       .label = f.label :position
-      .input.position   = team_presenter.form_position f
+      .input.position   = team.form_position f
 
     .field.field--dates
       .label = f.label :date
-      .input.start_date = team_presenter.form_start_date f
-      .input.end_date = team_presenter.form_end_date f
+      .input.start_date = team.form_start_date f
+      .input.end_date = team.form_end_date f
 
     .field
       .label = f.label :name
-      .input.name   = team_presenter.form_name f
+      .input.name   = team.form_name f
 
-    = render 'tournaments/form', f: f, team_presenter: team_presenter
+    = render 'tournaments/form', f: f, team: team
 
     .new-team__actions
-      = team_presenter.cancel f
-      = team_presenter.submit f
+      = team.cancel f
+      = team.submit f

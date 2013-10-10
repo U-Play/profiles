@@ -1,14 +1,13 @@
 - unless content_for? :title
   - content_for :title
-    - present @user do |user|
-      = t('title.with_name', name: user.full_name)
+    = t('title.with_name', name: @user.full_name)
 
 - content_for :header
   = render 'layouts/header'
 
 - content_for :content
   .user-profile
-    = render '/layouts/sidebar', user: (@user || current_user)
+    = render '/layouts/sidebar', user: @user
     .content
       = yield
 

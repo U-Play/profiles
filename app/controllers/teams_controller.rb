@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   layout 'profile'
 
+  before_filter :load_user
   before_filter :sanitize_empty_tournaments, only: [:create, :update]
   before_filter :check_for_cancel, only: [:create, :update]
 
@@ -20,12 +21,12 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @team = Team.find(params[:id])
+    @team = present Team.find(params[:id])
     authorize! :manage, @team
   end
 
   def update
-    @team = Team.find(params[:id])
+    @team = present Team.find(params[:id])
     authorize! :manage, @team
 
     if @team.update_attributes(params[:team])
@@ -40,7 +41,7 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    @team = Team.find(params[:id])
+    @team = present Team.find(params[:id])
     authorize! :manage, @team
     @team.destroy
     redirect_to my_profile_path, notice: t('team.destroy.success')
@@ -61,5 +62,9 @@ class TeamsController < ApplicationController
     if params[:commit].try(:downcase) == 'cancel'
       redirect_to my_profile_path
     end
+  end
+
+  def load_user
+    @user = signed_user
   end
 end

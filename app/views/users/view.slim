@@ -3,15 +3,14 @@
     | History
     - if can? :manage, @user
       = link_to t('team.add_new'), '#', id: 'adds-team__button'
-- present @user do |user|
-  .teams
-    - if can? :manage, user.target
-      #adds-team data-hide="#{@team_hide}"
-        = render 'teams/new', team: @new_team
-    - user.teams.each do |team_pres|
-      = render 'teams/show', team_pres: team_pres
+.teams
+  - if can? :manage, @user
+    #adds-team data-hide="#{@team_hide}"
+      = render 'teams/new', team: @new_team
+  - @user.teams.each do |team|
+    = render 'teams/show', team: team
 
-  - if can? :manage, user.target
-    coffee:
-      $ ->
-        window.team_adder.init()
+- if can? :manage, @user
+  coffee:
+    $ ->
+      window.team_adder.init()

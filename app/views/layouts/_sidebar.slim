@@ -1,12 +1,11 @@
-- present user do |user_presenter|
-  .sidebar
-    = link_to image_tag(user_presenter.picture.url(:sidebar), class: 'profile_picture'), user_path(user_presenter)
-    p.name = user_presenter.full_name
-    .icons
-      = user_presenter.facebook
-      = user_presenter.twitter
-    .tags title="#{user_presenter.tags}"
-      = user_presenter.tags
-    .location = user_presenter.location
-    .share
-      = user_presenter.share_on_facebook
+.sidebar
+  = link_to image_tag(user.picture.url(:sidebar), class: 'profile_picture'), user_path(user)
+  p.name = user.full_name
+  .icons
+    = user.facebook
+    = user.twitter
+  .tags title="#{user.tags}"
+    = user.tags
+  .location = user.location
+  .share
+    = user.share_on_facebook

@@ -3,6 +3,7 @@ Feature: Signing up
   I want to be able to sign up
   In order to access more features
 
+  @asd
   Scenario: Facebook sign in
     Given I am a visitor
     When I go to the root page

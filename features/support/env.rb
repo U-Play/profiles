@@ -14,6 +14,7 @@ module Cucumber
     class World
       include FactoryGirl::Syntax::Methods
       include ActionView::TestCase::Behavior
+      include ApplicationHelper
     end
   end
 end

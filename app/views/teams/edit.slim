@@ -1,6 +1,5 @@
 .teams
   #edit-team
     .new-experience
-      - present(@team) do |team_presenter|
-        = nested_form_for @team, html: { class: 'custom' } do |f|
-          = render 'teams/form', f: f, team_presenter: team_presenter
+      = nested_form_for @team, as: :team, html: { class: 'custom' } do |f|
+        = render 'teams/form', f: f, team: @team

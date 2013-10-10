@@ -1,19 +1,19 @@
 def facebook_user
   user = User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first
-  UserPresenter.new(user, self)
+  Presenters::UserPresenter.new(user, self)
 end
 
 def facebook_user_with_username
   user = User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first
   user.update_attributes username: 'username'
-  UserPresenter.new(user, self)
+  Presenters::UserPresenter.new(user, self)
 end
 
 def facebook_user_with_profile_complete
   user = User.where(email: OmniAuth.config.mock_auth[:facebook].info.email).first
   attrs = {university: 'UM', country: t(:PT, scope: :countries), profile_complete: true}
   user.update_attributes attrs
-  UserPresenter.new(user, self)
+  Presenters::UserPresenter.new(user, self)
 end
 
 def user_edit_changes
@@ -28,12 +28,12 @@ Given(/^I am at my profile's edit page$/) do
 end
 
 Given(/^there is a user$/) do
-  @user = UserPresenter.new(create(:user), self)
+  @user = Presenters::UserPresenter.new(create(:user), self)
 end
 
 Given(/^there is a user with teams$/) do
   team = create(:team)
-  @user = UserPresenter.new(team.user, self)
+  @user = Presenters::UserPresenter.new(team.user, self)
 end
 
 Given(/^I have teams$/) do
@@ -113,7 +113,7 @@ Then(/^I should see a 'share on facebook' button$/) do
 end
 
 Given(/^there is a user with username$/) do
-  @user = UserPresenter.new(create(:user_with_username), self)
+  @user = Presenters::UserPresenter.new(create(:user_with_username), self)
 end
 
 When(/^I go to the user's profile via its id$/) do
