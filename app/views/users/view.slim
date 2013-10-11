@@ -6,7 +6,7 @@
 .teams
   - if can? :manage, @user
     #adds-team data-hide="#{@user.new_team_hide}"
-      = render 'teams/new', team: @new_team
+      = render 'teams/new', team: @user.new_team
   - @user.teams.each do |team|
     = render 'teams/show', team: team
 

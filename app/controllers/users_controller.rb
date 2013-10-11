@@ -48,10 +48,7 @@ class UsersController < ApplicationController
 
   def set_new_team
     if @user == signed_user
-      params = flash[:new_team_params]
-      @user.set_new_team_hide(params)
-      @new_team = present signed_user.target.teams.build(params)
-      @new_team.target.tournaments.build if @new_team.tournaments.empty?
+      @user.set_new_team(flash[:new_team_params])
     end
   end
 
