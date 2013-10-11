@@ -51,5 +51,12 @@ module Presenters
     def username_placeholder
       Services::GenerateUsername.new(self).generate
     end
+
+    def set_new_team_hide(params)
+      @team_hide = teams.any? && params.nil?
+    end
+
+    attr_reader :new_team_hide
+
   end
 end
