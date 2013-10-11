@@ -8,7 +8,7 @@ module Presenters
         tournament = create :tournament_without_achievements
         tournament_presenter = TournamentPresenter.new(tournament, view)
 
-        tournament.achievements.should eq ""
+        tournament.achievements.should be_blank
       end
     end
   end

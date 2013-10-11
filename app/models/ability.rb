@@ -20,7 +20,7 @@ class Ability
   alias_method :original_can?, :can?
 
   def can?(action, subject, *extra_args)
-    if subject.class.name.split('::').first == 'Presenters'
+    if subject.class.name.match /^Presenters::/
       original_can?(action, subject.target, *extra_args)
     else
       original_can?(action, subject, *extra_args)
