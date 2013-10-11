@@ -10,7 +10,6 @@ module Presenters
         presenter = TeamPresenter.new(team, view)
         ordered_tournaments = team.tournaments.sort_by {|a| [a.award_year, a.award_month]}.reverse
 
-        binding.pry
         presenter.tournaments.map(&:target) == ordered_tournaments
       end
     end

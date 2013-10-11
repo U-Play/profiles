@@ -56,7 +56,6 @@ Given(/^I have a team$/) do
 end
 
 Given(/^I am at a team's edit page$/) do
-  binding.pry
   visit edit_team_path(@team)
 end
 
