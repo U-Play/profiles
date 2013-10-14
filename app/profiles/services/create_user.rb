@@ -35,7 +35,7 @@ module Services
     end
 
     def send_welcome_email
-      #UserMailer.welcome_email(user).deliver
+      UserMailer.welcome_email(user).deliver
     end
 
     def generate_password
