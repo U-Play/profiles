@@ -55,7 +55,7 @@ en:
     facebook: Sign in with Facebook
     invite: You trained. You competed. You Won.
     second-invite: Finally, you can prove it.
-    button: Create your profile now
+    button: Create your Profile
     wip:
       greeting: "Hi %{name},"
       not_ready: "Profiles is not ready yet!"

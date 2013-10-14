@@ -3,17 +3,49 @@ javascript:
     mixpanel_events.home_page();
   });
 
-.landing__logo
-  = link_to(image_tag('profiles-logo-big.png'), root_path)
+.white-container
+  header
+    .logo = link_to(image_tag('profiles-logo-big.png'), root_path)
 
-.landing__invite
-  p.invite = t('landing.invite')
-  p.second-invite = t('landing.second-invite')
+.green-bg-container
+  .landing__cta
+    h1 = 'For University Sports Athletes'
+    p.slogan  = 'Create your profile and join a worlwide network of Athletes'
+    .cta-button = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
 
-.landing__sign
-  = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
-  p = t('landing.facebook')
+.transparent-container
+  .landing__social-proof
 
-.landing__sample
-  = image_tag 'profile-sample.png'
+.white-container
+  .landing__features
+    h1 = "This is what you've been waiting for"
+    .results
+      .copy
+        p.title = 'A trophy room big enough for your victories'
+        p = 'This is what you worked for.'
+        p = 'List all your medals and achievements.'
+      = image_tag 'locker.png'
+    .teams
+      = image_tag 'profile-sample.png'
+      .copy
+        p.title = 'Show the world who you are'
+        p = 'You are what you do.'
+        p = "List all the teams you've been a part of."
 
+.grey-container
+  .landing__cta2
+    p = "Show them what you're made of"
+    .cta2-button = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+
+.green-container
+  footer
+    .resource
+      p = 'Social'
+      p = link_to('facebook.com/uplaypro')
+      p = link_to('twitter.com/uplaypro')
+    .resource
+      p = 'Blog'
+      p = link_to('blog.uplaypro.com')
+    .resource
+      p = 'Uplay'
+      p = link_to('uplaypro.com')
