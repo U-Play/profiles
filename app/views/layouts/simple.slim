@@ -1,12 +1,18 @@
-- content_for :content
-  - if flash.any?
-    #flashes-container.flashes-container--home   
-      - if flash[:notice]
-        .flash
-          .alert-box.success.round = flash[:notice]
-      - if flash[:alert]
-        .flash
-          .alert-box.alert.round   = flash[:alert]
-  = yield
+= render 'layouts/doctype'
+= render 'layouts/head'
 
-= render template: '/layouts/application'
+body
+  #fb-root
+  .body-background
+
+  .container--simple
+    #flashes-container.flashes-container--home
+      = render 'shared/flash', flash: flash
+    = yield
+
+    = javascript_include_tag "application"
+
+    - if ["production", "staging"].include? Rails.env
+      = javascript_include_tag "user_voice"
+
+  = render 'shared/footer'

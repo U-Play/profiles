@@ -20,62 +20,13 @@
   width: 100%
   height: 100%
   z-index: -1
-  
+
 .landing__logo
   margin-top: 55px
   text-align: center
-
-.landing__sample
-  margin: 0 auto
-  margin-top: 45px
-  width: 726px
-
-.landing__sample--opaque
-  margin: 0 auto
-  margin-top: 45px
-  width: 726px
-  height: 573px
-  +opacity(0.5)
-
-.landing__invite
-  margin-top: 45px
-  p
-    text-align: center
-    font-size: 2rem
-    line-height: 1em
-    margin: 0
-  p.invite
-    //font-size: 2rem
-    font-weight: bold
-    margin-bottom: 8px
-  p.second-invite
-    //font-size: 1.5rem
-    margin-top: 20px
-    margin-bottom: 50px
-    font-weight: 300
-    color: $green
-
-.landing__sign
-  width: 30%
-  margin: 0 auto
-  a
-    @extend %invite-button
-    margin-bottom: 0
-  p
-    text-align: center
-
-
+  
 .landing__wip
   margin-top: 100px
-  p
-    text-align: center
-    font-size: 2rem
-    line-height: 1em
-    font-weight: bold
-    margin-bottom: 8px
-  p:last-child
-    font-weight: 300
-
 
 .top-border
   height: 3px
@@ -86,6 +37,9 @@
   background-color: $green
 
 /** Flash messages */
+
+.container--simple .flashes-container--home
+  margin-top: 0
 
 .flashes-container--home
   position: relative
@@ -103,7 +57,7 @@
   margin-top: 70px
 
 .flashes-container, .flashes-container--home
-  $flash-colors: success $flash-green, alert $flash-red
+  $flash-colors: notice $flash-green, alert $flash-red
   .alert-box
     +grey-box-shadow
     text-align: center

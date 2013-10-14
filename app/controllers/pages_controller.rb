@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     redirect_to after_sign_in_path_for(current_user) if current_user
 
     @token = params[:token]
+    @users = present Services::FindHighlightedProfiles.new().find
   end
 
   def about

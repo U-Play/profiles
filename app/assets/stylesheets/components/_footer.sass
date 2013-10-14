@@ -3,16 +3,16 @@ body > footer
   text-align: center
   font-weight: 300
   font-size: 0.9rem
-  color: $dark_grey
-  a
-    text-decoration: underline
-    color: $dark_grey
-    &:hover
-      color: $dark_grey
+  +anchor_style($dark-grey)
 
-body > .container
+.container--simple ~ footer
+  +anchor_style($white)
+
+.container, .container--simple
   height: auto
   min-height: 100%
+
+.container
   padding-bottom: 45px
 
 html, body

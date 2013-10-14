@@ -1,8 +1,4 @@
-@mixin invisible
-  opacity: 0
-  filter: alpha(opacity=0)
-
-@mixin circular($size)
+=circular($size)
   width: $size
   height: $size
   border-radius: $size/2
@@ -14,5 +10,24 @@
   margin-left: auto
   margin-right: auto
 
-@mixin grey-box-shadow
+=grey-box-shadow
   +box-shadow($shadow-color 0px 1px 2px 0px)
+
+=invisible
+  opacity: 0
+  filter: alpha(opacity=0)
+
+=anchor-style($color)
+  color: $color
+  a
+    text-decoration: underline
+    color: $color
+    &:hover
+      color: $color
+
+=landing-wrap($padding-values: 0, $text-align: center, $background: $white)
+  width: 100%
+  display: inline-block
+  text-align: $text-align
+  padding: $padding-values
+  background: $background

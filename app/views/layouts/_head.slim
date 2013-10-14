@@ -1,0 +1,17 @@
+head data-current-user="#{current_user.id if current_user}" data-root-url="#{request.host_with_port}"
+  meta charset="utf-8"
+  = render 'layouts/meta'
+
+  = favicon_link_tag 'favicon.png'
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+  - if ["production", "staging"].include? Rails.env
+    link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'
+
+  = javascript_include_tag "init"
+
+  title= content_for?(:title) ? yield(:title) : t('title.simple')
+
+  = stylesheet_link_tag "application", media: 'all'
+  = javascript_include_tag "vendor/custom.modernizr"
+  = csrf_meta_tag
