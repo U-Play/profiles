@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   before_validation :generate_token
 
   validates :university, :country, :gender, presence: true, on: :update, if: :profile_complete
+  validates_with Validators::CountryValidator, on: :update, if: :profile_complete
+
   validates :email,
             :first_name,
             :last_name,
@@ -75,5 +77,4 @@ class User < ActiveRecord::Base
       errors.add(:username, I18n.t('user.edit.errors.username'))
     end
   end
-
 end

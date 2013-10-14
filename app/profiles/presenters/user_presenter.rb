@@ -2,6 +2,10 @@ module Presenters
   class UserPresenter < Base
     presents :teams
 
+    def countries
+      Country.all.map(&:first)
+    end
+
     def full_name
       "#{first_name} #{last_name}".strip
     end
@@ -40,8 +44,13 @@ module Presenters
     end
 
     def location
-      country = self.country.present? ? I18n.t(self.country, scope: :countries) : nil
       [university, country].compact.join(", ")
+    end
+
+    def country
+      if target.country.present? && Country.find_by_alpha2(target.country)
+        h.t(target.country, scope: :countries)
+      end
     end
 
     def gender_options_for_select

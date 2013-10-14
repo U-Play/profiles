@@ -8,6 +8,7 @@ module Services
 
     def update
       clean_username
+      find_country
       save_user
       update_to_mixpanel
       user
@@ -29,6 +30,12 @@ module Services
         user.username = Services::GenerateUsername.new(user).generate
         new_attributes.delete(:username)
       end
+    end
+
+    def find_country
+      find_country = Services::FindCountry.new(country: new_attributes[:country])
+      user.country = find_country.find
+      new_attributes.delete(:country)
     end
 
     def save_user
