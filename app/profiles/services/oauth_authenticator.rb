@@ -30,17 +30,8 @@ module Services
       user.authorizations.create(info) if user
     end
 
-    def increment_referral
-      if @token
-        User.where(token: @token).first.increment!(:referral_subscriptions)
-      end
-    end
-
     def create
-      user_info = info.slice(:first_name, :last_name, :email, :birth_date, :gender).merge(facebook_link: info[:link], password: generate_password)
-      @user = User.create(user_info)
-      user.authorizations.create(info)
-      increment_referral
+      @user = CreateUser.new(info, token).create
     end
 
     def set_info
@@ -71,10 +62,6 @@ module Services
 
     def data_try_chain(*args)
       args.inject(raw_data) { |ret, current| ret.try(current) }
-    end
-
-    def generate_password
-      Devise.friendly_token[0,20]
     end
 
   end

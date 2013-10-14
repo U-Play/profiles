@@ -1,6 +1,7 @@
 require "rvm/capistrano"
 require "bundler/capistrano"
 require 'capistrano/ext/multistage'
+require 'dotenv/capistrano'
 
 set :application, "UPlay Profiles"
 

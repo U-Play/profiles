@@ -114,4 +114,16 @@ en:
         role: Role
         sport: Sport
         name: Team
-
+  mailers:
+    defaults:
+      title: U-Play Profiles
+      blog: blog
+      facebook: facebook
+      twitter: twitter
+    welcome:
+      title: "Welcome to U-Play Profiles, %{name}"
+      thanks: Thank you for joining us. U-Play Profiles is an exciting new app for sports profiles. You already have your profile, now complete it and start challenging your friends. Soon enough, every university athlete will have one.
+      new_stuff: We're adding new stuff, so please let us know about any problems or suggestions. Write an email to support@uplaypro.com.
+      follow_us: In the meanwhile, you can follow us at our
+      or: or
+      spread: Please spread the word.

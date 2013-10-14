@@ -58,5 +58,10 @@ module Profiles
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # action_mailer
+    mailer_options = { host: ENV['PROFILES_ACTION_MAILER_URL'] }
+    mailer_options[:port] = ENV['PROFILES_ACTION_MAILER_PORT'] if ENV['PROFILES_ACTION_MAILER_PORT']
+    config.action_mailer.default_url_options = mailer_options
   end
 end

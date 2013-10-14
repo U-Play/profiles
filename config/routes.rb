@@ -1,4 +1,8 @@
 Profiles::Application.routes.draw do
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
+
   devise_for :users, skip: [:registrations, :sessions], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   devise_scope :user do
