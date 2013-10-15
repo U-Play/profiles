@@ -52,9 +52,24 @@ en:
         one: '1 error prohibited this team from being saved:'
         other: "%{count} errors prohibited this team from being saved:"
   landing:
-    facebook: Sign in with Facebook
-    invite: You trained. You competed. You Won.
-    second-invite: Finally, you can prove it.
+    cta:
+      title: For University Sports Athletes
+      slogan: Create your profile and join a worlwide network of Athletes
+    feature:
+      title: This is what you've been waiting for
+      results:
+        title: A trophy room big enough for your victories
+        p1: This is what you worked for.
+        p2: List all your medals and achievements.
+      teams:
+        title: Show the world who you are
+        p1: You are what you do.
+        p2: List all the teams you've been a part of.
+    cta2:
+      p: Show them what you're made of
+    resources:
+      social: Social
+      blog: Blog
     button: Create your Profile
     wip:
       greeting: "Hi %{name},"

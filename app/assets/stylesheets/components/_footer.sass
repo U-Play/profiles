@@ -10,9 +10,19 @@ body > footer
     &:hover
       color: $dark_grey
 
-body > .container
+body > .container--simple ~ footer
+  color: $white
+  a
+    text-decoration: underline
+    color: $white
+    &:hover
+      color: $white
+
+body > .container, .container--simple
   height: auto
   min-height: 100%
+
+body > .container
   padding-bottom: 45px
 
 html, body

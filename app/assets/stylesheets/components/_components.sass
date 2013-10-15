@@ -21,32 +21,51 @@
   height: 100%
   z-index: -1
 
-.white-container, .grey-container, .green-container, .transparent-container, .green-bg-container
+.landing__header-container,
+.landing__cta-container,
+.landing__features-container,
+.landing__cta2-container,
+.landing__footer-container
   width: 100%
-  display: inline-block
-  text-align: center
-  padding: 3em 0
+  padding: 3rem 0
   > div, header, footer
-    max-width: 900px
+    max-width: $landing-max-width
     margin: 0 auto
 
-.white-container
+.landing__social-container
+  width: 100%
+
+.landing__header-container,
+.landing__cta-container,
+.landing__social-container,
+.landing__features-container,
+.landing__cta2-container,
+.landing__footer-container
+  display: inline-block
+  text-align: center
+
+.landing__header-container
+  text-align: left
+  padding: 1.5rem 0
+  img
+    width: 15%
+
+.landing__features-container
+  padding: 1rem 0 3rem
+
+.landing__header-container,
+.landing__social-container,
+.landing__features-container
   background-color: $white
-  > header
-    text-align: left
 
-.transparent-container
-  background-color: transparent
-  padding: 0
+.landing__cta-container
+  background: image-url('green-bg.png')
 
-.grey-container
+.landing__cta2-container
   background-color: $gy-cta2
 
-.green-container
+.landing__footer-container
   background-color: $g-bg
-
-.green-bg-container
-  background: image-url('green-bg.png')
 
 .landing__cta, .landing__features
   h1
@@ -60,7 +79,7 @@
   p:not(:first-of-type)
     font-size: 1rem
     color: $gy
-  p.slogan 
+  p.slogan
     color: $g-cta-text
     margin-top: 20px
     margin-bottom: 50px
@@ -68,49 +87,109 @@
     color: $g-bg
     font-weight: bold
 
-.landing__cta2 p
-  font-size: 1.75rem
-  font-weight: bold
-
-.results, .teams
-  display: block
-  margin: 60px 0
-  .copy
-    display: inline-block
-    width: 50%
-  img
-    width: 50%
-
-.landing__features
-  div:nth-of-type(odd) img
-    padding-left: 3rem
-  div:nth-of-type(even) img
-    padding-right: 3rem
+.landing__cta, .landing__cta2
+  a
+    color: $white
+    font-weight: bold
+    text-decoration: none
 
 .landing__cta h1
   color: $white
 
+.landing__cta2 p
+  font-size: 1.75rem
+  font-weight: bold
+
+.landing__social
+  .profile
+    display: inline-block
+    width: 33%
+    margin-top: -4%
+    vertical-align: top
+  .profile-pic
+    width: image-width('hover-box.png')
+    margin: 0 auto
+  .profile-pic:hover
+    + .profile-info
+      visibility: visible
+  .profile-info
+    margin-top: 15px
+    padding-top: 5%
+    visibility: hidden
+    background: image-url('hover-box.png') no-repeat center
+    height: image-height('hover-box.png')
+  p
+    font-weight: bold
+    margin: 0
+    &:last-child
+      color: $g-bg
+
+.results, .teams
+  display: block
+  position: relative
+  margin-top: 70px
+  margin-bottom: 30px
+  .copy, img
+    width: 50%
+  .copy
+    display: inline-block
+    position: absolute
+    top: 0
+    bottom: 0
+    margin: auto
+
+.landing__features
+  div:nth-of-type(odd)
+    img
+      padding-left: 1.5rem
+      margin-left: 50%
+    .copy
+      padding-right: 1.5rem
+      text-align: right
+      height: 50%
+      left: 0
+  div:nth-of-type(even)
+    img
+      padding-right: 1.5rem
+      margin-right: 50%
+    .copy
+      padding-left: 1.5rem
+      text-align: left
+      height: 30%
+      right: 0
+
 .cta-button, .cta2-button
   display: inline-block
-  padding: 10px 40px
-  +border-radius(25px)
-  a
-    color: $white
-    font-weight: bold
+  padding: 10px 50px
+  +border-radius(30px)
 
 .cta-button
-  margin-bottom: 40px
-  border: 3px solid $white
+  margin-bottom: 60px
+  border: 4px solid $white
 
 .cta2-button
   background: $g-bg
-  border: 3px solid $g-bg
+  border: 4px solid $g-bg
 
-.green-container > footer
+footer.landing__footer
   display: block
+  margin-bottom: 50px
   .resource
     display: inline-block
-    width: 33%
+    width: 25%
+    text-align: left
+    vertical-align: top
+    padding-left: 7%
+
+.landing__footer .resource
+  p
+    margin-bottom: 0
+  p:first-of-type
+    color: $g-foot-text
+    font-weight: bold
+    font-size: 1.75rem
+  p:not(:first-of-type) a
+    color: $white
 
 .top-border
   height: 3px
@@ -121,6 +200,9 @@
   background-color: $green
 
 /** Flash messages */
+
+.container--simple > .flashes-container--home
+  margin-top: 0
 
 .flashes-container--home
   position: relative

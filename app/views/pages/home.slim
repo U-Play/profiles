@@ -3,48 +3,57 @@ javascript:
     mixpanel_events.home_page();
   });
 
-.white-container
+.landing__header-container
   header
     .logo = link_to(image_tag('profiles-logo-big.png'), root_path)
 
-.green-bg-container
+.landing__cta-container
   .landing__cta
-    h1 = 'For University Sports Athletes'
-    p.slogan  = 'Create your profile and join a worlwide network of Athletes'
-    .cta-button = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+    h1 = t('landing.cta.title')
+    p.slogan = t('landing.cta.slogan')
+    = link_to omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+      .cta-button = t('landing.button')
 
-.transparent-container
-  .landing__social-proof
+.landing__social-container
+  .landing__social
+    - @users.each do |user|
+      .profile*{ id: "user_#{user.id}" }
+        .profile-pic = link_to(image_tag("user_#{user.id}.png"), user_path(user))
+        .profile-info
+          p = user.full_name
+          p = user.tags
 
-.white-container
+
+.landing__features-container
   .landing__features
-    h1 = "This is what you've been waiting for"
+    h1 = t('landing.feature.title')
     .results
       .copy
-        p.title = 'A trophy room big enough for your victories'
-        p = 'This is what you worked for.'
-        p = 'List all your medals and achievements.'
+        p.title = t('landing.feature.results.title')
+        p = t('landing.feature.results.p1')
+        p = t('landing.feature.results.p2')
       = image_tag 'locker.png'
     .teams
-      = image_tag 'profile-sample.png'
+      = image_tag 'profile.png'
       .copy
-        p.title = 'Show the world who you are'
-        p = 'You are what you do.'
-        p = "List all the teams you've been a part of."
+        p.title = t('landing.feature.teams.title')
+        p = t('landing.feature.teams.p1')
+        p = t('landing.feature.teams.p2')
 
-.grey-container
+.landing__cta2-container
   .landing__cta2
-    p = "Show them what you're made of"
-    .cta2-button = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+    p = t('landing.cta2.p')
+    = link_to omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
+      .cta2-button = t('landing.button')
 
-.green-container
-  footer
+.landing__footer-container
+  footer.landing__footer
     .resource
-      p = 'Social'
+      p = t('landing.resources.social')
       p = link_to('facebook.com/uplaypro')
       p = link_to('twitter.com/uplaypro')
     .resource
-      p = 'Blog'
+      p = t('landing.resources.blog')
       p = link_to('blog.uplaypro.com')
     .resource
       p = 'Uplay'

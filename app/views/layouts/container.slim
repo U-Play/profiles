@@ -1,0 +1,52 @@
+doctype html
+== "<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->"
+== "<!--[if lt IE 7 ]> <html class=\"ie6\" lang=\"en\"> <![endif]-->"
+== "<!--[if IE 7 ]>    <html class=\"ie7\" lang=\"en\"> <![endif]-->"
+== "<!--[if IE 8 ]>    <html class=\"ie8\" lang=\"en\"> <![endif]-->"
+== "<!--[if IE 9 ]>    <html class=\"ie9\" lang=\"en\"> <![endif]-->"
+== "<!--[if (gt IE 9)|!(IE)]><!--> <html lang=\"en\"> <!--<![endif]-->"
+
+head data-current-user="#{current_user.id if current_user}" data-root-url="#{request.host_with_port}"
+  meta charset="utf-8"
+  = render 'layouts/meta'
+  / Uncomment to make IE8 render like IE7
+  / meta http-equiv="X-UA-Compatible" content="IE=7"
+
+  / Set the viewport width to device width for mobile
+  = favicon_link_tag 'favicon.png'
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+  - if ["production", "staging"].include? Rails.env
+    link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'
+
+  = javascript_include_tag "init"
+
+  title= content_for?(:title) ? yield(:title) : t('title.simple')
+
+  = stylesheet_link_tag "application", media: 'all'
+  = javascript_include_tag "vendor/custom.modernizr"
+  = csrf_meta_tag
+
+body
+  #fb-root
+  .body-background
+
+  .container--simple
+    - if content_for?(:header)
+      = yield(:header)
+
+    - if content_for?(:content)
+      = yield(:content)
+    - else
+      = yield
+
+    = javascript_include_tag "application"
+
+    - if ["production", "staging"].include? Rails.env
+      = javascript_include_tag "user_voice"
+
+  footer
+      | Copyright © 2013 All rights reserved, 
+      = link_to "U-PLAY", "http://uplaypro.com"
+      | . 
+      = link_to "About", about_path
