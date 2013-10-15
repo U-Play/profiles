@@ -17,6 +17,7 @@ gem 'settingslogic'
 gem 'paperclip'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
+gem 'roadie'
 gem 'i18n_country_select'
 
 group :assets do
@@ -36,6 +37,7 @@ group :development do
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-rspec'
+  gem 'mail_view'
 end
 
 group :test do
