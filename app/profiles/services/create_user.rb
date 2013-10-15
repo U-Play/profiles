@@ -8,15 +8,15 @@ module Services
 
     def create
       @user = User.create(user_info)
-      @user.authorizations.create(auth_info)
+      user.authorizations.create(auth_info)
       increment_referral
       send_welcome_email
-      @user
+      user
     end
 
     private
 
-    attr_accessor :info, :token
+    attr_accessor :info, :token, :user
 
     def user_info
       info
@@ -35,7 +35,7 @@ module Services
     end
 
     def send_welcome_email
-      UserMailer.welcome_email(user).deliver
+      UserMailer.welcome(user).deliver
     end
 
     def generate_password

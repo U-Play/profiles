@@ -50,3 +50,8 @@ end
 When(/^I go to the root path$/) do
   visit root_path
 end
+
+Then(/^I should receive a welcome email$/) do
+  email = ActionMailer::Base.deliveries.last
+  email.to.should include OmniAuth.config.mock_auth[:facebook][:info][:email]
+end
