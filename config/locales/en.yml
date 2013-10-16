@@ -36,7 +36,7 @@ en:
         achievements: "Achievements (optional)"
         end_date: End (or ongoing)
         icon: Icon
-        position: "ex: Goalkeeper (optional)"
+        position: "ex. Goalkeeper (optional)"
         role: Athlete or Coach?
         sport: Sport
         start_date: Start
