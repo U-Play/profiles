@@ -10,7 +10,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
-gem 'mail_view'
 gem 'mixpanel-ruby'
 gem "nested_form"
 gem 'slim'
@@ -38,6 +37,7 @@ group :development do
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-rspec'
+  gem 'mail_view'
 end
 
 group :test do
