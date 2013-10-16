@@ -4,8 +4,17 @@
     header = team.title
 
     .field
+      .label = f.label :name
+      .input.name   = team.form_name f
+
+    .field
       .label = f.label :sport
       .input.sport  = team.form_sport f
+
+    .field.field--dates
+      .label = f.label :date
+      .input.start_date = team.form_start_date f
+      .input.end_date = team.form_end_date f
 
     .field
       .label = f.label :role
@@ -14,15 +23,6 @@
     .field
       .label = f.label :position
       .input.position   = team.form_position f
-
-    .field.field--dates
-      .label = f.label :date
-      .input.start_date = team.form_start_date f
-      .input.end_date = team.form_end_date f
-
-    .field
-      .label = f.label :name
-      .input.name   = team.form_name f
 
     = render 'tournaments/form', f: f, team: team
 
