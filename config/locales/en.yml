@@ -5,7 +5,7 @@ en:
   title:
     simple: U-PLAY Profiles
     with_name: '%{name} - U-PLAY Profiles'
-  tournaments:
+  tournament:
     form:
       title: Tournaments
     date: "%{month} %{year}"
@@ -33,16 +33,17 @@ en:
       labels:
         add_more: Add more
       placeholders:
-        achievements: "Achievements (optional)"
-        end_date: Ongoing
+        achievements: Description (optional)
+        end_date: End (or ongoing)
         icon: Icon
-        position: "ex: Goalkeeper (optional)"
+        position: ex. Goalkeeper (optional)
         role: Athlete or Coach?
         sport: Sport
-        start_date: Beginning
-        name: Name
+        start_date: Start
+        name: University of Split
         year: Year
         month: Month
+        tournament: Name (without the year)
       errors:
        date_before: "can't be before %{date}"
     new:
@@ -75,10 +76,12 @@ en:
       errors:
         one: '1 error prohibited this user from being saved:'
         other: "%{count} errors prohibited this user from being saved:"
-        username: "The username isn't valid!"
         country: "Country isn't valid!"
+        username: The username isn't valid!
+        facebook_link: cannot be edited
       label:
         facebook: Facebook
+        name: Name
         first_name: First name
         last_name: Last name
         twitter: Twitter
@@ -90,8 +93,11 @@ en:
         first_name: Mathew
         last_name: Greg
         name: Name
-        team: Team
+        team: University of Coimbra
         twitter_handle: Twitter Handle
+      headers:
+        personal_details: Personal Details
+        social_networks: Social Networks
     gender:
       male: Male
       female: Female
@@ -115,6 +121,8 @@ en:
         role: Role
         sport: Sport
         name: Team
+      tournament:
+        achievements: Result
   mailers:
     defaults:
       title: U-Play Profiles

@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
   validates :username, exclusion: {in: %w(me user)}, uniqueness: {case_sensitive: false}, allow_blank: true
 
   validate :username_is_valid
+  validate :facebook_link_is_unchanged
 
   has_attached_file :picture,
                     styles: { sidebar: '200x200#' },
@@ -75,6 +76,14 @@ class User < ActiveRecord::Base
     # is valid if it doesn't contain whitespaces and accents
     if username.match(/[^[:ascii:]]|\s/)
       errors.add(:username, I18n.t('user.edit.errors.username'))
+    end
+  end
+
+  def facebook_link_is_unchanged
+    original_link = authorizations.first.try :link
+    if original_link.present? && facebook_link != original_link
+      errors.add(:facebook_link,I18n.t('user.edit.errors.facebook_link'))
+      self.facebook_link = original_link
     end
   end
 end

@@ -63,7 +63,7 @@ module Presenters
     end
 
     def tour_name(form)
-      form.text_field :name, placeholder: h.t( 'team.form.placeholders.name' )
+      form.text_field :name, placeholder: h.t( 'team.form.placeholders.tournament' )
     end
 
     def tour_icon(form)
