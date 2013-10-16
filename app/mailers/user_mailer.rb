@@ -1,5 +1,4 @@
 class UserMailer < ActionMailer::Base
-  #layout 'mailer'
   default from: 'hello@uplaypro.com'
 
   def welcome(user)

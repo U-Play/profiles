@@ -1,6 +1,6 @@
 Feature: Welcome email
   As a visitor
-  When i sign up
+  When I sign up
   I want to receive a welcome email
 
   @email
