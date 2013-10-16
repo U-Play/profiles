@@ -9,8 +9,9 @@ class PagesController < ApplicationController
 
     @users = []
     #NOTE so para teste
-    # @users = present User.find(2, 3, 4)
+    # @users = present User.find(1, 3, 9)
     #NOTE let's hope these users don't delete their accounts :)
+    #TODO usar dotenv
     @users = present User.find(12, 16, 44) if Rails.env.production?
   end
 
