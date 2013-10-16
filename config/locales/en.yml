@@ -43,6 +43,7 @@ en:
         name: University of Split
         year: Year
         month: Month
+        tournament: Name (without the year)
       errors:
        date_before: "can't be before %{date}"
     new:
