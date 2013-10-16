@@ -78,6 +78,7 @@ en:
         username: The username isn't valid!
       label:
         facebook: Facebook
+        name: Name
         first_name: First name
         last_name: Last name
         twitter: Twitter

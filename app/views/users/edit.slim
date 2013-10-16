@@ -9,7 +9,7 @@ javascript:
     .profile-edit__box
       = form_for @user, as: :user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
         .field.field--name
-            .label = f.label :first_name, t('user.edit.label.first_name')
+            .label = f.label :first_name, t('user.edit.label.name')
             .input.first-name = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
             .input.last-name = f.text_field :last_name, placeholder: t('user.edit.placeholder.last_name')
 
