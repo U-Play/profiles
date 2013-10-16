@@ -1,0 +1,26 @@
+
+.tournaments#nested-form-tournaments
+  .tournaments__title
+    h4= t( 'tournaments.form.title' )
+
+  = f.fields_for :tournaments do |tour_form|
+    .tournament__fields
+      .field--action
+        .input.remove = tour_form.link_to_remove ''
+      .field.field--tournament
+        .label = tour_form.label :name
+        .input.name = team.tour_name tour_form
+      .field--action
+      .field.field--date
+        .label = tour_form.label :date
+        .input.month = team.tour_award_month tour_form
+        .input.year = team.tour_award_year tour_form
+      .field--action
+      .field.field--achievement
+        .label = tour_form.label :achievements
+        .input = team.tour_achievements tour_form
+        .input.icon = team.tour_icon tour_form
+
+.field--action
+  .tournament-add.js-tournament-add
+    .input.add-text = f.link_to_add t( 'team.form.labels.add_more' ), :tournaments, data: { target: '#nested-form-tournaments' }

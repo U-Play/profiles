@@ -1,0 +1,24 @@
+// Grid
+.new-team
+  +grid-row()
+
+.new-team__fields
+  +grid-column($columns: $profile-box-columns, $collapse: true, $offset: $dates-columns)
+  .field
+    width: 100%
+    .label
+      display: inline-block
+      width: 20%
+    .input
+      display: inline-block
+      width: 80%
+  .field--dates .input
+    width: 40%
+
+.new-team__box
+  @extend %form__box
+  margin-bottom: $teams-separation
+
+.new-team__actions
+  @extend %form__actions
+

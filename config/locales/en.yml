@@ -2,4 +2,124 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  title:
+    simple: U-PLAY Profiles
+    with_name: '%{name} - U-PLAY Profiles'
+  tournament:
+    form:
+      title: Tournaments
+    date: "%{month} %{year}"
+  team:
+    current_date: current
+    date:
+      ongoing: "Since %{start}"
+      single_year: "During %{year}"
+      range: "From %{start} to %{end}"
+    description: "%{sport} %{role}"
+    add_new: add new team
+    edit:
+      button: edit
+      success: Team edited successfully!
+      submit: Submit
+      cancel: Cancel
+    destroy:
+      button: delete
+      success: Team deleted successfully
+    form:
+      new:
+        title: New Team
+      edit:
+        title: Edit Team
+      labels:
+        add_more: Add more
+      placeholders:
+        achievements: Description (optional)
+        end_date: End (or ongoing)
+        icon: Icon
+        position: ex. Goalkeeper (optional)
+        role: Athlete or Coach?
+        sport: Sport
+        start_date: Start
+        name: University of Split
+        year: Year
+        month: Month
+        tournament: Name (without the year)
+      errors:
+       date_before: "can't be before %{date}"
+    new:
+      success: Team created successfully!
+    save:
+      errors:
+        one: '1 error prohibited this team from being saved:'
+        other: "%{count} errors prohibited this team from being saved:"
+  landing:
+    facebook: Sign in with Facebook
+    invite: You trained. You competed. You Won.
+    second-invite: Finally, you can prove it.
+    button: Create your profile now
+    wip:
+      greeting: "Hi %{name},"
+      not_ready: "Profiles is not ready yet!"
+      email: "We'll email you when it's available to you!"
+  menu:
+    sign_in: sign in
+    sign_out: logout
+    edit: edit profile
+  user:
+    edit:
+      browse: Browse
+      button: edit
+      cancel: Cancel
+      submit: Submit
+      success: User edited successfully!
+      title: Edit profile
+      errors:
+        one: '1 error prohibited this user from being saved:'
+        other: "%{count} errors prohibited this user from being saved:"
+        username: The username isn't valid!
+        facebook_link: cannot be edited
+      label:
+        facebook: Facebook
+        name: Name
+        first_name: First name
+        last_name: Last name
+        twitter: Twitter
+        username: Username
+      placeholder:
+        country: Your country
+        email: me@email.com
+        facebook_link: Facebook Link
+        first_name: Mathew
+        last_name: Greg
+        name: Name
+        team: University of Coimbra
+        twitter_handle: Twitter Handle
+      headers:
+        personal_details: Personal Details
+        social_networks: Social Networks
+    gender:
+      male: Male
+      female: Female
+
+  share:
+    twitter:
+      button: Share on twitter
+      message: Check this out! @uplaypro
+    facebook:
+      button: Share it on Facebook
+      site_name: U-Play Profiles
+      title: U-Play Profiles
+      title_with_name: "%{name} - Sports Profile"
+      description: Now, you can prove you're the best. Make your own sports profile!
+      profile_description: Hey, this is what I've been up to. Show your game! Make your profile at profiles.uplaypro.com
+  helpers:
+    label:
+      team:
+        date: Date
+        position: Position
+        role: Role
+        sport: Sport
+        name: Team
+      tournament:
+        achievements: Result
+

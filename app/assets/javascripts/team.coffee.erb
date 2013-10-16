@@ -1,0 +1,31 @@
+replace_tournament_icon = (elem) =>
+  img_name = elem.text()
+  img_url = "/assets/tournament_icons/#{img_name}.png"
+  $.get(img_url).done =>
+    elem.empty()
+    elem.append "<img src='#{img_url}' alt='#{img_name}' />"
+    elem.append "<span class='name'>#{img_name}</span>"
+
+bind_focus = ->
+  $('#adds-team input[type]').focus ->
+    $(this).closest('.field').addClass('field--focus')
+  $('#adds-team input[type]').focusout ->
+    $(this).closest('.field').removeClass('field--focus')
+
+display_tournament_icons = (field) ->
+  field.on 'change.fndtn.forms', '.icon select', (event) ->
+    return false
+  field.find('.icon ul li').each ->
+    replace_tournament_icon($(this))
+  current = field.find('.icon .current')
+  replace_tournament_icon(current)
+
+$('#nested-form-tournaments').on 'nested:fieldAdded', (event) ->
+  bind_focus()
+  $(document).foundation()
+  display_tournament_icons(event.field)
+
+$(document).ready ->
+  bind_focus()
+  $('#nested-form-tournaments .fields').each ->
+    display_tournament_icons($(this))

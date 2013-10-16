@@ -1,0 +1,16 @@
+.page-title-wrap: .page-title
+  h1
+    | History
+    - if can? :manage, @user
+      = link_to t('team.add_new'), '#', id: 'adds-team__button'
+.teams
+  - if can? :manage, @user
+    #adds-team data-hide="#{@user.new_team_hide}"
+      = render 'teams/new', team: @user.new_team
+  - @user.teams.each do |team|
+    = render 'teams/show', team: team
+
+- if can? :manage, @user
+  coffee:
+    $ ->
+      window.team_adder.init()

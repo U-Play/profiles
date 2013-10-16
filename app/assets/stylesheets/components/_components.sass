@@ -1,0 +1,154 @@
+.about-page
+  width: 500px
+  margin: 40px auto
+  @extend %profile-box
+  h1
+    font-size: 1.6rem
+  p
+    font-weight: 300
+    margin-bottom: 0.7em
+
+.body-background
+  background-color: $background-color
+  background-repeat: no-repeat
+  background-image: image-url('bg.jpg')
+  background-position: top center
+  background-size: cover
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: -1
+  
+.landing__logo
+  margin-top: 55px
+  text-align: center
+
+.landing__sample
+  margin: 0 auto
+  margin-top: 45px
+  width: 726px
+
+.landing__sample--opaque
+  margin: 0 auto
+  margin-top: 45px
+  width: 726px
+  height: 573px
+  +opacity(0.5)
+
+.landing__invite
+  margin-top: 45px
+  p
+    text-align: center
+    font-size: 2rem
+    line-height: 1em
+    margin: 0
+  p.invite
+    //font-size: 2rem
+    font-weight: bold
+    margin-bottom: 8px
+  p.second-invite
+    //font-size: 1.5rem
+    margin-top: 20px
+    margin-bottom: 50px
+    font-weight: 300
+    color: $green
+
+.landing__sign
+  width: 30%
+  margin: 0 auto
+  a
+    @extend %invite-button
+    margin-bottom: 0
+  p
+    text-align: center
+
+
+.landing__wip
+  margin-top: 100px
+  p
+    text-align: center
+    font-size: 2rem
+    line-height: 1em
+    font-weight: bold
+    margin-bottom: 8px
+  p:last-child
+    font-weight: 300
+
+
+.top-border
+  height: 3px
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 2
+  background-color: $green
+
+/** Flash messages */
+
+.flashes-container--home
+  position: relative
+  +grid-row()
+  .flash
+    max-width: 62.5em
+    +grid-column($columns: $profile-box-columns, $offset: $root-page-offset)
+    position: absolute !important
+  margin-top: 15px
+
+.flashes-container
+  +grid-row($behavior: nest-collapse)
+  .flash
+    +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
+  margin-top: 70px
+
+.flashes-container, .flashes-container--home
+  $flash-colors: success $flash-green, alert $flash-red
+  .alert-box
+    +grey-box-shadow
+    text-align: center
+    border-radius: 3px
+    border-width: 0
+    font-weight: 300
+    font-size: 13px
+    line-height: 16px
+    @each $flash-color in $flash-colors
+      &.#{nth($flash-color, 1)}
+        background-color: nth($flash-color, 2)
+  &:hover
+    cursor: pointer
+
+/** Utility bar */
+
+.brand-wrap
+  position: relative
+
+.brand
+  margin-top: 37px
+  margin-bottom: 35px
+  text-align: center
+  img
+    width: auto
+    padding: 0 10px 0 10px
+
+.utilities
+  $height: 45px
+  position: absolute
+  top: 0
+  right: 0
+  .sign
+    line-height: $height
+    float: right
+    vertical-align: middle
+    li
+      list-style-type: none
+      display: inline
+      font-weight: 300
+    li.name
+      font-weight: 400
+    li:not(:last-child):after
+      content: "•"
+      color: $green
+      font-weight: 300
+      padding-left: 5px
+      padding-right: 5px

@@ -9,7 +9,31 @@
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
+/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+config/accounts.yml
+
+tags
+
+bin/rspec
+bin/rails
+bin/rake
+bin/spring
+bin/cucumber
+/coverage/
+/bin/spring
+/bin/rails
+/bin/rspec
+/bin/rake
+/bin/cucumber
+
+.ruby-gemset
+.rvmrc
+/public/system
+*.sublime-project
+*.sublime-workspace
+.spring-project

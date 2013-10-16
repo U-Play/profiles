@@ -1,0 +1,84 @@
+@mixin action-button($color)
+  color: white
+  font-size: 1rem
+  font-weight: 400
+  background: $color
+  +box-shadow(darken($color, 10%) 0 -3px 0 0 inset)
+  padding: 0.7em 1.5em
+  border: 0
+  +radius(3px)
+  &:hover
+    background: darken($color, 5%)
+
+%invite-button
+  +button($bg: $dark_green, $radius: 5px, $full-width: true)
+  +box-shadow(rgba($black, 0.2) 0px -1px 1px 1px inset)
+  font-size: emCalc(23px)
+  +background-image(linear-gradient(top, $light_green, $dark_green))
+  &:hover
+    text-decoration: none
+    +background-image(linear-gradient(top, $light_green, darken($dark_green, 5%)))
+
+%action-button--primary
+  +action-button($green)
+
+%action-button--empty
+  color: $green
+  background: none
+  border: none
+  +box-shadow(none)
+  &:hover
+    background: none
+
+%action-button
+  +action-button($light_grey)
+
+%dashed-button
+  padding: 10px
+  margin: 0
+  text-align: center
+  color: $green
+  border: 2px dashed $green
+  +opacity(0.2)
+  +radius(10px)
+  &:hover
+    +opacity(1)
+    +transition-property(all)
+    +transition-duration(0.5s)
+
+%tournament-button
+  background-position: left center
+  background-repeat: no-repeat
+  padding-left: 27px
+  &:hover
+    background-color: white
+    +box-shadow(none)
+
+%add-tournament-button
+  @extend %tournament-button
+  background-image: image-url('add.png')
+
+%remove-tournament-button
+  @extend %tournament-button
+  background-image: image-url('remove.png')
+
+%form__box
+  +grey-box-shadow
+  background: $white
+  padding: 30px
+  header
+    font-weight: 400
+    font-size: 1.2rem
+    margin-bottom: 15px
+    &:not(first-child)
+      margin-top: 20px
+
+%form__actions
+  width: 100%
+  text-align: right
+  .button
+    @extend %action-button
+  .button.cancel
+    @extend %action-button--empty
+  .button.submit
+    @extend %action-button--primary

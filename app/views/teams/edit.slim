@@ -1,0 +1,5 @@
+.teams
+  #edit-team
+    .new-experience
+      = nested_form_for @team, as: :team, html: { class: 'custom' } do |f|
+        = render 'teams/form', f: f, team: @team

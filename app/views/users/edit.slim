@@ -1,0 +1,58 @@
+javascript:
+  $(document).ready(function() {
+    mixpanel_events.edit_page();
+  });
+.page-title-wrap: .page-title
+  h1 = t('user.edit.title')
+.profile-edit
+  .profile-edit__fields
+    .profile-edit__box
+      = form_for @user, as: :user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
+        header = t('user.edit.headers.personal_details')
+
+        .field.field--name
+            .label = f.label :first_name, t('user.edit.label.name')
+            .input.first-name = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
+            .input.last-name = f.text_field :last_name, placeholder: t('user.edit.placeholder.last_name')
+
+        .field
+          .label = f.label :email
+          .input.text  = f.text_field :email, placeholder: t('user.edit.placeholder.email')
+
+        .field
+          .label = f.label :username
+          .input.text  = f.text_field :username, placeholder: @user.username_placeholder
+
+        .field.field--date
+          .label  = f.label :birth_date
+          .input.date = f.date_select :birth_date, { order: [:day, :month, :year] }
+
+        .field.field--gender
+          .label  = f.label :gender
+          .input.gender = f.select :gender, @user.gender_options_for_select
+
+        .field
+          .label = f.label :country
+          .input  = f.country_code_select :country, { t('user.edit.placeholder.country') => nil }
+
+        .field
+          .label = f.label :university
+          .input.text  = f.text_field :university, placeholder: t('user.edit.placeholder.team')
+
+        .field
+          .label = f.label :picture
+          .input.file  = f.file_field :picture
+
+        header = t('user.edit.headers.social_networks')
+
+        .field
+          .label = f.label :facebook_link, t('user.edit.label.facebook')
+          .input.text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook_link'), disabled: true
+
+        .field
+          .label = f.label :twitter_handle, t('user.edit.label.twitter')
+          .input.text = f.text_field :twitter_handle, placeholder: t('user.edit.placeholder.twitter_handle')
+
+        .profile-edit__actions
+          = link_to t('user.edit.cancel'), my_profile_path, class: 'button cancel'
+          = f.submit t('user.edit.submit'), class: 'button submit'

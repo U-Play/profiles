@@ -1,0 +1,13 @@
+.brand-wrap
+  .brand
+    = link_to image_tag('profiles-logo.png'), my_profile_path
+  .flashes-wrap
+    = render '/layouts/flash', flash: flash
+  .utilities
+    ul.sign
+      - if user_signed_in?
+        li.name = link_to signed_user.full_name, my_profile_path
+        li = link_to t('menu.edit'), edit_my_profile_path
+        li = link_to t('menu.sign_out'), destroy_user_session_path
+      - else
+        li = link_to t('menu.sign_in'), omniauth_authorize_path(:user, :facebook)

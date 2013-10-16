@@ -1,0 +1,23 @@
+.team
+  .team__wrap
+    .team__content
+      .team__dates = team.date_range
+      span.team__description = team.description
+      span.team__team = team.name
+      .team__position = team.position
+      - team.tournaments.each do |tour|
+        .tournament__wrap
+          .tournament__icon = tour.icon
+          .tournament__content
+            .tournament__name = "#{tour.name}, #{tour.date}"
+            .tournament__achievements = "#{tour.achievements}"
+  - if can? :manage, team
+    .team__actions
+      .team__actions--edit
+        = link_to team.edit_path
+          = team.edit_image
+          p = t('team.edit.button')
+      .team__actions--destroy
+        = link_to team.destroy_path, method: :delete
+          = team.destroy_image
+          p = t('team.destroy.button')

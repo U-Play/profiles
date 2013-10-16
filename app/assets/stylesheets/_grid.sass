@@ -1,0 +1,71 @@
+body
+  background: none
+  > footer
+    .powered
+      +grid-row()
+      div
+        +grid-column($columns: 12)
+        text-align: center
+    .social
+      +grid-row()
+
+.flashes-container--home
+  position: relative
+  +grid-row()
+  .flash
+    max-width: 62.5em
+    +grid-column($columns: $profile-box-columns, $offset: $root-page-offset)
+    position: absolute !important
+
+.flashes-container
+  +grid-row($behavior: nest-collapse)
+  .flash
+    +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
+
+.brand-wrap
+  +grid-row()
+  .brand
+    +grid-column(3)
+  .flashes-wrap
+    +grid-column(9)
+
+.user-profile
+  +grid-row()
+  .sidebar
+    +grid-column(3)
+    .icons
+      +grid-row()
+    .share
+      +grid-row()
+  .content
+    +grid-column(9)
+    .page-title-wrap
+      +grid-row($behavior: nest-collapse)
+      margin-bottom: 10px
+      .page-title
+        +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)
+
+
+.center-logo
+  +grid-row()
+
+.get-your-profile
+  section
+    +grid-row()
+    .welcome-image
+      +grid-column($columns: 12)
+    .register
+      +grid-column($columns: 4, $offset: 4)
+
+.new-session
+  header
+    +grid-row()
+    .title
+      +grid-column($columns: 12)
+  .methods
+    +grid-row()
+    .networks
+      +grid-column($columns: 4, $offset: 4)
+
+.profile-edit
+  +grid-column($columns: $profile-box-columns, $offset: $dates-columns, $collapse: true)

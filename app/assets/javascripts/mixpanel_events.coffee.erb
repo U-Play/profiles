@@ -1,0 +1,14 @@
+$ ->
+  current_user = $('head').data('currentUser')
+  if current_user != undefined
+    mixpanel.identify($('head').data('currentUser'))
+
+  mixpanel_events =
+    home_page: ->
+      mixpanel.track "<%= MIXPANEL_EVENT['view']['home'] %>"
+    edit_page: ->
+      mixpanel.track "<%= MIXPANEL_EVENT['view']['edit'] %>"
+    share: ->
+      mixpanel.track "<%= MIXPANEL_EVENT['share'] %>"
+
+  window.mixpanel_events = mixpanel_events

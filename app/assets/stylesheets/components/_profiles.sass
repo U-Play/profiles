@@ -1,0 +1,105 @@
+// USER PROFILE SIDEBAR
+
+.user-profile .sidebar
+  text-align: center
+  .name
+    margin: 15px 0 0 0
+    font-size: emCalc(30px)
+    line-height: 1em
+  .tags
+    margin-bottom: 10px
+    font-size: 0.95em
+    color: $green
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+  .location
+    margin-bottom: 20px
+  .profile_picture
+    +box-shadow($shadow-color 0px 1px 2px 0px)
+    +circular(150px)
+    display: block
+  .icons
+    margin: 15px 0
+    a:first-child
+      margin: 0  20px
+    a:not(:first-child)
+      margin-right: 20px
+  .share
+    margin-bottom: 30px
+    a
+      background: $facebook-share
+      display: inline-block
+      padding: 10px 20px
+      +radius(5px)
+      color: $white
+    a:hover
+      text-decoration: none
+
+
+// USER PROFILE CONTENT
+
+.user-profile .page-title
+  h1
+    font-weight: 300
+  a
+    padding-left: 20px
+    font-weight: normal
+    font-size: 1rem
+    color: $green
+    &:hover
+      text-decoration: underline
+
+.user-profile .teams
+  .details-wrap
+    margin-bottom: emCalc(20px)
+  .details-content
+    background-color: white
+    padding: emCalc(20px)
+    +grey-box-shadow
+
+
+// Grid
+.profile-edit
+  +grid-row()
+
+.profile-edit__fields
+  +grid-column($columns: $profile-box-columns, $collapse: true, $offset: $dates-columns)
+  .field
+    width: 100%
+    .label
+      display: inline-block
+      width: 20%
+    .input
+      display: inline-block
+      width: 80%
+      &.first-name, &.last-name
+        width: 40%
+      &.file
+        .button
+          margin-bottom: 0
+  .field--gender
+    width: 50%
+    .label
+      width: 40%
+    .gender
+      width: 60%
+  .field--date
+    .label
+      height: 4px
+    .input
+      width: 80%
+      position: relative
+      display: inline-block
+    .custom.dropdown
+      width: 32%
+      display: inline-block
+
+.profile-edit__box
+  @extend %form__box
+  .file-upload__browse
+    @extend %action-button
+
+.profile-edit__actions
+  @extend %form__actions
+
