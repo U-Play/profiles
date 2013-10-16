@@ -33,10 +33,10 @@ en:
       labels:
         add_more: Add more
       placeholders:
-        achievements: "Achievements (optional)"
+        achievements: Description (optional)
         end_date: End (or ongoing)
         icon: Icon
-        position: "ex. Goalkeeper (optional)"
+        position: ex. Goalkeeper (optional)
         role: Athlete or Coach?
         sport: Sport
         start_date: Start
