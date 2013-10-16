@@ -77,6 +77,7 @@ en:
         one: '1 error prohibited this user from being saved:'
         other: "%{count} errors prohibited this user from being saved:"
         username: The username isn't valid!
+        facebook_link: cannot be edited
       label:
         facebook: Facebook
         name: Name
