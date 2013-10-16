@@ -8,6 +8,8 @@ javascript:
   .profile-edit__fields
     .profile-edit__box
       = form_for @user, as: :user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
+        header = t('user.edit.headers.personal_details')
+
         .field.field--name
             .label = f.label :first_name, t('user.edit.label.name')
             .input.first-name = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
@@ -40,6 +42,8 @@ javascript:
         .field
           .label = f.label :picture
           .input.file  = f.file_field :picture
+
+        header = t('user.edit.headers.social_networks')
 
         .field
           .label = f.label :facebook_link, t('user.edit.label.facebook')

@@ -93,6 +93,9 @@ en:
         name: Name
         team: University of Coimbra
         twitter_handle: Twitter Handle
+      headers:
+        personal_details: Personal Details
+        social_networks: Social Networks
     gender:
       male: Male
       female: Female
