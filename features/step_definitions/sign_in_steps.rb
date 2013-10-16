@@ -28,7 +28,7 @@ When(/^I go to the root page$/) do
 end
 
 When(/^I sign up via facebook$/) do
-  find(:css, '.cta-button').click
+  find(:css, '.landing-cta__button').click
 end
 
 When(/^I sign out$/) do
