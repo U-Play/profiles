@@ -3,26 +3,16 @@ body > footer
   text-align: center
   font-weight: 300
   font-size: 0.9rem
-  color: $dark_grey
-  a
-    text-decoration: underline
-    color: $dark_grey
-    &:hover
-      color: $dark_grey
+  +footer-font-color($dark-grey)
 
-body > .container--simple ~ footer
-  color: $white
-  a
-    text-decoration: underline
-    color: $white
-    &:hover
-      color: $white
+.container--simple ~ footer
+  +footer-font-color($white)
 
-body > .container, .container--simple
+.container, .container--simple
   height: auto
   min-height: 100%
 
-body > .container
+.container
   padding-bottom: 45px
 
 html, body

@@ -1,8 +1,4 @@
-@mixin invisible
-  opacity: 0
-  filter: alpha(opacity=0)
-
-@mixin circular($size)
+=circular($size)
   width: $size
   height: $size
   border-radius: $size/2
@@ -14,5 +10,43 @@
   margin-left: auto
   margin-right: auto
 
-@mixin grey-box-shadow
+=grey-box-shadow
   +box-shadow($shadow-color 0px 1px 2px 0px)
+
+=invisible
+  opacity: 0
+  filter: alpha(opacity=0)
+
+=footer-font-color($color)
+  color: $color
+  a
+    text-decoration: underline
+    color: $color
+    &:hover
+      color: $color
+
+=landing-cta-button-style($border-color)
+  display: inline-block
+  padding: 10px 50px
+  +border-radius(30px)
+  border: 4px solid $border-color
+  color: $white
+  font-weight: bold
+  text-decoration: none
+
+=landing-feature-alignment($img-side, $copy-side)
+  img
+    padding-#{$img-side}: 1.5rem
+    margin-#{$img-side}: 50%
+  .copy
+    padding-#{$copy-side}: 1.5rem
+    text-align: $copy-side
+    #{$img-side}: 0
+
+=landing-wrap($padding-values: 0, $txt-align: center, $background: $white)
+  width: 100%
+  display: inline-block
+  text-align: $txt-align
+  padding: $padding-values
+  background: $background
+

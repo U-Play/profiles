@@ -1,0 +1,132 @@
+.landing-header-wrap
+  +landing-wrap($padding-values: 1.5rem 0, $txt-align: left)
+  @extend %landing-container
+  img
+    width: 15%
+
+.landing-cta-wrap
+  +landing-wrap($padding-values: 3rem 0, $background: image-url('green-bg.png'))
+  @extend %landing-container
+
+.landing-social-wrap
+  +landing-wrap
+
+.landing-features-wrap
+  +landing-wrap($padding-values: 1rem 0 3rem)
+  @extend %landing-container
+
+.landing-cta2-wrap
+  +landing-wrap($padding-values: 3rem 0, $background: $landing-grey-background)
+  @extend %landing-container
+
+.landing-footer-wrap
+  +landing-wrap($padding-values: 3rem 0, $background: $landing-green-background)
+  @extend %landing-container
+
+.landing-cta,
+.landing-features
+  h1
+    font-size: 3rem
+    line-height: 1em
+    margin-bottom: 8px
+
+.landing-cta
+  h1
+    color: $white
+  p.landing-cta__slogan
+    font-size: 1.75rem
+    color: $landing-cta-slogan
+    margin-top: 20px
+    margin-bottom: 50px
+
+a.landing-cta__button
+  +landing-cta-button-style($border-color: $white)
+  margin-bottom: 60px
+
+.landing-features__results,
+.landing-features__teams
+  display: block
+  position: relative
+  margin-top: 70px
+  margin-bottom: 30px
+  .copy,
+  img
+    width: 50%
+  .copy
+    display: inline-block
+    position: absolute
+    top: 0
+    bottom: 0
+    margin: auto
+
+.landing-features__results
+  +landing-feature-alignment($img-side: left, $copy-side: right)
+  .copy
+    height: 50%
+
+.landing-features__teams
+  +landing-feature-alignment($img-side: right, $copy-side: left)
+  .copy
+    height: 30%
+
+.landing-features
+  p
+    margin-bottom: 0
+  p.title
+    font-size: 1.75rem
+    color: $landing-green-background
+    font-weight: bold
+  p:not(:first-of-type)
+    font-size: 1rem
+    color: $landing-grey-text
+
+.landing-social__profile
+  display: inline-block
+  width: 33%
+  margin-top: -4%
+  vertical-align: top
+
+.landing-social__profile .picture
+  width: 90px
+  margin: 0 auto
+  &:hover + .info
+    visibility: visible
+
+.landing-social__profile .info
+  margin-top: 15px
+  padding-top: 5%
+  visibility: hidden
+  background: image-url('hover-box.png') no-repeat center
+  height: image-height('hover-box.png')
+  p
+    font-weight: bold
+    margin: 0
+    &:last-child
+      color: $landing-green-background
+
+a.landing-cta2__button
+  +landing-cta-button-style($border-color: $landing-green-background)
+  background: $landing-green-background
+
+.landing-cta2 p
+  font-size: 1.75rem
+  font-weight: bold
+
+footer.landing-footer
+  display: block
+  margin-bottom: 50px
+
+.landing-footer__resource
+  display: inline-block
+  width: 25%
+  text-align: left
+  vertical-align: top
+  padding-left: 7%
+  p
+    margin-bottom: 0
+    &:first-of-type
+      color: $landing-footer-text
+      font-weight: bold
+      font-size: 1.75rem
+    &:not(:first-of-type) a
+      color: $white

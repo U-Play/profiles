@@ -3,58 +3,55 @@ javascript:
     mixpanel_events.home_page();
   });
 
-.landing__header-container
-  header
-    .logo = link_to(image_tag('profiles-logo-big.png'), root_path)
+.landing-header-wrap
+  header = link_to(image_tag('profiles-logo-big.png'), root_path)
 
-.landing__cta-container
-  .landing__cta
+.landing-cta-wrap
+  .landing-cta
     h1 = t('landing.cta.title')
-    p.slogan = t('landing.cta.slogan')
-    = link_to omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
-      .cta-button = t('landing.button')
+    p.landing-cta__slogan = t('landing.cta.slogan')
+    = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'landing-cta__button'
 
-.landing__social-container
-  .landing__social
+.landing-social-wrap
+  .landing-social
     - @users.each do |user|
-      .profile*{ id: "user_#{user.id}" }
-        .profile-pic = link_to(image_tag("user_#{user.id}.png"), user_path(user))
-        .profile-info
+      .landing-social__profile
+        .picture = link_to(image_tag("user_#{user.id}.png"), user_path(user))
+        .info
           p = user.full_name
           p = user.tags
 
 
-.landing__features-container
-  .landing__features
+.landing-features-wrap
+  .landing-features
     h1 = t('landing.feature.title')
-    .results
+    .landing-features__results
       .copy
         p.title = t('landing.feature.results.title')
         p = t('landing.feature.results.p1')
         p = t('landing.feature.results.p2')
       = image_tag 'locker.png'
-    .teams
+    .landing-features__teams
       = image_tag 'profile.png'
       .copy
         p.title = t('landing.feature.teams.title')
         p = t('landing.feature.teams.p1')
         p = t('landing.feature.teams.p2')
 
-.landing__cta2-container
-  .landing__cta2
+.landing-cta2-wrap
+  .landing-cta2
     p = t('landing.cta2.p')
-    = link_to omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
-      .cta2-button = t('landing.button')
+    = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'landing-cta2__button'
 
-.landing__footer-container
-  footer.landing__footer
-    .resource
+.landing-footer-wrap
+  footer.landing-footer
+    .landing-footer__resource
       p = t('landing.resources.social')
       p = link_to('facebook.com/uplaypro')
       p = link_to('twitter.com/uplaypro')
-    .resource
+    .landing-footer__resource
       p = t('landing.resources.blog')
       p = link_to('blog.uplaypro.com')
-    .resource
+    .landing-footer__resource
       p = 'Uplay'
       p = link_to('uplaypro.com')

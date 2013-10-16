@@ -28,7 +28,7 @@ When(/^I go to the root page$/) do
 end
 
 When(/^I sign up via facebook$/) do
-  find(:xpath, '//div[ @class = "cta-button"]/..').click
+  find(:css, '.cta-button').click
 end
 
 When(/^I sign out$/) do
