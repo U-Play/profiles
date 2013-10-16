@@ -34,12 +34,12 @@ en:
         add_more: Add more
       placeholders:
         achievements: "Achievements (optional)"
-        end_date: Ongoing
+        end_date: End (or ongoing)
         icon: Icon
         position: "ex: Goalkeeper (optional)"
         role: Athlete or Coach?
         sport: Sport
-        start_date: Beginning
+        start_date: Start
         name: University of Split
         year: Year
         month: Month
