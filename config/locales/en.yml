@@ -5,7 +5,7 @@ en:
   title:
     simple: U-PLAY Profiles
     with_name: '%{name} - U-PLAY Profiles'
-  tournaments:
+  tournament:
     form:
       title: Tournaments
     date: "%{month} %{year}"
@@ -116,4 +116,6 @@ en:
         role: Role
         sport: Sport
         name: Team
+      tournament:
+        achievements: Result
 
