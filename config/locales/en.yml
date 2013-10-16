@@ -40,7 +40,7 @@ en:
         role: Athlete or Coach?
         sport: Sport
         start_date: Beginning
-        name: Name
+        name: University of Split
         year: Year
         month: Month
       errors:
