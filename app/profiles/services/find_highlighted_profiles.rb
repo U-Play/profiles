@@ -6,18 +6,17 @@ module Services
     end
 
     def find
-      get_profiles
+      get_random_profiles
       profiles
     end
 
     private
 
-    def get_profiles
+    def get_random_profiles
       if Rails.env.production?
-        (0..ENV['MAX_HIGHLIGHTED_PROFILES']-1).each do |index|
-          @profiles << User.find_by_id(ENV['HIGHLIGHTED_PROFILES'][index])
-        end
-        @profiles.compact!
+        profile_ids = ENV['HIGHLIGHTED_PROFILES_IDS'].split(",").map(&:to_i)
+        selected_ids = profile_ids.sample(ENV['MAX_HIGHLIGHTED_PROFILES'].to_i)
+        @profiles = User.where(id: selected_ids)
       end
     end
 

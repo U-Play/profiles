@@ -1,3 +1,32 @@
+//Mixins
+=landing-feature-alignment($img-side, $copy-side)
+  img
+    padding-#{$img-side}: 1.5rem
+    margin-#{$img-side}: 50%
+  .copy
+    padding-#{$copy-side}: 1.5rem
+    text-align: $copy-side
+    #{$img-side}: 0
+
+=landing-cta-button-style($border-color)
+  display: inline-block
+  padding: 10px 50px
+  +border-radius(30px)
+  border: 4px solid $border-color
+  color: $white
+  font-weight: bold
+  text-decoration: none
+
+//Placeholders
+%landing-container
+  > div,
+  > header,
+  > footer
+    max-width: $landing-max-width
+    margin: 0 auto
+
+
+// Rules
 .landing-header-wrap
   +landing-wrap($padding-values: 1.5rem 0, $txt-align: left)
   @extend %landing-container
