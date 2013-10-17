@@ -1,7 +1,9 @@
 javascript:
   $(document).ready(function() {
     mixpanel_events.edit_page();
+    autocomplete.init('#user_country', '#countries');
   });
+
 .page-title-wrap: .page-title
   h1 = t('user.edit.title')
 .profile-edit
@@ -31,7 +33,10 @@ javascript:
 
         .field
           .label = f.label :country
-          .input  = f.country_code_select :country, { t('user.edit.placeholder.country') => nil }
+          .input.text = f.text_field :country, placeholder: t('user.edit.placeholder.country'), list: 'countries', value: "#{@user.country}"
+          data-list id="countries"
+            - @user.countries.each do |country|
+              option value="#{country}"
 
         .field
           .label = f.label :university

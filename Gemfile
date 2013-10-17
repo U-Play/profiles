@@ -5,14 +5,16 @@ gem 'rails', '3.2.13'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'cancan'
-gem 'rvm-capistrano'
+gem 'countries'
 gem 'devise'
 gem 'dotenv-rails'
-gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'i18n-country-translations'
 gem 'jquery-rails'
 gem 'mixpanel-ruby'
 gem "nested_form"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'rvm-capistrano'
 gem 'slim'
 gem 'settingslogic'
 gem 'paperclip'
@@ -22,12 +24,12 @@ gem 'roadie'
 gem 'i18n_country_select'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
   gem 'zurb-foundation', '~> 4.0.0'
-  gem 'therubyracer', :platforms => :ruby
 end
 
 group :development, :test do
