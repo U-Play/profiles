@@ -13,8 +13,8 @@ module Services
 
     def get_random_profiles
       profile_ids = ENV['HIGHLIGHTED_PROFILES_IDS'].split(",").map(&:to_i)
-      selected_ids = profile_ids.sample(ENV['MAX_HIGHLIGHTED_PROFILES'].to_i)
-      @profiles = User.where(id: selected_ids)
+      selectable_profiles = User.where(id: profile_ids)
+      @profiles = selectable_profiles.sample(ENV['MAX_HIGHLIGHTED_PROFILES'].to_i)
     end
 
     attr_reader :profiles
