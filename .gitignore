@@ -37,3 +37,5 @@ bin/cucumber
 *.sublime-project
 *.sublime-workspace
 .spring-project
+
+.env.production
