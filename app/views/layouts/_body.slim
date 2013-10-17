@@ -1,0 +1,19 @@
+.container--simple
+  - if content_for?(:header)
+    = yield(:header)
+
+  - if content_for?(:content)
+    = yield(:content)
+  - else
+    = yield
+
+  = javascript_include_tag "application"
+
+  - if ["production", "staging"].include? Rails.env
+    = javascript_include_tag "user_voice"
+
+footer
+    | Copyright © 2013 All rights reserved, 
+    = link_to "U-PLAY", "http://uplaypro.com"
+    | . 
+    = link_to "About", about_path

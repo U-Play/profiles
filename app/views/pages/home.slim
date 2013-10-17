@@ -3,17 +3,55 @@ javascript:
     mixpanel_events.home_page();
   });
 
-.landing__logo
-  = link_to(image_tag('profiles-logo-big.png'), root_path)
+.landing-header-wrap
+  header = link_to(image_tag('profiles-logo-big.png'), root_path)
 
-.landing__invite
-  p.invite = t('landing.invite')
-  p.second-invite = t('landing.second-invite')
+.landing-cta-wrap
+  .landing-cta
+    h1 = t('landing.cta.title')
+    p.landing-cta__slogan = t('landing.cta.slogan')
+    = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'landing-cta__button'
 
-.landing__sign
-  = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'get-a-profile'
-  p = t('landing.facebook')
+.landing-social-wrap
+  .landing-social
+    - @users.each do |user|
+      .landing-social__profile
+        .picture = link_to image_tag(user.picture.url), user_path(user)
+        .info
+          p = user.full_name
+          p = user.tags
 
-.landing__sample
-  = image_tag 'profile-sample.png'
 
+.landing-features-wrap
+  .landing-features
+    h1 = t('landing.feature.title')
+    .landing-features__results
+      .copy
+        p.title = t('landing.feature.results.title')
+        p = t('landing.feature.results.p1')
+        p = t('landing.feature.results.p2')
+      = image_tag 'locker.png'
+    .landing-features__teams
+      = image_tag 'profile.png'
+      .copy
+        p.title = t('landing.feature.teams.title')
+        p = t('landing.feature.teams.p1')
+        p = t('landing.feature.teams.p2')
+
+.landing-cta2-wrap
+  .landing-cta2
+    p = t('landing.cta2.p')
+    = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'landing-cta2__button'
+
+.landing-footer-wrap
+  footer.landing-footer
+    .landing-footer__resource
+      p = t('landing.resources.social')
+      p = link_to('facebook.com/uplaypro')
+      p = link_to('twitter.com/uplaypro')
+    .landing-footer__resource
+      p = t('landing.resources.blog')
+      p = link_to('blog.uplaypro.com')
+    .landing-footer__resource
+      p = 'U-Play'
+      p = link_to('uplaypro.com')
