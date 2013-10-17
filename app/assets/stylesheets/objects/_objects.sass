@@ -11,13 +11,13 @@
     background: darken($color, 5%)
 
 %invite-button
-  +button($bg: $dark_green, $radius: 5px, $full-width: true)
+  +button($bg: $dark-green, $radius: 5px, $full-width: true)
   +box-shadow(rgba($black, 0.2) 0px -1px 1px 1px inset)
   font-size: emCalc(23px)
-  +background-image(linear-gradient(top, $light_green, $dark_green))
+  +background-image(linear-gradient(top, $light-green, $dark-green))
   &:hover
     text-decoration: none
-    +background-image(linear-gradient(top, $light_green, darken($dark_green, 5%)))
+    +background-image(linear-gradient(top, $light-green, darken($dark-green, 5%)))
 
 %action-button--primary
   +action-button($green)
@@ -31,7 +31,7 @@
     background: none
 
 %action-button
-  +action-button($light_grey)
+  +action-button($light-grey)
 
 %dashed-button
   padding: 10px

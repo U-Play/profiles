@@ -17,40 +17,51 @@
   font-weight: bold
   text-decoration: none
 
-//Placeholders
-%landing-container
+// Rules
+.landing-header-wrap
+  +landing-wrap($padding-values: 1.5rem 0, $text-align: left)
+  > div,
+  > header,
+  > footer
+    max-width: $landing-max-width
+    margin: 0 auto
+  img
+    width: 15%
+
+.landing-cta-wrap
+  +landing-wrap($padding-values: 3rem 0, $background: image-url('green-bg.png'))
   > div,
   > header,
   > footer
     max-width: $landing-max-width
     margin: 0 auto
 
-
-// Rules
-.landing-header-wrap
-  +landing-wrap($padding-values: 1.5rem 0, $txt-align: left)
-  @extend %landing-container
-  img
-    width: 15%
-
-.landing-cta-wrap
-  +landing-wrap($padding-values: 3rem 0, $background: image-url('green-bg.png'))
-  @extend %landing-container
-
 .landing-social-wrap
   +landing-wrap
 
 .landing-features-wrap
   +landing-wrap($padding-values: 1rem 0 3rem)
-  @extend %landing-container
+  > div,
+  > header,
+  > footer
+    max-width: $landing-max-width
+    margin: 0 auto
 
 .landing-cta2-wrap
   +landing-wrap($padding-values: 3rem 0, $background: $landing-grey-background)
-  @extend %landing-container
+  > div,
+  > header,
+  > footer
+    max-width: $landing-max-width
+    margin: 0 auto
 
 .landing-footer-wrap
-  +landing-wrap($padding-values: 3rem 0, $background: $landing-green-background)
-  @extend %landing-container
+  +landing-wrap($padding-values: 3rem 0, $background: $landing-green)
+  > div,
+  > header,
+  > footer
+    max-width: $landing-max-width
+    margin: 0 auto
 
 .landing-cta,
 .landing-features
@@ -103,11 +114,11 @@ a.landing-cta__button
     margin-bottom: 0
   p.title
     font-size: 1.75rem
-    color: $landing-green-background
+    color: $landing-green
     font-weight: bold
   p:not(:first-of-type)
     font-size: 1rem
-    color: $landing-grey-text
+    color: $dark-grey
 
 .landing-social__profile
   display: inline-block
@@ -134,11 +145,11 @@ a.landing-cta__button
     font-weight: bold
     margin: 0
     &:last-child
-      color: $landing-green-background
+      color: $landing-green
 
 a.landing-cta2__button
-  +landing-cta-button-style($border-color: $landing-green-background)
-  background: $landing-green-background
+  +landing-cta-button-style($border-color: $landing-green)
+  background: $landing-green
 
 .landing-cta2 p
   font-size: 1.75rem
