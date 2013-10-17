@@ -10,8 +10,10 @@ javascript:
   .profile-edit__fields
     .profile-edit__box
       = form_for @user, as: :user, url: edit_my_profile_path, html: { class: 'custom' } do |f|
+        header = t('user.edit.headers.personal_details')
+
         .field.field--name
-            .label = f.label :first_name, t('user.edit.label.first_name')
+            .label = f.label :first_name, t('user.edit.label.name')
             .input.first-name = f.text_field :first_name, placeholder: t('user.edit.placeholder.first_name')
             .input.last-name = f.text_field :last_name, placeholder: t('user.edit.placeholder.last_name')
 
@@ -46,9 +48,11 @@ javascript:
           .label = f.label :picture
           .input.file  = f.file_field :picture
 
+        header = t('user.edit.headers.social_networks')
+
         .field
           .label = f.label :facebook_link, t('user.edit.label.facebook')
-          .input.text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook_link')
+          .input.text = f.text_field :facebook_link, placeholder: t('user.edit.placeholder.facebook_link'), disabled: true
 
         .field
           .label = f.label :twitter_handle, t('user.edit.label.twitter')
