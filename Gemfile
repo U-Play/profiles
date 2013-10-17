@@ -5,6 +5,7 @@ gem 'rails', '3.2.13'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'cancan'
+gem 'dotenv-rails'
 gem 'rvm-capistrano'
 gem 'devise'
 gem 'omniauth'
@@ -30,7 +31,6 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'dotenv-rails'
 end
 
 group :development do

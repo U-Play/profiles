@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  layout 'profile'
-
   def view
     @user = present User.find params[:id]
     authorize! :read, @user

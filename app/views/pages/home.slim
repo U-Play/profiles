@@ -12,7 +12,7 @@ javascript:
     p.landing-cta__slogan = t('landing.cta.slogan')
     = link_to t('landing.button'), omniauth_authorize_path(:user, :facebook, token: @token), class: 'landing-cta__button'
 
-.landing-social-wrap
+.landing-features-wrap
   .landing-social
     - @users.each do |user|
       .landing-social__profile
@@ -20,9 +20,6 @@ javascript:
         .info
           p = user.full_name
           p = user.tags
-
-
-.landing-features-wrap
   .landing-features
     h1 = t('landing.feature.title')
     .landing-features__results
