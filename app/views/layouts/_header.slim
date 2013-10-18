@@ -2,7 +2,8 @@
   .brand
     = link_to image_tag('profiles-logo.png'), my_profile_path
   .flashes-wrap
-    = render '/layouts/flash', flash: flash
+    #flashes-container.flashes-container
+      = render '/layouts/flash', flash: flash
   .utilities
     ul.sign
       - if user_signed_in?

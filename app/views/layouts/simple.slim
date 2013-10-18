@@ -6,11 +6,8 @@ body
   .body-background
 
   .container--simple
-    - if flash.any?
-      #flashes-container.flashes-container--home
-        - flash.each do |key, msg|
-          .flash
-            .alert-box.round class=(key) = msg
+    #flashes-container.flashes-container--home
+      = render 'layouts/flash', flash: flash
     = yield
 
     = javascript_include_tag "application"
