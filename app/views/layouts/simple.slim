@@ -5,4 +5,17 @@ body
   #fb-root
   .body-background
 
-  = render 'layouts/body'
+  .container--simple
+    - if flash.any?
+      #flashes-container.flashes-container--home
+        - flash.each do |key, msg|
+          .flash
+            .alert-box.round class=(key) = msg
+    = yield
+
+    = javascript_include_tag "application"
+
+    - if ["production", "staging"].include? Rails.env
+      = javascript_include_tag "user_voice"
+
+  = render 'layouts/footer'
