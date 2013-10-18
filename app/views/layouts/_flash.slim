@@ -1,8 +1,5 @@
 - if flash.any?
   #flashes-container.flashes-container
-    - if flash[:notice]
+    - flash.each do |key, msg|
       .flash
-        .alert-box.success.round = flash[:notice]
-    - if flash[:alert]
-      .flash
-        .alert-box.alert.round   = flash[:alert]
+        .alert-box.round class=(key) = msg
