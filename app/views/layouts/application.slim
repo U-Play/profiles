@@ -11,10 +11,10 @@ body
   .body-background
 
   .container
-    = render 'layouts/header'
+    = render 'shared/header'
 
     .user-profile
-      = render '/layouts/sidebar', user: @user
+      = render 'shared/sidebar', user: @user
       .content
         = yield
 
@@ -23,4 +23,4 @@ body
     - if ["production", "staging"].include? Rails.env
       = javascript_include_tag "user_voice"
 
-  = render 'layouts/footer'
+  = render 'shared/footer'

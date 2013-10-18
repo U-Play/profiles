@@ -7,7 +7,7 @@ body
 
   .container--simple
     #flashes-container.flashes-container--home
-      = render 'layouts/flash', flash: flash
+      = render 'shared/flash', flash: flash
     = yield
 
     = javascript_include_tag "application"
@@ -15,4 +15,4 @@ body
     - if ["production", "staging"].include? Rails.env
       = javascript_include_tag "user_voice"
 
-  = render 'layouts/footer'
+  = render 'shared/footer'
