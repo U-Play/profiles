@@ -1,4 +1,5 @@
 - if flash.any?
   - flash.each do |key, msg|
-    .flash
-      .alert-box.round class=(key) = msg
+    - if %w(notice error alert).include? key.to_s
+      .flash
+        .alert-box.round class=(key) = msg
