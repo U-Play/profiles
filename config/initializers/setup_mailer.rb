@@ -1,11 +1,6 @@
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.perform_deliveries = true
-
-unless Rails.env.production? || Rails.env.staging?
-  ActionMailer::Base.default_url_options[:port] = 3000
-end
-
-if ENV['PROFILES_ACTION_MAILER_USERNAME']
+if Rails.env.production? || Rails.env.staging?
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.default_url_options[:host] = ENV['PROFILES_ACTION_MAILER_HOST']
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['PROFILES_ACTION_MAILER_USERNAME'],
@@ -16,4 +11,6 @@ if ENV['PROFILES_ACTION_MAILER_USERNAME']
     authentication: 'login',
     enable_starttls_auto: true
   }
+else
+  ActionMailer::Base.default_url_options[:port] = 3000
 end
