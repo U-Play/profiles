@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found(msg)
-    binding.pry
     raise ActionController::RoutingError.new(msg)
   end
 
