@@ -19,9 +19,9 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found(msg)
+    binding.pry
     raise ActionController::RoutingError.new(msg)
   end
-
 
   def user_path(user)
     if user.username.present?
@@ -40,10 +40,6 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :user_path, :user_url, :signed_user
-
-  def not_found
-    raise ActionController::RoutingError.new
-  end
 
   delegate :present, to: :helpers
 
