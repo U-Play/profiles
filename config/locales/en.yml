@@ -127,7 +127,7 @@ en:
       title: U-Play Profiles
       title_with_name: "%{name} - Sports Profile"
       description: Now, you can prove you're the best. Make your own sports profile!
-      profile_description: Hey, this is what I've been up to. Show your game! Make your profile at profiles.uplaypro.com
+      profile_description: Hey, this is what I've been up to. Show what you're made of! Make your profile at profiles.uplaypro.com
   helpers:
     label:
       team:

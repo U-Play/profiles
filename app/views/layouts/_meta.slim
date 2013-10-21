@@ -1,11 +1,12 @@
 meta property="og:type"      content="website"
 meta property="og:image"     content="#{request.scheme}://#{request.host_with_port}#{image_path('uplay-logo.png')}"
-meta property="og:url"       content="#{request.original_url}"
 meta property="og:site_name" content="#{t('share.facebook.site_name')}"
 
 - if @user
   meta property="og:title"       content="#{t('share.facebook.title_with_name', name: @user.full_name)}"
   meta property="og:description" content="#{t('share.facebook.profile_description')}"
+  meta property="og:url"         content="#{user_url(@user)}"
 - else
+  meta property="og:url"         content="#{request.original_url}"
   meta property="og:title"       content="#{t('share.facebook.title')}"
   meta property="og:description" content="#{t('share.facebook.description')}"
