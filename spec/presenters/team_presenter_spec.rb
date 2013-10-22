@@ -16,7 +16,7 @@ describe Presenters::TeamPresenter do
     it "selects all sports" do
       team = build :team
       presenter = Presenters::TeamPresenter.new(team, view)
-      presenter.selectable_sports.map(&:name).should eq ['Yet Another Sport']
+      presenter.sports.should eq ['Yet Another Sport']
     end
   end
 

@@ -5,16 +5,14 @@ class TeamsController < ApplicationController
   before_filter :check_for_cancel, only: [:create, :update]
 
   def create
-    @team = current_user.teams.build params[:team]
+    update_team = Services::UpdateTeam.new(team: current_user.teams.build, new_attributes: params[:team])
+    update_team.update
 
-    if @team.save
-      mixpanel = MixpanelTracker.new user: current_user
-      mixpanel.add_team
-
+    if update_team.succeeded?
       redirect_to my_profile_path, :notice => t('team.new.success')
     else
       flash[:new_team_params] = params[:team]
-      redirect_to my_profile_path, :alert => @team.errors.full_messages.first
+      redirect_to my_profile_path, :alert => update_team.errors
     end
   end
 
@@ -27,13 +25,13 @@ class TeamsController < ApplicationController
     @team = present Team.find(params[:id])
     authorize! :manage, @team
 
-    if @team.update_attributes(params[:team])
-      mixpanel = MixpanelTracker.new(user: current_user)
-      mixpanel.update_team
+    update_team = Services::UpdateTeam.new(team: @team, new_attributes: params[:team])
+    update_team.update
 
+    if update_team.succeeded?
       redirect_to my_profile_path, notice: t('team.edit.success')
     else
-      flash.now[:alert] = @team.errors.full_messages.first
+      flash.now[:alert] = update_team.errors
       render :edit
     end
   end

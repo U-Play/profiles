@@ -47,6 +47,7 @@ class UsersController < ApplicationController
   def set_new_team
     if @user == signed_user
       @user.set_new_team(flash[:new_team_params])
+      flash.delete(:new_team_params)
     end
   end
 
