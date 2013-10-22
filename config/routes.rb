@@ -15,8 +15,8 @@ Profiles::Application.routes.draw do
 
   scope '/me' do
     root to: 'users#me', as: :my_profile
-    get   '/edit' => 'users#edit', as: :edit_my_profile
-    put   '/:id' => 'users#update'
+    get   '/edit' => 'users_update#edit', as: :edit_my_profile
+    put   '/:id' => 'users_update#update'
 
     resources :teams, only: [:create, :edit, :update, :destroy]
   end

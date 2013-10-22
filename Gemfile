@@ -23,6 +23,7 @@ gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
 gem 'roadie'
 gem 'i18n_country_select'
+gem 'wisper', '~>1.2.0'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

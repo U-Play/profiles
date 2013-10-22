@@ -62,7 +62,7 @@ module Presenters
     end
 
     def username_placeholder
-      Services::GenerateUsername.new(self).generate
+      Services::GenerateUsername.new(user: self).generate
     end
 
     def set_new_team(params)
