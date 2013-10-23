@@ -1,10 +1,9 @@
 //Mixins
 =landing-feature-alignment($img-side, $copy-side)
-  img
+  .image
     padding-#{$img-side}: 1.5rem
     margin-#{$img-side}: 50%
   .copy
-    padding-#{$copy-side}: 1.5rem
     text-align: $copy-side
     #{$img-side}: 0
 
@@ -17,117 +16,163 @@
   font-weight: bold
   text-decoration: none
 
+=display-highlighted-profiles($n-profiles)
+  .landing-social__profile
+    width: percentage(1/$n-profiles)
+    &:nth-child(-n+#{$n-profiles})
+      display: inline-block
+
 // Rules
 .landing-header-wrap
-  +landing-wrap($padding-values: 1.5rem 0, $text-align: left)
-  > div,
-  > header,
-  > footer
+  +landing-wrap($padding: 1.5rem 5%, $text-align: left)
+  > header
     max-width: $landing-max-width
     margin: 0 auto
   img
-    width: 15%
+    width: 129px
 
 .landing-cta-wrap
-  +landing-wrap($padding-values: 3rem 0, $background: image-url('green-bg.png'))
-  > div,
-  > header,
-  > footer
+  +landing-wrap($padding: 5rem 5% 6rem, $background: image-url('green-bg.png'))
+  > div
     max-width: $landing-max-width
     margin: 0 auto
 
 .landing-features-wrap
-  +landing-wrap($padding-values: 1rem 0 3rem)
+  +landing-wrap($padding: 10rem 5% 3rem)
   position: relative
-  padding-top: 160px
-  > div,
-  > header,
-  > footer
+  > div
     max-width: $landing-max-width
     margin: 0 auto
 
 .landing-cta2-wrap
-  +landing-wrap($padding-values: 3rem 0, $background: $landing-grey-background)
-  > div,
-  > header,
-  > footer
+  +landing-wrap($padding: 3rem 5%, $background: $landing-grey-background)
+  > div
     max-width: $landing-max-width
     margin: 0 auto
 
 .landing-footer-wrap
-  +landing-wrap($padding-values: 3rem 0, $background: $landing-green)
-  > div,
-  > header,
+  +landing-wrap($padding: 3rem 5%, $background: $landing-green)
   > footer
     max-width: $landing-max-width
     margin: 0 auto
 
+//TODO get the right fint-size for the appropriate viewports
+// @media screen and (max-width: 480px)
+//   .container--simple
+//     font-size: 10px
+
 .landing-cta,
 .landing-features
   h1
-    font-size: 3rem
+    font-size: 3em
     line-height: 1em
-    margin-bottom: 8px
 
 .landing-cta
   h1
     color: $white
   p.landing-cta__slogan
-    font-size: 1.75rem
+    font-size: 1.75em
     color: $landing-cta-slogan
-    margin-top: 20px
-    margin-bottom: 50px
+    margin-top: 1.5rem
+    margin-bottom: 3.5rem
 
 a.landing-cta__button
   +landing-cta-button-style($border-color: $white)
-  margin-bottom: 60px
+  margin-bottom: 5rem
+  &:hover
+    background: $white
+    color: $landing-green
 
 .landing-features__results,
 .landing-features__teams
   display: block
   position: relative
-  margin-top: 70px
-  margin-bottom: 30px
-  .copy,
-  img
-    width: 50%
-  .copy
-    display: inline-block
-    position: absolute
-    top: 0
-    bottom: 0
-    margin: auto
+  margin-top: 4.5rem
+  margin-bottom: 2rem
 
-.landing-features__results
-  +landing-feature-alignment($img-side: left, $copy-side: right)
-  .copy
-    height: 50%
+@media screen and (min-width: 860px)
+  .landing-features__results,
+  .landing-features__teams
+    .copy,
+    .image
+      width: 50%
+    .copy
+      display: inline-block
+      position: absolute
+      top: 0
+      bottom: 0
+      margin: auto
 
-.landing-features__teams
-  +landing-feature-alignment($img-side: right, $copy-side: left)
-  .copy
-    height: 30%
+  .landing-features__results
+    +landing-feature-alignment($img-side: left, $copy-side: right)
+    .copy
+      height: 50%
+      padding-right: 1.5rem
+
+  .landing-features__teams
+    +landing-feature-alignment($img-side: right, $copy-side: left)
+    .copy
+      height: 30%
+      padding-left: 2.7rem
+
+@media screen and (max-width: 860px)
+  .landing-features__results,
+  .landing-features__teams
+    .copy
+      position: relative
+      width: 100%
+      text-align: center
+    .image
+      padding: 0
+      margin: 0
+      width: 100%
+
+  .landing-features__results .copy
+    padding: 0 0 2rem
+  .landing-features__teams .copy
+    padding: 2rem 0 0
 
 .landing-features
   p
     margin-bottom: 0
   p.title
-    font-size: 1.75rem
+    font-size: 1.75em
     color: $landing-green
     font-weight: bold
   p:not(:first-of-type)
-    font-size: 1rem
+    font-size: 1em
     color: $dark-grey
 
 .landing-features-wrap .landing-social
   max-width: none
   width: 100%
+  left: 0
   position: absolute
   top: -45px
 
+// by default a viewport displays 0 highlighted profiles
 .landing-social__profile
   float: left
-  width: 33.33%
+  display: none
+
+// display $n-profiles profiles per viewport
+@media screen and (max-width: 399px)
+  +display-highlighted-profiles($n-profiles: 1)
+
+@media screen and (min-width: 400px) and (max-width: 499px)
+  +display-highlighted-profiles($n-profiles: 2)
+      
+@media screen and (min-width: 500px) and (max-width: 799px)
+  +display-highlighted-profiles($n-profiles: 3)
+
+@media screen and (min-width: 800px) and (max-width: 899px)
+  +display-highlighted-profiles($n-profiles: 4)
+
+@media screen and (min-width: 900px) and (max-width: 999px)
+  +display-highlighted-profiles($n-profiles: 5)
+
+@media screen and (min-width: 1000px)
+  +display-highlighted-profiles($n-profiles: 6)
 
 .landing-social__profile .picture
   width: 90px
@@ -136,6 +181,8 @@ a.landing-cta__button
     visibility: visible
   img
     +circular(90px)
+    border-style: solid
+    border-color: $white
     display: block
 
 .landing-social__profile .info
@@ -155,24 +202,26 @@ a.landing-cta2__button
   background: $landing-green
 
 .landing-cta2 p
-  font-size: 1.75rem
+  font-size: 1.75em
   font-weight: bold
 
-footer.landing-footer
-  display: block
-  margin-bottom: 50px
+.landing-footer__resource p
+  margin-bottom: 0
+  &:first-of-type
+    color: $landing-footer-text
+    font-weight: bold
+    font-size: 1.75em
+  &:not(:first-of-type) a
+    color: $white
 
-.landing-footer__resource
-  display: inline-block
-  width: 25%
-  text-align: left
-  vertical-align: top
-  padding-left: 7%
-  p
-    margin-bottom: 0
-    &:first-of-type
-      color: $landing-footer-text
-      font-weight: bold
-      font-size: 1.75rem
-    &:not(:first-of-type) a
-      color: $white
+@media screen and (min-width: 860px)
+  .landing-footer__resource
+    display: inline-block
+    width: 25%
+    text-align: left
+    vertical-align: top
+    padding-left: 7%
+
+@media screen and (max-width: 860px)
+  .landing-footer__resource
+    margin-bottom: 2em
