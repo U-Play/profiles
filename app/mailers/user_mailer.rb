@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: 'hello@uplaypro.com'
+  default from: 'U-PLAY <hello@uplaypro.com>'
 
   def welcome(user)
     @user = Presenters::UserPresenter.new(user, view_context)
