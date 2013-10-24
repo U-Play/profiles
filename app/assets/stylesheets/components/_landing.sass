@@ -1,18 +1,19 @@
 //Mixins
 =landing-feature-alignment($img-side, $copy-side)
   .image
-    padding-#{$img-side}: 1.5rem
+    padding-#{$img-side}: 1.5em
     margin-#{$img-side}: 50%
   .copy
-    text-align: $copy-side
     #{$img-side}: 0
+    text-align: $copy-side
 
 =landing-cta-button-style($border-color)
   display: inline-block
-  padding: 10px 50px
+  padding: 0.9em 3.5em
   +border-radius(30px)
   border: 4px solid $border-color
   color: $white
+  font-size: 1.4em
   font-weight: bold
   text-decoration: none
 
@@ -23,131 +24,156 @@
       display: inline-block
 
 // Rules
+.container--simple
+  +until($milli) 
+    font-size: 12px
+  +at-least($milli) 
+    font-size: 13px
+  +at-least($giga) 
+    font-size: 15px
+  +at-least($peta) 
+    font-size: 17px
+
 .landing-header-wrap
-  +landing-wrap($padding: 1.5rem 5%, $text-align: left)
+  +landing-wrap($padding: 1.5em 1em, $text-align: left)
   > header
-    max-width: $landing-max-width
+    max-width: $mega
     margin: 0 auto
   img
     width: 129px
 
 .landing-cta-wrap
-  +landing-wrap($padding: 5rem 5% 6rem, $background: image-url('green-bg.png'))
+  +landing-wrap($padding: 5em 1em 6em, $background: image-url('green-bg.png'))
   > div
-    max-width: $landing-max-width
+    max-width: $mega
     margin: 0 auto
 
 .landing-features-wrap
-  +landing-wrap($padding: 10rem 5% 3rem)
+  +landing-wrap($padding: 10em 1em 3em)
   position: relative
   > div
-    max-width: $landing-max-width
+    max-width: $mega
     margin: 0 auto
 
 .landing-cta2-wrap
-  +landing-wrap($padding: 3rem 5%, $background: $landing-grey-background)
+  +landing-wrap($padding: 3em 1em, $background: $landing-grey-background)
   > div
-    max-width: $landing-max-width
+    max-width: $mega
     margin: 0 auto
 
 .landing-footer-wrap
-  +landing-wrap($padding: 3rem 5%, $background: $landing-green)
+  +landing-wrap($padding: 3em 1em, $background: $landing-green)
   > footer
-    max-width: $landing-max-width
+    max-width: $mega
     margin: 0 auto
 
-//TODO get the right fint-size for the appropriate viewports
-// @media screen and (max-width: 480px)
-//   .container--simple
-//     font-size: 10px
++at-least($peta) 
+  .landing-header-wrap > header,
+  .landing-cta-wrap > div,
+  .landing-features-wrap > div,
+  .landing-cta2-wrap > div,
+  .landing-footer-wrap > footer
+    max-width: $tera
 
 .landing-cta,
 .landing-features
   h1
-    font-size: 3em
-    line-height: 1em
+    font-size: 2.5em
+    line-height: 1.1em
 
 .landing-cta
   h1
     color: $white
   p.landing-cta__slogan
-    font-size: 1.75em
+    margin: 1.5em 0 3.5em
     color: $landing-cta-slogan
-    margin-top: 1.5rem
-    margin-bottom: 3.5rem
+    font-size: 1.7em
+    line-height: 1.1em
+    // removes orphan on iphone landscape
+    @media screen and (min-device-width: $femto) and (max-device-width: $pico) and (orientation: landscape)
+      font-size: 1.8em
 
 a.landing-cta__button
+  margin-bottom: 2.2em
   +landing-cta-button-style($border-color: $white)
-  margin-bottom: 5rem
+  // non smartphones
+  +at-least(321px)
+    margin-bottom: 4em
   &:hover
     background: $white
     color: $landing-green
 
+.landing-features
+  p
+    margin-bottom: 0
+  p.title
+    padding-bottom: 0.4em
+    color: $landing-green
+    font-size: 1.7em
+    line-height: 1.3em
+    font-weight: bold
+  p:not(:first-of-type)
+    color: $dark-grey
+    font-size: 1.2em
+
 .landing-features__results,
 .landing-features__teams
-  display: block
   position: relative
-  margin-top: 4.5rem
-  margin-bottom: 2rem
-
-@media screen and (min-width: 860px)
-  .landing-features__results,
-  .landing-features__teams
-    .copy,
+  margin: 4em 0
+  .copy
+    position: relative
+    width: 100%
+    text-align: center
+  .image
+    display: none
+    width: 100%
+    padding: 0
+    margin: 0
+  // displays feature's images for non smartphones
+  +at-least($micro)
+    margin-bottom: 2em
     .image
+      display: block
       width: 50%
     .copy
       display: inline-block
       position: absolute
       top: 0
       bottom: 0
+      width: 50%
       margin: auto
+  // removes orphans
+  +between($micro, $milli)
+    font-size: 0.95em
+  +between($giga, $peta)
+    font-size: 1.08em
 
+// puts copy and image side by side
++at-least($micro)
   .landing-features__results
     +landing-feature-alignment($img-side: left, $copy-side: right)
     .copy
       height: 50%
-      padding-right: 1.5rem
+      padding-right: 1.5em
 
   .landing-features__teams
     +landing-feature-alignment($img-side: right, $copy-side: left)
     .copy
       height: 30%
-      padding-left: 2.7rem
+      padding-left: 1.5em
 
-@media screen and (max-width: 860px)
-  .landing-features__results,
-  .landing-features__teams
-    .copy
-      position: relative
-      width: 100%
-      text-align: center
-    .image
-      padding: 0
-      margin: 0
-      width: 100%
-
-  .landing-features__results .copy
-    padding: 0 0 2rem
-  .landing-features__teams .copy
-    padding: 2rem 0 0
-
-.landing-features
-  p
-    margin-bottom: 0
-  p.title
-    font-size: 1.75em
-    color: $landing-green
-    font-weight: bold
-  p:not(:first-of-type)
-    font-size: 1em
-    color: $dark-grey
+// aligns horizontally team's copy and result's image
+.landing-features__teams .copy
+  +at-least($giga)
+    padding-left: 4em
+  +at-least($peta)
+    padding-left: 8.5em
 
 .landing-features-wrap .landing-social
+  position: absolute
   max-width: none
   width: 100%
   left: 0
-  position: absolute
   top: -45px
 
 // by default a viewport displays 0 highlighted profiles
@@ -155,77 +181,91 @@ a.landing-cta__button
   float: left
   display: none
 
-// display $n-profiles profiles per viewport
-@media screen and (max-width: 399px)
+// displays $n-profiles profiles per viewport
++until($pico)
   +display-highlighted-profiles($n-profiles: 1)
 
-@media screen and (min-width: 400px) and (max-width: 499px)
+@for $i from 2 through length($viewports)
+  +at-least(nth($viewports, $i))
+    +display-highlighted-profiles($n-profiles: $i)
+
+// since hover is disabled for smartphones
+@media screen and (max-device-width: $femto)
   +display-highlighted-profiles($n-profiles: 2)
-      
-@media screen and (min-width: 500px) and (max-width: 799px)
-  +display-highlighted-profiles($n-profiles: 3)
-
-@media screen and (min-width: 800px) and (max-width: 899px)
-  +display-highlighted-profiles($n-profiles: 4)
-
-@media screen and (min-width: 900px) and (max-width: 999px)
-  +display-highlighted-profiles($n-profiles: 5)
-
-@media screen and (min-width: 1000px)
-  +display-highlighted-profiles($n-profiles: 6)
 
 .landing-social__profile .picture
   width: 90px
   margin: 0 auto
-  &:hover + .info
-    visibility: visible
   img
     +circular(90px)
     border-style: solid
     border-color: $white
-    display: block
+  &:hover + .info
+    visibility: visible
+
+// disables hover for touch devices 
+.touch .landing-social__profile .picture
+  &:hover + .info
+    visibility: hidden
 
 .landing-social__profile .info
   margin: 15px auto 0
   padding: 1.5em 0.4em 0
-  visibility: hidden
-  background: image-url('hover-box.png') no-repeat center
   width: 150px
   height: 79px
+  background: image-url('hover-box.png') no-repeat center
+  visibility: hidden
   p
-    font-weight: bold
     margin: 0
+    font-weight: bold
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
     &:last-child
       color: $landing-green
 
-a.landing-cta2__button
-  +landing-cta-button-style($border-color: $landing-green)
-  background: $landing-green
-
 .landing-cta2 p
   font-size: 1.75em
   font-weight: bold
 
+a.landing-cta2__button
+  background: $landing-green
+  +landing-cta-button-style($border-color: $landing-green)
+  &:hover
+    border-color: $landing-dark-green
+    background: $landing-dark-green
+
+footer.landing-footer
+  font-size: 1.2em
+  // horizontal resources have the same font-size as the rest of the page
+  +at-least($milli)
+    margin-bottom: 6em
+    font-size: 1em
+
+.landing-footer__resource
+  margin-bottom: 2em
+  // displays resources horizontally
+  +at-least($milli)
+    display: inline-block
+    width: 33%
+    margin-bottom: 0
+    vertical-align: top
+
 .landing-footer__resource p
-  margin-bottom: 0
   &:first-of-type
     color: $landing-footer-text
     font-weight: bold
     font-size: 1.75em
-  &:not(:first-of-type) a
-    color: $white
+    margin-bottom: 0
+  &:not(:first-of-type)
+    margin-bottom: 0.5em
+    // puts resources closer for desktops
+    +at-least($giga + 1)
+      margin-bottom: 0
+    a
+      color: $white
 
-@media screen and (min-width: 860px)
-  .landing-footer__resource
-    display: inline-block
-    width: 25%
-    text-align: left
-    vertical-align: top
-    padding-left: 7%
-
-@media screen and (max-width: 860px)
-  .landing-footer__resource
-    margin-bottom: 2em
+// hides UserVoice on non desktops
++until($giga + 1)
+  #uvTab
+    display: none
