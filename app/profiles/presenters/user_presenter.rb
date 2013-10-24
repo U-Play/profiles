@@ -39,6 +39,10 @@ module Presenters
       h.link_to h.t('share.facebook.button'), '#', "onclick" => "postToFacebook('#{referral_url}')"
     end
 
+    def single_tag
+      sports.first.try(:name)
+    end
+
     def tags
       sports.uniq.map(&:name).join ', '
     end

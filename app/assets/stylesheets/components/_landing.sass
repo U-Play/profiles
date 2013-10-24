@@ -186,14 +186,18 @@ a.landing-cta__button
     display: block
 
 .landing-social__profile .info
-  margin-top: 15px
-  padding-top: 1.5em
+  margin: 15px auto 0
+  padding: 1.5em 0.4em 0
   visibility: hidden
   background: image-url('hover-box.png') no-repeat center
-  height: image-height('hover-box.png')
+  width: 150px
+  height: 79px
   p
     font-weight: bold
     margin: 0
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
     &:last-child
       color: $landing-green
 
