@@ -12,5 +12,5 @@ if Rails.env.production? || Rails.env.staging?
     enable_starttls_auto: true
   }
 else
-  ActionMailer::Base.default_url_options[:port] = 3000
+  ActionMailer::Base.default_url_options = { host: 'localhost', port: '3000' }
 end
