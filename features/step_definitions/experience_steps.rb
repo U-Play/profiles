@@ -1,7 +1,7 @@
 def fill_team_fields
   fill_in 'team_name', with: 'Team Zero'
+  fill_in 'team_sport', with: Sport.first.name
   select(Date.today.year,      from: 'team_start_date_1i')
-  select(Sport.first.name,     from: 'team_sport_id')
   select(SportRole.first.name, from: 'team_sport_role_id')
 end
 
@@ -60,7 +60,7 @@ Given(/^I am at a team's edit page$/) do
 end
 
 When(/^I edit the team's sport$/) do
-  select(Sport.last.name, from: 'team_sport_id')
+  fill_in 'team_sport', with: Sport.first.name
   click_on 'Submit'
 end
 

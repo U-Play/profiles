@@ -21,14 +21,6 @@ module Presenters
                         prompt: h.t( 'team.form.placeholders.end_date' )
     end
 
-    def form_sport(form)
-      form.collection_select  :sport_id,
-                              selectable_sports,
-                              :id,
-                              :name,
-                              { include_blank: h.t( 'team.form.placeholders.sport' ) }
-    end
-
     def form_role(form)
       form.collection_select  :sport_role_id,
                               selectable_sport_roles,
@@ -120,8 +112,12 @@ module Presenters
       nil
     end
 
-    def selectable_sports
-      @sports ||= Sport.all
+    def sport_name
+      sport.try(:name) || ''
+    end
+
+    def sports
+      @sports ||= Sport.all.map(&:name)
     end
 
     def selectable_sport_roles

@@ -1,3 +1,9 @@
+javascript:
+  $(document).ready(function() {
+    mixpanel_events.edit_page();
+    autocomplete.init('#team_sport', '#sports');
+  });
+
 .new-team__fields
 
   .new-team__box
@@ -9,7 +15,10 @@
 
     .field
       .label = f.label :sport
-      .input.sport  = team.form_sport f
+      .input.text = f.text_field :sport, placeholder: t('team.form.placeholders.sport'), list: 'sports', value: "#{team.sport_name}"
+      data-list id="sports"
+        - team.sports.each do |sport|
+          option value="#{sport}"
 
     .field.field--dates
       .label = f.label :date
