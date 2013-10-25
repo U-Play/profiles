@@ -16,10 +16,10 @@ javascript:
   .landing-social
     - @users.each do |user|
       .landing-social__profile
-        .picture = link_to image_tag(user.picture.url), user_path(user)
+        .picture = link_to image_tag(user.picture.url(:sidebar)), user_path(user)
         .info
           p = user.full_name
-          p = user.tags
+          p = user.single_tag
   .landing-features
     h1 = t('landing.feature.title')
     .landing-features__results

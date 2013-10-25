@@ -14,7 +14,7 @@ module Presenters
     end
 
     def date
-      h.t('tournaments.date',
+      h.t('tournament.date',
           month: h.t('date.month_names')[award_month],
           year: award_year
          )
