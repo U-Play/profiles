@@ -68,7 +68,7 @@ module Presenters
     def set_new_team(params)
       @new_team = h.present h.signed_user.target.teams.build(params)
       @new_team.target.tournaments.build if @new_team.tournaments.empty?
-      @team_hide = teams.any? && params.nil?
+      @new_team_hide = teams.any? && params.nil?
     end
 
     attr_reader :new_team, :new_team_hide
