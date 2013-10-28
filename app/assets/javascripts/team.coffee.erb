@@ -12,6 +12,14 @@ bind_focus = ->
   $('#adds-team input[type]').focusout ->
     $(this).closest('.field').removeClass('field--focus')
 
+change_end_date = ->
+ if $('#team_ongoing').is(':checked')
+   $('.input.end_date select').attr('disabled', 'disabled')
+   $('.input.end_date .custom.dropdown').addClass('disabled')
+ else
+   $('.input.end_date select').removeAttr('disabled')
+   $('.input.end_date .custom.dropdown').removeClass('disabled')
+
 display_tournament_icons = (field) ->
   field.on 'change.fndtn.forms', '.icon select', (event) ->
     return false
@@ -29,3 +37,6 @@ $(document).ready ->
   bind_focus()
   $('#nested-form-tournaments .fields').each ->
     display_tournament_icons($(this))
+
+  change_end_date()
+  $('#team_ongoing').change -> change_end_date()

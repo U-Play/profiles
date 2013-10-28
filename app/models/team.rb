@@ -27,18 +27,18 @@ class Team < ActiveRecord::Base
                   :tournaments_attributes
 
   ## Validations ##
-  validates :sport_id,
+  validates :name,
+            :sport_id,
+            :start_date,
             :sport_role_id,
             :user_id,
-            :name,
-            :start_date,
             presence: true
 
   validate :end_date_or_ongoing
   validate :start_date_before_end_date
 
   ## Callbacks ##
-  before_validation :set_ongoing
+  before_validation :set_end_date
 
   private
 
@@ -54,8 +54,8 @@ class Team < ActiveRecord::Base
     end
   end
 
-  def set_ongoing
-    self.ongoing = end_date.nil? ? true : false
+  def set_end_date
+    self.end_date = nil if ongoing
     return true
   end
 end

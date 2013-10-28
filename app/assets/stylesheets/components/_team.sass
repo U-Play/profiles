@@ -13,7 +13,11 @@
       display: inline-block
       width: 80%
   .field--dates .input
-    width: 40%
+    width: percentage(0.8/3)
+    &.end_date .disabled
+      opacity: $button-disabled-opacity
+    &.ongoing label
+      text-align: left
 
 .new-team__box
   @extend %form__box

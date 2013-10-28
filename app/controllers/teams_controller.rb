@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
 
-  before_filter :load_user, only: [:edit]
+  before_filter :load_user, only: [:edit, :update]
   before_filter :sanitize_empty_tournaments, only: [:create, :update]
   before_filter :check_for_cancel, only: [:create, :update]
 
