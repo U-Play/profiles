@@ -24,10 +24,14 @@ javascript:
       .label = f.label :date
       .input.start_date = team.form_start_date f
       .input.end_date = team.form_end_date f
+      .input.ongoing
+        = f.label :ongoing
+          = f.check_box :ongoing
+          = t('team.form.placeholders.ongoing')
 
     .field
       .label = f.label :role
-      .input.role   = team.form_role f
+      .input.role = team.form_role f
 
     .field
       .label = f.label :position

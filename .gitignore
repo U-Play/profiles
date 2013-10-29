@@ -19,7 +19,7 @@ config/accounts.yml
 
 tags
 
-**/.sass-cache
+sass-cache
 
 bin/rspec
 bin/rails
