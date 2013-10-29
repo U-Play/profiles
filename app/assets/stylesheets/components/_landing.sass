@@ -9,8 +9,8 @@
 
 =landing-cta-button-style($border-color)
   display: inline-block
-  padding: 0.9em 3.5em
-  +border-radius(30px)
+  padding: 0.8em 3.5em
+  +border-radius(emCalc(100px))
   border: 4px solid $border-color
   color: $white
   font-size: 1.4em
@@ -25,14 +25,14 @@
 
 // Rules
 .container--simple
-  +until($milli) 
+  +until($milli)
     font-size: 12px
-  +at-least($milli) 
+  +at-least($milli)
     font-size: 13px
-  +at-least($giga) 
+  +at-least($giga)
     font-size: 15px
-  +at-least($peta) 
-    font-size: 17px
+  +at-least($peta)
+    font-size: 20px
 
 .landing-header-wrap
   +landing-wrap($padding: 1.5em 1em, $text-align: left)
@@ -49,11 +49,13 @@
     margin: 0 auto
 
 .landing-features-wrap
-  +landing-wrap($padding: 10em 1em 3em)
+  +landing-wrap($padding: 135px 1em 3em)
   position: relative
   > div
     max-width: $mega
     margin: 0 auto
+  .touch &
+    padding: 80px 1em 3em
 
 .landing-cta2-wrap
   +landing-wrap($padding: 3em 1em, $background: $landing-grey-background)
@@ -67,7 +69,7 @@
     max-width: $mega
     margin: 0 auto
 
-+at-least($peta) 
++at-least($peta)
   .landing-header-wrap > header,
   .landing-cta-wrap > div,
   .landing-features-wrap > div,
@@ -94,7 +96,7 @@
       font-size: 1.8em
 
 a.landing-cta__button
-  margin-bottom: 2.2em
+  margin-bottom: 2.35em
   +landing-cta-button-style($border-color: $white)
   // non smartphones
   +at-least(321px)
@@ -167,7 +169,7 @@ a.landing-cta__button
   +at-least($giga)
     padding-left: 4em
   +at-least($peta)
-    padding-left: 8.5em
+    padding-left: 7.4em
 
 .landing-features-wrap .landing-social
   position: absolute
@@ -184,14 +186,12 @@ a.landing-cta__button
 // displays $n-profiles profiles per viewport
 +until($pico)
   +display-highlighted-profiles($n-profiles: 1)
+  .touch
+    +display-highlighted-profiles($n-profiles: 2)
 
 @for $i from 2 through length($viewports)
   +at-least(nth($viewports, $i))
     +display-highlighted-profiles($n-profiles: $i)
-
-// since hover is disabled for smartphones
-@media screen and (max-device-width: $femto)
-  +display-highlighted-profiles($n-profiles: 2)
 
 .landing-social__profile .picture
   width: 90px
@@ -203,21 +203,21 @@ a.landing-cta__button
   &:hover + .info
     visibility: visible
 
-// disables hover for touch devices 
+// disables hover for touch devices
 .touch .landing-social__profile .picture
   &:hover + .info
     visibility: hidden
 
 .landing-social__profile .info
-  margin: 15px auto 0
-  padding: 1.5em 0.4em 0
+  margin: 0 auto
+  padding: 20px 10px 10px
   width: 150px
   height: 79px
   background: image-url('hover-box.png') no-repeat center
   visibility: hidden
   p
     margin: 0
-    font-weight: bold
+    font-size: 16px
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
