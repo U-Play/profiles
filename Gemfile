@@ -22,7 +22,6 @@ gem 'paperclip'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
 gem 'roadie'
-gem 'i18n_country_select'
 gem 'wisper', '~>1.2.0'
 
 group :assets do

@@ -3,7 +3,7 @@ module Presenters
     presents :teams
 
     def countries
-      Country.all.map(&:first)
+      Country.all.map{ |c| I18n.t(c[1], scope: :countries) }
     end
 
     def full_name
