@@ -1,69 +1,66 @@
 module Services
   class UpdateUser
+    include Wisper::Publisher
 
     def initialize(user, new_attributes)
       @user = user
       @new_attributes = new_attributes
+      @succeeded = false
     end
 
     def update
-      clean_username
-      find_country
+      set_attributes
       save_user
       update_to_mixpanel
-      user
+
+      notify
     end
 
-    def errors
-      user.errors.full_messages.first
-    end
-
-    def succeeded?
-      @succeeded ||= false
+    def get_user
+      user.reload
     end
 
     private
 
+    attr_reader :user, :new_attributes, :succeeded
+
+    def set_attributes
+      clean_username
+      find_country
+    end
+
     def clean_username
-      if new_attributes[:username].try(:present?)
-        user.username = new_attributes[:username]
-        user.username = Services::GenerateUsername.new(user).generate
-        new_attributes.delete(:username)
-      end
+      clean_username = Services::CleanUsername.new(username: new_attributes[:username])
+      user.username = clean_username.clean
+
+      new_attributes.delete(:username)
     end
 
     def find_country
       find_country = Services::FindCountry.new(country: new_attributes[:country])
       user.country = find_country.find
+
       new_attributes.delete(:country)
     end
 
     def save_user
-      @succeeded = save_picture && save_attributes
-    end
-
-    def save_picture
-      if new_attributes[:picture].present?
-        picture_succeeded = user.update_attributes(picture: new_attributes[:picture])
-        new_attributes.delete :picture
-        picture_succeeded
-      else
-        true
-      end
-    end
-
-    def save_attributes
-      user.update_attributes(new_attributes.merge(profile_complete: true))
+      user.attributes = new_attributes.merge(profile_complete: true)
+      @succeeded = user.save
     end
 
     def update_to_mixpanel
-      if succeeded?
+      if succeeded
         mixpanel = Services::MixpanelTracker.new(user: user)
         mixpanel.update_user
       end
     end
 
-    attr_reader :user, :new_attributes, :succeeded
-
+    def notify
+      if succeeded
+        publish(:succeeded)
+      else
+        publish(:failed)
+      end
+    end
   end
 end

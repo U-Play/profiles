@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
 
   def username_is_valid
     # is valid if it doesn't contain whitespaces and accents
-    if username.match(/[^[:ascii:]]|\s/)
+    if username && username.match(/[^[:ascii:]]|\s/)
       errors.add(:username, I18n.t('user.edit.errors.username'))
     end
   end
