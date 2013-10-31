@@ -37,9 +37,10 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    @team = present Team.find(params[:id])
+    team = Team.find(params[:id])
     authorize! :manage, @team
-    @team.destroy
+
+    team.destroy
     redirect_to my_profile_path, notice: t('team.destroy.success')
   end
 
