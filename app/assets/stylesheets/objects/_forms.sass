@@ -2,9 +2,6 @@ form
   margin: 0
   padding: 0
 
-input[type=file]
-  display: none
-
 input[type=button], .button
   +box-shadow(none)
   font-weight: 400
@@ -26,9 +23,13 @@ input[type=text], textarea, .custom.dropdown
     width: 70%
 
 .field
+  font-size: 0
   +radius(4px)
   border: 1px solid $light-grey
   margin-bottom: 10px
+  // fix for white space breaking inline-blocks
+  *
+    font-size: 1rem
 
 .field.field--focus
   border-color: $profile-box-field-focus-border !important

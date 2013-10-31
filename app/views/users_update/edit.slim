@@ -2,6 +2,7 @@ javascript:
   $(document).ready(function() {
     mixpanel_events.edit_page();
     autocomplete.init('#user_country', '#countries');
+    file_upload('#user_picture_container')
   });
 
 .page-title-wrap: .page-title
@@ -44,7 +45,7 @@ javascript:
           .label = f.label :university
           .input.text  = f.text_field :university, placeholder: t('user.edit.placeholder.team')
 
-        .field
+        #user_picture_container
           .label = f.label :picture
           .input.file  = f.file_field :picture
 
