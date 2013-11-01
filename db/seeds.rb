@@ -89,7 +89,6 @@ icons = [
       { name: 'bronze' }
 ]
 
-Icon.delete_all
 icons.each do |icon|
-  Icon.create(icon)
+  Icon.find_or_create_by_name(icon[:name])
 end
