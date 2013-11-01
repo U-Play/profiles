@@ -1,13 +1,64 @@
-$("input[type=file]").each ->
-  @proxy_txt = $('<input type="text"   value="'+$(this).val()+'" />')
-  @proxy_btn = $('<input type="button" class="button file-upload__browse" value="<%= I18n.t('user.edit.browse') %>" />')
+$ ->
+  class FileUpload
+    fileSize: ->
+      Math.floor (@$input[0].files[0].size/1024/1024)
 
-  update_proxy = =>
-    sanitized_value = $(this).val().replace 'C:\\fakepath\\', ''
-    @proxy_txt.val(sanitized_value)
+    getInputValue: ->
+      if @$input.val() != ''
+        @$input.val().replace("C:\\fakepath\\", '')
+      else
+        "Max: 5MB"
 
-  $(this).parent().append(@proxy_txt).append(@proxy_btn)
+    validateFileSize: ->
+      if @fileSize() > 5 && !!window.FileReader
+        alert('This file has '+@fileSize()+"MB. Please choose a smaller picture")
 
-  @proxy_btn.on 'click',  =>
-      $(this).trigger 'click'
-      setInterval(update_proxy, 100)
+    updateProxy: ->
+      @$proxy_txt.val @getInputValue()
+
+    bindElements: ->
+      @$proxy_btn.on 'click', =>
+        @$input.trigger 'click'
+        @$input.on 'change', =>
+          @$input.unbind('change')
+          @validateFileSize()
+          @updateProxy()
+
+    createNewElements: ->
+      template = Handlebars.compile(@$template)
+      @$el.append template({value: @getInputValue(), label: @$label.html()})
+      @$proxy_txt = @$el.find('input[type="text"]')
+      @$proxy_btn = @$el.find('input[type="button"]')
+
+    hideDefaultElements: ->
+      @$input.hide()
+      @$label.hide()
+
+    constructor: (container, template) ->
+      @$el = $(container)
+      @$input = $(container).find('input')
+      @$label = $(container).find('.label')
+      @$template = template
+
+      @hideDefaultElements()
+      @createNewElements()
+      @bindElements()
+
+  template = "
+    <div class='field'>
+      <div class='label'>
+        {{{label}}}
+      </div>
+      <div class='input'>
+        <input type='text' value='{{{value}}}'>
+      </div>
+    </div>
+    <div class='profile-edit__buttons'>
+      <input type='button' class='button file-upload__browse' value='<%= I18n.t('user.edit.browse') %>'>
+    </div>
+  "
+
+  file_upload = (container) =>
+    new FileUpload(container, template)
+
+  window.file_upload = file_upload
