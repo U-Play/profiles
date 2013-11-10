@@ -2,7 +2,7 @@
 //= require jquery_ujs
 //= require jquery-ui-1.10.3.custom.min
 //= require jquery.validate.min
-//= require new_team_validation
+//= require validators/new_team_validation
 //= require mixpanel
 //= require mixpanel_events
 //= require team_adder

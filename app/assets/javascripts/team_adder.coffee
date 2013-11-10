@@ -5,7 +5,6 @@ $ ->
     tournaments_form: $('#nested-form-tournaments')
     add_button: $('#adds-team__button')
     cancel_button: $('#adds-team .cancel')
-    submit_button: $('#adds-team .submit')
     container_height: undefined
 
     isVisible: ->
@@ -13,13 +12,6 @@ $ ->
 
     updateHeight: ->
       @container_height = @$el.height()
-
-    sanitizeEmptyTournaments: ->
-      
-
-    submitForm: ->
-      @sanitizeEmptyTournaments()
-      @form.submit()
 
     show: ->
       @$el.stop().show().animate
@@ -45,18 +37,12 @@ $ ->
         @show()
 
     bindElements: ->
-      window.validations @form, ->
-        console.log("valid")
-
       @add_button.click (event) =>
         event.preventDefault()
         @toggle()
       @cancel_button.click (event) =>
         event.preventDefault()
         @toggle()
-      @submit_button.click (event) =>
-        event.preventDefault()
-        @submitForm()
 
     setInitialHeight: ->
       clone = @$el.clone().css('display', 'block').css('position', 'absolute').css('left', '-999999px')
@@ -72,5 +58,6 @@ $ ->
       @setInitialHeight()
       @setInitialState()
       @bindElements()
+      window.new_team_validation @form
 
   window.team_adder = team_adder
